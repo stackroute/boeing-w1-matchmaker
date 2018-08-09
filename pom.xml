@@ -30,4 +30,5 @@
 		<module>experience-microservice</module>
                 <module>location-microservice</module>
                 <module>project-microservice</module>
+                <module>personalInfoMicroService</module>
 </project>
