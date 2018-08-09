@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 
 import com.stackroute.matchmaker.model.PersonalInfo;
 
+/* This class consumes the messages that comes to the 
+ * kafka bus from the upstream service and displays it on the console
+ * 
+ */
+
 @Service
 public class Consumer {
 	
@@ -18,16 +23,14 @@ public class Consumer {
 	@Autowired
 	KafkaTemplate<String, String>  kafkaTemplate;
 		
-//	@KafkaListener(topics="testing")
-//	public void consumer(@Payload String string)  {
-//		logger.warn(string);
-//	}
+	@KafkaListener(topics="testing")
+	public void consumer(@Payload String string)  {
+		logger.warn(string);
+	}
 	
+	//listens to the topic "PersonalInfo" of upstream 
 	@KafkaListener(topics = "PersonalInfo", containerFactory = "personalInfoKafkaContainerFactory")
 	public void consumerPersonalInfo(PersonalInfo personalInfo) {
-		PersonalInfo pr = new PersonalInfo("oo","oo","oo","oo","oo","oo","oo","oo","oo","oo","oo","oo");
-		kafkaTemplate.send("PersonalInfo", pr.toString());
-		
 		System.out.println(personalInfo.toString());
 	}
 
