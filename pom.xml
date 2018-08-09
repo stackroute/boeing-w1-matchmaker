@@ -28,5 +28,6 @@
 		<module>user-service</module>
 		<module>zuul-apigateway</module>
 		<module>experience-microservice</module>
-                <module>location-microservice</module> 
+                <module>location-microservice</module>
+                <module>project-microservice</module>
 </project>
