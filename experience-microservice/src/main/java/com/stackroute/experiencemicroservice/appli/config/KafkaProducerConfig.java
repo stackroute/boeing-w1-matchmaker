@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.config;
+package com.stackroute.experiencemicroservice.appli.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.experiencemicroservice.model.Experience;
+import com.stackroute.experiencemicroservice.appli.model.Experience;
 
 @Configuration
 public class KafkaProducerConfig {

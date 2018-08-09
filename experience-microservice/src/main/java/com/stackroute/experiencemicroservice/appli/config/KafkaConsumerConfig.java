@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.config;
+package com.stackroute.experiencemicroservice.appli.config;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +9,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.stackroute.experiencemicroservice.model.Experience;
+import com.stackroute.experiencemicroservice.appli.model.Experience;
 
 import java.util.HashMap;
 import java.util.Map;

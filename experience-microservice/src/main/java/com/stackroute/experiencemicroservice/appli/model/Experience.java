@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.model;
+package com.stackroute.experiencemicroservice.appli.model;
 
 
 public class Experience {
