@@ -31,5 +31,6 @@
                 <module>location-microservice</module>
                 <module>project-microservice</module>
                 <module>certification-Service</module>
+		<module>personalInfoMicroService</module>
        </modules>
 </project>
