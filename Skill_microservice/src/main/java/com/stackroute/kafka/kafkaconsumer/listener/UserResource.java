@@ -14,12 +14,12 @@ public class UserResource {
     @Autowired
     private KafkaTemplate<String, Skill> kafkaTemplate;
 
-    private static final String TOPIC = "Kafka_Example";
+    private static final String TOPIC = "produce";
 
     @GetMapping("/publish/{name}")
     public String post(@PathVariable("name") final String name) {
 
-        kafkaTemplate.send(TOPIC, new Skill("","Rajat", "", "", ""));
+        kafkaTemplate.send(TOPIC, new Skill("1",name, "10000", "infinity", "Save the Earth"));
 
         return "Published successfully";
     }

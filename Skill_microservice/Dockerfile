@@ -6,7 +6,7 @@ WORKDIR /src
 
 ADD target/Skill_microservice-0.0.1-SNAPSHOT.jar /src/user.jar
 
-EXPOSE 8081
+EXPOSE 8080
 
 RUN sh -c 'touch /src/user.jar'
 
