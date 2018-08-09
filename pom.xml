@@ -25,7 +25,6 @@
 	<modules>
 		<module>config-service</module>
 		<module>eureka-server</module>
-		<module>restaurant-service</module>
 		<module>user-service</module>
 		<module>zuul-apigateway</module>
 	</modules>
