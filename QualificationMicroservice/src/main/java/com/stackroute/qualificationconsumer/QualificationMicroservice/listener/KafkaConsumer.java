@@ -11,6 +11,6 @@ public class KafkaConsumer {
             containerFactory = "qualificationKafkaListenerFactory")
     public void consumeJson(Qualification qualification) {
         System.out.println("Consumed JSON Message: " + qualification);
-        System.out.println("sgfsdg");
+        
     }
 }
