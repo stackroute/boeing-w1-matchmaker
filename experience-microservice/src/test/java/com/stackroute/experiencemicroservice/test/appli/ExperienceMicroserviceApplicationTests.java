@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice;
+package com.stackroute.experiencemicroservice.test.appli;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

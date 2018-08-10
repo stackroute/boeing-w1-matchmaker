@@ -1,6 +1,9 @@
 package com.stackroute.experiencemicroservice.appli.config;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -14,48 +17,76 @@ import com.stackroute.experiencemicroservice.appli.model.Experience;
 import java.util.HashMap;
 import java.util.Map;
 
+/*@EnableKafka annotation is required on the configuration class to
+* enable detection of @KafkaListener annotation on spring managed beans.
+* We need to configure a ConsumerFactory and a KafkaListenerContainerFactory.
+* Once these beans are available in spring bean factory,
+* POJO based consumers can be configured using @KafkaListener annotation.
+*/
 @EnableKafka
 @Configuration
 public class KafkaConsumerConfig {
-// Reading normal String Message
-   @Bean
-   public ConsumerFactory<String, String> consumerFactory() {
-       Map<String, Object> config = new HashMap<>();
 
-       config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");  //IP Address goes here
-       config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
-       config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-       config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+	/*
+	 * @EnableKafka annotation is required on the configuration class to enable
+	 * detection of @KafkaListener annotation on spring managed beans. We need to
+	 * configure a ConsumerFactory and a KafkaListenerContainerFactory. Once these
+	 * beans are available in spring bean factory, POJO based consumers can be
+	 * configured using @KafkaListener annotation.
+	 */
+	@Value("${spring.kafka.bootstrap-servers}")
+	private String bootstrapServers;
+	@Value("${spring.kafka.consumer.group-id}")
+	private String group_id;
 
-       return new DefaultKafkaConsumerFactory<>(config);
-   }
+	// Configuration for Reading normal String Message
+	@Bean
+	public ConsumerFactory<String, String> consumerFactory() {
+		Map<String, Object> config = new HashMap<>();
 
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers); // IP Address goes here
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, group_id);
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 
-   @Bean
-   public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
-       ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory();
-       factory.setConsumerFactory(consumerFactory());
-       return factory;
-   }
+		return new DefaultKafkaConsumerFactory<>(config);
+	}
 
-//Fetching  JSON data required convertions
-   @Bean
-   public ConsumerFactory<String, Experience> experienceConsumerFactory() {
-       Map<String, Object> config = new HashMap<>();
+	/*
+	 * @EnableKafka annotation is required on the configuration class to enable
+	 * detection of @KafkaListener annotation on spring managed beans. We need to
+	 * configure a ConsumerFactory and a KafkaListenerContainerFactory. Once these
+	 * beans are available in spring bean factory, POJO based consumers can be
+	 * configured using @KafkaListener annotation.
+	 */
 
-       config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
-       config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
-       config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-       config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-       return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-               new JsonDeserializer<>(Experience.class));
-   }
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory();
+		factory.setConsumerFactory(consumerFactory());
+		return factory;
+	}
 
-   @Bean
-   public ConcurrentKafkaListenerContainerFactory<String, Experience> experienceKafkaListenerFactory() {
-       ConcurrentKafkaListenerContainerFactory<String, Experience> factory = new ConcurrentKafkaListenerContainerFactory<>();
-       factory.setConsumerFactory(experienceConsumerFactory());
-       return factory;
-   }
+	// This method ois for setting up the configuration when the valure to be
+	// recieved is a JSON object
+	// Configuration for reading or fetching JSON format data
+	@Bean
+	public ConsumerFactory<String, Experience> experienceConsumerFactory() {
+		Map<String, Object> config = new HashMap<>();
+
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, group_id);
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(Experience.class));
+	}
+
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, Experience> experienceKafkaListenerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Experience> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(experienceConsumerFactory());
+		return factory;
+	}
 
 }
