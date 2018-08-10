@@ -1,4 +1,4 @@
-# Spring Boot with Kafka Consumer Example
+# Skill Microservice
 
 This Project covers how to use Spring Boot with Spring Kafka to Consume JSON/String message from Kafka topics
 ## Start Zookeeper
@@ -14,3 +14,6 @@ This Project covers how to use Spring Boot with Spring Kafka to Consume JSON/Str
 ## Publish to the Kafka Topic via Console
 - `bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Kafka_Example`
 - `bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Kafka_Example_json`
+
+
+The Microservice processes data for the skill part of the system by fetching data processing it and pushing it back to kafka in the desired output format.
