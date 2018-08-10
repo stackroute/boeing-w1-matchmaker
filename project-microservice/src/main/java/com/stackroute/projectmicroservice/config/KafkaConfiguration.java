@@ -2,6 +2,7 @@ package com.stackroute.projectmicroservice.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -14,23 +15,43 @@ import com.stackroute.projectmicroservice.model.Project;
 
 import java.util.HashMap;
 import java.util.Map;
+/* @EnableKafka annotation is required on the configuration class to
+* enable detection of @KafkaListener annotation on spring managed beans.
+* We need to configure a ConsumerFactory and a KafkaListenerContainerFactory.
+* Once these beans are available in spring bean factory,
+* POJO based consumers can be configured using @KafkaListener annotation.
+*/
 
 @EnableKafka
 @Configuration
 public class KafkaConfiguration {
 
+	/* Configuration Properties which mentions the IP Address,group Id's
+     *  for the messages to be exchanged.The VALUE_DESERIALIZER_CLASS_CONFIG
+     *  is set to the Deserializer type of the message to be received
+     */
+	
+	@Value("${spring.kafka.bootstrap-servers}")
+	private String bootstrapServers;
+	
+	@Value("{$spring.kafka.consumer.group-id}")
+    private String groupid;
+	
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, groupid);
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 
         return new DefaultKafkaConsumerFactory<>(config);
     }
-
+    /* The containerFactory identifies the KafkaListenerContainerFactory,
+     * to use to build the Kafka listener container. The factory listener object is
+     * set with the configuration values
+     */
 
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
@@ -39,12 +60,14 @@ public class KafkaConfiguration {
         return factory;
     }
     
+    /* This method is for setting up the configuration when the value to be received is a JSON object
+    */
     @Bean
     public ConsumerFactory<String,Project> projectConsumerFactory() {
         Map<String, Object> config = new HashMap<>();
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        config.put(ConsumerConfig.GROUP_ID_CONFIG,groupid);
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),

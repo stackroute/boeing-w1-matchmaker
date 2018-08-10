@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -25,13 +26,20 @@ detection of @KafkaListener annotation on spring managed beans.*/
 @EnableKafka
 public class ConsumerConfigs {
 	
+	 @Value("${spring.kafka.bootstrap-servers}")
+	    private String bootstrapServers;
+	    
+	    @Value("{$spring.kafka.consumer.group-id}")
+	    private String groupid;
+	
+	
 	@Bean
 	public ConsumerFactory<String, String> consumerFactory() {
 		Map<String, Object> props = new HashMap<>();
 		//specifies a list of host/port pairs to use for establishing the initial connection to the Kafka cluster
-		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,bootstrapServers);
 		//specifies a unique string that identifies the consumer group this consumer belongs to.
-		props.put(ConsumerConfig.GROUP_ID_CONFIG, "foo");
+		props.put(ConsumerConfig.GROUP_ID_CONFIG,groupid);
 		//specifies the serializer class for key that implements the org.apache.kafka.common.serialization.Serializer interface.
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		//specifies the serializer class for value that implements the org.apache.kafka.common.serialization.Serializer interface.
@@ -39,6 +47,10 @@ public class ConsumerConfigs {
 		return new DefaultKafkaConsumerFactory<>(props);
 	}
 	
+	/* The containerFactory identifies the KafkaListenerContainerFactory,
+    * to use to build the Kafka listener container. The factory listener object is
+    * set with the configuration values
+    */
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
@@ -50,9 +62,9 @@ public class ConsumerConfigs {
 	public ConsumerFactory<String, PersonalInfo> personalInfoConsumerFactory() {
 		Map<String, Object> props = new HashMap<>();
 		//specifies a list of host/port pairs to use for establishing the initial connection to the Kafka cluster
-		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
+		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,bootstrapServers);
 		//specifies a unique string that identifies the consumer group this consumer belongs to.
-		props.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
+		props.put(ConsumerConfig.GROUP_ID_CONFIG,groupid);
 		//specifies the serializer class for key that implements the org.apache.kafka.common.serialization.Serializer interface.
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		//specifies the serializer class for value that implements the org.apache.kafka.common.serialization.Serializer interface.

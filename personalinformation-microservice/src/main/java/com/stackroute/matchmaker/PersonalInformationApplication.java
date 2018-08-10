@@ -15,22 +15,10 @@ import org.springframework.kafka.core.KafkaTemplate;
 import com.stackroute.matchmaker.producer.Producer;
 
 @SpringBootApplication
-public class PiApplication {
-	public static org.slf4j.Logger logger = LoggerFactory.getLogger(PiApplication.class);
+public class PersonalInformationApplication {
+	public static org.slf4j.Logger logger = LoggerFactory.getLogger(PersonalInformationApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(PiApplication.class, args);
+		SpringApplication.run(PersonalInformationApplication.class, args);
 	}
-//	@Autowired
-//	private Producer producer;
-//	
-//	private final CountDownLatch latch = new CountDownLatch(3);
-//	
-//	@Override
-//	public void run(String... args) throws Exception {
-//		producer.sendMessage("hello buoy");
-//		latch.await(60, TimeUnit.SECONDS);
-//		logger.info("All received");
-//	}
-	
 }

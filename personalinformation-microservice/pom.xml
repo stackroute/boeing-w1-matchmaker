@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute.matchmaker</groupId>
-	<artifactId>pi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>personalinformation-microservice</artifactId>
+	<version>1.0.0.SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>pi</name>
+	<name>personalinformation-microservice</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

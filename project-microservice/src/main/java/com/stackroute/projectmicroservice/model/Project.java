@@ -1,6 +1,9 @@
 package com.stackroute.projectmicroservice.model;
 
 public class Project {
+	
+	//Properties of the Model
+	
 	private String profileId;
 	private String projectId;
 	private String projectAt;
@@ -17,7 +20,7 @@ public class Project {
 	private String skills;
 	private String message;
 	
-	
+	//Getter and setter
 
 	public String getProfileId() {
 		return profileId;
@@ -198,12 +201,13 @@ public class Project {
 	}
 
 
-
+    //Default Constructor
+	
 	public Project() {
 
 	}
 
-
+    //Parameterized Constructor
 
 	public Project(String profileId, String projectId, String projectAt, String role, String department,
 			String projectLocation, String technologies, String projectTitle, String from, String to, String synopsis,
@@ -227,7 +231,8 @@ public class Project {
 	}
 
 
-
+    //To String Method
+	
 	@Override
 	public String toString() {
 		return "Project [profileId=" + profileId + ", projectId=" + projectId + ", projectAt=" + projectAt + ", role="
@@ -236,7 +241,4 @@ public class Project {
 				+ synopsis + ", url=" + url + ", demoURL=" + demoURL + ", skills=" + skills + ", message=" + message
 				+ "]";
 	}
-	
-	
-
 }
