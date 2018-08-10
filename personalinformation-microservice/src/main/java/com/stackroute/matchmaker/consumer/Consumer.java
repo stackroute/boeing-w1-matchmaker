@@ -3,6 +3,7 @@ package com.stackroute.matchmaker.consumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -18,10 +19,22 @@ import com.stackroute.matchmaker.model.PersonalInfo;
 @Service
 public class Consumer {
 	
-	private static Logger logger = LoggerFactory.getLogger(Consumer.class);
+	private static Logger LOG = LoggerFactory.getLogger(Consumer.class);
 	
 	@Autowired
 	KafkaTemplate<String, String>  kafkaTemplate;
+<<<<<<< HEAD:personalinformation-microservice/src/main/java/com/stackroute/matchmaker/consumer/Consumer.java
+	
+			
+	@KafkaListener(topics = "${app.topic.name}", groupId = "${spring.kafka.consumer.group-id}",
+	           containerFactory = "personalInfoKafkaContainerFactory")
+	   public void consumeJson(PersonalInfo personalInfo) {
+	         LOG.info("received message='{}'",personalInfo);
+	         
+	   }
+	
+	/*@KafkaListener(topics = "PersonalInfo", containerFactory = "personalInfoKafkaContainerFactory")
+=======
 		
 	@KafkaListener(topics="testing")
 	public void consumer(@Payload String string)  {
@@ -30,8 +43,10 @@ public class Consumer {
 	
 	//listens to the topic "PersonalInfo" of upstream 
 	@KafkaListener(topics = "PersonalInfo", containerFactory = "personalInfoKafkaContainerFactory")
+>>>>>>> cc29b4a1b1515bce089d7d95508d939ff8d916e0:personalInfoMicroService/src/main/java/com/stackroute/matchmaker/consumer/Consumer.java
 	public void consumerPersonalInfo(PersonalInfo personalInfo) {
 		System.out.println(personalInfo.toString());
-	}
+	}*/
+	
 
 }
