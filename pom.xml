@@ -25,8 +25,12 @@
 	<modules>
 		<module>config-service</module>
 		<module>eureka-server</module>
-		<module>restaurant-service</module>
 		<module>user-service</module>
 		<module>zuul-apigateway</module>
-	</modules>
+		<module>experience-microservice</module>
+                <module>location-microservice</module>
+                <module>project-microservice</module>
+                <module>certification-Service</module>
+		<module>personalInfoMicroService</module>
+       </modules>
 </project>

@@ -33,8 +33,6 @@ services:
         condition: service_healthy
       eureka-server:
         condition: service_healthy
-      restaurant-service:
-        condition: service_healthy
       user-service:
         condition: service_healthy
     restart: always
@@ -46,19 +44,31 @@ services:
     healthcheck:
       test: "exit 0"
 
-  restaurant-service:
-    build: restaurant-service/
-    image: demo-restaurant-service
-    restart: always
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
     network_mode: "host"
     hostname: localhost
+    restart: always
+    healthcheck:
+      test: "exit 0"
+
+  kafka:
+    image: wurstmeister/kafka
     ports:
-      - 8080:8080
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: ${IP_Kafka}
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ZOOKEEPER_CONNECT: ${IP_Zookeeper}
+      KAFKA_CREATE_TOPICS: "Location:1:1, Certificates:1:1, Academies:1:1, PersonalInfo:1:1, Experience:1:1, Projects:1:1, Skills:1:1"
+    network_mode: "host"
+    hostname: localhost
     depends_on:
-      config-service:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
+      - zookeeper
+    restart: always
     healthcheck:
       test: "exit 0"
 
@@ -69,11 +79,9 @@ services:
     network_mode: "host"
     hostname: localhost
     ports:
-      - 8080:8080
+      - 8081:8081
     depends_on:
-      config-service:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
+      - config-service
+      - eureka-server
     healthcheck:
       test: "exit 0"

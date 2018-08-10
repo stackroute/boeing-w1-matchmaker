@@ -1,0 +1,40 @@
+<form (submit)="addPost_Certificates()">
+    <div class="example-container">
+      <h4>Profile Id</h4>
+      <br>
+      <input type="text" [(ngModel)]="newPost_Certificates.profileId" name="profileId">
+      
+      <br>
+      
+      <h4>Training Id</h4>
+      <br>
+      <input type="text" [(ngModel)]="newPost_Certificates.trainingId" name="trainId">
+
+      <br>
+      
+      <h4>Training name</h4>
+      <br>
+      <input type="text" [(ngModel)]="newPost_Certificates.trainingName" name="trainName">
+
+      <br>
+      
+      <h4>Authority</h4>
+      <br>
+      <input type="text" [(ngModel)]="newPost_Certificates.authority" name="authority">
+
+      <br>
+      
+      <h4>Duration</h4>
+      <br>
+      <input type="text" [(ngModel)]="newPost_Certificates.duration" name="duration">
+
+      <br>
+      
+      <h4>Certificates</h4>
+      <br>
+      <input type="text" [(ngModel)]="newPost_Certificates.skillsTested" name="skillTest">
+
+    </div>
+    <br>
+    <button color="warn" type="submit" value="submit">Post</button>
+  </form>
