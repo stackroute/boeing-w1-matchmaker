@@ -1,0 +1,65 @@
+<div *ngIf="Train_check">
+  <div class="card">
+    <div class="card-body">
+      <h2>Certificates</h2>
+      Profile Id: {{getPost_Certificates.profileId}}
+      <br> Training Id: {{getPost_Certificates.trainingId}}
+      <br> Training Name: {{getPost_Certificates.trainingName}}
+      <br> Authority: {{getPost_Certificates.authority}}
+      <br> Duration: {{getPost_Certificates.duration}}
+      <br> Skills tested: {{getPost_Certificates.skillsTested}}
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="myModal6">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Certificates</h4>
+        <button class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <!-- end modal-header -->
+      <div class="modal-body">
+        <form class="form-horizontal" (submit)="addPost_Certificates()">
+          <div class="form-group">
+            <input class="form-control" placeholder="Profile Id" type="text" [(ngModel)]="newPost_Certificates.profileId" name="profileId">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Training Id" type="text" [(ngModel)]="newPost_Certificates.trainingId" name="trainId">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Training name" type="text" [(ngModel)]="newPost_Certificates.trainingName" name="trainName">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Authority" type="text" [(ngModel)]="newPost_Certificates.authority" name="authority">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Duration" type="text" [(ngModel)]="newPost_Certificates.duration" name="duration">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Skills tested" type="text" [(ngModel)]="newPost_Certificates.skillsTested" name="skillTest">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
+          </div>
+        </form>
+      </div>
+      <!-- end modal-body -->
+
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+      </div>
+      <!-- end modal-footer -->
+    </div>
+    <!-- end modal-content -->
+  </div>
+  <!-- end modal-dialog -->
+</div>
+<!-- end myModal -->

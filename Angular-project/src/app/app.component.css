@@ -1,0 +1,21 @@
+#heading {
+    color: white;
+}
+
+.profileSection {
+    margin-top: 80px;
+}
+
+#addProfile {
+    background: #00b3b3;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    background: #00b3b3;
+    color: white;
+}
