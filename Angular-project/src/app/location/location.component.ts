@@ -11,10 +11,10 @@ import { UserLocation } from '.././userLocation';
 export class LocationComponent implements OnInit {
   private newPost_Loc ;
   private getPost_Loc;
-  private Loc_check;
+  private loc_check;
 
   constructor(private userService: UserService) { 
-    this.Loc_check = false;
+    this.loc_check = false;
   }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class LocationComponent implements OnInit {
   addPost_Location() {
     this.userService.addPost_Location(this.newPost_Loc).subscribe(() => {
     });
-    this.Loc_check = true;
+    this.loc_check = true;
     this.getPost_Loc = this.newPost_Loc;
     }
 

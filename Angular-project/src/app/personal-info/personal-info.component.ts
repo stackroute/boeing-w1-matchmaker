@@ -12,10 +12,10 @@ import { UserPI } from '.././userPI';
 export class PersonalInfoComponent implements OnInit {
   private newPost_PI;
   private getPost_PI;
-  private PI_check;
+  private pi_check;
   
   constructor(private userService: UserService) { 
-    this.PI_check = false;
+    this.pi_check = false;
   }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class PersonalInfoComponent implements OnInit {
   addPost_PI() {
     this.userService.addPost_PI(this.newPost_PI).subscribe(() => {
     });
-    this.PI_check = true;
+    this.pi_check = true;
     this.getPost_PI = this.newPost_PI;
     }
     

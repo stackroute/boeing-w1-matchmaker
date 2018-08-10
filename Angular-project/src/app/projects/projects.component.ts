@@ -11,10 +11,10 @@ import { UserProject } from '.././userProject';
 export class ProjectsComponent implements OnInit {
   private newPost_Project;
   private getPost_Project;
-  private Proj_check;
+  private proj_check;
 
   constructor(private userService: UserService) {
-    this.Proj_check = false;
+    this.proj_check = false;
    }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class ProjectsComponent implements OnInit {
   addPost_Project() {
     this.userService.addPost_Project(this.newPost_Project).subscribe(() => {
     });
-    this.Proj_check = true;
+    this.proj_check = true;
     this.getPost_Project = this.newPost_Project;
     }
 
