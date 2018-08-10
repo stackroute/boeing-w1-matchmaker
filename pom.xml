@@ -30,6 +30,11 @@
 		<module>experience-microservice</module>
                 <module>location-microservice</module>
                 <module>project-microservice</module>
+<<<<<<< HEAD
                 <module>personalinformation-microservice</module>
+=======
+                <module>certification-Service</module>
+		<module>personalInfoMicroService</module>
+>>>>>>> cc29b4a1b1515bce089d7d95508d939ff8d916e0
        </modules>
 </project>

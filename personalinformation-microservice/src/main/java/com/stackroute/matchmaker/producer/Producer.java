@@ -14,15 +14,7 @@ public class Producer {
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
 	
-	
-
-    Producer(KafkaTemplate<String, String> kafkaTemplate) {
-        this.kafkaTemplate = kafkaTemplate;
-    }
-	
-	
 	public void sendMessage() {
-		this.kafkaTemplate.send("check","joe");
 		kafkaTemplate.send("check","hello machu");
 	}
 
