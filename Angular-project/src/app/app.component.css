@@ -15,7 +15,7 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+.drop li a:hover {
     background: #00b3b3;
     color: white;
 }

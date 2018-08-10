@@ -11,10 +11,10 @@ import { UserCertificates } from '.././userCertificates';
 export class CertificatesComponent implements OnInit {
   private newPost_Certificates;
   private getPost_Certificates;
-  private Train_check;
+  private train_check;
 
   constructor(private userService: UserService) { 
-    this.Train_check = false;
+    this.train_check = false;
   }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class CertificatesComponent implements OnInit {
   addPost_Certificates() {
     this.userService.addPost_Certificates(this.newPost_Certificates).subscribe(() => {
     });
-    this.Train_check = true;
+    this.train_check = true;
     this.getPost_Certificates = this.newPost_Certificates;
     }
 
