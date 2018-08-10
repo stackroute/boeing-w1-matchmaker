@@ -1,0 +1,75 @@
+<div *ngIf="Acad_check">
+    <div class="card">
+        <div class="card-body">
+            <h2>Academics</h2>
+            Profile Id: {{getPost_Academy.profileId}}
+            <br> Qualification: {{getPost_Academy.profileId}}
+            <br> Institute Name: {{getPost_Academy.instituteName}}
+            <br> Year of Joining: {{getPost_Academy.yearOfJoining}}
+            <br> Year of Completion: {{getPost_Academy.yearOfCompletion}}
+            <br> Institute Type: {{getPost_Academy.instituteType}}
+            <br> Stream: {{getPost_Academy.stream}}
+            <br> Marks: {{getPost_Academy.marks}}
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="myModal7">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Academics</h4>
+                <button class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <!-- end modal-header -->
+            <div class="modal-body">
+                <form class="form-horizontal" (submit)="addPost_Academy()">
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Profile Id" type="text" [(ngModel)]="newPost_Academy.profileId" name="profileId">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Qualification" type="text" [(ngModel)]="newPost_Academy.qualification" name="qualification">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Institute Name" type="text" [(ngModel)]="newPost_Academy.instituteName" name="instituteName">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Joining Year" type="text" [(ngModel)]="newPost_Academy.yearOfJoining" name="joinYear">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Completion Year" type="text" [(ngModel)]="newPost_Academy.yearOfCompletion" name="completeYear">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Institute Type" type="text" [(ngModel)]="newPost_Academy.instituteType" name="instituteType">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Stream" type="text" [(ngModel)]="newPost_Academy.stream" name="stream">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Marks" type="text" [(ngModel)]="newPost_Academy.marks" name="marks">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end modal-body -->
+
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+            </div>
+            <!-- end modal-footer -->
+        </div>
+        <!-- end modal-content -->
+    </div>
+    <!-- end modal-dialog -->
+</div>
+<!-- end myModal -->

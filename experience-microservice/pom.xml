@@ -6,7 +6,7 @@
 
     <groupId>com.stackroute.experiencemicroservice</groupId>
     <artifactId>experience-microservice</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>experience-microservice</name>
