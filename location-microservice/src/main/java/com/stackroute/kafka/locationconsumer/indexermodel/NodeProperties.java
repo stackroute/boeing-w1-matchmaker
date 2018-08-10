@@ -1,44 +1,25 @@
-package com.stackroute.kafka.locationconsumer.model;
+package com.stackroute.kafka.locationconsumer.indexermodel;
 
-public class Location {
-
-	//location fields
-    private String profileId;
-    private String address;
+public class NodeProperties {
+	
+	//model class attributes
+	private String address;
     private String city;
     private String pin;
     private String state;
     private String country;
     
-    //default constructor
-	public Location() {
+	public NodeProperties() {
 		super();
 	}
 
-	//parameterized constructor 
-	public Location(String profileId, String address, String city, String pin, String state, String country) {
+	public NodeProperties(String address, String city, String pin, String state, String country) {
 		super();
-		this.profileId = profileId;
 		this.address = address;
 		this.city = city;
 		this.pin = pin;
 		this.state = state;
 		this.country = country;
-	}
-
-	@Override
-	public String toString() {
-		return "User [profileId=" + profileId + ", address=" + address + ", city=" + city + ", pin=" + pin + ", state="
-				+ state + ", country=" + country + "]";
-	}
-
-	//getters and setters
-	public String getProfileId() {
-		return profileId;
-	}
-
-	public void setProfileId(String profileId) {
-		this.profileId = profileId;
 	}
 
 	public String getAddress() {
@@ -81,7 +62,4 @@ public class Location {
 		this.country = country;
 	}
     
-	   
-
-	
 }
