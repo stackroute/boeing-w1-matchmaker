@@ -11,11 +11,11 @@ import { UserAcademy } from '.././userAcademy';
 export class AcademicQualificationsComponent implements OnInit {
   private newPost_Academy;
   private getPost_Academy;
-  private Acad_check;
+  private acad_check;
   
 
   constructor(private userService: UserService) { 
-    this.Acad_check = false;
+    this.acad_check = false;
   }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class AcademicQualificationsComponent implements OnInit {
   addPost_Academy() {
     this.userService.addPost_Academy(this.newPost_Academy).subscribe(() => {
     });
-    this.Acad_check = true;
+    this.acad_check = true;
     this.getPost_Academy = this.newPost_Academy;
     } 
 

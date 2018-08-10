@@ -11,10 +11,10 @@ import { UserExp } from '.././userExp';
 export class ExperienceComponent implements OnInit {
   private newPost_Exp ;
   private getPost_Exp;
-  private Exp_check;
+  private exp_check;
 
   constructor(private userService: UserService) {
-    this.Exp_check = false;
+    this.exp_check = false;
    }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class ExperienceComponent implements OnInit {
   addPost_Exp() {
     this.userService.addPost_Exp(this.newPost_Exp).subscribe(() => {
     });
-    this.Exp_check = true;
+    this.exp_check = true;
     this.getPost_Exp = this.newPost_Exp;
     }
 

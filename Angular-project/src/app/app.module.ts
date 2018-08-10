@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule , routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +27,7 @@ import { AcademicQualificationsComponent } from './academic-qualifications/acade
     routingComponents
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule
+    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,HttpModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
