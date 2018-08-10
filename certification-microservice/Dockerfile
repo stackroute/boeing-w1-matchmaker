@@ -4,9 +4,9 @@ RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/Certification-Service-0.0.1-SNAPSHOT.jar /src/user.jar
+ADD target/consumer-v1.0.0-SNAPSHOT.jar /src/user.jar
 
-EXPOSE 8081
+EXPOSE 8080
 
 RUN sh -c 'touch /src/user.jar'
 

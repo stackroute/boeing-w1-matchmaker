@@ -9,30 +9,27 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.kafka.consumer.model.User;
+import com.stackroute.kafka.consumer.model.Training;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
 public class KakfaProducerConfiguration {
-
+  
     @Bean
-    public ProducerFactory<String, User> producerFactory() {
+    public ProducerFactory<String, Training> producerFactory() {
         Map<String, Object> config = new HashMap<>();
 
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
         return new DefaultKafkaProducerFactory<>(config);
     }
 
-
     @Bean
-    public KafkaTemplate<String, User> kafkaTemplate() {
+    public KafkaTemplate<String, Training> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
-
-
 }

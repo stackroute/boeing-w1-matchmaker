@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.stackroute.kafka.consumer</groupId>
-	<artifactId>Certification-Service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.stackroute.kafka</groupId>
+	<artifactId>consumer</artifactId>
+	<version>v1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Certification-Service</name>
@@ -29,6 +29,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
