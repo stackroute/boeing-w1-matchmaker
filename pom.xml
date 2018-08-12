@@ -31,6 +31,7 @@
                 <module>location-microservice</module>
                 <module>project-microservice</module>
                 <module>personalinformation-microservice</module>
-                <module>certification-Service</module>
+                <module>training-microservice</module>
+		<module>skill-microservice</module>
        </modules>
 </project>
