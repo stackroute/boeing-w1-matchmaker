@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute.kafka</groupId>
-	<artifactId>consumer</artifactId>
+	<artifactId>training-microservice</artifactId>
 	<version>v1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Certification-Service</name>
+	<name>training-microservice</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

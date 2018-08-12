@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/consumer-v1.0.0-SNAPSHOT.jar /src/user.jar
+ADD target/training-microservice-v1.0.0-SNAPSHOT.jar /src/user.jar
 
 EXPOSE 8080
 

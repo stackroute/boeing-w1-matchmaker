@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.stackroute.kafka.consumer.model.Training;
 
 @Service
-public class Listener {
+public class Consumer {
 
 	private static final Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
 	
