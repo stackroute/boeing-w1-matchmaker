@@ -1,0 +1,1 @@
+This File contains Project Microservice which takes the data from the message bus and processes it according to the indexer and pushes it back in to the message bus which then is picked by the Indexer.
