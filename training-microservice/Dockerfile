@@ -1,10 +1,12 @@
 FROM java:8
 
+MAINTAINER sathwik
+
 RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/training-microservice-v1.0.0-SNAPSHOT.jar /src/user.jar
+COPY target/training-microservice-v1.0.0-SNAPSHOT.jar /src/user.jar
 
 EXPOSE 8080
 
