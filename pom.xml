@@ -33,6 +33,5 @@
                 <module>personalinformation-microservice</module>
                 <module>training-microservice</module>
 		<module>skill-microservice</module>
-                <module>qualification-microservice</module>
        </modules>
 </project>
