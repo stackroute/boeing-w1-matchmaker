@@ -1,7 +1,0 @@
-com/stackroute/matchmaker/PiApplication.class
-com/stackroute/matchmaker/model/ProcessedInfo.class
-com/stackroute/matchmaker/producer/Producer.class
-com/stackroute/matchmaker/configuration/ConsumerConfigs.class
-com/stackroute/matchmaker/model/PersonalInfo.class
-com/stackroute/matchmaker/consumer/Consumer.class
-com/stackroute/matchmaker/configuration/ProducerConfigs.class
