@@ -27,10 +27,10 @@ detection of @KafkaListener annotation on spring managed beans.*/
 public class ConsumerConfigs {
 	
 	 @Value("${spring.kafka.bootstrap-servers}")
-	    private String bootstrapServers;
+	 private String bootstrapServers;
 	    
-	    @Value("{$spring.kafka.consumer.group-id}")
-	    private String groupid;
+	 @Value("{$spring.kafka.consumer.group-id}")
+	 private String groupid;
 	
 	
 	@Bean

@@ -30,21 +30,5 @@ public class Consumer {
 	         LOG.info("received message='{}'",personalInfo);
 	         
 	   }
-	
-	/*@KafkaListener(topics = "PersonalInfo", containerFactory = "personalInfoKafkaContainerFactory")
-=======
-		
-	@KafkaListener(topics="testing")
-	public void consumer(@Payload String string)  {
-		logger.warn(string);
-	}
-	
-	//listens to the topic "PersonalInfo" of upstream 
-	@KafkaListener(topics = "PersonalInfo", containerFactory = "personalInfoKafkaContainerFactory")
->>>>>>> cc29b4a1b1515bce089d7d95508d939ff8d916e0:personalInfoMicroService/src/main/java/com/stackroute/matchmaker/consumer/Consumer.java
-	public void consumerPersonalInfo(PersonalInfo personalInfo) {
-		System.out.println(personalInfo.toString());
-	}*/
-	
 
 }
