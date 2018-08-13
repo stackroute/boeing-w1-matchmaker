@@ -1,6 +1,6 @@
 FROM java:8
 
-MAINTAINER sathwik
+MAINTAINER sathwik10.pancheti@gmail.com
 
 RUN mkdir /src
 
