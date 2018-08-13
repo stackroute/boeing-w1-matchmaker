@@ -1,4 +1,4 @@
-//package com.stackroute.experiencemicroservice.appli.listener;
+//package com.stackroute.experiencemicroservice.appli.controller;
 //
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
@@ -14,8 +14,8 @@
 //
 //@RestController
 //@RequestMapping("kafka")
-//public class KafkaProducer {
-//	private static final Logger LOG = LoggerFactory.getLogger(KafkaProducer.class);
+//public class KafkaProducerController {
+//	private static final Logger LOG = LoggerFactory.getLogger(KafkaProducerController.class);
 //
 //	@Autowired
 //	private KafkaTemplate<String, Experience> kafkaTemplate;
