@@ -11,7 +11,8 @@ public class Location {
 	public Location() {
 	}
 
-	public Location(String profileId, String address, String city, String pin, String state, String country) {
+	public Location(String profileId, String address, String city, String pin, String state, 
+			String country) {
 		super();
 		this.profileId = profileId;
 		this.address = address;
