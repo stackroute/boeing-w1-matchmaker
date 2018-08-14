@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute</groupId>
-	<artifactId>boeing-w1-test</artifactId>
+	<artifactId>boeing-w1-matchmaker</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
@@ -28,11 +28,12 @@
 		<module>user-service</module>
 		<module>zuul-apigateway</module>
 		<module>experience-microservice</module>
-                <module>location-microservice</module>
-                <module>project-microservice</module>
-                <module>personalinformation-microservice</module>
-                <module>training-microservice</module>
+        <module>location-microservice</module>
+        <module>project-microservice</module>
+        <module>personalinformation-microservice</module>
+        <module>training-microservice</module>
 		<module>skill-microservice</module>
+		<module>qualification-microservice</module>
                 
        </modules>
 </project>

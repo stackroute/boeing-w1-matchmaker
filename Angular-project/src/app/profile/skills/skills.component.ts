@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '.././user.service';
-import { UserSkill } from '.././userSkill';
+import { UserService } from '../../user.service';
+import { UserSkill } from '../../userSkill';
 
 @Component({
   selector: 'app-skills',
