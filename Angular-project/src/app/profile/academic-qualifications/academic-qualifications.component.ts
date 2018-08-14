@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '.././user.service';
-import { UserAcademy } from '.././userAcademy';
+import { UserService } from '../../user.service';
+import { UserAcademy } from '../../userAcademy';
 
 @Component({
   selector: 'app-academic-qualifications',

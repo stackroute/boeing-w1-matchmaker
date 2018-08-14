@@ -24,7 +24,7 @@ public class KafkaConsumer {
 	 * @KafkaListener Annotation that marks a method to be the target of a Kafka
 	 * message listener on the specified topics
 	 */
-	@KafkaListener(topics = "${experienceproducer.producer.exp}", group = "${spring.kafka.consumer.group-id}", containerFactory = "experienceKafkaListenerFactory")
+	@KafkaListener(topics = "${experienceproducer.producer.exp}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "experienceKafkaListenerFactory")
 	public void consumeJson(Experience experience) {
 		// System.out.println("Consumed JSON Message: " + experience);
 		LOG.info("recieved JSON message='{}'", experience);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '.././user.service';
-import { UserLocation } from '.././userLocation';
+import { UserService } from '../../user.service';
+import { UserLocation } from '../../userLocation';
 
 @Component({
   selector: 'app-location',

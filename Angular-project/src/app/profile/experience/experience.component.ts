@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '.././user.service';
-import { UserExp } from '.././userExp';
+import { UserService } from '../../user.service';
+import { UserExp } from '../../userExp';
 
 @Component({
   selector: 'app-experience',

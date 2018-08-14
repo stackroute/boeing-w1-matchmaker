@@ -8,7 +8,7 @@
 
 	<parent>
 		<groupId>com.stackroute</groupId>
-		<artifactId>boeing-w1-test</artifactId>
+		<artifactId>boeing-w1-matchmaker</artifactId>
 		<version>1.0.0</version>
 		<!-- <relativePath/> lookup parent from repository -->
 	</parent>

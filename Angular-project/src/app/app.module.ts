@@ -2,18 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule , routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserService } from './user.service';
-import { PersonalInfoComponent } from './personal-info/personal-info.component';
-import { SkillsComponent } from './skills/skills.component';
-import { ExperienceComponent } from './experience/experience.component';
-import { LocationComponent } from './location/location.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { CertificatesComponent } from './certificates/certificates.component';
-import { AcademicQualificationsComponent } from './academic-qualifications/academic-qualifications.component';
-
+import { PersonalInfoComponent } from './profile/personal-info/personal-info.component';
+import { SkillsComponent } from './profile/skills/skills.component';
+import { ExperienceComponent } from './profile/experience/experience.component';
+import { LocationComponent } from './profile/location/location.component';
+import { ProjectsComponent } from './profile/projects/projects.component';
+import { CertificatesComponent } from './profile/certificates/certificates.component';
+import { AcademicQualificationsComponent } from './profile/academic-qualifications/academic-qualifications.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { ExistingEmailValidatorDirective } from './registration/customValidaters/existingEmail';
+import { ExistingUsernameValidatorDirective } from './registration/customValidaters/existingUserName';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,10 +27,14 @@ import { AcademicQualificationsComponent } from './academic-qualifications/acade
     ProjectsComponent,
     CertificatesComponent,
     AcademicQualificationsComponent,
-    routingComponents
+    routingComponents,
+    ProfileComponent,
+    RegistrationComponent,
+    ExistingEmailValidatorDirective,
+    ExistingUsernameValidatorDirective
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,HttpModule
+    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,HttpModule,ReactiveFormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

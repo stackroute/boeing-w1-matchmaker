@@ -1,0 +1,37 @@
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { Register } from "./register";
+
+@Injectable({
+  providedIn: "root"
+})
+export class RegisterService {
+  constructor(private http: HttpClient) {}
+
+  addNewUser(newUser:Register): Observable<any> {
+    let httpHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Cache-Control": "no-cache"
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.http.post(
+      "http://localhost:8080/api/v1/register",
+      JSON.stringify(newUser),
+      options
+    );
+  }
+  checkUserName(userName: String): Observable<any> {
+    return this.http.get(
+      `http://localhost:8080/api/v1/register/check/userName/${userName}`
+    );
+  }
+
+  checkEmail(email: String): Observable<any> {
+    return this.http.get(
+      `http://localhost:8080/api/v1/register/check/email/${email}`
+    );
+  }
+}
