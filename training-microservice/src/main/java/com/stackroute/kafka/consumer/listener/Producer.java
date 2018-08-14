@@ -2,7 +2,6 @@ package com.stackroute.kafka.consumer.listener;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +31,7 @@ public class Producer {
 //	public void receiveJson(@PathVariable("name") final String name, Training training) {
 //		//System.out.println("Consumed JSON Message: " + training);
 //		kafkaTemplate.send(TOPIC, new Training(name,name,name,name,name,name));
-//		
+//			
 //	}
 
 }

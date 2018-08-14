@@ -1,6 +1,5 @@
 package com.stackroute.qualificationmicroservice.model;
 
-import java.util.Date;
 
 public class Qualification {
 	
@@ -9,14 +8,14 @@ public class Qualification {
 	 * A default constructor and a toString() method has also been declared
 	 */
 	
-	String profileId;
-	String qualification;
-	String instituteName;
-	String yearOfJoining;
-	String yearOfCompletion;
-	String stream;
-	String marks;	
-	String message;
+	private String profileId;
+	private String qualification;
+	private String instituteName;
+	private String yearOfJoining;
+	private String yearOfCompletion;
+	private String stream;
+	private String marks;	
+	private String message;
 	
    @Override
 	public String toString() {
