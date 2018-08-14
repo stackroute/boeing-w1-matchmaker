@@ -1,0 +1,14 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    
+app:
+  topic:
+     training: Certificates
+     
+listener:
+    topic:
+      name: training 
+     
+    
+  

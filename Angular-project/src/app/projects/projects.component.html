@@ -1,0 +1,109 @@
+<div *ngIf="proj_check">
+  <div class="card">
+    <div class="card-body">
+      <h2>Projects</h2>
+      Profile Id: {{getPost_Project.profileId}}
+      <br> Project Id: {{getPost_Project.projectId}}
+      <br> Project At: {{getPost_Project.projectAt}}
+      <br> Role: {{getPost_Project.role}}
+      <br> Department: {{getPost_Project.department}}
+      <br> Project Location: {{getPost_Project.projectLocation}}
+      <br> Project Title: {{getPost_Project.projectTitle}}
+      <br> Team Size: {{getPost_Project.teamSize}}
+      <br> Start Date: {{getPost_Project.from}}
+      <br> End Date: {{getPost_Project.to}}
+      <br> Synopsis: {{getPost_Project.synopsis}}
+      <br> Url: {{getPost_Project.url}}
+      <br> DemoURL: {{getPost_Project.demoURL}}
+      <br> Skills: {{getPost_Project.skills}}
+      <br> Message: {{getPost_Project.message}}
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="myModal5">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Projects</h4>
+        <button class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <!-- end modal-header -->
+      <div class="modal-body">
+        <form class="form-horizontal" (submit)="addPost_Project()">
+          <div class="form-group">
+            <input class="form-control" placeholder="Profile Id" type="text" [(ngModel)]="newPost_Project.profileId" name="profileId">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Project Id" type="text" [(ngModel)]="newPost_Project.projectId" name="proId">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Project At" type="text" [(ngModel)]="newPost_Project.projectAt" name="proAt">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Role" type="text" [(ngModel)]="newPost_Project.role" name="role">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Department" type="text" [(ngModel)]="newPost_Project.department" name="dept">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Project Location" type="text" [(ngModel)]="newPost_Project.projectLocation" name="loc">
+          </div>
+
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Project Title" type="text" [(ngModel)]="newPost_Project.projectTitle" name="title">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Team Size" type="text" [(ngModel)]="newPost_Project.teamSize" name="team">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Start date" type="text" [(ngModel)]="newPost_Project.from" name="from">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="End date" type="text" [(ngModel)]="newPost_Project.to" name="to">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Synopsis" type="text" [(ngModel)]="newPost_Project.synopsis" name="synopsis">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Url" type="text" [(ngModel)]="newPost_Project.url" name="url">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="demoURL" type="text" [(ngModel)]="newPost_Project.demoURL" name="demo">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Skills" type="text" [(ngModel)]="newPost_Project.skills" name="skills">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Message" type="text" [(ngModel)]="newPost_Project.message" name="mess">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
+          </div>
+        </form>
+      </div>
+      <!-- end modal-body -->
+
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+      </div>
+      <!-- end modal-footer -->
+    </div>
+    <!-- end modal-content -->
+  </div>
+  <!-- end modal-dialog -->
+</div>
+<!-- end myModal -->

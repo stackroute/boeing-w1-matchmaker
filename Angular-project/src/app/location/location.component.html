@@ -1,0 +1,67 @@
+<div *ngIf="loc_check">
+  <div class="card">
+    <div class="card-body">
+      <h2>Location</h2>
+      Profile Id: {{getPost_Loc.profileId}}
+      <br> Address: {{getPost_Loc.address}}
+      <br> City: {{getPost_Loc.city}}
+      <br> PIN: {{getPost_Loc.pin}}
+      <br> State: {{getPost_Loc.state}}
+      <br> Country: {{getPost_Loc.country}}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="myModal4">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Location</h4>
+        <button class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <!-- end modal-header -->
+      <div class="modal-body">
+        <form class="form-horizontal" (submit)="addPost_Location()">
+          <div class="form-group">
+            <input class="form-control" placeholder="Profile Id" type="text" [(ngModel)]="newPost_Loc.profileId" name="profileId">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Address" type="text" [(ngModel)]="newPost_Loc.address" name="addr">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="City" type="text" [(ngModel)]="newPost_Loc.city" name="city">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="PIN" type="text" [(ngModel)]="newPost_Loc.pin" name="pin">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="State" type="text" [(ngModel)]="newPost_Loc.state" name="state">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" placeholder="Country" type="text" [(ngModel)]="newPost_Loc.country" name="cont">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
+          </div>
+        </form>
+      </div>
+      <!-- end modal-body -->
+
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+      </div>
+      <!-- end modal-footer -->
+    </div>
+    <!-- end modal-content -->
+  </div>
+  <!-- end modal-dialog -->
+</div>
+<!-- end myModal -->
