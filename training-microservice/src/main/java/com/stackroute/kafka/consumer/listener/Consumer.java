@@ -24,7 +24,7 @@ public class Consumer {
 //	}
 	
 	//Listens to the topic "Certificates" of upstream
-		@KafkaListener(topics = "${app.topic.training}", group = "group_json", containerFactory = "userKafkaListenerFactory")
+		@KafkaListener(topics = "${app.topic.training}", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
 		public void receiveJson(Training training) {
 			//System.out.println("Consumed JSON Message: " + training);
 			LOG.info("consumed message='{}'", training);

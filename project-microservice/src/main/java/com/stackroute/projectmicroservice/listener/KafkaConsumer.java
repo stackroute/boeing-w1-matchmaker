@@ -15,7 +15,7 @@ public class KafkaConsumer {
 	/*Properties for Kafka defined
 	 * 
 	 */
-    @KafkaListener(topics = "${app.topic.name}", group = "${spring.kafka.consumer.group-id}",
+    @KafkaListener(topics = "${app.topic.name}", groupId= "${spring.kafka.consumer.group-id}",
             containerFactory = "projectKafkaListenerFactory")
     public void consumeJson(Project project) {
         LOG.info("received message='{}'", project);
