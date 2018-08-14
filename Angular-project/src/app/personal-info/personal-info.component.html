@@ -32,6 +32,13 @@
       <!-- end modal-header -->
       <div class="modal-body">
         <form class="form-horizontal" (submit)="addPost_PI()">
+
+          <div>
+            <img style="width:100px;height:100px"  src={{imageUrl}}>
+            <input type="file" #Image accept="/image/*" (change)="handleFileInput($event.target.files)">
+            <button type="button" class="btn btn-danger">Upload</button>
+          </div>
+
           <div class="form-group">
             <input class="form-control" placeholder="Profile Id" [(ngModel)]="newPost_PI.profileId" name="profileId" type="text">
           </div>
