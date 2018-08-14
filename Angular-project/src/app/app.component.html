@@ -13,7 +13,7 @@
 				<form class="form-inline">
 					<input type="text" class="form-control" id="searchbar">
 				</form>
-				<ul class="navbar-nav ml-auto">
+				<!-- <ul class="navbar-nav ml-auto">
 					<li class="dropdown nav-item"><a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><span class="glyphicon glyphicon-user">User</span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#" class="dropdown-item"><span class="glyphicon glyphicon-wrench"></span>Settings</a></li>
@@ -22,7 +22,7 @@
 							<li><a href="#" class="dropdown-item">Log Out</a></li>
 						</ul>
 					</li>
-				</ul>
+				</ul> -->
 			</nav>
 			<!-- navbar ends here -->
 
@@ -31,29 +31,4 @@
 	</header>
 
 
-<div class="container profileSection">
- <div class="dropdown">
-   <button class="btn dropdown-toggle" id="addProfile" type="button" data-toggle="dropdown">Search by
-   <span class="caret"></span></button>
-   <ul class="dropdown-menu drop">
-    <li><a href="#myModal1" data-toggle="modal" class="dropdown-item">Personal Info</a></li>
-    <li><a href="#myModal2" data-toggle="modal" class="dropdown-item">Skills</a></li>
-    <li><a href="#myModal3" data-toggle="modal" class="dropdown-item">Experience</a></li>
-    <li><a href="#myModal4" data-toggle="modal" class="dropdown-item">Location</a></li>
-    <li><a href="#myModal5" data-toggle="modal" class="dropdown-item">Projects</a></li>
-    <li><a href="#myModal6" data-toggle="modal" class="dropdown-item">Training and Certification</a></li>
-    <li><a href="#myModal7" data-toggle="modal" class="dropdown-item">Academic Qualification</a></li>
-   </ul>
- </div>
-
- <br>
- 
-   <app-personal-info></app-personal-info>
-   <app-skills></app-skills>
-   <app-experience></app-experience>
-   <app-location></app-location>
-   <app-projects></app-projects> 
-   <app-certificates></app-certificates>
-   <app-academic-qualifications></app-academic-qualifications>
-
-</div>
+<router-outlet></router-outlet>
