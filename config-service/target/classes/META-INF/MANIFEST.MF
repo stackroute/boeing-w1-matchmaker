@@ -5,6 +5,6 @@ Built-By: user
 Implementation-Vendor-Id: com.stackroute
 Build-Jdk: 1.8.0_171
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
- ot-starter-parent/boeing-w1-test/configuration-service
+ ot-starter-parent/boeing-w1-matchmaker/configuration-service
 Created-By: Maven Integration for Eclipse
 
