@@ -7,4 +7,4 @@ app:
   topic:
     name: Projects
 server:
-  port: 8082
+  port: 8087

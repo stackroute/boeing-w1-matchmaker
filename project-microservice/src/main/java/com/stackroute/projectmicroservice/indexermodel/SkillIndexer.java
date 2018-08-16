@@ -1,5 +1,7 @@
 package com.stackroute.projectmicroservice.indexermodel;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.stackroute.projectmicroservice.relationshipmodel.SkillRelationshipProperties;
 
 public class SkillIndexer {
@@ -10,11 +12,12 @@ public class SkillIndexer {
 	private String relationshipName;
 	private SkillRelationshipProperties skillRelationshipProperties;
 	private String operation;
-	
+
 	public SkillIndexer() {
-		
+
 	}
 
+	@Autowired
 	public SkillIndexer(String sourceNodeType, String sourceNodeProperty, String targetNodeType,
 			TargetNodeProperty targetNodeProperty, String relationshipName,
 			SkillRelationshipProperties skillRelationshipProperties, String operation) {
@@ -91,6 +94,5 @@ public class SkillIndexer {
 				+ ", relationshipName=" + relationshipName + ", skillRelationshipProperties="
 				+ skillRelationshipProperties + ", operation=" + operation + "]";
 	}
-	
-	
+
 }

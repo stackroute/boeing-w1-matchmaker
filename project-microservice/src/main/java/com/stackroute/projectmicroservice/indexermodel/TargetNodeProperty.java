@@ -1,11 +1,15 @@
 package com.stackroute.projectmicroservice.indexermodel;
 
-public class TargetNodeProperty {
-	
-	private String id;
-	
-	public TargetNodeProperty() {};
+import org.springframework.beans.factory.annotation.Autowired;
 
+public class TargetNodeProperty {
+
+	private String id;
+
+	public TargetNodeProperty() {
+	};
+
+	@Autowired
 	public TargetNodeProperty(String id) {
 		super();
 		this.id = id;

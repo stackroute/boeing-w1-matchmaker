@@ -1,29 +1,38 @@
 package com.stackroute.projectmicroservice.relationshipmodel;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class SkillRelationshipProperties {
 
 	private String weight;
+	private String skills;
 
-	public SkillRelationshipProperties() {
-
-	}
-
-	public SkillRelationshipProperties(String experience) {
+	@Autowired
+	public SkillRelationshipProperties(String weight, String skills) {
 		super();
-		this.weight = experience;
+		this.weight = weight;
+		this.skills = skills;
 	}
 
-	public String getExperience() {
+	public String getWeight() {
 		return weight;
 	}
 
-	public void setExperience(String experience) {
-		this.weight = experience;
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
 	}
 
 	@Override
 	public String toString() {
-		return "SkillRelationshipProperties [experience=" + weight + "]";
+		return "SkillRelationshipProperties [weight=" + weight + ", skills=" + skills + "]";
 	}
 
 }

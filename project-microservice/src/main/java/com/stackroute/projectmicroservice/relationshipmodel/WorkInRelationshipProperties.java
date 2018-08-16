@@ -1,5 +1,7 @@
 package com.stackroute.projectmicroservice.relationshipmodel;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class WorkInRelationshipProperties {
 
 	private String to;
@@ -12,6 +14,7 @@ public class WorkInRelationshipProperties {
 
 	}
 
+	@Autowired
 	public WorkInRelationshipProperties(String to, String from, String role, String projectName, String department) {
 		super();
 		this.to = to;
