@@ -6,7 +6,7 @@ WORKDIR /src
 
 COPY target/QualificationMicroservice-0.0.1-SNAPSHOT.jar /src/user.jar
 
-EXPOSE 8081
+EXPOSE 8085
 
 RUN sh -c 'touch /src/user.jar'
 
