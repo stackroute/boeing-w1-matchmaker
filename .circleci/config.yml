@@ -7,7 +7,7 @@ jobs:
   build:
     branches:
       only:
-        - v1.1.0    
+        - v1.0.0    
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -34,6 +34,8 @@ jobs:
           - v1-dependencies-
 
       - run: mvn dependency:go-offline
+      - run: mvn clean compile package -X
+      - run: docker-compose up --build
 
       - save_cache:
           paths:
