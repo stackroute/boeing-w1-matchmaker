@@ -7,7 +7,7 @@
 	<artifactId>user-service</artifactId>
 	<packaging>jar</packaging>
 
-	<name>restaurant-springboot</name>
+	<name>user-springboot</name>
 	<description>user project for Spring Boot</description>
 
 	<parent>
