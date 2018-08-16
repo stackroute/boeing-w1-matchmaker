@@ -11,8 +11,8 @@ import { UserPI } from '../../userPI';
 })
 export class PersonalInfoComponent implements OnInit {
 
-  private imageUrl : String = "assets/img/default-profile-picture.jpg";
-  private fileToUpload : File = null;
+  private imageUrl: String = 'assets/img/default-profile-picture.jpg';
+  private fileToUpload: File = null;
   private newPost_PI;
   private getPost_PI;
   private pi_check;
@@ -33,16 +33,16 @@ export class PersonalInfoComponent implements OnInit {
     this.getPost_PI = this.newPost_PI;
     }
 
-    handleFileInput(file : FileList) {
-      this.fileToUpload = file.item(0); 
-  
-      var reader = new FileReader();
-      reader.onload = (event:any) => {
+    handleFileInput(file: FileList) {
+      this.fileToUpload = file.item(0);
+
+      const reader = new FileReader();
+      reader.onload = (event: any) => {
         this.imageUrl = event.target.result;
-  
-      }
+
+      };
       reader.readAsDataURL(this.fileToUpload);
-  
+
     }
 
 }
