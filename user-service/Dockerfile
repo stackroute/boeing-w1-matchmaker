@@ -1,10 +1,10 @@
 FROM java:8
-
+MAINTAINER sharoon "sharoon8105@gmail.com"
 RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/user-service-1.0.0.jar /src/user.jar
+COPY target/user-service-1.0.0.jar /src/user.jar
 
 EXPOSE 8081
 

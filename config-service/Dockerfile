@@ -1,10 +1,10 @@
 FROM java:8
-
+MAINTAINER sharoon "sharoon8105@gmail.com"
 RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/configuration-service-1.0.0.jar /src/centralizedconfig.jar
+COPY target/configuration-service-1.0.0.jar /src/centralizedconfig.jar
 
 EXPOSE 8891
 

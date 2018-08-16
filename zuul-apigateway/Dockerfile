@@ -1,10 +1,10 @@
 FROM java:8
-
+MAINTAINER sharoon "sharoon8105@gmail.com"
 RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/zuul-apigateway-1.0.0.jar /src/zuul.jar
+COPY target/zuul-apigateway-1.0.0.jar /src/zuul.jar
 
 EXPOSE 8092
 
