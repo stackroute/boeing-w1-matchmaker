@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
 import { AsyncValidatorFn, AsyncValidator, NG_ASYNC_VALIDATORS, AbstractControl, ValidationErrors } from '@angular/forms';
-import { Observable, throwError } from "rxjs";
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { RegisterService } from '../../register.service';
 
@@ -11,24 +11,24 @@ import { RegisterService } from '../../register.service';
   })
 
   export class ExistingUsernameValidatorDirective implements AsyncValidator {
-    constructor(private registerService:RegisterService) {  }
-  
-    validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-      return existingUserName(this.registerService)(control);  
-    }
-  } 
+    constructor(private registerService: RegisterService) {  }
 
-  export function existingUserName(registerService:RegisterService): AsyncValidatorFn {
+    validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+      return existingUserName(this.registerService)(control);
+    }
+  }
+
+  export function existingUserName(registerService: RegisterService): AsyncValidatorFn {
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
         return registerService.checkUserName(control.value)
        .pipe(
             map(
           users => {
-            return (users && users.length > 0) ? {"usernameExists": true} : null;
+            return users ? {'usernameExists': true} : null;
           }
-        ),catchError( error => {
-             return throwError( 'Something went wrong!' )
+        ), catchError( error => {
+             return throwError( 'Something went wrong!' );
            })
-        )
+        );
     };
   }

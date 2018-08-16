@@ -1,37 +1,37 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Register } from "./register";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Register } from './register';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class RegisterService {
   constructor(private http: HttpClient) {}
 
-  addNewUser(newUser:Register): Observable<any> {
-    let httpHeaders = new HttpHeaders({
-      "Content-Type": "application/json",
-      "Cache-Control": "no-cache"
+  addNewUser(newUser: Register): Observable<any> {
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
     });
-    let options = {
+    const options = {
       headers: httpHeaders
     };
     return this.http.post(
-      "http://localhost:8080/api/v1/register",
+      'http://localhost:8082/api/v1/register',
       JSON.stringify(newUser),
       options
     );
   }
   checkUserName(userName: String): Observable<any> {
     return this.http.get(
-      `http://localhost:8080/api/v1/register/check/userName/${userName}`
+      `http://localhost:8082/api/v1/register/check/userName/${userName}`
     );
   }
 
   checkEmail(email: String): Observable<any> {
     return this.http.get(
-      `http://localhost:8080/api/v1/register/check/email/${email}`
+      `http://localhost:8082/api/v1/register/check/email/${email}`
     );
   }
 }

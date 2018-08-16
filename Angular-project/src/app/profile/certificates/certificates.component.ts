@@ -13,7 +13,7 @@ export class CertificatesComponent implements OnInit {
   private getPost_Certificates;
   private train_check;
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService) {
     this.train_check = false;
   }
 

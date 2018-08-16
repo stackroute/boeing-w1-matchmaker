@@ -10,21 +10,9 @@ import { UserService } from './user.service';
 })
 export class AppComponent {
 
-  constructor() { 
+  constructor() {
 
   }
-
-  ngOnInit() {
-    // this.route
-    // .queryParams
-    // .subscribe(params => {
-    //   this.id = +params['id'] || 0;
-    // });
-    // switch(this.id){
-    //   case 1: this.PI_check = true;
-    // }
-  }
-
 
 
 }

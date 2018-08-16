@@ -28,7 +28,6 @@
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",
     "ngx-bootstrap": "^3.0.1",
-    "node-module": "^2.0.0",
     "node-modules": "^1.0.1",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",

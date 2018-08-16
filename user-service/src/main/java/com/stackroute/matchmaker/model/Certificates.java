@@ -13,8 +13,8 @@ public class Certificates {
 	}
     
 
-	public Certificates(String profileId, String trainingName, String trainingId, 
-			String authority, String duration, String skillsTested) {
+	public Certificates(String profileId, String trainingName, String trainingId, String authority, String duration,
+			String skillsTested) {
 		super();
 		this.profileId = profileId;
 		this.trainingName = trainingName;

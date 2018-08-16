@@ -13,7 +13,7 @@ export class LocationComponent implements OnInit {
   private getPost_Loc;
   private loc_check;
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService) {
     this.loc_check = false;
   }
 

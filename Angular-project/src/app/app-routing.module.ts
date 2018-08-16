@@ -1,7 +1,7 @@
-import {NgModule} from "@angular/core";
-import {Routes , RouterModule, Router} from "@angular/router";
-import { ProfileComponent } from "./profile/profile.component";
-import { RegistrationComponent } from "./registration/registration.component";
+import {NgModule} from '@angular/core';
+import {Routes , RouterModule, Router} from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
@@ -16,4 +16,4 @@ const routes: Routes = [
   })
 
   export class AppRoutingModule {}
-  export const routingComponents = [ProfileComponent, RegistrationComponent]
+  export const routingComponents = [ProfileComponent, RegistrationComponent];

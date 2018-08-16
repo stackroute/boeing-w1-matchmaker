@@ -10,13 +10,12 @@ public class AcademicQualification {
 	private String instituteType;
 	private String streams;
 	private String marks;
-
+	
 	public AcademicQualification() {
 	}
 
-	public AcademicQualification(String profileId, String qualification, String instituteName, 
-			String yearOfJoining, String yearOfCompletion, String instituteType, String streams,
-			String marks) {
+	public AcademicQualification(String profileId, String qualification, String instituteName, String yearOfJoining,
+			String yearOfCompletion, String instituteType, String streams, String marks) {
 		super();
 		this.profileId = profileId;
 		this.qualification = qualification;
@@ -98,5 +97,7 @@ public class AcademicQualification {
 				+ instituteName + ", yearOfJoining=" + yearOfJoining + ", yearOfCompletion=" + yearOfCompletion
 				+ ", instituteType=" + instituteType + ", streams=" + streams + ", marks=" + marks + "]";
 	}
-
+    
+	
+	
 }
