@@ -35,6 +35,8 @@ services:
         condition: service_healthy
       user-service:
         condition: service_healthy
+      login-service:
+        condition: service_healthy
     restart: always
     network_mode: "host"
     image: demo-zuul-service
@@ -63,7 +65,8 @@ services:
       KAFKA_ADVERTISED_LISTENERS: ${IP_Kafka}
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_ZOOKEEPER_CONNECT: ${IP_Zookeeper}
-      KAFKA_CREATE_TOPICS: "Location:1:1, Certificates:1:1, Academies:1:1, PersonalInfo:1:1, Experience:1:1, Projects:1:1, Skills:1:1"
+      KAFKA_CREATE_TOPICS: "Location:1:1, Certificates:1:1, Academies:1:1, PersonalInfo:1:1, Experience:1:1, Projects:1:1, 
+Skills:1:1, CassandraRegistration:1:1"
     network_mode: "host"
     hostname: localhost
     depends_on:
@@ -83,5 +86,37 @@ services:
     depends_on:
       - config-service
       - eureka-server
+    healthcheck:
+      test: "exit 0"
+
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=register
+      - MYSQL_PASSWORD=root
+    network_mode: "host"
+    hostname: localhost
+    restart: always
+    healthcheck:
+      test: "exit 0"
+
+
+  login-service:
+    build: login-service/
+    image: login-service
+    depends_on:
+      - mysql
+    ports:
+      - 8082:8082
+    environment:
+      - DATABASE_HOST=mysql
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_NAME=register  
+      - DATABASE_PORT=3306
+    network_mode: "host"
+    hostname: localhost
+    restart: always
     healthcheck:
       test: "exit 0"

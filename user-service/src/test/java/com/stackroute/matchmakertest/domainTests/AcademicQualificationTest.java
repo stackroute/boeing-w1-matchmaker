@@ -1,4 +1,4 @@
-package com.stackroute.matchmakerTest.domainTests;
+package com.stackroute.matchmakertest.domainTests;
 
 import org.junit.Before;
 import org.junit.Test;

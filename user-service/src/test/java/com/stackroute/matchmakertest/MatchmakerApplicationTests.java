@@ -1,4 +1,4 @@
-package com.stackroute.matchmakerTest;
+package com.stackroute.matchmakertest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

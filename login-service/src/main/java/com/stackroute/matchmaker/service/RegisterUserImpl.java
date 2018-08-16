@@ -3,6 +3,8 @@ package com.stackroute.matchmaker.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.stackroute.matchmaker.exception.EmailAlreadyExistsException;
+import com.stackroute.matchmaker.exception.UserNameAlreadyExistsException;
 import com.stackroute.matchmaker.model.Registration;
 import com.stackroute.matchmaker.repository.RegistrationRepo;
 
@@ -23,14 +25,22 @@ public class RegisterUserImpl implements RegisterUser{
 	}
 
 	@Override
-	public Registration checkForUserName(String userName) {
-		return registrationRepo.getUserByUsername(userName);
-			
+	public Registration checkForUserName(String userName) throws UserNameAlreadyExistsException{
+		Registration registrant = registrationRepo.getUserByUsername(userName);
+		if(registrant==null)
+		return registrant;			
+		else 
+		throw new UserNameAlreadyExistsException("User name already present");	
 	}
 
 	@Override
-	public Registration checkForEmail(String email) {
-		return registrationRepo.getUserByEmail(email);
+	public Registration checkForEmail(String email) throws EmailAlreadyExistsException {
+		Registration registrant = registrationRepo.getUserByEmail(email);
+		if(registrant==null)
+		return registrant;
+		else	
+		throw new EmailAlreadyExistsException("Email already present");
+		
 	}	
 
 }

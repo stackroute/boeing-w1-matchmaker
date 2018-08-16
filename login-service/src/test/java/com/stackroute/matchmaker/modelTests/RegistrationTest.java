@@ -1,6 +1,5 @@
 package com.stackroute.matchmaker.modelTests;
 
-import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
