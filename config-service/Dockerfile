@@ -6,7 +6,7 @@ WORKDIR /src
 
 ADD target/configuration-service-1.0.0.jar /src/centralizedconfig.jar
 
-EXPOSE 9090
+EXPOSE 8891
 
 RUN sh -c 'touch /src/centralizedconfig.jar'
 
