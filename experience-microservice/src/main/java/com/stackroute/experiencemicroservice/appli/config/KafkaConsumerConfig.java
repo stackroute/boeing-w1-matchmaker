@@ -67,7 +67,7 @@ public class KafkaConsumerConfig {
 		return factory;
 	}
 
-	// This method ois for setting up the configuration when the valure to be
+	// This method is for setting up the configuration when the value to be
 	// recieved is a JSON object
 	// Configuration for reading or fetching JSON format data
 	@Bean

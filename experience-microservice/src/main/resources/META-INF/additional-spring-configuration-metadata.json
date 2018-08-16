@@ -8,5 +8,10 @@
     "name": "experienceproducer.producer.exp",
     "type": "java.lang.String",
     "description": "A description for 'experienceproducer.producer.exp'"
+  },
+  {
+    "name": "experienceproducer1.producer1.exp1",
+    "type": "java.lang.String",
+    "description": "A description for 'experienceproducer1.producer1.exp1'"
   }
 ]}

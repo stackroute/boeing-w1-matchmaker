@@ -13,6 +13,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
+import com.stackroute.experiencemicroservice.appli.indexermodel.Indexer;
 import com.stackroute.experiencemicroservice.appli.model.Experience;
 
 @Configuration
@@ -20,7 +21,7 @@ public class KafkaProducerConfig {
 	  @Value("${spring.kafka.bootstrap-servers}")
 	    private String bootstrapServers;
     @Bean
-    public ProducerFactory<String, Experience> producerFactory() {
+    public ProducerFactory<String, Indexer> producerFactory() {
         Map<String, Object> config = new HashMap<>();
 
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -32,8 +33,10 @@ public class KafkaProducerConfig {
 
 
     @Bean
-    public KafkaTemplate<String, Experience> kafkaTemplate() {
+    public KafkaTemplate<String, Indexer> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
+
+
 
 }

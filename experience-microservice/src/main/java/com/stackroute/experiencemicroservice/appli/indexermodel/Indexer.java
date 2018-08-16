@@ -1,75 +1,94 @@
-//package com.stackroute.experiencemicroservice.appli.indexermodel;
-//
-//import java.util.List;
-//
-//public class Indexer {
-//	/* Indexer input field Attributes */
-//	private String sourceNodeType;
-//	private String methodType;
-//	private String targetNodeType;
-//	private String relationshipName;
-//
-//
-//	public Indexer() {
-//		super();
-//	}
-//
-//	public Indexer(String sourceNodeType, String methodType, String targetNodeType,
-//			List<RelationshipProperties> relationshipProperties, String relationshipName) {
-//		super();
-//		this.sourceNodeType = sourceNodeType;
-//		this.methodType = methodType;
-//		this.targetNodeType = targetNodeType;
-//		this.relationshipProperties = relationshipProperties;
-//		this.relationshipName = relationshipName;
-//	}
-//
-//	public String getSourceNodeType() {
-//		return sourceNodeType;
-//	}
-//
-//	public void setSourceNodeType(String sourceNodeType) {
-//		this.sourceNodeType = sourceNodeType;
-//	}
-//
-//	public String getMethodType() {
-//		return methodType;
-//	}
-//
-//	public void setMethodType(String methodType) {
-//		this.methodType = methodType;
-//	}
-//
-//	public String getTargetNodeType() {
-//		return targetNodeType;
-//	}
-//
-//	public void setTargetNodeType(String targetNodeType) {
-//		this.targetNodeType = targetNodeType;
-//	}
-//
-//	public List<RelationshipProperties> getRelationshipProperties() {
-//		return relationshipProperties;
-//	}
-//
-//	public void setRelationshipProperties(List<RelationshipProperties> relationshipProperties) {
-//		this.relationshipProperties = relationshipProperties;
-//	}
-//
-//	public String getRelationshipName() {
-//		return relationshipName;
-//	}
-//
-//	public void setRelationshipName(String relationshipName) {
-//		this.relationshipName = relationshipName;
-//	}
-//
-//	private List<RelationshipProperties> relationshipProperties;
-//	
-//	@Override
-//	public String toString() {
-//		return "Indexer [sourceNodeType=" + sourceNodeType + ", methodType=" + methodType + ", targetNodeType="
-//				+ targetNodeType + ", relationshipProperties=" + relationshipProperties + ", relationshipName="
-//				+ relationshipName + "]";
-//	}
-//}
+package com.stackroute.experiencemicroservice.appli.indexermodel;
+
+public class Indexer {
+	/* Indexer input field Attributes */
+	private String sourceNodeType;
+	private String sourceNodeProperty;
+	private String targetNodeType;
+	private TargetNodeProperty targetNodeProperty;
+	private RelationshipProperties relationshipProperties;
+	private RelationshipName relationshipName;
+	private String message;
+
+	public Indexer(String sourceNodeType, String sourceNodeProperty, String targetNodeType,
+			TargetNodeProperty targetNodeProperty, RelationshipProperties relationshipProperties,
+			RelationshipName relationshipName, String message) {
+		super();
+		this.sourceNodeType = sourceNodeType;
+		this.sourceNodeProperty = sourceNodeProperty;
+		this.targetNodeType = targetNodeType;
+		this.targetNodeProperty = targetNodeProperty;
+		this.relationshipProperties = relationshipProperties;
+		this.relationshipName = relationshipName;
+		this.message = message;
+	}
+
+	public Indexer() {
+		super();
+	}
+
+	public String getSourceNodeType() {
+		return sourceNodeType;
+	}
+
+	public void setSourceNodeType(String sourceNodeType) {
+		this.sourceNodeType = sourceNodeType;
+	}
+
+	public String getSourceNodeProperty() {
+		return sourceNodeProperty;
+	}
+
+	public void setSourceNodeProperty(String sourceNodeProperty) {
+		this.sourceNodeProperty = sourceNodeProperty;
+	}
+
+	public String getTargetNodeType() {
+		return targetNodeType;
+	}
+
+	public void setTargetNodeType(String targetNodeType) {
+		this.targetNodeType = targetNodeType;
+	}
+
+	public TargetNodeProperty getTargetNodeProperty() {
+		return targetNodeProperty;
+	}
+
+	public void setTargetNodeProperty(TargetNodeProperty targetNodeProperty) {
+		this.targetNodeProperty = targetNodeProperty;
+	}
+
+	public RelationshipProperties getRelationshipProperties() {
+		return relationshipProperties;
+	}
+
+	public void setRelationshipProperties(RelationshipProperties relationshipProperties) {
+		this.relationshipProperties = relationshipProperties;
+	}
+
+	public RelationshipName getRelationshipName() {
+		return relationshipName;
+	}
+
+	public void setRelationshipName(RelationshipName relationshipName) {
+		this.relationshipName = relationshipName;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	@Override
+	public String toString() {
+		return "Indexer [sourceNodeType=" + sourceNodeType + ", sourceNodeProperty=" + sourceNodeProperty
+				+ ", targetNodeType=" + targetNodeType + ", targetNodeProperty=" + targetNodeProperty
+				+ ", relationshipProperties=" + relationshipProperties + ", relationshipName=" + relationshipName
+				+ ", message=" + message + "]";
+	}
+
+}
