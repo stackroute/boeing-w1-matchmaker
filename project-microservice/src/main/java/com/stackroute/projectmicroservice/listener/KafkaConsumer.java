@@ -16,11 +16,11 @@ public class KafkaConsumer {
 
 	private static final Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
 
-	// private CountDownLatch latch = new CountDownLatch(1);
-	//
-	// public CountDownLatch getLatch() {
-	// return latch;
-	// }
+	private CountDownLatch latch = new CountDownLatch(1);
+
+	public CountDownLatch getLatch() {
+		return latch;
+	}
 
 	@Autowired
 	private Receiver receiver;
