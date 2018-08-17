@@ -4,10 +4,10 @@ RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/location-microservice-1.0.0-SNAPSHOT.jar /src/user.jar
+ADD target/location-microservice-1.0.0.jar /src/location.jar
 
-EXPOSE 8080
+EXPOSE 8086
 
-RUN sh -c 'touch /src/user.jar'
+RUN sh -c 'touch /src/location.jar'
 
-ENTRYPOINT ["java","-jar","/src/user.jar"]
+ENTRYPOINT ["java","-jar","/src/location.jar"]

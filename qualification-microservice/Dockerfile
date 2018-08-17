@@ -4,10 +4,10 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/QualificationMicroservice-0.0.1-SNAPSHOT.jar /src/user.jar
+COPY target/qualification-microservice-1.0.0.jar /src/qualification.jar
 
-EXPOSE 8081
+EXPOSE 8085
 
-RUN sh -c 'touch /src/user.jar'
+RUN sh -c 'touch /src/qualification.jar'
 
-ENTRYPOINT ["java","-jar","/src/user.jar"]
+ENTRYPOINT ["java","-jar","/src/qualification.jar"]

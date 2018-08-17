@@ -22,8 +22,8 @@ public class Projects {
 	}
 
 	public Projects(String profileId, String projectId, String projectAt, String role, String department,
-			String projectLocation, String projectTitle, String teamSize, String from, String to, String synopsis,
-			String url, String demoUrl, String skills, String message) {
+			String projectLocation, String projectTitle, String teamSize, String from, String to, 
+			String synopsis, String url, String demoUrl, String skills, String message) {
 		super();
 		this.profileId = profileId;
 		this.projectId = projectId;

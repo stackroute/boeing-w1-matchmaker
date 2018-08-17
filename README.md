@@ -33,4 +33,4 @@ Run ```mvn clean compile package``` on all the services
 		--ex: http://localhost:8092/application/home
 		-- applicationName is mentioned in the application.properties
 
--check the eureka server dashboard to find all the services running
+-check the eureka server dashboard to find all the services running.

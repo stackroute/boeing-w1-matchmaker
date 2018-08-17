@@ -23,8 +23,9 @@ public class PersonalInfo {
 	}
 
 
-	public PersonalInfo(String profileId, String picture, String name, String dob, String age, String gender,
-			String mobile, String email, String facebook, String linkedin, String github, String bloodGroup) {
+	public PersonalInfo(String profileId, String picture, String name, String dob, String age, 
+			String gender, String mobile, String email, String facebook, String linkedin, 
+			String github, String bloodGroup) {
 		super();
 		this.profileId = profileId;
 		this.picture = picture;
