@@ -72,19 +72,19 @@ services:
     healthcheck:
       test: "exit 0"
 
-# user-service:
-#   build: user-service/
-#   image: demo-user-service
-#   restart: always
-#   network_mode: "host"
-#   hostname: localhost
-#   ports:
-#     - 8081:8081
-#   depends_on:
-#     - config-service
-#     - eureka-server
-#   healthcheck:
-#     test: "exit 0"
+ user-service:
+   build: user-service/
+   image: demo-user-service
+   restart: always
+   network_mode: "host"
+   hostname: localhost
+   ports:
+     - 8081:8081
+   depends_on:
+     - config-service
+     - eureka-server
+   healthcheck:
+     test: "exit 0"
 
   personal-service:
     build: personalinformation-microservice/ 
@@ -141,16 +141,16 @@ services:
     healthcheck:
       test: "exit 0"
 
-#  skill-service:
-#    build: skill-microservice/
-#    image: skill-service
-#    restart: always
-#    network_mode: "host"
-#    hostname: localhost
-#    ports:
-#      - 8089:8089
-#    healthcheck:
-#      test: "exit 0"
+  skill-service:
+    build: skill-microservice/
+    image: skill-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8089:8089
+    healthcheck:
+      test: "exit 0"
 
   qualification-service:
     build: qualification-microservice

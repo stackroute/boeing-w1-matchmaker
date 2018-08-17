@@ -1,6 +1,6 @@
 spring:
  kafka:
-    bootstrap-servers: 172.23.238.163:9092
+    bootstrap-servers: localhost:9092
     consumer:
      group-id: group_json
 
@@ -9,4 +9,4 @@ app:
     name: Projects
 
 server:
- port: 8082
+ port: 8088
