@@ -14,36 +14,37 @@ import com.stackroute.kafka.locationconsumer.model.Location;
 import java.util.HashMap;
 import java.util.Map;
 
-@EnableKafka   // lets kafka know that there are listeners in application
+@EnableKafka // lets kafka know that there are listeners in application
 @Configuration
 public class KafkaConfiguration {
 
 	@Value("${spring.kafka.consumer.bootstrap-servers}")
-    private String bootstrapServers;
-	
+	private String bootstrapServers;
+
 	// configuration for consuming string or deafault messages
 	// defining consumer factory for configuration
 	@Bean
 	public ConsumerFactory<String, String> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id" );
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		return new DefaultKafkaConsumerFactory<>(config);
 	}
 
 	// setting the consumer factory with the cofiguration
-	// kafkaListenerContainerFactory is default container factory used in kafka listener
+	// kafkaListenerContainerFactory is default container factory used in kafka
+	// listener
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory();
+		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<String, String>();
 		factory.setConsumerFactory(consumerFactory());
 		return factory;
 	}
 
-	//configuration for consuming json message
-	//defining consumer factory for configuration
+	// configuration for consuming json message
+	// defining consumer factory for configuration
 	@Bean
 	public ConsumerFactory<String, Location> locationConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();

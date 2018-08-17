@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/location-microservice-1.0.0-SNAPSHOT.jar /src/user.jar
+COPY target/location-microservice-1.0.0-SNAPSHOT.jar /src/user.jar
 
 EXPOSE 8080
 

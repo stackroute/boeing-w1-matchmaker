@@ -1,14 +1,11 @@
 spring:
   kafka:
     consumer:
-      bootstrap-servers: localhost:9092   
+      bootstrap-servers: localhost:9092
     bootstrap-servers: localhost:9092
-    
-       
 producer:
- location:
-   topic: Location_Output
- 
-consumer:  
- location:
-   topic: Location_Output
+  location:
+    topic: outputToIndexer
+consumer:
+  location:
+    topic: Location

@@ -12,7 +12,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.kafka.locationconsumer.model.Location;
+import com.stackroute.kafka.locationconsumer.indexermodel.Indexer;
 
 @Configuration
 public class KafkaProducerConfiguration {
@@ -22,21 +22,17 @@ public class KafkaProducerConfiguration {
 	
 	//producer factory for producer configuration 
     @Bean
-    public ProducerFactory<String, Location> producerFactory() {
+    public ProducerFactory<String, Indexer> producerFactory() {
         Map<String, Object> config = new HashMap<>();
-
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-
         return new DefaultKafkaProducerFactory<>(config);
     }
 
-    //injecting configuration/producer config to template
+    //injecting configuration/producer config to template  
     @Bean
-    public KafkaTemplate<String, Location> kafkaTemplate() {
+    public KafkaTemplate<String, Indexer> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
-
-
 }
