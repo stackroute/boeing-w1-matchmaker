@@ -14,6 +14,9 @@ public class SkillRelationshipProperties {
 		this.skills = skills;
 	}
 
+	public SkillRelationshipProperties() {
+	}
+
 	public String getWeight() {
 		return weight;
 	}
