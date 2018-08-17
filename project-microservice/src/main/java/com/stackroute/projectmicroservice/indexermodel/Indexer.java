@@ -6,6 +6,10 @@ public class Indexer {
 
 	private WorkIndexer workIndexer;
 	private SkillIndexer skillIndexer;
+	
+	public Indexer() {
+		
+	}
 
 	@Autowired
 	public Indexer(WorkIndexer workIndexer, SkillIndexer skillIndexer) {
