@@ -6,7 +6,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/training-microservice-v1.0.0.jar /src/training.jar
+COPY target/training-microservice-1.0.0.jar /src/training.jar
 
 EXPOSE 8084
 
