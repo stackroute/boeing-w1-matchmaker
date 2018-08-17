@@ -1,0 +1,37 @@
+server:
+  port: 8090
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers:
+          - 172.23.238.184:9092
+      bindings:
+        Projects:
+          destination: Project
+          content-type: application/json
+        Location:
+          destination: Location
+          content-type: application/json
+        Certificates:
+          destination: Training
+          content-type: application/json
+        Academies:
+          destination: Academies
+          content-type: application/json
+        PersonalInfo:
+          destination: PersonalInfo
+          content-type: application/json
+        Experience:
+          destination: Experience
+          content-type: application/json
+        Skills:
+          destination: Skills
+          content-type: application/json
+  data:
+    cassandra:
+      keyspace-name: matchmaker
+      contact-points:
+      - 127.0.0.1
+      port: 9042
