@@ -1,5 +1,7 @@
 package com.stackroute.projectmicroservice.listener;
 
+import java.util.concurrent.CountDownLatch;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,13 @@ import com.stackroute.projectmicroservice.producer.Receiver;
 public class KafkaConsumer {
 
 	private static final Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
+
+	// private CountDownLatch latch = new CountDownLatch(1);
+	//
+	// public CountDownLatch getLatch() {
+	// return latch;
+	// }
+
 	@Autowired
 	private Receiver receiver;
 
