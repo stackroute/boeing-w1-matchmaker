@@ -1,4 +1,4 @@
-package com.stackroute.matchmaker.modelTests;
+package com.stackroute.matchmaker.modeltests;
 
 
 import org.junit.Before;
