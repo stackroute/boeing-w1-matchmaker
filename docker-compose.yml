@@ -69,7 +69,7 @@ services:
     depends_on:
       - zookeeper
     restart: always
-    healthcheck:EXT://localhost:9092
+    healthcheck:
       test: "exit 0"
 
   user-service:
