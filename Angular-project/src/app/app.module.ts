@@ -18,6 +18,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ExistingEmailValidatorDirective } from './registration/customValidaters/existingEmail';
 import { ExistingUsernameValidatorDirective } from './registration/customValidaters/existingUserName';
 import { LoginComponent } from './login/login.component';
+import { MaterialModule } from './material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,8 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,HttpModule,ReactiveFormsModule
+    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,HttpModule,ReactiveFormsModule,
+    MaterialModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

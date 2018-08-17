@@ -20,6 +20,7 @@ export class LocationComponent implements OnInit {
   ngOnInit() {
     this.newPost_Loc = new UserLocation();
     this.getPost_Loc = new UserLocation();
+    this.newPost_Loc.addressType = 'previous';
   }
 
   addPost_Location() {
