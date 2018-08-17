@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.appli.controller;
+package com.stackroute.experiencemicroservice.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.experiencemicroservice.appli.indexermodel.Indexer;
-import com.stackroute.experiencemicroservice.appli.indexermodel.RelationshipName;
-import com.stackroute.experiencemicroservice.appli.indexermodel.RelationshipProperties;
-import com.stackroute.experiencemicroservice.appli.indexermodel.TargetNodeProperty;
-import com.stackroute.experiencemicroservice.appli.model.Experience;
+import com.stackroute.experiencemicroservice.indexermodel.Indexer;
+import com.stackroute.experiencemicroservice.indexermodel.RelationshipName;
+import com.stackroute.experiencemicroservice.indexermodel.RelationshipProperties;
+import com.stackroute.experiencemicroservice.indexermodel.TargetNodeProperty;
+import com.stackroute.experiencemicroservice.model.Experience;
 
 @Service
 public class KafkaProducerController {

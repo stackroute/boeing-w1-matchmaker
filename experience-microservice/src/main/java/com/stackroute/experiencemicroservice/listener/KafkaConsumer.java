@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.appli.listener;
+package com.stackroute.experiencemicroservice.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.experiencemicroservice.appli.controller.KafkaProducerController;
-import com.stackroute.experiencemicroservice.appli.model.Experience;
+import com.stackroute.experiencemicroservice.controller.KafkaProducerController;
+import com.stackroute.experiencemicroservice.model.Experience;
 
 @Service
 public class KafkaConsumer {
@@ -28,7 +28,7 @@ public class KafkaConsumer {
 	 * message listener on the specified topics
 	 */
 	
-	@KafkaListener(topics = "${experienceproducer.producer.exp}", group = "${spring.kafka.consumer.group-id}",
+	@KafkaListener(topics = "${experienceproducer.producer.exp}", groupId = "${spring.kafka.consumer.group-id}",
 			containerFactory = "experienceKafkaListenerFactory")
 	public void consumeJson(Experience experience) {
 		// System.out.println("Consumed JSON Message: " + experience);

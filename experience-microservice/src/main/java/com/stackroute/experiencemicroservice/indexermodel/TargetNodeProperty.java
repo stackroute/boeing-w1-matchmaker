@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.appli.indexermodel;
+package com.stackroute.experiencemicroservice.indexermodel;
 
 public class TargetNodeProperty {
 	private String profileId;
