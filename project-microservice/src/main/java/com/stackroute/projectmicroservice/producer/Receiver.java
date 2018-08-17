@@ -16,7 +16,7 @@ import com.stackroute.projectmicroservice.relationshipmodel.WorkInRelationshipPr
 
 @Service
 public class Receiver {
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
 	@Autowired
 	private Producer producer;
@@ -71,7 +71,7 @@ public class Receiver {
 		// Converging
 		indexer.setWorkIndexer(workIndexer);
 		indexer.setSkillIndexer(skillIndexer);
-		
+
 		LOG.info("Parsed JSON message='{}'", indexer);
 
 		producer.send(indexer);
