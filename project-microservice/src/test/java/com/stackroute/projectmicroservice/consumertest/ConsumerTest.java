@@ -69,17 +69,18 @@ public class ConsumerTest {
 		}
 	}
 
-//	@Test
-//	public void testReceive() throws Exception {
-//		// send the message
-//		Project greeting = project;
-//		template.sendDefault(greeting);
-//		LOGGER.debug("test-sender sent message='{}'", greeting);
-//
-//		kafkaConsumer.getLatch().await(10000, TimeUnit.MILLISECONDS);
-//
-//		// check that the message was received
-//		assertThat(kafkaConsumer.getLatch().getCount()).isEqualTo(0);
-//	}
+	@Test
+	public void testReceive() throws Exception {
+
+		// send the message
+		Project greeting = project;
+		template.sendDefault(greeting);
+		LOGGER.debug("test-sender sent message='{}'", greeting);
+
+		kafkaConsumer.getLatch().await(10000, TimeUnit.MILLISECONDS);
+
+		// check that the message was received
+		assertThat(kafkaConsumer.getLatch().getCount()).isEqualTo(0);
+	}
 
 }
