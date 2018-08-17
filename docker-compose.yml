@@ -87,7 +87,7 @@ services:
       test: "exit 0"
 
   personal-service:
-    build: personalinformation-microService/
+    build: personalinformation-microservice/ 
     image: personal-service
     ports: 
       - 8087:8087
