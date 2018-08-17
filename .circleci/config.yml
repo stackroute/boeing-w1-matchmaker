@@ -38,7 +38,7 @@ jobs:
       - run: mvn clean compile package -X
       - run: 
           name: Start container
-          command: docker-compose up --build
+          command: docker-compose up --build -d
 
       - save_cache:
           paths:
