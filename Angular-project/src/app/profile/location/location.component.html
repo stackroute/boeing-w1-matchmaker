@@ -1,8 +1,20 @@
 <div *ngIf="loc_check">
   <div class="card">
     <div class="card-body">
+
+      
       <h2>Location</h2>
-      Profile Id: {{getPost_Loc.profileId}}
+
+      <div [ngSwitch]="getPost_Loc.addressType">
+          <div *ngSwitchCase="'present'">
+              <strong>Currently living</strong>
+          </div>
+          <div *ngSwitchCase="'previous'">
+              <strong>Place lived</strong>
+          </div>
+      </div>
+       
+           Profile Id: {{getPost_Loc.profileId}}
       <br> Address: {{getPost_Loc.address}}
       <br> City: {{getPost_Loc.city}}
       <br> PIN: {{getPost_Loc.pin}}
@@ -12,56 +24,63 @@
   </div>
 </div>
 
-
-
-
-
 <div class="modal fade" id="myModal4">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content center-align">
+      
       <div class="modal-header">
         <h4 class="modal-title">Location</h4>
         <button class="close" data-dismiss="modal">&times;</button>
-
       </div>
+
       <!-- end modal-header -->
       <div class="modal-body">
-        <form class="form-horizontal" (submit)="addPost_Location()">
-          <div class="form-group">
-            <input class="form-control" placeholder="Profile Id" type="text" [(ngModel)]="newPost_Loc.profileId" name="profileId">
+        <form class="form-horizontal" id="location-form" (submit)="addPost_Location()">
+            
+          <div>
+            <mat-radio-group>
+                <mat-radio-button (click)="newPost_Loc.addressType = 'present'" value="present">Currently living</mat-radio-button> &nbsp;
+                <mat-radio-button (click)="newPost_Loc.addressType = 'previous'" value="previous" checked>Place lived</mat-radio-button>
+            </mat-radio-group> </div>
+            <br/>
+          
+          <div class="example-container">
+              <mat-form-field>
+                <input matInput [placeholder]="newPost_Loc.addressType == 'present' ? 'I currently stay at' : 'I stayed at'" 
+                                  [(ngModel)]="newPost_Loc.address" name="addr">
+              </mat-form-field>
+              <br/>
           </div>
 
-          <div class="form-group">
-            <input class="form-control" placeholder="Address" type="text" [(ngModel)]="newPost_Loc.address" name="addr">
+          <div class="center-align">
+              <mat-form-field>
+                <input matInput placeholder="in City" [(ngModel)]="newPost_Loc.city" name="city">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="with Pincode" [(ngModel)]="newPost_Loc.pin" name="pin">
+              </mat-form-field>
+              <br/>
+              <mat-form-field>
+                <input matInput placeholder="in State" [(ngModel)]="newPost_Loc.state" name="state">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="in Country" [(ngModel)]="newPost_Loc.country" name="cont">
+              </mat-form-field>
           </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="City" type="text" [(ngModel)]="newPost_Loc.city" name="city">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="PIN" type="text" [(ngModel)]="newPost_Loc.pin" name="pin">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="State" type="text" [(ngModel)]="newPost_Loc.state" name="state">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Country" type="text" [(ngModel)]="newPost_Loc.country" name="cont">
-          </div>
-          <div class="form-group">
-            <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
-          </div>
+          <hr>
+          <button class="btn btn-dark submitbtn mr-1" type="submit" >Send</button> &nbsp;&nbsp;
+          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>  
+                   
         </form>
+        
       </div>
       <!-- end modal-body -->
-
-      <div class="modal-footer">
-        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-      </div>
-      <!-- end modal-footer -->
     </div>
     <!-- end modal-content -->
   </div>
   <!-- end modal-dialog -->
 </div>
 <!-- end myModal -->
+
+  
+ 

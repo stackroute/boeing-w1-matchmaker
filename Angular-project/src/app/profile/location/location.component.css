@@ -1,0 +1,24 @@
+.mat-radio-button ~ .mat-radio-button {
+    padding-right: 16px;
+  }
+
+  .example-container > * {
+    width: 90%;
+    text-align: center;
+  }
+
+  .example-container {
+    text-align: center;
+  }
+
+  .center-align > * {
+    text-align: center;
+  }
+
+  .center-align {
+    text-align: center;
+  }
+
+  .dropdown-menu a:hover {
+   cursor: pointer;
+  }

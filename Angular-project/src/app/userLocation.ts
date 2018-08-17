@@ -5,6 +5,6 @@ export class UserLocation {
     pin:String
     state:String
     country:String
-    
+    addressType:String
     constructor(){}
 }
