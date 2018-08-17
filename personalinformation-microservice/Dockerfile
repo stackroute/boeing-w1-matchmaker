@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/personalinformation-microservice-0.0.1-SNAPSHOT.jar /src/user.jar
+ADD target/personalinformation-microservice-1.0.0-SNAPSHOT.jar /src/user.jar
 
 EXPOSE 8087
 
