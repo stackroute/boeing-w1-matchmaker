@@ -1,41 +1,38 @@
-<div class="container profileSubmit">
-  <div class="card">
-    <div class="card-body">
-      <form class="form-horizontal" [formGroup]="userForm" (ngSubmit)="profileSubmit()">
-        <h4>Login</h4>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" formControlName="username" class="form-control" name=username/>
-          <div *ngIf="username.dirty && username.errors" class="error">
-            <div *ngIf="username.errors.required">
-              Username required.
+<div class="container loginSubmit">
+  <div class="row">
+    <div class="col-sm-5"></div>
+    <div class="col-sm-1" id="border_seperate"></div>
+    <div class="col-sm-6">
+    <div class="card" id="card-align">
+      <div class="card-body">
+        <form class="form-horizontal" [formGroup]="userForm" (ngSubmit)="loginSubmit()">
+          <h4>Login</h4>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="form-control" name=username/>
+            <div *ngIf="username.dirty && username.errors" class="error">
+              <div *ngIf="username.errors.required" class="validation_message">
+                Username required.
+              </div>
             </div>
           </div>
-        </div>
-        <!-- <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" formControlName="email" class="form-control" name="email" />
-          <div *ngIf="email.dirty && email.errors" class="error">
-            <div *ngIf="email.errors.required">
-              Email required.
-            </div>
-            <div *ngIf="email.errors.email">
-              Email not valid.
-            </div>
-            <div *ngIf="email.errors.emailExists">
-              Email already exists.
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" formControlName="password" />
+            <div *ngIf="password.dirty && password.errors" class="error">
+              <div *ngIf="password.errors.required" class="validation_message">
+                Password required.
+              </div>
             </div>
           </div>
-        </div> -->
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" formControlName="password" />
-        </div>
-        <div class="form-group">
-          <button class="btn btn-danger" [disabled]="userForm.invalid">Login</button>&nbsp;
-          <!-- <a [routerLink]="['/login']" class="btn btn-link">Cancel</a> -->
-        </div>
-      </form>
+          <div class="form-group">
+            <button class="btn btn-danger" [disabled]="userForm.invalid">Login</button>
+            <span id="orStyle"> OR </span>
+            <button class="btn" id="signUp" [routerLink]="['/register']">SignUp</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+  </div>
+  </div>

@@ -3,6 +3,7 @@ import { RegisterService } from '../register.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { existingEmail } from './customValidaters/existingEmail';
 import { existingUserName } from './customValidaters/existingUserName';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -14,7 +15,8 @@ export class RegistrationComponent implements OnInit {
   userForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -36,6 +38,7 @@ export class RegistrationComponent implements OnInit {
   profileSubmit() {
     const newUser = this.userForm.value;
     this.registerService.addNewUser(newUser).subscribe(() => {});
+    this.router.navigate(['/']);
   }
 
   get username() {
@@ -43,5 +46,8 @@ export class RegistrationComponent implements OnInit {
   }
   get email() {
     return this.userForm.get('email');
+  }
+  get password() {
+    return this.userForm.get('password');
   }
 }

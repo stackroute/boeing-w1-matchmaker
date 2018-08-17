@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  userForm: FormGroup;
+  constructor(private formBuilder: FormBuilder,
+    private router: Router) { }
 
-  constructor() { }
+    ngOnInit() {
+      this.userForm = this.formBuilder.group({
+        username: [
+          '',
+          [Validators.required]
+        ],
+        password: ['', [Validators.required]]
+      });
+    }
 
-  ngOnInit() {
-  }
+    loginSubmit() {
+      const newUser = this.userForm.value;
+      this.router.navigate(['/profile']);
+    }
+
+    get username() {
+      return this.userForm.get('username');
+    }
+
+    get password() {
+      return this.userForm.get('password');
+    }
 
 }
