@@ -2,21 +2,23 @@ package com.stackroute.kafka.locationconsumer.model;
 
 public class Location {
 
-	//location fields
-    private String profileId;
-    private String address;
-    private String city;
-    private String pin;
-    private String state;
-    private String country;
-    
-    //default constructor
+	// location fields
+	private String profileId;
+	private String address;
+	private String city;
+	private String pin;
+	private String state;
+	private String country;
+	private String addressType;
+
+	// default constructor
 	public Location() {
 		super();
 	}
 
-	//parameterized constructor 
-	public Location(String profileId, String address, String city, String pin, String state, String country) {
+	// parameterized constructor
+	public Location(String profileId, String address, String city, String pin, String state, String country,
+			String addressType) {
 		super();
 		this.profileId = profileId;
 		this.address = address;
@@ -24,15 +26,16 @@ public class Location {
 		this.pin = pin;
 		this.state = state;
 		this.country = country;
+		this.addressType = addressType;
 	}
 
 	@Override
 	public String toString() {
-		return "User [profileId=" + profileId + ", address=" + address + ", city=" + city + ", pin=" + pin + ", state="
-				+ state + ", country=" + country + "]";
+		return "Location [profileId=" + profileId + ", address=" + address + ", city=" + city + ", pin=" + pin
+				+ ", state=" + state + ", country=" + country + ", addressType=" + addressType + "]";
 	}
 
-	//getters and setters
+	// getters and setters
 	public String getProfileId() {
 		return profileId;
 	}
@@ -80,8 +83,14 @@ public class Location {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-    
-	   
+
+	public String getAddressType() {
+		return addressType;
+	}
+
+	public void setAddressType(String addressType) {
+		this.addressType = addressType;
+	}
 
 	
 }

@@ -4,15 +4,24 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<!-- <groupId>com.stackroute.kafka</groupId> -->
 	<artifactId>location-microservice</artifactId>
+	<!-- <version>1.1.0</version> -->
 	<packaging>jar</packaging>
 
 	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.13.RELEASE</version>
+		<!-- <relativePath /> lookup parent from repository -->
+	</parent>
+	
+	<!-- <parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>boeing-w1-matchmaker</artifactId>
 		<version>1.0.0</version>
-		<!-- <relativePath/> lookup parent from repository -->
-	</parent>
+		<relativePath/> lookup parent from repository
+	  </parent> -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,7 +46,6 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.6.7</version>
 		</dependency>
 
 		<dependency>
@@ -56,9 +64,8 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
 				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
+				<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
 			</plugin>
 		</plugins>
