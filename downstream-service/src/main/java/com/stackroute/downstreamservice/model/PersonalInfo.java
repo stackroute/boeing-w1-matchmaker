@@ -20,16 +20,16 @@ import lombok.ToString;
 public class PersonalInfo {
 	@PrimaryKeyColumn(type = PrimaryKeyType.PARTITIONED)
 	private String profileId;
-    private String name;
-    private String picture;
-    private String dob;
-    private String age;
-    private String gender;
-    private String mobile;
-    private String email;
-    private String facebook;
-    private String linkedin;
-    private String github;
-    private String bloodGroup;
+	private String name;
+	private String picture;
+	private String dob;
+	private String age;
+	private String gender;
+	private String mobile;
+	private String email;
+	private String facebook;
+	private String linkedin;
+	private String github;
+	private String bloodGroup;
 
 }

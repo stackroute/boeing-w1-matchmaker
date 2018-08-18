@@ -20,9 +20,9 @@ import lombok.ToString;
 @Table
 public class Training {
 
-	@PrimaryKeyColumn(ordinal = 0,type = PrimaryKeyType.PARTITIONED)
+	@PrimaryKeyColumn(ordinal = 0, type = PrimaryKeyType.PARTITIONED)
 	private String profileId;
-	@PrimaryKeyColumn(ordinal = 1,type = PrimaryKeyType.PARTITIONED)
+	@PrimaryKeyColumn(ordinal = 1, type = PrimaryKeyType.PARTITIONED)
 	private String trainingId;
 	private String trainingName;
 	private String authority;

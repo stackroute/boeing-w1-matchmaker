@@ -19,22 +19,22 @@ import lombok.ToString;
 @Table
 public class Project {
 
-	@PrimaryKeyColumn(ordinal = 0,type = PrimaryKeyType.PARTITIONED)
+	@PrimaryKeyColumn(ordinal = 0, type = PrimaryKeyType.PARTITIONED)
 	private String profileId;
-	@PrimaryKeyColumn(ordinal = 1,type = PrimaryKeyType.PARTITIONED)
+	@PrimaryKeyColumn(ordinal = 1, type = PrimaryKeyType.PARTITIONED)
 	private String projectId;
-    
+
 	private String projectAt;
-    private String role;
-    private String department;
-    private String projectLocation;
-    private String technologies;
-    private String projectTitle;
-    private String from;
-    private String to;
-    private String synopsis;
-    private String url;
-    private String demoURL;
-    private String skills;
-    private String message;
+	private String role;
+	private String department;
+	private String projectLocation;
+	private String technologies;
+	private String projectTitle;
+	private String from;
+	private String to;
+	private String synopsis;
+	private String url;
+	private String demoURL;
+	private String skills;
+	private String message;
 }

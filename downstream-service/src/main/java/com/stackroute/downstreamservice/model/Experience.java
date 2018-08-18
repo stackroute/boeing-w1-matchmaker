@@ -23,14 +23,13 @@ import lombok.ToString;
 @Table
 
 public class Experience {
-	@PrimaryKeyColumn(ordinal = 0,type = PrimaryKeyType.PARTITIONED)
+	@PrimaryKeyColumn(ordinal = 0, type = PrimaryKeyType.PARTITIONED)
 	private String profileId;
-	@PrimaryKeyColumn(ordinal = 1,type = PrimaryKeyType.PARTITIONED)
-    private String organizationName;
-    private String role;
-    private String startDate;
-    private String endDate;
-    private String message;
-    
+	@PrimaryKeyColumn(ordinal = 1, type = PrimaryKeyType.PARTITIONED)
+	private String organizationName;
+	private String role;
+	private String startDate;
+	private String endDate;
+	private String message;
 
 }

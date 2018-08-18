@@ -20,10 +20,10 @@ import lombok.ToString;
 @Table
 public class Academics {
 
-	@PrimaryKeyColumn(ordinal = 0,type = PrimaryKeyType.PARTITIONED)
+	@PrimaryKeyColumn(ordinal = 0, type = PrimaryKeyType.PARTITIONED)
 	private String profileId;
-	@PrimaryKeyColumn(ordinal = 1,type = PrimaryKeyType.PARTITIONED)
-    private String qualification;
+	@PrimaryKeyColumn(ordinal = 1, type = PrimaryKeyType.PARTITIONED)
+	private String qualification;
 	private String instituteName;
 	private String yearOfJoining;
 	private String yearOfCompletion;

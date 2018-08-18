@@ -18,7 +18,7 @@ import lombok.ToString;
 @Table
 public class Location {
 
-	@PrimaryKey	
+	@PrimaryKey
 	private String profileId;
 	private String address;
 	private String city;
