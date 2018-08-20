@@ -3,29 +3,26 @@ package com.stackroute.experiencemicroservice.appli.indexermodel;
 public class Indexer {
 	/* Indexer input field Attributes */
 	private String sourceNodeType;
-	private String sourceNodeProperty;
-	private String targetNodeType;
+	// private String sourceNodeProperty;
+	// private String targetNodeType;
 	private TargetNodeProperty targetNodeProperty;
 	private RelationshipProperties relationshipProperties;
 	private RelationshipName relationshipName;
 	private String message;
 
-	public Indexer() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Indexer(String sourceNodeType, String sourceNodeProperty, String targetNodeType,
-			TargetNodeProperty targetNodeProperty, RelationshipProperties relationshipProperties,
-			RelationshipName relationshipName, String message) {
+	public Indexer(String sourceNodeType, TargetNodeProperty targetNodeProperty,
+			RelationshipProperties relationshipProperties, RelationshipName relationshipName, String message) {
 		super();
 		this.sourceNodeType = sourceNodeType;
-		this.sourceNodeProperty = sourceNodeProperty;
-		this.targetNodeType = targetNodeType;
 		this.targetNodeProperty = targetNodeProperty;
 		this.relationshipProperties = relationshipProperties;
 		this.relationshipName = relationshipName;
 		this.message = message;
+	}
+
+	public Indexer() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getSourceNodeType() {
@@ -34,22 +31,6 @@ public class Indexer {
 
 	public void setSourceNodeType(String sourceNodeType) {
 		this.sourceNodeType = sourceNodeType;
-	}
-
-	public String getSourceNodeProperty() {
-		return sourceNodeProperty;
-	}
-
-	public void setSourceNodeProperty(String sourceNodeProperty) {
-		this.sourceNodeProperty = sourceNodeProperty;
-	}
-
-	public String getTargetNodeType() {
-		return targetNodeType;
-	}
-
-	public void setTargetNodeType(String targetNodeType) {
-		this.targetNodeType = targetNodeType;
 	}
 
 	public TargetNodeProperty getTargetNodeProperty() {
@@ -82,13 +63,11 @@ public class Indexer {
 
 	public void setMessage(String message) {
 		this.message = message;
-
 	}
 
 	@Override
 	public String toString() {
-		return "Indexer [sourceNodeType=" + sourceNodeType + ", sourceNodeProperty=" + sourceNodeProperty
-				+ ", targetNodeType=" + targetNodeType + ", targetNodeProperty=" + targetNodeProperty
+		return "Indexer [sourceNodeType=" + sourceNodeType + ", targetNodeProperty=" + targetNodeProperty
 				+ ", relationshipProperties=" + relationshipProperties + ", relationshipName=" + relationshipName
 				+ ", message=" + message + "]";
 	}
