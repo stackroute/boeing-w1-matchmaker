@@ -18,12 +18,7 @@ public class KafkaConsumer {
 	 * @KafkaListener- Annotation that marks a method to be the target of a Kafka
 	 * message listener on the specified topics
 	 */
-
-	/*]
-	 * kafka json listener, specifying the listener container factory group =
-	 * "group_json"
-	 */
-	@KafkaListener(topics = "Location12", containerFactory = "locationKafkaListenerFactory")
+    @KafkaListener(topics = "Location12", containerFactory = "locationKafkaListenerFactory")
 	public void consumeJson(Location location) {
 		LOG.info("Consumed JSON message='{}'", location);
 		kafkaProducer.post(location);

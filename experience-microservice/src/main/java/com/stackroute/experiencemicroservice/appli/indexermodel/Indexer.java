@@ -2,78 +2,75 @@ package com.stackroute.experiencemicroservice.appli.indexermodel;
 
 public class Indexer {
 	/* Indexer input field Attributes */
-	private String sourceNodeType;
-	private String sourceNodeProperty;
-	private String targetNodeType;
-	private TargetNodeProperty targetNodeProperty;
-	private RelationshipProperties relationshipProperties;
-	private RelationshipName relationshipName;
+	// private String sourceNodeType;
+	// // private String sourceNodeProperty;
+	// // private String targetNodeType;
+	// private TargetNodeProperty targetNodeProperty;
+	// private RelationshipProperties relationshipProperties;
+	// private RelationshipName relationshipName;
+	// private String message;
+
+	private String profileId;
+	private String organizationName;
+	private String role;
+	private String startDate;
+	private String endDate;
 	private String message;
+
+	public Indexer(String profileId, String organizationName, String role, String startDate, String endDate,
+			String message) {
+		super();
+		this.profileId = profileId;
+		this.organizationName = organizationName;
+		this.role = role;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.message = message;
+	}
 
 	public Indexer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Indexer(String sourceNodeType, String sourceNodeProperty, String targetNodeType,
-			TargetNodeProperty targetNodeProperty, RelationshipProperties relationshipProperties,
-			RelationshipName relationshipName, String message) {
-		super();
-		this.sourceNodeType = sourceNodeType;
-		this.sourceNodeProperty = sourceNodeProperty;
-		this.targetNodeType = targetNodeType;
-		this.targetNodeProperty = targetNodeProperty;
-		this.relationshipProperties = relationshipProperties;
-		this.relationshipName = relationshipName;
-		this.message = message;
+	public String getProfileId() {
+		return profileId;
 	}
 
-	public String getSourceNodeType() {
-		return sourceNodeType;
+	public void setProfileId(String profileId) {
+		this.profileId = profileId;
 	}
 
-	public void setSourceNodeType(String sourceNodeType) {
-		this.sourceNodeType = sourceNodeType;
+	public String getOrganizationName() {
+		return organizationName;
 	}
 
-	public String getSourceNodeProperty() {
-		return sourceNodeProperty;
+	public void setOrganizationName(String organizationName) {
+		this.organizationName = organizationName;
 	}
 
-	public void setSourceNodeProperty(String sourceNodeProperty) {
-		this.sourceNodeProperty = sourceNodeProperty;
+	public String getRole() {
+		return role;
 	}
 
-	public String getTargetNodeType() {
-		return targetNodeType;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
-	public void setTargetNodeType(String targetNodeType) {
-		this.targetNodeType = targetNodeType;
+	public String getStartDate() {
+		return startDate;
 	}
 
-	public TargetNodeProperty getTargetNodeProperty() {
-		return targetNodeProperty;
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
 	}
 
-	public void setTargetNodeProperty(TargetNodeProperty targetNodeProperty) {
-		this.targetNodeProperty = targetNodeProperty;
+	public String getEndDate() {
+		return endDate;
 	}
 
-	public RelationshipProperties getRelationshipProperties() {
-		return relationshipProperties;
-	}
-
-	public void setRelationshipProperties(RelationshipProperties relationshipProperties) {
-		this.relationshipProperties = relationshipProperties;
-	}
-
-	public RelationshipName getRelationshipName() {
-		return relationshipName;
-	}
-
-	public void setRelationshipName(RelationshipName relationshipName) {
-		this.relationshipName = relationshipName;
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	public String getMessage() {
@@ -82,15 +79,12 @@ public class Indexer {
 
 	public void setMessage(String message) {
 		this.message = message;
-
 	}
 
 	@Override
 	public String toString() {
-		return "Indexer [sourceNodeType=" + sourceNodeType + ", sourceNodeProperty=" + sourceNodeProperty
-				+ ", targetNodeType=" + targetNodeType + ", targetNodeProperty=" + targetNodeProperty
-				+ ", relationshipProperties=" + relationshipProperties + ", relationshipName=" + relationshipName
-				+ ", message=" + message + "]";
+		return "Indexer [profileId=" + profileId + ", organizationName=" + organizationName + ", role=" + role
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", message=" + message + "]";
 	}
 
 }

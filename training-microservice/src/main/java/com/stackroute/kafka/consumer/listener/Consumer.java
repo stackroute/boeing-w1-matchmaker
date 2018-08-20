@@ -30,10 +30,4 @@ public class Consumer {
 			LOG.info("consumed message='{}'", training);
 		}
 
-//		@KafkaListener(topics="testing", group= "group_id")
-//		public void consume(ConsumerRecord<?, ?> cr) {
-//			System.out.println(cr.toString());
-//			kt.send("testing1","hello");	
-//		}
-
 }

@@ -12,6 +12,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
+import com.stackroute.projectmicroservice.indexermodel.Indexer;
 import com.stackroute.projectmicroservice.model.Project;
 
 @Configuration
@@ -38,7 +39,7 @@ public class KafkaProducerConfig {
 	}
 
 	@Bean
-	public KafkaTemplate<String, ?> kafkaTemplate() {
+	public KafkaTemplate<String, Project> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
 	}
 
