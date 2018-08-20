@@ -35,7 +35,8 @@
 
           <div>
               <img style="width:100px;height:100px"  src={{imageUrl}}>
-              <input type="file" #Image accept="/image/*" (change)="handleFileInput($event.target.files)">
+              <input #fileInput style="display: none;" type="file" #Image accept="/image/*" (change)="handleFileInput($event.target.files)">
+              <button type="button" class="btn btn-sm btn-light" (click)="fileInput.click()" >Choose File</button>
               <button type="button" class="btn btn-sm btn-dark">Upload</button>
           </div>
           
