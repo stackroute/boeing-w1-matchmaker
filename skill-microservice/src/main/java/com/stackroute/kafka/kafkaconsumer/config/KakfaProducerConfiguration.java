@@ -9,6 +9,9 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
+
+import com.stackroute.kafka.kafkaconsumer.indexerdata.Index;
+import com.stackroute.kafka.kafkaconsumer.indexerdata.Indexer;
 import com.stackroute.kafka.kafkaconsumer.model.Skill;
 
 import java.util.HashMap;
@@ -22,7 +25,18 @@ public class KakfaProducerConfiguration {
 
 	// producer factory for producer configuration
 	@Bean
-	public ProducerFactory<String, Skill> producerFactory() {
+	public ProducerFactory<String, Indexer> producerFactory() {
+		Map<String, Object> config = new HashMap<>();
+
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+
+		return new DefaultKafkaProducerFactory<>(config);
+	}
+	
+	@Bean
+	public ProducerFactory<String, Index> producerFactoryIndex() {
 		Map<String, Object> config = new HashMap<>();
 
 		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -32,10 +46,31 @@ public class KakfaProducerConfiguration {
 		return new DefaultKafkaProducerFactory<>(config);
 	}
 
+	@Bean
+	public ProducerFactory<String, Skill> producerFactoryskill() {
+		Map<String, Object> config = new HashMap<>();
+
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+
+		return new DefaultKafkaProducerFactory<>(config);
+	}
+	
 	// injecting configuration/producer config to template
 	@Bean
-	public KafkaTemplate<String, Skill> kafkaTemplate() {
+	public KafkaTemplate<String, Indexer> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
+	}
+	
+	@Bean
+	public KafkaTemplate<String, Skill> kafkaTemplateskill() {
+		return new KafkaTemplate<>(producerFactoryskill());
+	}
+	
+	@Bean
+	public KafkaTemplate<String, Index> kafkaTemplateIndex() {
+		return new KafkaTemplate<>(producerFactoryIndex());
 	}
 
 }
