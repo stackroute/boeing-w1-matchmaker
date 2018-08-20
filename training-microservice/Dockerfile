@@ -6,9 +6,9 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/training-microservice-v1.0.0-SNAPSHOT.jar /src/user.jar
+COPY target/training-microservice-1.1.0.jar /src/user.jar
 
-EXPOSE 8080
+EXPOSE 8084
 
 RUN sh -c 'touch /src/user.jar'
 
