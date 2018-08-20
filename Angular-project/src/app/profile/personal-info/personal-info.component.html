@@ -33,7 +33,7 @@
       <div class="modal-body">
         <form class="form-horizontal" (submit)="addPost_PI()">
 
-          <div>
+          <div style="margin-bottom: 12px;">
               <img style="width:100px;height:100px"  src={{imageUrl}}>
               <input #fileInput style="display: none;" type="file" #Image accept="/image/*" (change)="handleFileInput($event.target.files)">
               <button type="button" class="btn btn-sm btn-light" (click)="fileInput.click()" >Choose File</button>

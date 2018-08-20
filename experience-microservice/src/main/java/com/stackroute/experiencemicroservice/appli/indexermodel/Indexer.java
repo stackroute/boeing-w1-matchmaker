@@ -2,21 +2,29 @@ package com.stackroute.experiencemicroservice.appli.indexermodel;
 
 public class Indexer {
 	/* Indexer input field Attributes */
-	private String sourceNodeType;
-	// private String sourceNodeProperty;
-	// private String targetNodeType;
-	private TargetNodeProperty targetNodeProperty;
-	private RelationshipProperties relationshipProperties;
-	private RelationshipName relationshipName;
+	// private String sourceNodeType;
+	// // private String sourceNodeProperty;
+	// // private String targetNodeType;
+	// private TargetNodeProperty targetNodeProperty;
+	// private RelationshipProperties relationshipProperties;
+	// private RelationshipName relationshipName;
+	// private String message;
+
+	private String profileId;
+	private String organizationName;
+	private String role;
+	private String startDate;
+	private String endDate;
 	private String message;
 
-	public Indexer(String sourceNodeType, TargetNodeProperty targetNodeProperty,
-			RelationshipProperties relationshipProperties, RelationshipName relationshipName, String message) {
+	public Indexer(String profileId, String organizationName, String role, String startDate, String endDate,
+			String message) {
 		super();
-		this.sourceNodeType = sourceNodeType;
-		this.targetNodeProperty = targetNodeProperty;
-		this.relationshipProperties = relationshipProperties;
-		this.relationshipName = relationshipName;
+		this.profileId = profileId;
+		this.organizationName = organizationName;
+		this.role = role;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.message = message;
 	}
 
@@ -25,36 +33,44 @@ public class Indexer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getSourceNodeType() {
-		return sourceNodeType;
+	public String getProfileId() {
+		return profileId;
 	}
 
-	public void setSourceNodeType(String sourceNodeType) {
-		this.sourceNodeType = sourceNodeType;
+	public void setProfileId(String profileId) {
+		this.profileId = profileId;
 	}
 
-	public TargetNodeProperty getTargetNodeProperty() {
-		return targetNodeProperty;
+	public String getOrganizationName() {
+		return organizationName;
 	}
 
-	public void setTargetNodeProperty(TargetNodeProperty targetNodeProperty) {
-		this.targetNodeProperty = targetNodeProperty;
+	public void setOrganizationName(String organizationName) {
+		this.organizationName = organizationName;
 	}
 
-	public RelationshipProperties getRelationshipProperties() {
-		return relationshipProperties;
+	public String getRole() {
+		return role;
 	}
 
-	public void setRelationshipProperties(RelationshipProperties relationshipProperties) {
-		this.relationshipProperties = relationshipProperties;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
-	public RelationshipName getRelationshipName() {
-		return relationshipName;
+	public String getStartDate() {
+		return startDate;
 	}
 
-	public void setRelationshipName(RelationshipName relationshipName) {
-		this.relationshipName = relationshipName;
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	public String getMessage() {
@@ -67,9 +83,8 @@ public class Indexer {
 
 	@Override
 	public String toString() {
-		return "Indexer [sourceNodeType=" + sourceNodeType + ", targetNodeProperty=" + targetNodeProperty
-				+ ", relationshipProperties=" + relationshipProperties + ", relationshipName=" + relationshipName
-				+ ", message=" + message + "]";
+		return "Indexer [profileId=" + profileId + ", organizationName=" + organizationName + ", role=" + role
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", message=" + message + "]";
 	}
 
 }
