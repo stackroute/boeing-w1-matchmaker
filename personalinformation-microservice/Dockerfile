@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/pi-0.0.1-SNAPSHOT.jar /src/user.jar
+ADD target/personalinformation-microservice1.1.0.jar /src/personalinformation.jar
 
 EXPOSE 8087
 

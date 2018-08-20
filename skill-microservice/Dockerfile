@@ -4,9 +4,9 @@ RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/skill-microservice-1.0.0-SNAPSHOT.jar /src/user.jar
+ADD target/skill-microservice-1.1.0.jar /src/skill.jar
 
-EXPOSE 8080
+EXPOSE 8089
 
 RUN sh -c 'touch /src/user.jar'
 

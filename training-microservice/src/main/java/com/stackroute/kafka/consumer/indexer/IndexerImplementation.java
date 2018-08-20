@@ -14,12 +14,12 @@ import com.stackroute.kafka.consumer.model.Training;
 public class IndexerImplementation {
 
 	private static final Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
-
-	private String skills;
-	private String duration;
-	private String profileId;
-	private String topics = "IndexTraining";
-	private String topics1 = "Index";
+//
+//	private String skills;
+//	private String duration;
+//	private String profileId;
+//	private String topics = "IndexTraining";
+//	private String topics1 = "Index";
 	private String topics2 = "Train";
 
 	@Autowired
@@ -27,8 +27,6 @@ public class IndexerImplementation {
 
 //	@Autowired
 //	private KafkaTemplate<String, Indexer> kafkaTemplate1;
-
-	
 
 		@KafkaListener(topics = "${listener.topic.name}", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
 		public void receiveJson(Training training) {
@@ -48,7 +46,7 @@ public class IndexerImplementation {
 //			LOG.info("consumed message in indexer='{}'", index);
 		}
 
-//	@KafkaListener(topics = "Rajat", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
+//	@KafkaListener(topics = "sathwik", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
 //	public void pickUpJson(Training training) {
 //
 //		this.skills = training.getSkillsTested();

@@ -10,6 +10,7 @@ public class Training {
     private String authority;
     private String duration;
     private String skillsTested;
+    private String message;
 	
 	public Training() {
 		
@@ -24,7 +25,7 @@ public class Training {
 	 * @param skillsTested
 	 */
 	public Training(String profileId, String trainingId, String trainingName, String authority, String duration,
-			String skillsTested) {
+			String skillsTested,String message) {
 		super();
 		this.profileId = profileId;
 		this.trainingId = trainingId;
@@ -32,6 +33,7 @@ public class Training {
 		this.authority = authority;
 		this.duration = duration;
 		this.skillsTested = skillsTested;
+		this.message = message;
 	}
 
 
@@ -120,13 +122,27 @@ public class Training {
 		this.skillsTested = skillsTested;
 	}
 
+	/**
+	 * @return the message
+	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * @param message the message to set
+	 */
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "User [profileId=" + profileId + ", trainingId=" + trainingId + ", trainingName=" + trainingName
-				+ ", authority=" + authority + ", duration=" + duration + ", skillsTested=" + skillsTested + "]";
+				+ ", authority=" + authority + ", duration=" + duration + ", skillsTested=" + skillsTested + ", message=\" + message + \"]";
 	}
 	
 }

@@ -20,12 +20,12 @@ public class Producer {
 	@Value("${listener.topic.name}")
 	private String TOPIC ;
 	
-	private String topic = "Rajat";
+	private String topic = "sathwik";
 	
 	@GetMapping("/publish/{name}")
 	public String post(@PathVariable("name") final String name) {
-		kafkaTemplate.send(TOPIC, new Training(name,name,name,name,name,name));
-		kafkaTemplate.send(topic, new Training(name,name,name,name,name,name));
+		kafkaTemplate.send(TOPIC, new Training(name,name,name,name,name,name,name));
+		kafkaTemplate.send(topic, new Training(name,name,name,name,name,name,name));
 
 		return "published";
 	}
