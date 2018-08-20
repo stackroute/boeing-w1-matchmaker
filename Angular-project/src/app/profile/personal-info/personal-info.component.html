@@ -3,11 +3,11 @@
     <div class="card-body">
       <h2>Personal Information</h2>
       Profile Id: {{getPost_PI.profileId}}
+      <br> <img style="width:100px;height:100px"  src={{imageUrl}}>
       <br> Name: {{getPost_PI.name}}
       <br> Age: {{getPost_PI.age}}
       <br> Contact no.: {{getPost_PI.mobile}}
       <br> Email: {{getPost_PI.email}}
-      <br> Picture: {{getPost_PI.picture}}
       <br> Date of Birth: {{getPost_PI.dob}}
       <br> Gender: {{getPost_PI.gender}}
       <br> Blood Group: {{getPost_PI.bloodGroup}}
@@ -37,7 +37,6 @@
               <img style="width:100px;height:100px"  src={{imageUrl}}>
               <input #fileInput style="display: none;" type="file" #Image accept="/image/*" (change)="handleFileInput($event.target.files)">
               <button type="button" class="btn btn-sm btn-light" (click)="fileInput.click()" >Choose File</button>
-              <button type="button" class="btn btn-sm btn-dark">Upload</button>
           </div>
           
           <div class="form-group">
@@ -48,7 +47,7 @@
             <input class="form-control" placeholder="Name" [(ngModel)]="newPost_PI.name" name="name" type="text">
           </div>
           <div class="form-group">
-            <input class="form-control" placeholder="Age" type="text" [(ngModel)]="newPost_PI.age" name="age">
+            <input class="form-control" placeholder="Age" type="number" [(ngModel)]="newPost_PI.age" name="age">
           </div>
 
           <div class="form-group">
@@ -57,12 +56,9 @@
           <div class="form-group">
             <input class="form-control" placeholder="Email" type="text" [(ngModel)]="newPost_PI.email" name="email">
           </div>
-
+          
           <div class="form-group">
-            <input class="form-control" placeholder="Picture" type="text" [(ngModel)]="newPost_PI.picture" name="pic">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Date of birth" type="text" [(ngModel)]="newPost_PI.dob" name="dob">
+            <input class="form-control" placeholder="Date of birth" type="date" [(ngModel)]="newPost_PI.dob" name="dob">
           </div>
 
           <div class="form-group">
@@ -73,14 +69,14 @@
           </div>
 
           <div class="form-group">
-            <input class="form-control" placeholder="Facebook" type="text" [(ngModel)]="newPost_PI.facebook" name="facebook">
+            <input class="form-control" placeholder="Facebook" type="url" [(ngModel)]="newPost_PI.facebook" name="facebook">
           </div>
           <div class="form-group">
-            <input class="form-control" placeholder="LinkedIn" type="text" [(ngModel)]="newPost_PI.linkedin" name="linkedin">
+            <input class="form-control" placeholder="LinkedIn" type="url" [(ngModel)]="newPost_PI.linkedin" name="linkedin">
           </div>
 
           <div class="form-group">
-            <input class="form-control" placeholder="Github" type="text" [(ngModel)]="newPost_PI.github" name="github">
+            <input class="form-control" placeholder="Github" type="url" [(ngModel)]="newPost_PI.github" name="github">
           </div>
           <div class="form-group">
             <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
