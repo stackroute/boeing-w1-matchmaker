@@ -8,6 +8,6 @@ COPY target/qualification-microservice-1.1.0.jar /src/qualification.jar
 
 EXPOSE 8085
 
-RUN sh -c 'touch /src/user.jar'
+RUN sh -c 'touch /src/qualification.jar'
 
-ENTRYPOINT ["java","-jar","/src/user.jar"]
+ENTRYPOINT ["java","-jar","/src/qualification.jar"]

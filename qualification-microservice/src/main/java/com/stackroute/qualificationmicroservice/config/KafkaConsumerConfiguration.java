@@ -24,7 +24,7 @@ import java.util.Map;
  */
 @EnableKafka
 @Configuration
-public class KafkaConfiguration {
+public class KafkaConsumerConfiguration {
 
 	 /* Configuration Properties which mentions the IP Address,group Id's
 	  *  for the messages to be exchanged.The VALUE_DESERIALIZER_CLASS_CONFIG
