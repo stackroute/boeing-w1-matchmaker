@@ -7,6 +7,7 @@
 //	private String targetNodeType;
 //	private TargetNodeProperty targetNodeProperty;
 //	private String relationshipName;
+//	private RelationshipProperty relationshipProperty;
 //	private String message;
 //
 //	/**
@@ -30,6 +31,28 @@
 //		this.message = message;
 //	}
 //
+//	/**
+//	 * @param sourceNodeType
+//	 * @param sourceNodeProperty
+//	 * @param targetNodeType
+//	 * @param targetNodeProperty
+//	 * @param relationshipName
+//	 * @param relationshipProperty
+//	 * @param message
+//	 */
+//	public Indexer(String sourceNodeType, SourceNodeProperty sourceNodeProperty, String targetNodeType,
+//			TargetNodeProperty targetNodeProperty, String relationshipName, RelationshipProperty relationshipProperty,
+//			String message) {
+//		super();
+//		this.sourceNodeType = sourceNodeType;
+//		this.sourceNodeProperty = sourceNodeProperty;
+//		this.targetNodeType = targetNodeType;
+//		this.targetNodeProperty = targetNodeProperty;
+//		this.relationshipName = relationshipName;
+//		this.relationshipProperty = relationshipProperty;
+//		this.message = message;
+//	}
+//	
 //	public Indexer() {
 //	}
 //
@@ -123,18 +146,37 @@
 //		this.message = message;
 //	}
 //
-//	/*
-//	 * (non-Javadoc)
-//	 * 
+//	/**
+//	 * @return the relationshipProperty
+//	 */
+//	public RelationshipProperty getRelationshipProperty() {
+//		return relationshipProperty;
+//	}
+//
+//	/**
+//	 * @param relationshipProperty the relationshipProperty to set
+//	 */
+//	public void setRelationshipProperty(RelationshipProperty relationshipProperty) {
+//		this.relationshipProperty = relationshipProperty;
+//	}
+//
+//	/* (non-Javadoc)
 //	 * @see java.lang.Object#toString()
 //	 */
 //	@Override
 //	public String toString() {
 //		return "Indexer [sourceNodeType=" + sourceNodeType + ", sourceNodeProperty=" + sourceNodeProperty
 //				+ ", targetNodeType=" + targetNodeType + ", targetNodeProperty=" + targetNodeProperty
-//				+ ", relationshipName=" + relationshipName
+//				+ ", relationshipName=" + relationshipName + ", relationshipProperty=" + relationshipProperty
 //				+ ", message=" + message + "]";
 //	}
+//
+//	/*
+//	 * (non-Javadoc)
+//	 * 
+//	 * @see java.lang.Object#toString()
+//	 */
+//
 //
 //	/**
 //	 * @param sourceNodeType
@@ -145,5 +187,7 @@
 //	 * @param relationshipProperty
 //	 * @param message
 //	 */
+//	
+//	
 //
 //}
