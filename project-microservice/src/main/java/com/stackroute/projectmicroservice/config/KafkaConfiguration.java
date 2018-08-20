@@ -15,13 +15,13 @@ import com.stackroute.projectmicroservice.model.Project;
 
 import java.util.HashMap;
 import java.util.Map;
+
 /* @EnableKafka annotation is required on the configuration class to
 * enable detection of @KafkaListener annotation on spring managed beans.
 * We need to configure a ConsumerFactory and a KafkaListenerContainerFactory.
 * Once these beans are available in spring bean factory,
 * POJO based consumers can be configured using @KafkaListener annotation.
 */
-
 @EnableKafka
 @Configuration
 public class KafkaConfiguration {
@@ -77,6 +77,10 @@ public class KafkaConfiguration {
 				new JsonDeserializer<>(Project.class));
 	}
 
+	/**
+	 * @method : projectKafkaListenerFactory
+	 * @return: factory
+	 */
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, Project> projectKafkaListenerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, Project> factory = new ConcurrentKafkaListenerContainerFactory<>();

@@ -34,13 +34,21 @@ import com.stackroute.downstreamservice.stream.UserStream;
 
 import lombok.NoArgsConstructor;
 
+/**
+ * 
+ * @author simran 
+ * This class is to bind the listener to all the different
+ *         streams.
+ */
 @NoArgsConstructor
 @EnableBinding({ AcademiesStream.class, ExperienceStream.class, LocationStream.class, PersonalInfoStream.class,
 		ProjectStream.class, SkillsStream.class, TrainingStream.class, UserStream.class })
 public class DownStreamListener {
 
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	// Logger object
+	private final  Logger logger = LoggerFactory.getLogger(this.getClass());
 
+	// all the repository
 	private AcademiesRepository academiesRepository;
 	private ExperienceRepository experienceRepository;
 	private LocationRepository locationRepository;
@@ -68,7 +76,6 @@ public class DownStreamListener {
 
 	@StreamListener(ExperienceStream.INPUT)
 	public void experiencePost(@Payload Experience experience) {
-		// logger.info("11111 reading from topic ExperienceStream " + experience);
 		try {
 			experienceRepository.save(experience);
 		} catch (Exception e) {

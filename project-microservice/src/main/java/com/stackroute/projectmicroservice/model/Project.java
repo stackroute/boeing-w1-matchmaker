@@ -1,8 +1,34 @@
 package com.stackroute.projectmicroservice.model;
 
+/**
+ * 
+ * @author Ansh Model class for project
+ *
+ */
 public class Project {
 
-	// Properties of the Model
+	/**
+	 * @param profileId
+	 *            : Id for the profile
+	 * @param projectId
+	 *            : Project Id
+	 * @param projectAt
+	 *            : Project belongs to which company
+	 * @param role
+	 *            : Role of the Employee
+	 * @param department
+	 * @param projectLocation
+	 * @param technologies
+	 * @param projectTitle
+	 * @param from
+	 * @param to
+	 * @param synopsis
+	 * @param url
+	 * @param demoURL
+	 * @param skills
+	 * @param message
+	 *            : CRUD operations like(update,save,delete)
+	 */
 
 	private String profileId;
 	private String projectId;
@@ -19,6 +45,33 @@ public class Project {
 	private String demoURL;
 	private String skills;
 	private String message;
+
+	// Default Constructor
+
+	public Project() {
+
+	}
+
+	public Project(String profileId, String projectId, String projectAt, String role, String department,
+			String projectLocation, String technologies, String projectTitle, String from, String to, String synopsis,
+			String url, String demoURL, String skills, String message) {
+		super();
+		this.profileId = profileId;
+		this.projectId = projectId;
+		this.projectAt = projectAt;
+		this.role = role;
+		this.department = department;
+		this.projectLocation = projectLocation;
+		this.technologies = technologies;
+		this.projectTitle = projectTitle;
+		this.from = from;
+		this.to = to;
+		this.synopsis = synopsis;
+		this.url = url;
+		this.demoURL = demoURL;
+		this.skills = skills;
+		this.message = message;
+	}
 
 	// Getter and setter
 
@@ -142,37 +195,11 @@ public class Project {
 		this.message = message;
 	}
 
-	// Default Constructor
-
-	public Project() {
-
-	}
-
-	// Parameterized Constructor
-
-	public Project(String profileId, String projectId, String projectAt, String role, String department,
-			String projectLocation, String technologies, String projectTitle, String from, String to, String synopsis,
-			String url, String demoURL, String skills, String message) {
-		super();
-		this.profileId = profileId;
-		this.projectId = projectId;
-		this.projectAt = projectAt;
-		this.role = role;
-		this.department = department;
-		this.projectLocation = projectLocation;
-		this.technologies = technologies;
-		this.projectTitle = projectTitle;
-		this.from = from;
-		this.to = to;
-		this.synopsis = synopsis;
-		this.url = url;
-		this.demoURL = demoURL;
-		this.skills = skills;
-		this.message = message;
-	}
-
-	// To String Method
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Project [profileId=" + profileId + ", projectId=" + projectId + ", projectAt=" + projectAt + ", role="

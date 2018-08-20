@@ -13,7 +13,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
+/*
+ * Model for Experience
+ */
 @SuppressWarnings("unused")
 @Getter
 @Setter
@@ -21,15 +23,15 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table
-
+@JsonIgnoreProperties
 public class Experience {
 	@PrimaryKeyColumn(ordinal = 0, type = PrimaryKeyType.PARTITIONED)
 	private String profileId;
-	@PrimaryKeyColumn(ordinal = 1, type = PrimaryKeyType.PARTITIONED)
 	private String organizationName;
 	private String role;
+	@PrimaryKeyColumn(ordinal = 1, type = PrimaryKeyType.PARTITIONED)
 	private String startDate;
 	private String endDate;
-	private String message;
+	//private String message;
 
 }

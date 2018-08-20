@@ -5,6 +5,8 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table
+@JsonIgnoreProperties
 public class Skills {
 	// @PrimaryKeyColumn(type = PrimaryKeyType.PARTITIONED)
 
@@ -28,6 +31,6 @@ public class Skills {
 	private String level;
 	private String noOfMonths;
 	private String furtherUsage;
-	private String message;
+	// aprivate String message;
 
 }
