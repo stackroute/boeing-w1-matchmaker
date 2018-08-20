@@ -43,9 +43,14 @@ public class KafkaProducerController {
 
 	public void produceJson(Experience experience) {
 		TargetNodeProperty targetNodeProperty = new TargetNodeProperty(experience.getProfileId());
-		RelationshipProperties relationshipProperties = new RelationshipProperties(experience.getRole(),
-				experience.getStartDate(), experience.getEndDate(), experience.getOrganizationName());
+		LOG.info("sending JSON message='{}'", targetNodeProperty, TOPIC);
+		RelationshipProperties relationshipProperties = new RelationshipProperties(experience.getOrganizationName(),experience.getRole(),
+				experience.getStartDate(), experience.getEndDate());
+		LOG.info("sending JSON message='{}'", relationshipProperties, TOPIC);
 
+		relationshipName.setEmployeeOf("employeeOf");
+		relationshipName.setWasEmployeeOf("wasEmployeeOf");
+		
 		// Indexer(sourceNodeType,sourceNodeProperty,targetNodeType,targetNodeProperty,relationshipProperties,relationshipName);
 		Indexer indexer = new Indexer("Experience", "sourceNodeProperty", "jsbdcvb", targetNodeProperty,
 				 relationshipProperties,relationshipName, "Created");
