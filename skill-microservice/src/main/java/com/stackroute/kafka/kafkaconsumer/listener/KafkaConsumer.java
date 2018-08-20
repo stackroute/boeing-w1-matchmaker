@@ -18,7 +18,7 @@ public class KafkaConsumer {
 
 	// kafka string or default listener
 
-	@KafkaListener(topics = "Location_String", group = "group_id")
+	@KafkaListener(topics = "Location_String", groupId = "group_id")
 	public void consume(String message) {
 		LOG.info("Consumed message='{}'", message);
 	}

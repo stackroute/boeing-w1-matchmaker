@@ -41,7 +41,7 @@ public class IndexerOutput {
 //
 //	}
 	
-	@KafkaListener(topics = "${listener.topic.name}", group = "group_json", containerFactory = "skillKafkaListenerFactory")
+	@KafkaListener(topics = "${listener.topic.name}", groupId = "group_json", containerFactory = "skillKafkaListenerFactory")
 	public void consumeJson(Skill skill) {
 
 		kafkaTemplate.send(topic,
