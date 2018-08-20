@@ -51,8 +51,9 @@ public class KafkaProducerController {
 		relationshipName.setWasEmployeeOf("wasEmployeeOf");
 		
 		// Indexer(sourceNodeType,sourceNodeProperty,targetNodeType,targetNodeProperty,relationshipProperties,relationshipName);
-		Indexer indexer = new Indexer("Experience", targetNodeProperty,
-				 relationshipProperties,relationshipName, "Created");
+//		Indexer indexer = new Indexer("Experience", targetNodeProperty,
+//				 relationshipProperties,relationshipName, "Created");
+		Indexer indexer = new Indexer(experience.getProfileId(),experience.getOrganizationName(),experience.getRole(),experience.getStartDate(),experience.getEndDate(),experience.getMessage());
 		kafkaTemplate.send(TOPIC, indexer);
 		LOG.info("sending JSON message='{}'", indexer, TOPIC);
 
