@@ -14,23 +14,33 @@ public class PersonalInfo {
 	private String linkedin;
 	private String github;
 	private String bloodGroup;
-	
-	
+	private String message;
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public PersonalInfo(String profileId, String name, String picture, String dob, String age, String gender,
-			String contactNo, String email, String facebook, String linkedin, String github, String bloodGroup) {
-	
+			String mobile, String email, String facebook, String linkedin, String github, String bloodGroup,
+			String message) {
+		super();
 		this.profileId = profileId;
 		this.name = name;
 		this.picture = picture;
 		this.dob = dob;
 		this.age = age;
 		this.gender = gender;
-		this.mobile = contactNo;
+		this.mobile = mobile;
 		this.email = email;
 		this.facebook = facebook;
 		this.linkedin = linkedin;
 		this.github = github;
 		this.bloodGroup = bloodGroup;
+		this.message = message;
 	}
 
 	public PersonalInfo() {
@@ -137,9 +147,9 @@ public class PersonalInfo {
 	@Override
 	public String toString() {
 		return "PersonalInfo [profileId=" + profileId + ", name=" + name + ", picture=" + picture + ", dob=" + dob
-				+ ", age=" + age + ", gender=" + gender + ", contactNo=" + mobile + ", email=" + email
-				+ ", facebook=" + facebook + ", linkedin=" + linkedin + ", github=" + github + ", bloodGroup="
-				+ bloodGroup + "]";
+				+ ", age=" + age + ", gender=" + gender + ", mobile=" + mobile + ", email=" + email + ", facebook="
+				+ facebook + ", linkedin=" + linkedin + ", github=" + github + ", bloodGroup=" + bloodGroup
+				+ ", message=" + message + "]";
 	}
 	
 	

@@ -14,7 +14,7 @@ public class Receiver {
 
 		// dummy object to be produced
 		PersonalInfo per = new PersonalInfo("hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello",
-				"hello", "hello", "hello", "hello");
+				"hello", "hello", "hello", "hello","hai");
 		producer.sendObject(per);
 
 	}
