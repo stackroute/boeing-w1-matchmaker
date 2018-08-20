@@ -73,8 +73,10 @@ public class Receiver {
 		indexer.setSkillIndexer(skillIndexer);
 
 		LOG.info("Parsed JSON message='{}'", indexer);
+		
+		LOG.info("Parsed JSON message='{}'", project);
 
-		producer.send(indexer);
+		producer.send(project);
 
 	}
 

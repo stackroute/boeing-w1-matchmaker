@@ -11,7 +11,8 @@ public class Experience {
 	private String endDate;
 	private String message;
 
-	// Default Constructor
+	/* Default Constructor sets 
+	 the initial value*/
 	public Experience() {
 
 	}
