@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.indexermodel;
+package com.stackroute.experiencemicroservice.appli.indexermodel;
 
 public class Indexer {
 	/* Indexer input field Attributes */
@@ -9,6 +9,11 @@ public class Indexer {
 	private RelationshipProperties relationshipProperties;
 	private RelationshipName relationshipName;
 	private String message;
+
+	public Indexer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Indexer(String sourceNodeType, String sourceNodeProperty, String targetNodeType,
 			TargetNodeProperty targetNodeProperty, RelationshipProperties relationshipProperties,
@@ -21,10 +26,6 @@ public class Indexer {
 		this.relationshipProperties = relationshipProperties;
 		this.relationshipName = relationshipName;
 		this.message = message;
-	}
-
-	public Indexer() {
-		super();
 	}
 
 	public String getSourceNodeType() {
@@ -81,6 +82,7 @@ public class Indexer {
 
 	public void setMessage(String message) {
 		this.message = message;
+
 	}
 
 	@Override
