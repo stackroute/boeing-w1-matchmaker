@@ -1,4 +1,4 @@
-package com.stackroute.kafka.locationconsumer.test.model;
+package com.stackroute.matchmaker.test.model;
 
 import org.junit.Test;
 import org.junit.Before;

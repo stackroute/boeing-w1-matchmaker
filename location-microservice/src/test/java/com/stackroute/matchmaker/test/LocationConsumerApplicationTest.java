@@ -1,4 +1,6 @@
-package com.stackroute.kafka.locationconsumer;
+package com.stackroute.matchmaker.test;
+
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +13,7 @@ public class LocationConsumerApplicationTest {
 
 	@Test
 	public void contextLoads() {
+		assertTrue(true);
 	}
 
 }
