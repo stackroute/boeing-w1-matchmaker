@@ -1,70 +1,162 @@
 package com.stackroute.matchmaker.indexermodel;
 
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.stackroute.matchmaker.model.Certificates;
-
-@RestController
 public class TrainingIndex {
 
-	private static final Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
-	//
-	//	private String skills;
-	//	private String duration;
-	//	private String profileId;
-	//	private String topics = "IndexTraining";
-	//	private String topics1 = "Index";
-	private String topics2 = "Train";
-
-	@Autowired
-	private KafkaTemplate<String, Indexer1> kafkaTemplate;
-
-	//	@Autowired
-	//	private KafkaTemplate<String, Indexer> kafkaTemplate1;
-
-	@KafkaListener(topics = "${app.topic.training}", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
-	public void consumeJson(Certificates certificates) {
-
-		Indexer1 index2 = new Indexer1(certificates.getProfileId(),certificates.getTrainingId(),certificates.getTrainingName(),certificates.getAuthority(),certificates.getDuration(),certificates.getSkillsTested(),"create","3");
-		kafkaTemplate.send(topics2, index2);
-		LOG.info("consumed message in index1='{}'", index2);
-
-		//			this.skills = training.getSkillsTested();
-		//			this.duration = training.getDuration();
-		//			this.profileId = training.getProfileId();
-		//			SourceNodeProperty sourceNodeProperty = new SourceNodeProperty(skills, duration);
-		//			TargetNodeProperty targetNodeProperty = new TargetNodeProperty(profileId);
-		//			Indexer index = new Indexer("training", sourceNodeProperty, "profile", targetNodeProperty, "undergone",
-		//					"create");
-		//			kafkaTemplate.send(topics, index);
-		//			LOG.info("consumed message in indexer='{}'", index);
+	private String profileId;
+	private String trainingId;
+	private String trainingName;
+	private String authority;
+	private String duration;
+	private String skills;
+	private String message;
+	private String weight;
+	/**
+	 * @param profileId
+	 * @param trainingId
+	 * @param trainingName
+	 * @param authority
+	 * @param duration
+	 * @param skillsTested
+	 * @param message
+	 * @param weight
+	 */
+	public TrainingIndex(String profileId, String trainingId, String trainingName, String authority, String duration,
+			String skills, String message, String weight) {
+		super();
+		this.profileId = profileId;
+		this.trainingId = trainingId;
+		this.trainingName = trainingName;
+		this.authority = authority;
+		this.duration = duration;
+		this.skills = skills;
+		this.message = message;
+		this.weight = weight;
 	}
 
-	//	@KafkaListener(topics = "sathwik", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
-	//	public void pickUpJson(Training training) {
-	//
-	//		this.skills = training.getSkillsTested();
-	//		this.duration = training.getDuration();
-	//		SourceNodeProperty source = new SourceNodeProperty(skills,duration);
-	//		TargetNodeProperty targetNodeProperty = new TargetNodeProperty(skills);
-	//		RelationshipProperty relation = new RelationshipProperty("3");
-	//		Indexer1 index1 = new Indexer("training",source,"skillsOnto",targetNodeProperty,"coversSkill",relation,"create");
-	//		kafkaTemplate1.send(topics1, index1);
-	//		LOG.info("consumed message in index1='{}'", index1);
-	//	}
+	public TrainingIndex() {}
 
-	//	@KafkaListener(topics = "${listener.topic.name}", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
-	//	public void consumeJson(Training training) {
-	//
-	//		Indexer1 index2 = new Indexer1(training.getProfileId(),training.getTrainingId(),training.getTrainingName(),training.getAuthority(),training.getDuration(),training.getSkillsTested(),"create","3");
-	//		kafkaTemplate.send(topics2, index2);
-	//		LOG.info("consumed message in index1='{}'", index2);
-	//	}
+	/**
+	 * @return the profileId
+	 */
+	public String getProfileId() {
+		return profileId;
+	}
+
+	/**
+	 * @param profileId the profileId to set
+	 */
+	public void setProfileId(String profileId) {
+		this.profileId = profileId;
+	}
+
+	/**
+	 * @return the trainingId
+	 */
+	public String getTrainingId() {
+		return trainingId;
+	}
+
+	/**
+	 * @param trainingId the trainingId to set
+	 */
+	public void setTrainingId(String trainingId) {
+		this.trainingId = trainingId;
+	}
+
+	/**
+	 * @return the trainingName
+	 */
+	public String getTrainingName() {
+		return trainingName;
+	}
+
+	/**
+	 * @param trainingName the trainingName to set
+	 */
+	public void setTrainingName(String trainingName) {
+		this.trainingName = trainingName;
+	}
+
+	/**
+	 * @return the authority
+	 */
+	public String getAuthority() {
+		return authority;
+	}
+
+	/**
+	 * @param authority the authority to set
+	 */
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+
+	/**
+	 * @return the duration
+	 */
+	public String getDuration() {
+		return duration;
+	}
+
+	/**
+	 * @param duration the duration to set
+	 */
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	/**
+	 * @return the skillsTested
+	 */
+	public String getSkills() {
+		return skills;
+	}
+
+	/**
+	 * @param skillsTested the skillsTested to set
+	 */
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
+	/**
+	 * @return the message
+	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * @param message the message to set
+	 */
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	/**
+	 * @return the weight
+	 */
+	public String getWeight() {
+		return weight;
+	}
+
+	/**
+	 * @param weight the weight to set
+	 */
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Indexer1 [profileId=" + profileId + ", trainingId=" + trainingId + ", trainingName=" + trainingName
+				+ ", authority=" + authority + ", duration=" + duration + ", skills=" + skills
+				+ ", message=" + message + ", weight=" + weight + "]";
+	}
+
+
 
 }

@@ -12,7 +12,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.matchmaker.indexermodel.Indexer1;
+import com.stackroute.matchmaker.indexermodel.TrainingIndex;
 import com.stackroute.matchmaker.model.Certificates;
 
 @Configuration
@@ -22,7 +22,7 @@ public class KakfaProducerConfiguration {
 	public ProducerFactory<String, Certificates> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
@@ -51,10 +51,10 @@ public class KakfaProducerConfiguration {
 	//	}
 
 	@Bean
-	public ProducerFactory<String, Indexer1> producerFactoryindex1() {
+	public ProducerFactory<String, TrainingIndex> producerFactoryindex1() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
@@ -62,7 +62,7 @@ public class KakfaProducerConfiguration {
 	}
 
 	@Bean
-	public KafkaTemplate<String, Indexer1> kafkaTemplateIndex1() {
+	public KafkaTemplate<String, TrainingIndex> kafkaTemplateIndex1() {
 		return new KafkaTemplate<>(producerFactoryindex1());
 	}
 }
