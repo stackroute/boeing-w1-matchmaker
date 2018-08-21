@@ -8,7 +8,7 @@ import org.springframework.messaging.SubscribableChannel;
  */
 public interface PersonalInfoStream {
 	// INPUT is the topic
-	String INPUT = "PersonalInfo";
+	String INPUT = "PersonalInfoIndexer";
 
 	// method inboundPersonalInfo is to subscribe the topic
 	@Input(INPUT)
