@@ -1,4 +1,4 @@
-package com.stackroute.projectmicroservice.listener;
+package com.stackroute.matchmaker.listener;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.projectmicroservice.model.Project;
-import com.stackroute.projectmicroservice.producer.Receiver;
+import com.stackroute.matchmaker.model.Project;
+import com.stackroute.matchmaker.producer.Receiver;
 
 @Service
 public class KafkaConsumer {

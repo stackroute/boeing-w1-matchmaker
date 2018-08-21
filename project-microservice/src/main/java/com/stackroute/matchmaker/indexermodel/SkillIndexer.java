@@ -1,8 +1,8 @@
-package com.stackroute.projectmicroservice.indexermodel;
+package com.stackroute.matchmaker.indexermodel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.stackroute.projectmicroservice.relationshipmodel.SkillRelationshipProperties;
+import com.stackroute.matchmaker.relationshipmodel.SkillRelationshipProperties;
 
 public class SkillIndexer {
 	private String sourceNodeType;

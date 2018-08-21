@@ -1,18 +1,18 @@
-package com.stackroute.projectmicroservice.producer;
+package com.stackroute.matchmaker.producer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.projectmicroservice.indexermodel.Indexer;
-import com.stackroute.projectmicroservice.indexermodel.SkillIndexer;
-import com.stackroute.projectmicroservice.indexermodel.TargetNodeProperty;
-import com.stackroute.projectmicroservice.indexermodel.WorkIndexer;
-import com.stackroute.projectmicroservice.listener.KafkaConsumer;
-import com.stackroute.projectmicroservice.model.Project;
-import com.stackroute.projectmicroservice.relationshipmodel.SkillRelationshipProperties;
-import com.stackroute.projectmicroservice.relationshipmodel.WorkInRelationshipProperties;
+import com.stackroute.matchmaker.indexermodel.Indexer;
+import com.stackroute.matchmaker.indexermodel.SkillIndexer;
+import com.stackroute.matchmaker.indexermodel.TargetNodeProperty;
+import com.stackroute.matchmaker.indexermodel.WorkIndexer;
+import com.stackroute.matchmaker.listener.KafkaConsumer;
+import com.stackroute.matchmaker.model.Project;
+import com.stackroute.matchmaker.relationshipmodel.SkillRelationshipProperties;
+import com.stackroute.matchmaker.relationshipmodel.WorkInRelationshipProperties;
 
 @Service
 public class Receiver {
