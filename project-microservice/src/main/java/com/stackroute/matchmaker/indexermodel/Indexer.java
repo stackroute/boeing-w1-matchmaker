@@ -1,4 +1,4 @@
-package com.stackroute.projectmicroservice.indexermodel;
+package com.stackroute.matchmaker.indexermodel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

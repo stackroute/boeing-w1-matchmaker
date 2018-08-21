@@ -1,4 +1,4 @@
-package com.stackroute.projectmicroservice.model;
+package com.stackroute.matchmaker.model;
 
 public class Project {
 

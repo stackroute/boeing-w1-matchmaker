@@ -1,4 +1,4 @@
-package com.stackroute.projectmicroservice.relationshipmodel;
+package com.stackroute.matchmaker.relationshipmodel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

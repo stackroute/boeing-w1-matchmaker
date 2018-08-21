@@ -1,4 +1,4 @@
-package com.stackroute.projectmicroservice.config;
+package com.stackroute.matchmaker.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +12,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.projectmicroservice.indexermodel.Indexer;
-import com.stackroute.projectmicroservice.model.Project;
+import com.stackroute.matchmaker.indexermodel.Indexer;
+import com.stackroute.matchmaker.model.Project;
 
 @Configuration
 public class KafkaProducerConfig {
