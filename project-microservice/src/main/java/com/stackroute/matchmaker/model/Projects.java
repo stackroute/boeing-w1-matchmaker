@@ -8,29 +8,6 @@ package com.stackroute.matchmaker.model;
 
 public class Projects {
 
-	/**
-	 * @param profileId
-	 *            : Id for the profile
-	 * @param projectId
-	 *            : Project Id
-	 * @param projectAt
-	 *            : Project belongs to which company
-	 * @param role
-	 *            : Role of the Employee
-	 * @param department
-	 * @param projectLocation
-	 * @param technologies
-	 * @param projectTitle
-	 * @param from
-	 * @param to
-	 * @param synopsis
-	 * @param url
-	 * @param demoURL
-	 * @param skills
-	 * @param message
-	 *            : CRUD operations like(update,save,delete)
-	 */
-
 	private String profileId;
 	private String projectId;
 	private String projectAt;
