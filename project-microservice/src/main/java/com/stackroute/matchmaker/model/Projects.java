@@ -1,11 +1,5 @@
 package com.stackroute.matchmaker.model;
 
-/**
- * 
- * @author Ansh Model class for project
- *
- */
-
 public class Projects {
 
 	private String profileId;
@@ -171,12 +165,6 @@ public class Projects {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 
 	// To String Method
 	@Override
