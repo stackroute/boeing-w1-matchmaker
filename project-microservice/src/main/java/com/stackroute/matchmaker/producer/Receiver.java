@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.matchmaker.indexermodel.Indexer;
+import com.stackroute.matchmaker.indexermodel.ProjectIndex;
 import com.stackroute.matchmaker.indexermodel.SkillIndexer;
 import com.stackroute.matchmaker.indexermodel.TargetNodeProperty;
 import com.stackroute.matchmaker.indexermodel.WorkIndexer;
@@ -27,8 +28,26 @@ public class Receiver {
 	public WorkInRelationshipProperties workInRelationshipProperties = new WorkInRelationshipProperties();
 	public SkillIndexer skillIndexer = new SkillIndexer();
 	public WorkIndexer workIndexer = new WorkIndexer();
+	public ProjectIndex projectIndex = new ProjectIndex();
 
 	public void receiveObject(Projects projects) {
+
+		// Populating Project Index
+		projectIndex.setDemoURL(projects.getDemoURL());
+		projectIndex.setDepartment(projects.getDepartment());
+		projectIndex.setFrom(projects.getFrom());
+		projectIndex.setMessage(projects.getMessage());
+		projectIndex.setProfileId(projects.getProfileId());
+		projectIndex.setProjectAt(projects.getProjectAt());
+		projectIndex.setProjectId(projects.getProjectId());
+		projectIndex.setProjectLocation(projects.getProjectLocation());
+		projectIndex.setProjectTitle(projects.getProjectTitle());
+		projectIndex.setRole(projects.getRole());
+		projectIndex.setSkills(projects.getSkills());
+		projectIndex.setSynopsis(projects.getSynopsis());
+		projectIndex.setTo(projects.getTo());
+		projectIndex.setUrl(projects.getUrl());
+
 		LOG.info("Parsed JSON message='{}'", projects);
 		// Target Node Type
 		workIndexer.setTargetNodeType("Profile");
@@ -73,10 +92,10 @@ public class Receiver {
 		indexer.setSkillIndexer(skillIndexer);
 
 		LOG.info("Parsed JSON message='{}'", indexer);
-		
-		LOG.info("Parsed JSON message='{}'", projects);
 
-		producer.send(projects);
+		LOG.info("Parsed JSON message='{}'", projectIndex);
+
+		producer.send(projectIndex);
 
 	}
 

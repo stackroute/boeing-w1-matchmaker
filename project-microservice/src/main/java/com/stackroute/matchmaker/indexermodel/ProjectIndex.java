@@ -1,6 +1,6 @@
-package com.stackroute.matchmaker.model;
+package com.stackroute.matchmaker.indexermodel;
 
-public class Projects {
+public class ProjectIndex {
 
 	private String profileId;
 	private String projectId;
@@ -17,12 +17,11 @@ public class Projects {
 	private String skills;
 	private String message;
 
-	// Default Constructor
-	public Projects() {
+	public ProjectIndex() {
 
 	}
 
-	public Projects(String profileId, String projectId, String projectAt, String role, String department,
+	public ProjectIndex(String profileId, String projectId, String projectAt, String role, String department,
 			String projectLocation, String projectTitle, String from, String to, String synopsis, String url,
 			String demoURL, String skills, String message) {
 		super();
@@ -156,10 +155,11 @@ public class Projects {
 
 	@Override
 	public String toString() {
-		return "Projects [profileId=" + profileId + ", projectId=" + projectId + ", projectAt=" + projectAt + ", role="
-				+ role + ", department=" + department + ", projectLocation=" + projectLocation + ", projectTitle="
-				+ projectTitle + ", from=" + from + ", to=" + to + ", synopsis=" + synopsis + ", url=" + url
-				+ ", demoURL=" + demoURL + ", skills=" + skills + ", message=" + message + "]";
+		return "ProjectIndex [profileId=" + profileId + ", projectId=" + projectId + ", projectAt=" + projectAt
+				+ ", role=" + role + ", department=" + department + ", projectLocation=" + projectLocation
+				+ ", technologies=" + ", projectTitle=" + projectTitle + ", from=" + from + ", to=" + to + ", synopsis="
+				+ synopsis + ", url=" + url + ", demoURL=" + demoURL + ", skills=" + skills + ", message=" + message
+				+ "]";
 	}
 
 }
