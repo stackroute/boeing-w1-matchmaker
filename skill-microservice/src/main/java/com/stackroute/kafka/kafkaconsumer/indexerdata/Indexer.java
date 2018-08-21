@@ -2,6 +2,7 @@ package com.stackroute.kafka.kafkaconsumer.indexerdata;
 
 public class Indexer {
 
+	// Change the variable names
 	private String sourceNodeType;
 	private SourceNodeProperty sourcenodeproperty;
 	private String targetNodeType;

@@ -19,6 +19,7 @@ import { ExistingEmailValidatorDirective } from './registration/customValidaters
 import { ExistingUsernameValidatorDirective } from './registration/customValidaters/existingUserName';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { MaterialModule } from './material';
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,HttpModule,ReactiveFormsModule,
-    MaterialModule
+    MaterialModule, MatSliderModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

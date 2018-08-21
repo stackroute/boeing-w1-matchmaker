@@ -8,10 +8,19 @@ public class Skill {
 	private String level;
 	private String noOfMonths;
 	private String furtherUsage;
-	
+	private String message;
+
 	// getters and Setters
 	public String getProfileId() {
 		return profileId;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public void setProfileId(String profileId) {
@@ -56,19 +65,22 @@ public class Skill {
 	}
 
 	// parameterized constructor
-	public Skill(String profileId, String skill, String level, String noOfMonths, String furtherUsage) {
+	public Skill(String profileId, String skill, String level, String noOfMonths, String furtherUsage, String message) {
 		super();
 		this.profileId = profileId;
 		this.skill = skill;
 		this.level = level;
 		this.noOfMonths = noOfMonths;
 		this.furtherUsage = furtherUsage;
+		this.message = message;
 	}
 
 	@Override
 	public String toString() {
 		return "Skill [profileId=" + profileId + ", skill=" + skill + ", level=" + level + ", noOfMonths=" + noOfMonths
-				+ ", furtherUsage=" + furtherUsage + "]";
+				+ ", furtherUsage=" + furtherUsage + ", message=" + message + "]";
 	}
+	
+	
 
 }
