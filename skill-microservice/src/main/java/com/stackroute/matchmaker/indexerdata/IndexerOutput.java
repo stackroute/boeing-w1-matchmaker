@@ -1,4 +1,4 @@
-package com.stackroute.kafka.kafkaconsumer.indexerdata;
+package com.stackroute.matchmaker.indexerdata;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,8 +7,8 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.kafka.kafkaconsumer.listener.KafkaConsumer;
-import com.stackroute.kafka.kafkaconsumer.model.Skill;
+import com.stackroute.matchmaker.listener.KafkaConsumer;
+import com.stackroute.matchmaker.model.Skills;
 
 @RestController
 //@RequestMapping("kafka")
@@ -18,7 +18,7 @@ public class IndexerOutput {
 	@Autowired
 	private KafkaTemplate<String, Index> kafkaTemplate;
 
-	private String topic = "IndexSkill";
+	private String topic = "SkillIndexer";
 //	private String profileId;
 //	private String mySkill;
 //	private String level;
@@ -42,7 +42,7 @@ public class IndexerOutput {
 //	}
 	
 	@KafkaListener(topics = "${listener.topic.name}", groupId = "group_json", containerFactory = "skillKafkaListenerFactory")
-	public void consumeJson(Skill skill) {
+	public void consumeJson(Skills skill) {
 
 		kafkaTemplate.send(topic,
 				new Index(skill.getProfileId(),skill.getSkill(),"50", "Create"));

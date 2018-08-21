@@ -1,4 +1,4 @@
-package com.stackroute.kafka.kafkaconsumer;
+package com.stackroute.matchmaker;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

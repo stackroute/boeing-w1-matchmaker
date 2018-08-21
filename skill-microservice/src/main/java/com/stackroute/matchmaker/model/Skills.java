@@ -1,6 +1,6 @@
-package com.stackroute.kafka.kafkaconsumer.model;
+package com.stackroute.matchmaker.model;
 
-public class Skill {
+public class Skills {
 
 	// Skill fields
 	private String profileId;
@@ -60,12 +60,12 @@ public class Skill {
 	}
 
 	// Default Constructor
-	public Skill() {
+	public Skills() {
 		super();
 	}
 
 	// parameterized constructor
-	public Skill(String profileId, String skill, String level, String noOfMonths, String furtherUsage, String message) {
+	public Skills(String profileId, String skill, String level, String noOfMonths, String furtherUsage, String message) {
 		super();
 		this.profileId = profileId;
 		this.skill = skill;

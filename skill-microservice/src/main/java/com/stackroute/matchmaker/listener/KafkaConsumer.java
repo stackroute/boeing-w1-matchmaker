@@ -1,4 +1,4 @@
-package com.stackroute.kafka.kafkaconsumer.listener;
+package com.stackroute.matchmaker.listener;
 
 // Organize Import ctrl+shift+O
 import org.slf4j.Logger;

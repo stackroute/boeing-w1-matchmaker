@@ -1,4 +1,4 @@
-package com.stackroute.kafka.kafkaconsumer.config;
+package com.stackroute.matchmaker.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -11,7 +11,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.stackroute.kafka.kafkaconsumer.model.Skill;
+import com.stackroute.matchmaker.model.Skills;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,21 +52,21 @@ public class KafkaConsumerConfiguration {
 	// configuration for consuming json message
 	// defining consumer factory for configuration
 	@Bean
-	public ConsumerFactory<String, Skill> skillConsumerFactory() {
+	public ConsumerFactory<String, Skills> skillConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
 		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(), new JsonDeserializer<>(Skill.class));
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(), new JsonDeserializer<>(Skills.class));
 	}
 
 	// setting the consumer factory with the cofiguration
 	// locationkafkaListenerFactory is used in kafka listener
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, Skill> skillKafkaListenerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, Skill> factory = new ConcurrentKafkaListenerContainerFactory<>();
+	public ConcurrentKafkaListenerContainerFactory<String, Skills> skillKafkaListenerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Skills> factory = new ConcurrentKafkaListenerContainerFactory<>();
 		factory.setConsumerFactory(skillConsumerFactory());
 		return factory;
 	}

@@ -1,4 +1,4 @@
-package com.stackroute.kafka.kafkaconsumer.listener;
+package com.stackroute.matchmaker.listener;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.stackroute.kafka.kafkaconsumer.model.Skill;
+
+import com.stackroute.matchmaker.model.Skills;
 
 @RestController
 @RequestMapping("kafka")
@@ -16,7 +17,7 @@ public class KafkaProducer {
 	// using template defined in configuration class
 
 	@Autowired
-	private KafkaTemplate<String, Skill> kafkaTemplateskill;
+	private KafkaTemplate<String, Skills> kafkaTemplateskill;
 
 	// private ProcessedSkill processed_skill;
 	@Value("${listener.topic.name}")
@@ -35,7 +36,7 @@ public class KafkaProducer {
 	public String postskill(@PathVariable("name") final String name) {
 
 		// publishing to kafka
-		kafkaTemplateskill.send(TOPIC, new Skill(name, name, name, name, name, name));
+		kafkaTemplateskill.send(TOPIC, new Skills(name, name, name, name, name, name));
 
 		return "Published successfully";
 	}

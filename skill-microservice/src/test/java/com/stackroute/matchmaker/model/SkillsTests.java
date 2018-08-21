@@ -1,17 +1,18 @@
-package com.stackroute.kafka.kafkaconsumer.model;
+package com.stackroute.matchmaker.model;
 
 import org.junit.Before;
-import com.stackroute.kafka.kafkaconsumer.model.Skill;
 import org.junit.Test;
 import org.meanbean.test.BeanTester;
 
+import com.stackroute.matchmaker.model.Skills;
+
 public class SkillsTests {
 
-	private Skill skill;
+	private Skills skill;
 	@Before
 	public void setUp() throws Exception {
 
-		skill = new Skill();
+		skill = new Skills();
 		skill.setSkill("Angular");
 		skill.setProfileId("1");
 		skill.setFurtherUsage("Developement");
@@ -22,7 +23,7 @@ public class SkillsTests {
 
 	@Test
 	public void test() {
-		new BeanTester().testBean(Skill.class);
+		new BeanTester().testBean(Skills.class);
 	}
 
 
