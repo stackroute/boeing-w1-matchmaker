@@ -6,7 +6,8 @@ spring:
 
 app:
  topic:
-    name: PersonalInfo
+    consumer: PersonalInfo
+    producer: 
 
 server:
  port: 8088

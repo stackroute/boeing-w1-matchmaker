@@ -21,7 +21,7 @@ public class Consumer {
 	@Autowired
 	private Receiver receiver;
 
-	@KafkaListener(topics = "${app.topic.name}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "personalInfoKafkaContainerFactory")
+	@KafkaListener(topics = "${app.topic.consumer}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "personalInfoKafkaContainerFactory")
 	public void consumeJson(PersonalInfo personalInfo) {
 
 		LOG.info("received message='{}'", personalInfo);

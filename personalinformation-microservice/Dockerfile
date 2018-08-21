@@ -8,6 +8,6 @@ ADD target/personalinformation-microservice-1.1.0.jar /src/personalinformation.j
 
 EXPOSE 8087
 
-RUN sh -c 'touch /src/user.jar'
+RUN sh -c 'touch /src/personalinformation.jar'
 
-ENTRYPOINT ["java","-jar","/src/user.jar"]
+ENTRYPOINT ["java","-jar","/src/personalinformation.jar"]
