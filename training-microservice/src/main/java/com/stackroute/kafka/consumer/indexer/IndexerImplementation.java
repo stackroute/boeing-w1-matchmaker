@@ -29,7 +29,7 @@ public class IndexerImplementation {
 //	private KafkaTemplate<String, Indexer> kafkaTemplate1;
 
 		@KafkaListener(topics = "${listener.topic.name}", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
-		public void receiveJson(Training training) {
+		public void consumeJson(Training training) {
 			
 			Indexer1 index2 = new Indexer1(training.getProfileId(),training.getTrainingId(),training.getTrainingName(),training.getAuthority(),training.getDuration(),training.getSkillsTested(),"create","3");
 			kafkaTemplate.send(topics2, index2);

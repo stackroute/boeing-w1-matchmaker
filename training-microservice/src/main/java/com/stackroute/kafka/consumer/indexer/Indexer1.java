@@ -21,14 +21,14 @@ public class Indexer1 {
 	 * @param weight
 	 */
 	public Indexer1(String profileId, String trainingId, String trainingName, String authority, String duration,
-			String skillsTested, String message, String weight) {
+			String skills, String message, String weight) {
 		super();
 		this.profileId = profileId;
 		this.trainingId = trainingId;
 		this.trainingName = trainingName;
 		this.authority = authority;
 		this.duration = duration;
-		this.skills = skillsTested;
+		this.skills = skills;
 		this.message = message;
 		this.weight = weight;
 	}
@@ -108,15 +108,15 @@ public class Indexer1 {
 	/**
 	 * @return the skillsTested
 	 */
-	public String getSkillsTested() {
+	public String getSkills() {
 		return skills;
 	}
 
 	/**
 	 * @param skillsTested the skillsTested to set
 	 */
-	public void setSkillsTested(String skillsTested) {
-		this.skills = skillsTested;
+	public void setSkills(String skills) {
+		this.skills = skills;
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class Indexer1 {
 	@Override
 	public String toString() {
 		return "Indexer1 [profileId=" + profileId + ", trainingId=" + trainingId + ", trainingName=" + trainingName
-				+ ", authority=" + authority + ", duration=" + duration + ", skillsTested=" + skills
+				+ ", authority=" + authority + ", duration=" + duration + ", skills=" + skills
 				+ ", message=" + message + ", weight=" + weight + "]";
 	}
 	

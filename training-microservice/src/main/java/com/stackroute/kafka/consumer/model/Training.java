@@ -142,7 +142,7 @@ public class Training {
 	@Override
 	public String toString() {
 		return "User [profileId=" + profileId + ", trainingId=" + trainingId + ", trainingName=" + trainingName
-				+ ", authority=" + authority + ", duration=" + duration + ", skillsTested=" + skillsTested + ", message=\" + message + \"]";
+				+ ", authority=" + authority + ", duration=" + duration + ", skillsTested=" + skillsTested + ", message=" + message + "]";
 	}
 	
 }
