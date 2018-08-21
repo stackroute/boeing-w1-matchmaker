@@ -58,7 +58,7 @@ public class KafkaConsumerConfiguration {
 		Map<String, Object> config = new HashMap<>();
 
 		//specifies a list of host/port pairs to use for establishing the initial connection to the Kafka cluster
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		//specifies a unique string that identifies the consumer group this consumer belongs to.
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
 		//specifies the serializer class for key that implements the org.apache.kafka.common.serialization.Serializer interface.
