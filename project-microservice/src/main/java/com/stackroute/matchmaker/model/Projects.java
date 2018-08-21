@@ -1,15 +1,12 @@
 package com.stackroute.matchmaker.model;
 
-<<<<<<< HEAD:project-microservice/src/main/java/com/stackroute/projectmicroservice/model/Project.java
 /**
  * 
  * @author Ansh Model class for project
  *
  */
-public class Project {
-=======
+
 public class Projects {
->>>>>>> c381468ccb45ffbf327a9ec8f99e699522b2991b:project-microservice/src/main/java/com/stackroute/matchmaker/model/Projects.java
 
 	/**
 	 * @param profileId
@@ -51,12 +48,11 @@ public class Projects {
 	private String message;
 
 	// Default Constructor
-
-	public Project() {
+	public Projects() {
 
 	}
 
-	public Project(String profileId, String projectId, String projectAt, String role, String department,
+	public Projects(String profileId, String projectId, String projectAt, String role, String department,
 			String projectLocation, String technologies, String projectTitle, String from, String to, String synopsis,
 			String url, String demoURL, String skills, String message) {
 		super();
@@ -199,45 +195,13 @@ public class Projects {
 		this.message = message;
 	}
 
-<<<<<<< HEAD:project-microservice/src/main/java/com/stackroute/projectmicroservice/model/Project.java
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
-=======
-	// Default Constructor
-
-	public Projects() {
-
-	}
-
-	// Parameterized Constructor
-
-	public Projects(String profileId, String projectId, String projectAt, String role, String department,
-			String projectLocation, String technologies, String projectTitle, String from, String to, String synopsis,
-			String url, String demoURL, String skills, String message) {
-		super();
-		this.profileId = profileId;
-		this.projectId = projectId;
-		this.projectAt = projectAt;
-		this.role = role;
-		this.department = department;
-		this.projectLocation = projectLocation;
-		this.technologies = technologies;
-		this.projectTitle = projectTitle;
-		this.from = from;
-		this.to = to;
-		this.synopsis = synopsis;
-		this.url = url;
-		this.demoURL = demoURL;
-		this.skills = skills;
-		this.message = message;
-	}
 
 	// To String Method
-
->>>>>>> c381468ccb45ffbf327a9ec8f99e699522b2991b:project-microservice/src/main/java/com/stackroute/matchmaker/model/Projects.java
 	@Override
 	public String toString() {
 		return "Project [profileId=" + profileId + ", projectId=" + projectId + ", projectAt=" + projectAt + ", role="
