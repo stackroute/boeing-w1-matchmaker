@@ -18,7 +18,7 @@ public class IndexerOutput {
 	@Autowired
 	private KafkaTemplate<String, Index> kafkaTemplate;
 
-	private String topic = "SkillIndexer";
+	private String topic = "SkillIndexer1";
 //	private String profileId;
 //	private String mySkill;
 //	private String level;
