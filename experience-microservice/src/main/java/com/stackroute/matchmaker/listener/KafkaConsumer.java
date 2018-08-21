@@ -33,7 +33,8 @@ public class KafkaConsumer {
 
 	/*
 	 * @KafkaListener Annotation that marks a method to be the target of a Kafka
-	 * message listener on the specified topics
+	 * message listener on the specified topics.
+	 * Properties for Kafka defined
 	 */
 
 	@KafkaListener(topics = "${experienceproducer.producer.exp}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "experienceKafkaListenerFactory")

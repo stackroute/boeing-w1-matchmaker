@@ -1,6 +1,6 @@
 package com.stackroute.matchmaker.indexermodel;
 
-public class Indexer {
+public class ExperienceIndex {
 	/* Indexer input field Attributes */
 	// private String sourceNodeType;
 	// // private String sourceNodeProperty;
@@ -17,7 +17,7 @@ public class Indexer {
 	private String endDate;
 	private String message;
 
-	public Indexer(String profileId, String organizationName, String role, String startDate, String endDate,
+	public ExperienceIndex(String profileId, String organizationName, String role, String startDate, String endDate,
 			String message) {
 		super();
 		this.profileId = profileId;
@@ -28,7 +28,7 @@ public class Indexer {
 		this.message = message;
 	}
 
-	public Indexer() {
+	public ExperienceIndex() {
 		super();
 	}
 
