@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
@@ -27,11 +28,14 @@ This configuration is handled by the ProducerConfig class.*/
 @Configuration
 public class ProducerConfigs {
 	
+	@Value("${spring.kafka.bootstrap-servers}")
+	 private String bootstrapServers;
+	
 	@Bean
 	public Map<String, Object> producerConfig() {
 		Map<String, Object> configProps = new HashMap<>();
 		//specifies a list of host/port pairs to use for establishing the initial connection to the Kafka cluster
-		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		//specifies the serializer class for key that implements the org.apache.kafka.common.serialization.Serializer interface.
 		configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		//specifies the serializer class for value that implements the org.apache.kafka.common.serialization.Serializer interface.

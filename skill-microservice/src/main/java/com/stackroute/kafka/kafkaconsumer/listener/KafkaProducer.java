@@ -35,7 +35,7 @@ public class KafkaProducer {
 	public String postskill(@PathVariable("name") final String name) {
 
 		// publishing to kafka
-		kafkaTemplateskill.send(TOPIC, new Skill(name, name, name, name, name, name));
+		kafkaTemplateskill.send(TOPIC, new Skill(name, "Angular", "5", "30", "FSD"));
 
 		return "Published successfully";
 	}

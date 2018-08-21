@@ -1,19 +1,17 @@
 //package com.stackroute.experiencemicroservice.test.consumer;
 //
 //import static org.assertj.core.api.Assertions.assertThat;
-//import static org.junit.Assert.*;
-//
 //import java.util.Map;
 //import java.util.concurrent.TimeUnit;
 //
 //import org.junit.Before;
 //import org.junit.ClassRule;
 //import org.junit.Test;
-//import org.junit.runner.RunWith;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.boot.test.mock.mockito.MockBean;
 //import org.springframework.kafka.config.KafkaListenerEndpointRegistry;
 //import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 //import org.springframework.kafka.core.KafkaTemplate;
@@ -34,7 +32,6 @@
 //	    private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerTest.class);
 //
 //	    private static String experienceproducer = "Experience";
-//
 //	    private KafkaTemplate<String, Experience> template;
 //
 //	    @Autowired

@@ -24,7 +24,7 @@ public class KafkaProducerController {
 	public Indexer isRelationIndexer = new Indexer();
 	public TargetNodeProperty targetNodeProperty = new TargetNodeProperty();
 	public RelationshipName relationshipName = new RelationshipName();
-	public RelationshipProperties relationshipProperties = new RelationshipProperties();
+	//public RelationshipProperties relationshipProperties = new RelationshipProperties();
 
 	// @Autowired
 	// public Indexer wasRelationIndexer;
@@ -42,13 +42,18 @@ public class KafkaProducerController {
 	private String TOPIC;
 
 	public void produceJson(Experience experience) {
+		
 		TargetNodeProperty targetNodeProperty = new TargetNodeProperty(experience.getProfileId());
-		RelationshipProperties relationshipProperties = new RelationshipProperties(experience.getRole(),
-				experience.getStartDate(), experience.getEndDate(), experience.getOrganizationName());
-
+		RelationshipProperties relationshipProperties = new RelationshipProperties(experience.getOrganizationName(),experience.getRole(),
+				experience.getStartDate(), experience.getEndDate());
+/*at present setting the relationship names*/
+		relationshipName.setEmployeeOf("employeeOf");
+		relationshipName.setWasEmployeeOf("wasEmployeeOf");
+		
 		// Indexer(sourceNodeType,sourceNodeProperty,targetNodeType,targetNodeProperty,relationshipProperties,relationshipName);
-		Indexer indexer = new Indexer("Experience", "sourceNodeProperty", "jsbdcvb", targetNodeProperty,
-				 relationshipProperties,relationshipName, "Created");
+//		Indexer indexer = new Indexer("Experience", targetNodeProperty,
+//				 relationshipProperties,relationshipName, "Created");
+		Indexer indexer = new Indexer(experience.getProfileId(),experience.getOrganizationName(),experience.getRole(),experience.getStartDate(),experience.getEndDate(),experience.getMessage());
 		kafkaTemplate.send(TOPIC, indexer);
 		LOG.info("sending JSON message='{}'", indexer, TOPIC);
 

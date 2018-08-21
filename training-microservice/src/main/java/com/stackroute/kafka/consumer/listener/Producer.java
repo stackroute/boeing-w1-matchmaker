@@ -20,18 +20,13 @@ public class Producer {
 	@Value("${listener.topic.name}")
 	private String TOPIC ;
 	
+	private String topic = "sathwik";
+	
 	@GetMapping("/publish/{name}")
 	public String post(@PathVariable("name") final String name) {
-		kafkaTemplate.send(TOPIC, new Training(name,name,name,name,name,name));
-		
+		kafkaTemplate.send(TOPIC, new Training(name,name,name,name,name,name,name));
+		kafkaTemplate.send(topic, new Training(name,name,name,name,name,name,name));
+
 		return "published";
 	}
-//	@KafkaListener(topics = "${app.topic.training}", group = "group_json", containerFactory = "userKafkaListenerFactory")
-//	@GetMapping("/publish/{name}")
-//	public void receiveJson(@PathVariable("name") final String name, Training training) {
-//		//System.out.println("Consumed JSON Message: " + training);
-//		kafkaTemplate.send(TOPIC, new Training(name,name,name,name,name,name));
-//			
-//	}
-
 }

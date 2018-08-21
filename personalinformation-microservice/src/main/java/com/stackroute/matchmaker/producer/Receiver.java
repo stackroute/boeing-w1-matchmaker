@@ -13,9 +13,9 @@ public class Receiver {
 	public void receiveObject(PersonalInfo personalInfo) {
 
 		// dummy object to be produced
-		PersonalInfo per = new PersonalInfo("hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello",
-				"hello", "hello", "hello", "hello","hai");
-		producer.sendObject(per);
+		//PersonalInfo per = new PersonalInfo("hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello",
+		//		"hello", "hello", "hello", "hello","hai");
+		producer.sendObject(personalInfo);
 
 	}
 

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.mock.web.MockHttpSession;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -40,9 +41,11 @@ public class RegistrationControllerTests {
 	
 	@Mock
 	private RegisterUserImpl registerUser; 
+	@Mock
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@InjectMocks
-	private RegistrationController registrationController = new RegistrationController(registerUser); 
+	private RegistrationController registrationController = new RegistrationController(registerUser,bCryptPasswordEncoder); 
 	
 	@Before
 	public void setup() throws Exception{

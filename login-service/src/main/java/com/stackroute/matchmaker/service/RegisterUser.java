@@ -11,5 +11,6 @@ public interface RegisterUser {
 	public Registration checkForUserName(String userName) throws UserNameAlreadyExistsException;
 	public Registration checkForEmail(String email) throws EmailAlreadyExistsException;
 	public Registration addUser(Registration registrant);
+	public Registration findByUserName(String userName);
 	
 }

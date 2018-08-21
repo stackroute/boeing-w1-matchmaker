@@ -1,12 +1,11 @@
 spring:
-  kafka:
-     bootstrap-servers: 172.23.238.163:9092 
-     consumer:
-      group-id: group_json
-
+ kafka:
+    bootstrap-servers:
+     127.0.0.1:9092  
+    
 app:
   topic:
      name: Academies
 
 server:
-  port: 8089
+  port: 8085
