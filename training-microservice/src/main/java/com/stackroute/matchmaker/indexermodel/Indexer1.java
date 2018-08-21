@@ -1,13 +1,13 @@
-package com.stackroute.matchmaker.indexer;
+package com.stackroute.matchmaker.indexermodel;
 
 public class Indexer1 {
-	
+
 	private String profileId;
-    private String trainingId;
-    private String trainingName;
-    private String authority;
-    private String duration;
-    private String skills;
+	private String trainingId;
+	private String trainingName;
+	private String authority;
+	private String duration;
+	private String skills;
 	private String message;
 	private String weight;
 	/**
@@ -32,7 +32,7 @@ public class Indexer1 {
 		this.message = message;
 		this.weight = weight;
 	}
-	
+
 	public Indexer1() {}
 
 	/**
@@ -156,7 +156,7 @@ public class Indexer1 {
 				+ ", authority=" + authority + ", duration=" + duration + ", skills=" + skills
 				+ ", message=" + message + ", weight=" + weight + "]";
 	}
-	
-	
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.stackroute.matchmaker.indexer;
+package com.stackroute.matchmaker.indexermodel;
 
 public class RelationshipProperty {
 

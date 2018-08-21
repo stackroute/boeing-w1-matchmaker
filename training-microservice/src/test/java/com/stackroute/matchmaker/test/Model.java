@@ -20,14 +20,13 @@ public class Model {
 		certificates.setTrainingId("SR_101");
 		certificates.setTrainingName("Immersive Java Programming");
 		certificates.setSkillsTested("Java,HTML");
-
-
+		certificates.setMessage("create");
 	}
 
 	@Test
 	public void test() {
 		new BeanTester().testBean(Certificates.class);
-		
+
 	}
 
 }

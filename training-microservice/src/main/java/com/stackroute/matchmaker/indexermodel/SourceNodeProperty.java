@@ -1,8 +1,8 @@
-package com.stackroute.matchmaker.indexer;
+package com.stackroute.matchmaker.indexermodel;
 
 public class SourceNodeProperty {
 
-	
+
 	private String skills;
 	private String duration;
 
@@ -14,7 +14,7 @@ public class SourceNodeProperty {
 	 */
 	public SourceNodeProperty(String skills, String duration) {
 		super();
-		
+
 		this.skills = skills;
 		this.duration = duration;
 	}

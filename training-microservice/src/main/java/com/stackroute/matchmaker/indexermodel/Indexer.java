@@ -1,3 +1,4 @@
+package com.stackroute.matchmaker.indexermodel;
 //package com.stackroute.matchmaker.indexer;
 //package com.stackroute.kafka.consumer.indexer;
 //

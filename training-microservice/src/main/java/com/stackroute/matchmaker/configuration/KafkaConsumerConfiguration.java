@@ -25,14 +25,14 @@ detection of @KafkaListener annotation on spring managed beans.*/
 @Configuration
 public class KafkaConsumerConfiguration {
 
-	
+
 	@Value("${spring.kafka.bootstrap-servers}")
-    private String bootstrapServers;
-	
+	private String bootstrapServers;
+
 	@Bean
 	public ConsumerFactory<String, String> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		
+
 		//specifies a list of host/port pairs to use for establishing the initial connection to the Kafka cluster
 		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers );
 		//specifies a unique string that identifies the consumer group this consumer belongs to.
