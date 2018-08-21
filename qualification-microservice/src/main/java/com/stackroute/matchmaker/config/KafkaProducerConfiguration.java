@@ -1,4 +1,4 @@
-package com.stackroute.qualificationmicroservice.config;
+package com.stackroute.matchmaker.config;
 
 
 import java.util.HashMap;
@@ -13,8 +13,9 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.qualificationmicroservice.indexermodel.Indexer;
-import com.stackroute.qualificationmicroservice.model.Qualification;
+import com.stackroute.matchmaker.indexermodel.Indexer;
+import com.stackroute.matchmaker.indexermodel.QualificationIndex;
+import com.stackroute.matchmaker.model.AcademicQualification;
 
 @Configuration
 public class KafkaProducerConfiguration {
@@ -24,7 +25,7 @@ public class KafkaProducerConfiguration {
 		Map<String, Object> configProps = new HashMap<>();
 		// specifies a list of host/port pairs to use for establishing the initial
 		// connection to the Kafka cluster
-		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
 		// specifies the serializer class for key that implements the
 		// org.apache.kafka.common.serialization.Serializer interface.
 		configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -35,12 +36,12 @@ public class KafkaProducerConfiguration {
 	}
 
 	@Bean
-	public ProducerFactory<String,Qualification> producerFactory() {
+	public ProducerFactory<String,AcademicQualification> producerFactory() {
 		return new DefaultKafkaProducerFactory<>(producerConfig());
 	}
 
 	@Bean
-	public KafkaTemplate<String,Qualification> kafkaTemplate() {
+	public KafkaTemplate<String,AcademicQualification> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
 	}
 	@Bean
@@ -48,7 +49,7 @@ public class KafkaProducerConfiguration {
 		Map<String, Object> configProps = new HashMap<>();
 		// specifies a list of host/port pairs to use for establishing the initial
 		// connection to the Kafka cluster
-		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
 		// specifies the serializer class for key that implements the
 		// org.apache.kafka.common.serialization.Serializer interface.
 		configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -60,11 +61,35 @@ public class KafkaProducerConfiguration {
 
 	@Bean
 	public ProducerFactory<String,Indexer> producerFactory1() {
-		return new DefaultKafkaProducerFactory<>(producerConfig());
+		return new DefaultKafkaProducerFactory<>(producerConfig1());
 	}
 
 	@Bean
 	public KafkaTemplate<String,Indexer> kafkaTemplate1() {
 		return new KafkaTemplate<>(producerFactory1());
+	}
+	@Bean
+	public Map<String, Object> producerConfig2() {
+		Map<String, Object> configProps = new HashMap<>();
+		// specifies a list of host/port pairs to use for establishing the initial
+		// connection to the Kafka cluster
+		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
+		// specifies the serializer class for key that implements the
+		// org.apache.kafka.common.serialization.Serializer interface.
+		configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		// specifies the serializer class for value that implements the
+		// org.apache.kafka.common.serialization.Serializer interface.
+		configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		return configProps;
+	}
+
+	@Bean
+	public ProducerFactory<String,QualificationIndex> producerFactory2() {
+		return new DefaultKafkaProducerFactory<>(producerConfig2());
+	}
+
+	@Bean
+	public KafkaTemplate<String,QualificationIndex> kafkaTemplate2() {
+		return new KafkaTemplate<>(producerFactory2());
 	}
 }

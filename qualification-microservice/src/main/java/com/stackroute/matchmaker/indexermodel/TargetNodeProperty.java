@@ -1,4 +1,4 @@
-package com.stackroute.qualificationmicroservice.indexermodel;
+package com.stackroute.matchmaker.indexermodel;
 
 public class TargetNodeProperty {
 

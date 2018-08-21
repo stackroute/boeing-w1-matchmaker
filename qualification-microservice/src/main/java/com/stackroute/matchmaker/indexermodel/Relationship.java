@@ -1,6 +1,6 @@
-package com.stackroute.qualificationmicroservice.indexermodel;
+package com.stackroute.matchmaker.indexermodel;
 
-import com.stackroute.qualificationmicroservice.relationshipmodel.StudiedAtRelationshipProperties;
+import com.stackroute.matchmaker.relationshipmodel.StudiedAtRelationshipProperties;
 
 public class Relationship {
 	

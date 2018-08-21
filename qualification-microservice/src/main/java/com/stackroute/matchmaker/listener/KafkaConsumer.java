@@ -1,4 +1,4 @@
-package com.stackroute.qualificationmicroservice.listener;
+package com.stackroute.matchmaker.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.qualificationmicroservice.model.Qualification;
-import com.stackroute.qualificationmicroservice.producer.Receiver;
+import com.stackroute.matchmaker.model.AcademicQualification;
+import com.stackroute.matchmaker.producer.Receiver;
 
 @Service
 public class KafkaConsumer {
@@ -22,7 +22,7 @@ public class KafkaConsumer {
      
     @KafkaListener(topics = "${app.topic.name}",
             containerFactory = "qualificationKafkaListenerFactory")
-    public void consumeJson(Qualification qualification) {
+    public void consumeJson(AcademicQualification qualification) {
     	  LOG.info("received message in consumer ='{}'", qualification);
     	  receiver.consumeJson(qualification);
     	  

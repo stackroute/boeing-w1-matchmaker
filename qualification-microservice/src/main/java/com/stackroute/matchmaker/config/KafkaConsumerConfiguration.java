@@ -1,4 +1,4 @@
-package com.stackroute.qualificationmicroservice.config;
+package com.stackroute.matchmaker.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -11,7 +11,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.stackroute.qualificationmicroservice.model.Qualification;
+import com.stackroute.matchmaker.model.AcademicQualification;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -67,7 +67,7 @@ public class KafkaConsumerConfiguration {
      * 
      */
     @Bean
-    public ConsumerFactory<String,Qualification> qualificationConsumerFactory() {
+    public ConsumerFactory<String,AcademicQualification> qualificationConsumerFactory() {
         Map<String, Object> config = new HashMap<>();
 
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -75,13 +75,13 @@ public class KafkaConsumerConfiguration {
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-                new JsonDeserializer<>(Qualification.class));
+                new JsonDeserializer<>(AcademicQualification.class));
     }
     
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Qualification> qualificationKafkaListenerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, Qualification> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, AcademicQualification> qualificationKafkaListenerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, AcademicQualification> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(qualificationConsumerFactory());
         return factory;
     }

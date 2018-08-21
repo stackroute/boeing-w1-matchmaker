@@ -1,4 +1,4 @@
-package com.stackroute.qualificationmicroservice.relationshipmodel;
+package com.stackroute.matchmaker.relationshipmodel;
 
 public class StudiedAtRelationshipProperties {
 

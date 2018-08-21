@@ -1,6 +1,7 @@
-package com.stackroute.qualificationmicroservice.indexermodel;
+package com.stackroute.matchmaker.indexermodel;
 
 public class Indexer {
+	 
 	
 	private String sourceNodeType;
 	private String sourceNodeProperty;

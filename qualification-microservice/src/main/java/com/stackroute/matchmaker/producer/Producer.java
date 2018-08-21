@@ -1,4 +1,4 @@
-package com.stackroute.qualificationmicroservice.producer;
+package com.stackroute.matchmaker.producer;
 
 
 import org.slf4j.Logger;
@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.qualificationmicroservice.indexermodel.Indexer;
-import com.stackroute.qualificationmicroservice.model.Qualification;
+import com.stackroute.matchmaker.indexermodel.Indexer;
+import com.stackroute.matchmaker.indexermodel.QualificationIndex;
+import com.stackroute.matchmaker.model.AcademicQualification;
 
 
 
@@ -25,12 +26,20 @@ public class Producer {
 		kafkaTemplate.send("QualificationIndexer", indexer);
 	}*/
 
-	@Autowired
-	private KafkaTemplate<String,Qualification> kafkaTemplate;
+	/*@Autowired
+	private KafkaTemplate<String,AcademicQualification> kafkaTemplate;
 
-	public void send(Qualification qualification) {
+	public void send(AcademicQualification qualification) {
 		LOG.info("sending JSON message='{}'",qualification );
 		kafkaTemplate.send("Indexer",qualification);
+	}*/
+	
+	@Autowired
+	private KafkaTemplate<String,QualificationIndex> kafkaTemplate;
+
+	public void sendtoindexer(QualificationIndex qualificationIndexer) {
+		LOG.info("sending JSON with weight message='{}'",qualificationIndexer );
+		kafkaTemplate.send("QualificationIndexer",qualificationIndexer);
 	}
 
 }

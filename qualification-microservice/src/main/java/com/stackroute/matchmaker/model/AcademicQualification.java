@@ -1,7 +1,7 @@
-package com.stackroute.qualificationmicroservice.model;
+package com.stackroute.matchmaker.model;
 
 
-public class Qualification {
+public class AcademicQualification {
 	
 	/*The data model of Academic Qualifications MicroService.
 	 * Getters and setters have been implemented.
@@ -23,7 +23,7 @@ public class Qualification {
 				+ instituteName + ", yearOfJoining=" + yearOfJoining + ", yearOfCompletion=" + yearOfCompletion
 				+ ", stream=" + stream + ", marks=" + marks + ", message=" + message + "]";
 	}
-	public Qualification() {
+	public AcademicQualification() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
