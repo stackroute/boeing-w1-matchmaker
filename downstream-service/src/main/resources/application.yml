@@ -8,13 +8,13 @@ spring:
           brokers:
           - 172.23.238.163:9092
       bindings:
-        Projects:
+        Project:
           destination: Project
           content-type: application/json
         Location:
           destination: Location
           content-type: application/json
-        Certificates:
+        Training:
           destination: Training
           content-type: application/json
         Academies:
@@ -32,5 +32,4 @@ spring:
   data:
     cassandra:
       keyspace-name: matchmaker
-      contact-points: localhost
       port: 9042

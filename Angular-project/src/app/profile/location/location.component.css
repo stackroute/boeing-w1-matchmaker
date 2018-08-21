@@ -22,3 +22,9 @@
   .dropdown-menu a:hover {
    cursor: pointer;
   }
+
+  .validation_message {
+    font-size: 12px;
+    color: red;
+    margin-top: -4%;
+}

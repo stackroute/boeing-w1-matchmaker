@@ -11,8 +11,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.fasterxml.jackson.databind.JsonSerializer;
+import com.stackroute.matchmaker.model.PersonalInfo;
 
 
 /*In order to successfully send messages to a Kafka topic, 
@@ -43,12 +44,12 @@ public class ProducerConfigs {
 	}
 	
 	@Bean
-	public ProducerFactory<String, ?> producerFactory() {
+	public ProducerFactory<String, PersonalInfo> producerFactory() {
 		return new DefaultKafkaProducerFactory<>(producerConfig());
 	}
 	
 	@Bean
-	public KafkaTemplate<String, ?> kafkaTemplate() {
+	public KafkaTemplate<String, PersonalInfo> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
 	}
 	

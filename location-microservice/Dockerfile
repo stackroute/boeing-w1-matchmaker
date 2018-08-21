@@ -6,7 +6,7 @@ WORKDIR /src
 
 COPY target/location-microservice-1.1.0.jar /src/location.jar
 
-EXPOSE 8080
+EXPOSE 8086
 
 RUN sh -c 'touch /src/location.jar'
 

@@ -1,6 +1,7 @@
 package com.stackroute.downstreamservice.model;
 
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
@@ -32,7 +33,9 @@ public class Project {
 	private String projectLocation;
 	private String technologies;
 	private String projectTitle;
+	@Column("projectfrom")
 	private String from;
+	@Column("projectto")
 	private String to;
 	private String synopsis;
 	private String url;
