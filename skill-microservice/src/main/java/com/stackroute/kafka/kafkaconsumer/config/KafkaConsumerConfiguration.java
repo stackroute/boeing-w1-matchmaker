@@ -20,7 +20,6 @@ import java.util.Map;
 @Configuration
 public class KafkaConsumerConfiguration {
 
-	// Any other way to do this binding?
 	@Value("${spring.kafka.bootstrap-servers}")
 	private String bootstrapServers;
 
@@ -41,7 +40,6 @@ public class KafkaConsumerConfiguration {
 	// setting the consumer factory with the cofiguration
 	// kafkaListenerContainerFactory is default container factory used in kafka
 	// listener
-	// why concurrent kafka factory?
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<String, String>();
