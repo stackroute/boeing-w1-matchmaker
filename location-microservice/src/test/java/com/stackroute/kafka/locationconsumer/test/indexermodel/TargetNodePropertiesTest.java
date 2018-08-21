@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.junit.Before;
 import org.meanbean.test.BeanTester;
 
-import com.stackroute.kafka.locationconsumer.indexermodel.TargetNodeProperties;
+import com.stackroute.matchmaker.indexermodel.TargetNodeProperties;
 
 public class TargetNodePropertiesTest {
 

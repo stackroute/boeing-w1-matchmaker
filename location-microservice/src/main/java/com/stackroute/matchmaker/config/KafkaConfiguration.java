@@ -1,4 +1,4 @@
-package com.stackroute.kafka.locationconsumer.config;
+package com.stackroute.matchmaker.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -10,7 +10,9 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
-import com.stackroute.kafka.locationconsumer.model.Location;
+
+import com.stackroute.matchmaker.model.Location;
+
 import java.util.HashMap;
 import java.util.Map;
 

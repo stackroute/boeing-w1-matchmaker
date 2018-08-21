@@ -3,7 +3,8 @@ package com.stackroute.kafka.locationconsumer.test.indexermodel;
 import org.junit.Test;
 import org.junit.Before;
 import org.meanbean.test.BeanTester;
-import com.stackroute.kafka.locationconsumer.indexermodel.SourceNodeProperties;
+
+import com.stackroute.matchmaker.indexermodel.SourceNodeProperties;
 
 public class SourceNodePropertiesTest {
 

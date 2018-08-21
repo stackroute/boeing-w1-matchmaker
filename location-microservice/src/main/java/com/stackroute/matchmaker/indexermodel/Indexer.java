@@ -1,4 +1,4 @@
-package com.stackroute.kafka.locationconsumer.indexermodel;
+package com.stackroute.matchmaker.indexermodel;
 
 public class Indexer {
 

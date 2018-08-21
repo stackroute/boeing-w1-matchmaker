@@ -1,4 +1,4 @@
-package com.stackroute.kafka.locationconsumer;
+package com.stackroute.matchmaker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

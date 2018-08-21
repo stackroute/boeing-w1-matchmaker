@@ -1,4 +1,4 @@
-package com.stackroute.kafka.locationconsumer.model;
+package com.stackroute.matchmaker.model;
 
 public class Location {
 

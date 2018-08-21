@@ -1,14 +1,12 @@
-package com.stackroute.kafka.locationconsumer.listener;
+package com.stackroute.matchmaker.listener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-import com.stackroute.kafka.locationconsumer.indexermodel.Index;
-/*import com.stackroute.kafka.locationconsumer.indexermodel.Indexer;
-import com.stackroute.kafka.locationconsumer.indexermodel.SourceNodeProperties;
-import com.stackroute.kafka.locationconsumer.indexermodel.TargetNodeProperties;*/
-import com.stackroute.kafka.locationconsumer.model.Location;
+
+import com.stackroute.matchmaker.indexermodel.Index;
+import com.stackroute.matchmaker.model.Location;
 
 @Service
 public class KafkaProducer {
@@ -17,7 +15,7 @@ public class KafkaProducer {
     
     @Autowired
     private KafkaTemplate<String, Index> kafkaTemplate;
-    private String topic = "outputToIndexer";
+    private String topic = "LocationOutput";
     
     public void post(Location location) {
     	

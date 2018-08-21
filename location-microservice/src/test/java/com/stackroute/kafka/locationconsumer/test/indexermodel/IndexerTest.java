@@ -3,9 +3,10 @@ package com.stackroute.kafka.locationconsumer.test.indexermodel;
 import org.junit.Before;
 import org.junit.Test;
 import org.meanbean.test.BeanTester;
-import com.stackroute.kafka.locationconsumer.indexermodel.Indexer;
-import com.stackroute.kafka.locationconsumer.indexermodel.SourceNodeProperties;
-import com.stackroute.kafka.locationconsumer.indexermodel.TargetNodeProperties;
+
+import com.stackroute.matchmaker.indexermodel.Indexer;
+import com.stackroute.matchmaker.indexermodel.SourceNodeProperties;
+import com.stackroute.matchmaker.indexermodel.TargetNodeProperties;
 
 public class IndexerTest {
 
