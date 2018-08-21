@@ -41,6 +41,15 @@ public class RegisterUserImpl implements RegisterUser{
 		else	
 		throw new EmailAlreadyExistsException("Email already present");
 		
-	}	
+	}
+	
+	@Override
+	public Registration findByUserName(String userName) {
+		Registration registrant = registrationRepo.getUserByUsername(userName);
+		if(registrant==null)
+	    return null;			
+		else 
+	    return registrant;
+	}
 
 }

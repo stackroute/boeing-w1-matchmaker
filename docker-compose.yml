@@ -101,23 +101,23 @@ Skills:1:1, CassandraRegistration:1:1"
       test: "exit 0"
 
 
-#  login-service:
-#    build: login-service/
-#    image: login-service
-#    restart: always
-#    network_mode: "host"
-#    hostname: localhost
-#    ports:
-#      - 8082:8082
-#    depends_on:
-#      - mysql
-#      - config-service
-#      - eureka-server
-#    environment:
-#      - DATABASE_HOST=mysql
-#      - DATABASE_USER=root
-#      - DATABASE_PASSWORD=root
-#      - DATABASE_NAME=register
-#      - DATABASE_PORT=3306
-#    healthcheck:
-#      test: "exit 0"
+  login-service:
+    build: login-service/
+    image: login-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8082:8082
+    depends_on:
+      - mysql
+      - config-service
+      - eureka-server
+    environment:
+      - DATABASE_HOST=mysql
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_NAME=register
+      - DATABASE_PORT=3306
+    healthcheck:
+      test: "exit 0"
