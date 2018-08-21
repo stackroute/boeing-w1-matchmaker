@@ -1,3 +1,4 @@
+package com.stackroute.matchmaker.test.consumer;
 //package com.stackroute.experiencemicroservice.test.consumer;
 //
 //import static org.assertj.core.api.Assertions.assertThat;
