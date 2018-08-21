@@ -1,4 +1,4 @@
-package com.stackroute.kafka.consumer.indexer;
+package com.stackroute.matchmaker.indexer;
 
 public class Indexer1 {
 	

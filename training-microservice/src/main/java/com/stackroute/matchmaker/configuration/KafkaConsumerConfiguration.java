@@ -1,4 +1,4 @@
-package com.stackroute.kafka.consumer.configuration;
+package com.stackroute.matchmaker.configuration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.stackroute.kafka.consumer.model.Training;
+import com.stackroute.matchmaker.model.Certificates;
 
 /*For consuming messages, we need to configure a ConsumerFactory and a KafkaListenerContainerFactory.
 Once these beans are available in spring bean factory, POJO based consumers can be configured using @KafkaListener annotation.
@@ -54,7 +54,7 @@ public class KafkaConsumerConfiguration {
 	}
 
 	@Bean
-	public ConsumerFactory<String, Training> userConsumerFactory() {
+	public ConsumerFactory<String, Certificates> userConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
 		//specifies a list of host/port pairs to use for establishing the initial connection to the Kafka cluster
@@ -66,12 +66,12 @@ public class KafkaConsumerConfiguration {
 		//specifies the serializer class for value that implements the org.apache.kafka.common.serialization.Serializer interface.
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-				new JsonDeserializer<>(Training.class));
+				new JsonDeserializer<>(Certificates.class));
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, Training> userKafkaListenerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, Training> factory = new ConcurrentKafkaListenerContainerFactory<>();
+	public ConcurrentKafkaListenerContainerFactory<String, Certificates> userKafkaListenerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Certificates> factory = new ConcurrentKafkaListenerContainerFactory<>();
 		factory.setConsumerFactory(userConsumerFactory());
 		return factory;
 	}

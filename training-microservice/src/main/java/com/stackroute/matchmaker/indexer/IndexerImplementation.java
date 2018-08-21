@@ -1,4 +1,4 @@
-package com.stackroute.kafka.consumer.indexer;
+package com.stackroute.matchmaker.indexer;
 
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.slf4j.Logger;
@@ -8,7 +8,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.kafka.consumer.model.Training;
+import com.stackroute.matchmaker.model.Certificates;
 
 @RestController
 public class IndexerImplementation {
@@ -28,10 +28,10 @@ public class IndexerImplementation {
 //	@Autowired
 //	private KafkaTemplate<String, Indexer> kafkaTemplate1;
 
-		@KafkaListener(topics = "${listener.topic.name}", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
-		public void consumeJson(Training training) {
+		@KafkaListener(topics = "${app.topic.training}", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
+		public void consumeJson(Certificates certificates) {
 			
-			Indexer1 index2 = new Indexer1(training.getProfileId(),training.getTrainingId(),training.getTrainingName(),training.getAuthority(),training.getDuration(),training.getSkillsTested(),"create","3");
+			Indexer1 index2 = new Indexer1(certificates.getProfileId(),certificates.getTrainingId(),certificates.getTrainingName(),certificates.getAuthority(),certificates.getDuration(),certificates.getSkillsTested(),"create","3");
 			kafkaTemplate.send(topics2, index2);
 			LOG.info("consumed message in index1='{}'", index2);
 	

@@ -1,3 +1,4 @@
+package com.stackroute.matchmaker.test;
 //package com.stackroute.consumer.test;
 //
 //import static org.junit.Assert.*;

@@ -1,19 +1,21 @@
-package com.stackroute.kafka.consumer.model;
+package com.stackroute.matchmaker.model;
 
 
 // this is the data model for training Microservice
-public class Training {
-	
+public class Certificates {
+
 	private String profileId;
-    private String trainingId;
-    private String trainingName;
-    private String authority;
-    private String duration;
-    private String skillsTested;
-    private String message;
-	
-	public Training() {
-		
+	private String trainingId;
+	private String trainingName;
+
+	private String authority;
+	private String duration;
+	private String skillsTested;
+	private String message;
+
+	public Certificates() {
+		super();
+
 	}
 
 	/**
@@ -24,7 +26,7 @@ public class Training {
 	 * @param duration
 	 * @param skillsTested
 	 */
-	public Training(String profileId, String trainingId, String trainingName, String authority, String duration,
+	public Certificates(String profileId, String trainingId,String trainingName, String authority, String duration,
 			String skillsTested,String message) {
 		super();
 		this.profileId = profileId;
@@ -141,8 +143,8 @@ public class Training {
 	 */
 	@Override
 	public String toString() {
-		return "User [profileId=" + profileId + ", trainingId=" + trainingId + ", trainingName=" + trainingName
-				+ ", authority=" + authority + ", duration=" + duration + ", skillsTested=" + skillsTested + ", message=" + message + "]";
+		return "Training [profileId=" + profileId + ", trainingId=" + trainingId + ", trainingName=" + trainingName
+				+ ", authority=" + authority + ", duration=" + duration + ", skillsTested=" + skillsTested
+				+ ", message=" + message + "]";
 	}
-	
 }

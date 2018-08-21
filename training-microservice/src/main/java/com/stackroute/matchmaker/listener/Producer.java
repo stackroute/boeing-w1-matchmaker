@@ -1,4 +1,4 @@
-package com.stackroute.kafka.consumer.listener;
+package com.stackroute.matchmaker.listener;
 
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.slf4j.Logger;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.kafka.consumer.model.Training;
+import com.stackroute.matchmaker.model.Certificates;
 
 @RestController
 @RequestMapping("kafka")
@@ -20,7 +20,7 @@ public class Producer {
 	private static final Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
 	
 	@Autowired
-	private KafkaTemplate<String,Training> kafkaTemplate;
+	private KafkaTemplate<String,Certificates> kafkaTemplate;
 	
 	@Value("${listener.topic.name}")
 	private String TOPIC ;
@@ -29,7 +29,7 @@ public class Producer {
 	
 	@GetMapping("/publish/{name}")
 	public String post(@PathVariable("name") final String name) {
-		kafkaTemplate.send(TOPIC, new Training(name,name,name,name,name,name,name));
+		kafkaTemplate.send(TOPIC, new Certificates(name,name,name,name,name,name,name));
 		//kafkaTemplate.send(topic, new Training(name,name,name,name,name,name,name));
 		//LOG.info("consumed message='{}'", new Training(name,name,name,name,name,name,name));
 
