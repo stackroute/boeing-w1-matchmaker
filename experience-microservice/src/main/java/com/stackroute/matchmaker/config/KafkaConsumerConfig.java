@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.appli.config;
+package com.stackroute.matchmaker.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 
@@ -12,7 +12,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.stackroute.experiencemicroservice.appli.model.Experience;
+import com.stackroute.matchmaker.model.Experience;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,8 +48,8 @@ public class KafkaConsumerConfig {
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, group_id);
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-		config.put(JsonDeserializer.TRUSTED_PACKAGES, "com.stackroute.experiencemicroservice.appli.model");
+//		config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+//		config.put(JsonDeserializer.TRUSTED_PACKAGES, "com.stackroute.experiencemicroservice.appli.model");
 		return new DefaultKafkaConsumerFactory<>(config);
 	}
 
@@ -63,13 +63,13 @@ public class KafkaConsumerConfig {
 
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory();
+		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<String, String>();
 		factory.setConsumerFactory(consumerFactory());
 		return factory;
 	}
 
 	// This method is for setting up the configuration when the value to be
-	// recieved is a JSON object
+	// Received is a JSON object
 	// Configuration for reading or fetching JSON format data
 	@Bean
 	public ConsumerFactory<String, Experience> experienceConsumerFactory() {
@@ -79,9 +79,9 @@ public class KafkaConsumerConfig {
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, group_id);
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-		config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-
-		config.put(JsonDeserializer.TRUSTED_PACKAGES, "com.stackroute.experiencemicroservice.appli.model");
+		/* below 2 lines are added to handle trusted package issue */
+//		config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+//		config.put(JsonDeserializer.TRUSTED_PACKAGES, "com.stackroute.experiencemicroservice.appli.model");
 		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
 				new JsonDeserializer<>(Experience.class));
 	}

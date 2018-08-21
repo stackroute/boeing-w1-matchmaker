@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.appli.indexermodel;
+package com.stackroute.matchmaker.indexermodel;
 
 public class RelationshipName {
 

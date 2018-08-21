@@ -1,6 +1,4 @@
-package com.stackroute.experiencemicroservice.appli.listener;
-
-import java.util.concurrent.CountDownLatch;
+package com.stackroute.matchmaker.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.experiencemicroservice.appli.controller.KafkaProducerController;
-import com.stackroute.experiencemicroservice.appli.model.Experience;
+import com.stackroute.matchmaker.controller.KafkaProducerController;
+import com.stackroute.matchmaker.model.Experience;
 
 @Service
 public class KafkaConsumer {
@@ -19,11 +17,11 @@ public class KafkaConsumer {
 	 * latch, or gate: all threads invoking await wait at the gate until it is
 	 * opened by a thread invoking countDown() .
 	 */
-	private CountDownLatch latch = new CountDownLatch(1);
-
-	public CountDownLatch getLatch() {
-		return latch;
-	}
+//	private CountDownLatch latch = new CountDownLatch(1);
+//
+//	public CountDownLatch getLatch() {
+//		return latch;
+//	}
 
 	private static final Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
 
@@ -40,11 +38,10 @@ public class KafkaConsumer {
 
 	@KafkaListener(topics = "${experienceproducer.producer.exp}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "experienceKafkaListenerFactory")
 	public void consumeJson(Experience experience) {
-		// System.out.println("Consumed JSON Message: " + experience);
 		LOG.info("recieved JSON message='{}'", experience);
 
 		// obj.index(experience);
 		kafkaProducer.produceJson(experience);
-		latch.countDown();
+//		latch.countDown();
 	}
 }

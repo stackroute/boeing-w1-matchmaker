@@ -1,4 +1,4 @@
-package com.stackroute.experiencemicroservice.appli.model;
+package com.stackroute.matchmaker.model;
 
 public class Experience {
 	/*
