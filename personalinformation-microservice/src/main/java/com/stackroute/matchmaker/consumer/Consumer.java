@@ -24,7 +24,7 @@ public class Consumer {
 	/*
 	 * This function listens to the topic and sends the object to receiver
 	 */
-	@KafkaListener(topics = "${app.topic.consumer}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "personalInfoKafkaContainerFactory")
+	@KafkaListener(topics = "${app.topic.consumer}", containerFactory = "personalInfoKafkaContainerFactory")
 	public void consumeJson(PersonalInfo personalInfo) {
 
 		log.info("received message='{}'", personalInfo);
