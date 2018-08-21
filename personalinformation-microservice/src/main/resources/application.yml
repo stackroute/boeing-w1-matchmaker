@@ -7,7 +7,7 @@ spring:
 app:
  topic:
     consumer: PersonalInfo
-    producer: 
+    producer: PersonalInfoIndexer
 
 server:
  port: 8088

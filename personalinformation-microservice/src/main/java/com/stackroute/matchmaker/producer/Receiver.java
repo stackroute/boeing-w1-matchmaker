@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.stackroute.matchmaker.model.PersonalInfo;
 
+//Receiver service receives the personal information object from kafka consumer
 @Service
 public class Receiver {
 
@@ -11,10 +12,8 @@ public class Receiver {
 	private Producer producer;
 
 	public void receiveObject(PersonalInfo personalInfo) {
-
-		// dummy object to be produced
-		//PersonalInfo per = new PersonalInfo("hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello",
-		//		"hello", "hello", "hello", "hello","hai");
+		
+		//sends the object to kafka producer
 		producer.sendObject(personalInfo);
 
 	}
