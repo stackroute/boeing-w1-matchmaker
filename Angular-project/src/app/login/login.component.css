@@ -11,8 +11,9 @@
 
 #orStyle {
     font-weight: bold;
-    margin: 0 5px;
     color: #444;
+    text-align: center;
+    margin-top: 12px;
 }
 
 #signUp {

@@ -1,5 +1,8 @@
 package com.stackroute.matchmaker.model;
 
+/*
+ * model class for personal information microservice
+ */
 public class PersonalInfo {
 	
 	private String profileId;

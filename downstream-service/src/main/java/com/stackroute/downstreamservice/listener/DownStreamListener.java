@@ -14,6 +14,7 @@ import com.stackroute.downstreamservice.model.PersonalInfo;
 import com.stackroute.downstreamservice.model.Project;
 import com.stackroute.downstreamservice.model.Skills;
 import com.stackroute.downstreamservice.model.Training;
+import com.stackroute.downstreamservice.model.User;
 import com.stackroute.downstreamservice.repository.AcademiesRepository;
 import com.stackroute.downstreamservice.repository.ExperienceRepository;
 import com.stackroute.downstreamservice.repository.LocationRepository;
@@ -21,6 +22,7 @@ import com.stackroute.downstreamservice.repository.PersonalInfoRepository;
 import com.stackroute.downstreamservice.repository.ProjectRepository;
 import com.stackroute.downstreamservice.repository.SkillsRepository;
 import com.stackroute.downstreamservice.repository.TrainingRepository;
+import com.stackroute.downstreamservice.repository.UserRepository;
 import com.stackroute.downstreamservice.stream.AcademiesStream;
 import com.stackroute.downstreamservice.stream.ExperienceStream;
 import com.stackroute.downstreamservice.stream.LocationStream;
@@ -28,16 +30,25 @@ import com.stackroute.downstreamservice.stream.PersonalInfoStream;
 import com.stackroute.downstreamservice.stream.ProjectStream;
 import com.stackroute.downstreamservice.stream.SkillsStream;
 import com.stackroute.downstreamservice.stream.TrainingStream;
+import com.stackroute.downstreamservice.stream.UserStream;
 
 import lombok.NoArgsConstructor;
 
+/**
+ * 
+ * @author simran 
+ * This class is to bind the listener to all the different
+ *         streams.
+ */
 @NoArgsConstructor
 @EnableBinding({ AcademiesStream.class, ExperienceStream.class, LocationStream.class, PersonalInfoStream.class,
-		ProjectStream.class, SkillsStream.class, TrainingStream.class })
+		ProjectStream.class, SkillsStream.class, TrainingStream.class, UserStream.class })
 public class DownStreamListener {
 
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	// Logger object
+	private final  Logger logger = LoggerFactory.getLogger(this.getClass());
 
+	// all the repository
 	private AcademiesRepository academiesRepository;
 	private ExperienceRepository experienceRepository;
 	private LocationRepository locationRepository;
@@ -45,12 +56,13 @@ public class DownStreamListener {
 	private ProjectRepository projectRepository;
 	private SkillsRepository skillsRepository;
 	private TrainingRepository trainingRepository;
+	private UserRepository userRepository;
 
 	@Autowired
 	public DownStreamListener(AcademiesRepository academiesRepository, ExperienceRepository experienceRepository,
 			LocationRepository locationRepository, PersonalInfoRepository personalInfoRepository,
 			ProjectRepository projectRepository, SkillsRepository skillsRepository,
-			TrainingRepository trainingRepository) {
+			TrainingRepository trainingRepository, UserRepository userRepository) {
 
 		this.academiesRepository = academiesRepository;
 		this.experienceRepository = experienceRepository;
@@ -59,11 +71,11 @@ public class DownStreamListener {
 		this.projectRepository = projectRepository;
 		this.skillsRepository = skillsRepository;
 		this.trainingRepository = trainingRepository;
+		this.userRepository = userRepository;
 	}
 
 	@StreamListener(ExperienceStream.INPUT)
 	public void experiencePost(@Payload Experience experience) {
-		logger.info("11111 reading from topic ExperienceStream " + experience);
 		try {
 			experienceRepository.save(experience);
 		} catch (Exception e) {
@@ -130,6 +142,16 @@ public class DownStreamListener {
 			logger.info("Error in saving");
 		}
 		logger.info(training.toString() + " training");
+	}
+
+	@StreamListener(UserStream.INPUT)
+	public void userPost(@Payload User user) {
+		try {
+			userRepository.save(user);
+		} catch (Exception e) {
+			logger.info("Error in saving");
+		}
+		logger.info(user.toString() + " user");
 	}
 
 }

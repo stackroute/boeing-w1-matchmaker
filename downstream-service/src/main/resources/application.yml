@@ -6,15 +6,15 @@ spring:
       kafka:
         binder:
           brokers:
-          - 172.23.238.184:9092
+          - 172.23.238.163:9092
       bindings:
-        Projects:
+        Project:
           destination: Project
           content-type: application/json
         Location:
           destination: Location
           content-type: application/json
-        Certificates:
+        Training:
           destination: Training
           content-type: application/json
         Academies:
@@ -32,6 +32,4 @@ spring:
   data:
     cassandra:
       keyspace-name: matchmaker
-      contact-points:
-      - 127.0.0.1
       port: 9042

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   userForm: FormGroup;
+  redirectUrl: string;
+  error = '';
   constructor(private formBuilder: FormBuilder,
-    private router: Router) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router, private authenticationService: AuthenticationService) {
+      // this.redirectUrl = this.activatedRoute.snapshot.queryParams['redirectTo'];
+    }
 
     ngOnInit() {
       this.userForm = this.formBuilder.group({
@@ -20,12 +26,21 @@ export class LoginComponent implements OnInit {
         ],
         password: ['', [Validators.required]]
       });
+      this.authenticationService.logout();
     }
 
     loginSubmit() {
-      const newUser = this.userForm.value;
-      this.router.navigate(['/profile']);
+
+      this.authenticationService.login(this.username.value, this.password.value)
+      .subscribe(
+          data => {
+              this.router.navigate(['/']);
+          },
+          error => {
+              this.error = 'Username or password is incorrect';
+          });
     }
+
 
     get username() {
       return this.userForm.get('username');

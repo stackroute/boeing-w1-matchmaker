@@ -1,6 +1,6 @@
 spring:
   kafka:
-    bootstrap-servers: 127.0.0.1:9092
+    bootstrap-servers: 172.23.238.163:9092
     consumer:
      group-id: group_json
 
@@ -10,6 +10,8 @@ experienceproducer:
     
 experienceproducer1:
    producer1:
-    exp1: Experience1
+    exp1: ExperienceIndexer123
+server:
+  port: 8083 
     
     

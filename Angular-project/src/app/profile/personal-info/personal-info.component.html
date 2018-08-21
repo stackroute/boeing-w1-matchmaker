@@ -2,8 +2,8 @@
   <div class="card">
     <div class="card-body">
       <h2>Personal Information</h2>
-      Profile Id: {{getPost_PI.profileId}}
-      <br> <img style="width:100px;height:100px"  src={{imageUrl}}>
+      <img style="width:100px;height:100px"  src={{imageUrl}}>
+      <br> Profile Id: {{getPost_PI.profileId}}
       <br> Name: {{getPost_PI.name}}
       <br> Age: {{getPost_PI.age}}
       <br> Contact no.: {{getPost_PI.mobile}}
@@ -54,7 +54,7 @@
             <input class="form-control" placeholder="Contact no." type="text" [(ngModel)]="newPost_PI.mobile" name="mobile">
           </div>
           <div class="form-group">
-            <input class="form-control" placeholder="Email" type="text" [(ngModel)]="newPost_PI.email" name="email">
+            <input class="form-control" placeholder="Email" type="email" [(ngModel)]="newPost_PI.email" name="email">
           </div>
           
           <div class="form-group">

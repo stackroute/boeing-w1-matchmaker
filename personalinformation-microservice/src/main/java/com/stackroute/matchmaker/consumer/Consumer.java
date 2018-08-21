@@ -16,15 +16,18 @@ import com.stackroute.matchmaker.producer.Receiver;
 @Service
 public class Consumer {
 
-	private static Logger LOG = LoggerFactory.getLogger(Consumer.class);
+	private static Logger log = LoggerFactory.getLogger(Consumer.class);
 
 	@Autowired
 	private Receiver receiver;
-
-	@KafkaListener(topics = "${app.topic.name}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "personalInfoKafkaContainerFactory")
+	
+	/*
+	 * This function listens to the topic and sends the object to receiver
+	 */
+	@KafkaListener(topics = "${app.topic.consumer}", containerFactory = "personalInfoKafkaContainerFactory")
 	public void consumeJson(PersonalInfo personalInfo) {
 
-		LOG.info("received message='{}'", personalInfo);
+		log.info("received message='{}'", personalInfo);
 		receiver.receiveObject(personalInfo);
 	}
 
