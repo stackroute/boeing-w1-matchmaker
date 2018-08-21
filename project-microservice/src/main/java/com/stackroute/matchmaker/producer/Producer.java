@@ -7,7 +7,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.matchmaker.indexermodel.Indexer;
-import com.stackroute.matchmaker.model.Project;
+import com.stackroute.matchmaker.model.Projects;
 
 @Service
 public class Producer {
@@ -23,11 +23,11 @@ public class Producer {
 //	}
 	
 	@Autowired
-	private KafkaTemplate<String, Project> kafkaTemplate;
+	private KafkaTemplate<String, Projects> kafkaTemplate;
 
-	public void send(Project project) {
-		LOG.info("sending JSON message='{}'", project);
-		kafkaTemplate.send("ProjectIndexer", project);
+	public void send(Projects projects) {
+		LOG.info("sending JSON message='{}'", projects);
+		kafkaTemplate.send("ProjectIndexer", projects);
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.stackroute.matchmaker.model;
 
-public class Project {
+public class Projects {
 
 	// Properties of the Model
 
@@ -144,13 +144,13 @@ public class Project {
 
 	// Default Constructor
 
-	public Project() {
+	public Projects() {
 
 	}
 
 	// Parameterized Constructor
 
-	public Project(String profileId, String projectId, String projectAt, String role, String department,
+	public Projects(String profileId, String projectId, String projectAt, String role, String department,
 			String projectLocation, String technologies, String projectTitle, String from, String to, String synopsis,
 			String url, String demoURL, String skills, String message) {
 		super();

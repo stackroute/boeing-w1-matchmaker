@@ -10,7 +10,7 @@ import com.stackroute.matchmaker.indexermodel.SkillIndexer;
 import com.stackroute.matchmaker.indexermodel.TargetNodeProperty;
 import com.stackroute.matchmaker.indexermodel.WorkIndexer;
 import com.stackroute.matchmaker.listener.KafkaConsumer;
-import com.stackroute.matchmaker.model.Project;
+import com.stackroute.matchmaker.model.Projects;
 import com.stackroute.matchmaker.relationshipmodel.SkillRelationshipProperties;
 import com.stackroute.matchmaker.relationshipmodel.WorkInRelationshipProperties;
 
@@ -28,8 +28,8 @@ public class Receiver {
 	public SkillIndexer skillIndexer = new SkillIndexer();
 	public WorkIndexer workIndexer = new WorkIndexer();
 
-	public void receiveObject(Project project) {
-		LOG.info("Parsed JSON message='{}'", project);
+	public void receiveObject(Projects projects) {
+		LOG.info("Parsed JSON message='{}'", projects);
 		// Target Node Type
 		workIndexer.setTargetNodeType("Profile");
 		skillIndexer.setTargetNodeType("Project");
@@ -40,33 +40,33 @@ public class Receiver {
 
 		// Source Node Property
 
-		workIndexer.setSourceNodeProperty(project.getProjectId());
-		skillIndexer.setSourceNodeProperty(project.getProjectId());
+		workIndexer.setSourceNodeProperty(projects.getProjectId());
+		skillIndexer.setSourceNodeProperty(projects.getProjectId());
 
 		// Target Node Property
-		targetNodeProperty.setId(project.getProfileId());
+		targetNodeProperty.setId(projects.getProfileId());
 
 		workIndexer.setTargetNodeProperty(targetNodeProperty);
 		skillIndexer.setTargetNodeProperty(targetNodeProperty);
 
 		// Work in Defined
-		workInRelationshipProperties.setDepartment(project.getDepartment());
-		workInRelationshipProperties.setFrom(project.getFrom());
-		workInRelationshipProperties.setProjectName(project.getProjectTitle());
-		workInRelationshipProperties.setRole(project.getRole());
-		workInRelationshipProperties.setTo(project.getTo());
+		workInRelationshipProperties.setDepartment(projects.getDepartment());
+		workInRelationshipProperties.setFrom(projects.getFrom());
+		workInRelationshipProperties.setProjectName(projects.getProjectTitle());
+		workInRelationshipProperties.setRole(projects.getRole());
+		workInRelationshipProperties.setTo(projects.getTo());
 
 		workIndexer.setWorkInRelationshipProperties(workInRelationshipProperties);
 
 		// Skill Defined
 		skillRelationshipProperties.setWeight("3");
-		skillRelationshipProperties.setSkills(project.getSkills());
+		skillRelationshipProperties.setSkills(projects.getSkills());
 
 		skillIndexer.setSkillRelationshipProperties(skillRelationshipProperties);
 
 		// Operations
-		workIndexer.setOperation(project.getMessage());
-		skillIndexer.setOperation(project.getMessage());
+		workIndexer.setOperation(projects.getMessage());
+		skillIndexer.setOperation(projects.getMessage());
 
 		// Converging
 		indexer.setWorkIndexer(workIndexer);
@@ -74,9 +74,9 @@ public class Receiver {
 
 		LOG.info("Parsed JSON message='{}'", indexer);
 		
-		LOG.info("Parsed JSON message='{}'", project);
+		LOG.info("Parsed JSON message='{}'", projects);
 
-		producer.send(project);
+		producer.send(projects);
 
 	}
 

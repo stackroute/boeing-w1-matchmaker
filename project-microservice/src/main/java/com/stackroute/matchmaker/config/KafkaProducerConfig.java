@@ -13,7 +13,7 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import com.stackroute.matchmaker.indexermodel.Indexer;
-import com.stackroute.matchmaker.model.Project;
+import com.stackroute.matchmaker.model.Projects;
 
 @Configuration
 public class KafkaProducerConfig {
@@ -34,12 +34,12 @@ public class KafkaProducerConfig {
 	}
 
 	@Bean
-	public ProducerFactory<String, Project> producerFactory() {
+	public ProducerFactory<String, Projects> producerFactory() {
 		return new DefaultKafkaProducerFactory<>(producerConfig());
 	}
 
 	@Bean
-	public KafkaTemplate<String, Project> kafkaTemplate() {
+	public KafkaTemplate<String, Projects> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
 	}
 

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.matchmaker.model.Project;
+import com.stackroute.matchmaker.model.Projects;
 import com.stackroute.matchmaker.producer.Receiver;
 
 @Service
@@ -30,10 +30,10 @@ public class KafkaConsumer {
 	 * 
 	 */
 	@KafkaListener(topics = "${app.topic.name}", groupId = "${spring.kafka.consumer.group-id}", containerFactory = "projectKafkaListenerFactory")
-	public void consumeJson(Project project) {
-		LOG.info("recieved JSON message='{}'", project);
+	public void consumeJson(Projects projects) {
+		LOG.info("recieved JSON message='{}'", projects);
 
-		receiver.receiveObject(project);
+		receiver.receiveObject(projects);
 	}
 
 }
