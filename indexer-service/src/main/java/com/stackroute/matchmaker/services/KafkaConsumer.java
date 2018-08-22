@@ -168,6 +168,7 @@ public class KafkaConsumer {
 				qualificationIndex.getStream(), qualificationIndex.getMarks(), profileId, university);
 		// trainingCoversSkillRepository.delete(trainingCoversSkill);
 		studiedAtRelationRepository.save(studiedAtRelation);
+		// studiedAtRelationRepository.deleteById(studiedAtRelation.getQualification());
 
 	}
 

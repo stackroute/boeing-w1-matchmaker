@@ -36,6 +36,7 @@
 		<module>skill-microservice</module>
 		<module>qualification-microservice</module>
 		<module>downstream-service</module>
+		<module>indexer-service</module>
                 
        </modules>
 </project>
