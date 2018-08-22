@@ -75,7 +75,7 @@
             <input class="form-control" placeholder="Github" type="url" [(ngModel)]="newPost_PI.github" name="github">
           </div>
           <div class="form-group">
-            <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
+            <button class="btn btn-dark pull-right submitbtn" onclick="this.form.reset();" type="submit">Send!</button>
           </div>
         </form>
       </div>
