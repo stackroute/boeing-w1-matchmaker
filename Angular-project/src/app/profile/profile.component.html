@@ -14,13 +14,22 @@
   </div>
  
   <br>
-  
-    <app-personal-info></app-personal-info>
-    <app-skills></app-skills>
-    <app-experience></app-experience>
-    <app-location></app-location>
-    <app-projects></app-projects> 
-    <app-certificates></app-certificates>
-    <app-academic-qualifications></app-academic-qualifications>
- 
+        <div class="flex-container">
+            
+            <div class="column">
+                <app-personal-info></app-personal-info>
+                <app-certificates></app-certificates>
+            </div>
+            <div class="column">
+              <app-skills></app-skills>
+              <app-location></app-location>
+              <app-academic-qualifications></app-academic-qualifications>
+            </div>
+            <div class="column">
+              <app-experience></app-experience>
+              <app-projects></app-projects>
+            </div>
+                    
+        </div>
+
  </div>
