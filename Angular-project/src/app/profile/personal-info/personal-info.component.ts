@@ -27,6 +27,7 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   addPost_PI() {
+    this.newPost_PI.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.addPost_PI(this.newPost_PI).subscribe(() => {
     });
     this.pi_check = true;
