@@ -39,6 +39,7 @@ export class PersonalInfoComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = (event: any) => {
         this.imageUrl = event.target.result;
+        this.newPost_PI.picture = reader.result;
 
       };
       reader.readAsDataURL(this.fileToUpload);
