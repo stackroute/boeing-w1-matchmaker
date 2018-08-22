@@ -4,11 +4,16 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { PortfoliosComponent } from './portfolios/portfolios.component';
+import { VisitingCardComponent } from './portfolios/visiting-card/visiting-card.component';
 
 const routes: Routes = [
-  {path: '', component: ProfileComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'portfolios', component: PortfoliosComponent},
   {path: 'register', component: RegistrationComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'portfolios/visiting', component: VisitingCardComponent}
+
 ];
 
 @NgModule({
@@ -19,4 +24,4 @@ const routes: Routes = [
   })
 
   export class AppRoutingModule {}
-  export const routingComponents = [ProfileComponent, RegistrationComponent, LoginComponent];
+  export const routingComponents = [ProfileComponent, PortfoliosComponent, VisitingCardComponent, RegistrationComponent, LoginComponent];

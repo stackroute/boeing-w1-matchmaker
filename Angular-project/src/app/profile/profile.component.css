@@ -20,7 +20,7 @@ a {
     background-color: green;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
+    justify-content: center;
     /* align-items: stretch; */
 }
 
@@ -48,4 +48,12 @@ a {
         flex: 100%;
         max-width: 100%;
     }
+}
+.dropdown{
+    position: fixed;
+    bottom: 0;
+}
+button{
+    margin-bottom: 20px;
+    float: right;
 }

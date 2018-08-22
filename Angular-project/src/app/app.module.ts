@@ -24,6 +24,11 @@ import {AuthenticationService} from './services/authentication.service';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { MaterialModule } from './material';
+import { PortfoliosComponent } from './portfolios/portfolios.component';
+import { VisitingCardComponent } from './portfolios/visiting-card/visiting-card.component';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 // export function tokenGetter() {
 //   return localStorage.getItem('access_token');
 // }
@@ -43,11 +48,13 @@ import { MaterialModule } from './material';
     RegistrationComponent,
     ExistingEmailValidatorDirective,
     ExistingUsernameValidatorDirective,
-    LoginComponent
+    LoginComponent,
+    PortfoliosComponent,
+    VisitingCardComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule,
-    AppRoutingModule, HttpModule, ReactiveFormsModule, MaterialModule
+    BrowserModule, HttpClientModule, FormsModule,MatDividerModule,MatListModule,
+    AppRoutingModule, HttpModule, ReactiveFormsModule, MaterialModule,MatButtonModule, MatCheckboxModule
     // JwtModule.forRoot({
     //   config: {
     //     tokenGetter: tokenGetter,
