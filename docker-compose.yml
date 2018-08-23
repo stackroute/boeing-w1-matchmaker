@@ -94,9 +94,6 @@ services:
  mongodb:
    image: mongo
    container_name: "mongodb"
-   volumes:
-     - ./data/db:/data/db
-     - ./data/configdb:/data/configdb
    ports:
      - 27017:27017
    network_mode: "host"
