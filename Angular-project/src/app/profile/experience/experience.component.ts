@@ -23,6 +23,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   addPost_Exp() {
+    this.newPost_Exp.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.addPost_Exp(this.newPost_Exp).subscribe(() => {
     });
     this.exp_check = true;

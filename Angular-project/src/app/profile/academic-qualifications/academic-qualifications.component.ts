@@ -25,6 +25,7 @@ export class AcademicQualificationsComponent implements OnInit {
   }
 
   addPost_Academy() {
+    this.newPost_Academy.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.addPost_Academy(this.newPost_Academy).subscribe(() => {
     });
     this.acad_check = true;

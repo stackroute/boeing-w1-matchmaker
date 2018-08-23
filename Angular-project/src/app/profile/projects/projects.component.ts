@@ -23,6 +23,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   addPost_Project() {
+    this.newPost_Project.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.addPost_Project(this.newPost_Project).subscribe(() => {
     });
     this.proj_check = true;

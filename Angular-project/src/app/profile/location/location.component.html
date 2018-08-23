@@ -34,7 +34,7 @@
 
       <!-- end modal-header [formGroup]="locForm" [disabled]="locForm.invalid" formControlName="city" -->
       <div class="modal-body">
-        <form class="form-horizontal" id="location-form" (submit)="addPost_Location()">
+        <form class="form-horizontal" [formGroup]="locForm" id="location-form" (submit)="addPost_Location()">
             
           <div>
             <mat-radio-group>
@@ -46,14 +46,14 @@
           <div class="example-container">
               <mat-form-field>
                 <input matInput [placeholder]="newPost_Loc.addressType == 'present' ? 'I currently stay at' : 'I stayed at'" 
-                                  [(ngModel)]="newPost_Loc.address" name="addr">
+                                  [(ngModel)]="newPost_Loc.address" [ngModelOptions]="{standalone: true}" name="addr">
               </mat-form-field>
               <br/>
           </div>
 
           <div class="center-align">
               <mat-form-field>
-                <input matInput placeholder="in City *" [(ngModel)]="newPost_Loc.city" name="city">
+                <input matInput formControlName="city" placeholder="in City *" [(ngModel)]="newPost_Loc.city" name="city">
               </mat-form-field>
               <!-- <div *ngIf="city.dirty && city.errors" class="error">
                 <div *ngIf="city.errors.required" class="validation_message">
@@ -62,19 +62,18 @@
               </div> -->
             
               <mat-form-field>
-                <input matInput placeholder="with Pincode" [(ngModel)]="newPost_Loc.pin" name="pin">
+                <input matInput placeholder="with Pincode" [(ngModel)]="newPost_Loc.pin" [ngModelOptions]="{standalone: true}" name="pin">
               </mat-form-field>
               <br/>
               <mat-form-field>
-                <input matInput placeholder="in State" [(ngModel)]="newPost_Loc.state" name="state">
+                <input matInput placeholder="in State" [(ngModel)]="newPost_Loc.state" [ngModelOptions]="{standalone: true}" name="state">
               </mat-form-field>
               <mat-form-field>
-                <input matInput placeholder="in Country" [(ngModel)]="newPost_Loc.country" name="cont">
+                <input matInput placeholder="in Country" [(ngModel)]="newPost_Loc.country" [ngModelOptions]="{standalone: true}" name="cont">
               </mat-form-field>
           </div>
           <hr>
-          <button class="btn btn-primary submitbtn mr-1" type="submit" onclick="this.form.reset();">Send</button> &nbsp;&nbsp;
-          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>  
+          <button class="btn btn-primary submitbtn mr-1" type="submit" [disabled]="locForm.invalid">Send</button> &nbsp;&nbsp;
                    
         </form>
         

@@ -8,11 +8,11 @@ import { PortfoliosComponent } from './portfolios/portfolios.component';
 import { VisitingCardComponent } from './portfolios/visiting-card/visiting-card.component';
 
 const routes: Routes = [
-  {path: 'profile', component: ProfileComponent},
-  {path: 'portfolios', component: PortfoliosComponent},
+  {path: '', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'portfolios', component: PortfoliosComponent ,canActivate: [AuthGuard]},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'portfolios/visiting', component: VisitingCardComponent}
+  {path: 'portfolios/visiting', component: VisitingCardComponent, canActivate: [AuthGuard]}
 
 ];
 

@@ -1,35 +1,35 @@
 <div class="container profileSection">
-  <div class="flex-container">
+        <div class="flex-container">
+            
+            <div class="column">
+                <app-personal-info></app-personal-info>
+                <app-certificates></app-certificates>
+            </div>
+            <div class="column">
+              <app-skills></app-skills>
+              <app-location></app-location>
+              <app-academic-qualifications></app-academic-qualifications>
+            </div>
+            <div class="column">
+              <app-experience></app-experience>
+              <app-projects></app-projects>
+            </div>
+                    
+        </div>
 
-    <div class="column">
-      <app-personal-info></app-personal-info>
-      <app-certificates></app-certificates>
-    </div>
-    <div class="column">
-      <app-skills></app-skills>
-      <app-location></app-location>
-      <app-academic-qualifications></app-academic-qualifications>
-    </div>
-    <div class="column">
-      <app-experience></app-experience>
-      <app-projects></app-projects>
-    </div>
+        <br>
+        <div class="dropdown">
+          <button mat-fab color="primary" class="btn" id="addProfile" type="button"  data-toggle="dropdown"><mat-icon>add</mat-icon>
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu drop">
+           <li><a href="#myModal1" data-toggle="modal" class="dropdown-item">Personal Info</a></li>
+           <li><a href="#myModal2" data-toggle="modal" class="dropdown-item">Skills</a></li>
+           <li><a href="#myModal3" data-toggle="modal" class="dropdown-item">Experience</a></li>
+           <li><a href="#myModal4" data-toggle="modal" class="dropdown-item">Location</a></li>
+           <li><a href="#myModal5" data-toggle="modal" class="dropdown-item">Projects</a></li>
+           <li><a href="#myModal6" data-toggle="modal" class="dropdown-item">Training and Certification</a></li>
+           <li><a href="#myModal7" data-toggle="modal" class="dropdown-item">Academic Qualification</a></li>
+          </ul>
+        </div>
 
-  </div>
-
-  <br>
-  <div class="dropdown">
-    <button mat-fab color="primary" class="btn" id="addProfile" type="button" data-toggle="dropdown"><mat-icon>add</mat-icon>
-      <span class="caret"></span></button>
-    <ul class="dropdown-menu drop">
-      <li><a href="#myModal1" data-toggle="modal" class="dropdown-item">Personal Info</a></li>
-      <li><a href="#myModal2" data-toggle="modal" class="dropdown-item">Skills</a></li>
-      <li><a href="#myModal3" data-toggle="modal" class="dropdown-item">Experience</a></li>
-      <li><a href="#myModal4" data-toggle="modal" class="dropdown-item">Location</a></li>
-      <li><a href="#myModal5" data-toggle="modal" class="dropdown-item">Projects</a></li>
-      <li><a href="#myModal6" data-toggle="modal" class="dropdown-item">Training and Certification</a></li>
-      <li><a href="#myModal7" data-toggle="modal" class="dropdown-item">Academic Qualification</a></li>
-    </ul>
-  </div>
-
-</div>
+ </div>

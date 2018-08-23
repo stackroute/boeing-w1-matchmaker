@@ -23,6 +23,7 @@ export class SkillsComponent implements OnInit {
   }
 
   addPost_Skill() {
+    this.newPost_Skill.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.addPost_Skill(this.newPost_Skill).subscribe(() => {
     });
     this.skills_check = true;
