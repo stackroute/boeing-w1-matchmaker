@@ -8,7 +8,6 @@ public class Projects {
 	private String role;
 	private String department;
 	private String projectLocation;
-	private String technologies;
 	private String projectTitle;
 	private String from;
 	private String to;
@@ -24,8 +23,8 @@ public class Projects {
 	}
 
 	public Projects(String profileId, String projectId, String projectAt, String role, String department,
-			String projectLocation, String technologies, String projectTitle, String from, String to, String synopsis,
-			String url, String demoURL, String skills, String message) {
+			String projectLocation, String projectTitle, String from, String to, String synopsis, String url,
+			String demoURL, String skills, String message) {
 		super();
 		this.profileId = profileId;
 		this.projectId = projectId;
@@ -33,7 +32,6 @@ public class Projects {
 		this.role = role;
 		this.department = department;
 		this.projectLocation = projectLocation;
-		this.technologies = technologies;
 		this.projectTitle = projectTitle;
 		this.from = from;
 		this.to = to;
@@ -43,8 +41,6 @@ public class Projects {
 		this.skills = skills;
 		this.message = message;
 	}
-
-	// Getter and setter
 
 	public String getProfileId() {
 		return profileId;
@@ -92,14 +88,6 @@ public class Projects {
 
 	public void setProjectLocation(String projectLocation) {
 		this.projectLocation = projectLocation;
-	}
-
-	public String getTechnologies() {
-		return technologies;
-	}
-
-	public void setTechnologies(String technologies) {
-		this.technologies = technologies;
 	}
 
 	public String getProjectTitle() {
@@ -166,13 +154,12 @@ public class Projects {
 		this.message = message;
 	}
 
-	// To String Method
 	@Override
 	public String toString() {
-		return "Project [profileId=" + profileId + ", projectId=" + projectId + ", projectAt=" + projectAt + ", role="
-				+ role + ", department=" + department + ", projectLocation=" + projectLocation + ", technologies="
-				+ technologies + ", projectTitle=" + projectTitle + ", from=" + from + ", to=" + to + ", synopsis="
-				+ synopsis + ", url=" + url + ", demoURL=" + demoURL + ", skills=" + skills + ", message=" + message
-				+ "]";
+		return "Projects [profileId=" + profileId + ", projectId=" + projectId + ", projectAt=" + projectAt + ", role="
+				+ role + ", department=" + department + ", projectLocation=" + projectLocation + ", projectTitle="
+				+ projectTitle + ", from=" + from + ", to=" + to + ", synopsis=" + synopsis + ", url=" + url
+				+ ", demoURL=" + demoURL + ", skills=" + skills + ", message=" + message + "]";
 	}
+
 }

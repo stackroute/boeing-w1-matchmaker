@@ -8,13 +8,13 @@ public class Certificates {
     private String authority;
     private String duration;
     private String skillsTested;
+    private String message;
 	
 	public Certificates() {
 	}
-    
 
 	public Certificates(String profileId, String trainingName, String trainingId, String authority, String duration,
-			String skillsTested) {
+			String skillsTested, String message) {
 		super();
 		this.profileId = profileId;
 		this.trainingName = trainingName;
@@ -22,9 +22,8 @@ public class Certificates {
 		this.authority = authority;
 		this.duration = duration;
 		this.skillsTested = skillsTested;
+		this.message = message;
 	}
-
-
 
 	public String getProfileId() {
 		return profileId;
@@ -65,26 +64,31 @@ public class Certificates {
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-	
 
 	public String getSkillsTested() {
 		return skillsTested;
 	}
 
-
 	public void setSkillsTested(String skillsTested) {
 		this.skillsTested = skillsTested;
 	}
 
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	@Override
 	public String toString() {
 		return "Certificates [profileId=" + profileId + ", trainingName=" + trainingName + ", trainingId=" + trainingId
-				+ ", authority=" + authority + ", duration=" + duration + ", skillsTested=" + skillsTested + "]";
+				+ ", authority=" + authority + ", duration=" + duration + ", skillsTested=" + skillsTested
+				+ ", message=" + message + "]";
 	}
+    
 
-
-   
-
+	
 	
 }

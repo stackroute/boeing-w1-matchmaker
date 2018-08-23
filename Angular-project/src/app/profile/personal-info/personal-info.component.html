@@ -38,10 +38,6 @@
               <input #fileInput style="display: none;" type="file" #Image accept="/image/*" (change)="handleFileInput($event.target.files)">
               <button type="button" class="btn btn-sm btn-light" (click)="fileInput.click()" >Choose File</button>
           </div>
-          
-          <div class="form-group">
-            <input class="form-control" placeholder="Profile Id" [(ngModel)]="newPost_PI.profileId" name="profileId" type="text">
-          </div>
 
           <div class="form-group">
             <input class="form-control" placeholder="Name" [(ngModel)]="newPost_PI.name" name="name" type="text">
@@ -79,16 +75,11 @@
             <input class="form-control" placeholder="Github" type="url" [(ngModel)]="newPost_PI.github" name="github">
           </div>
           <div class="form-group">
-            <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
+            <button class="btn btn-primary pull-right submitbtn" type="submit">Create</button>
           </div>
         </form>
       </div>
       <!-- end modal-body -->
-
-      <div class="modal-footer">
-        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-      </div>
-      <!-- end modal-footer -->
     </div>
     <!-- end modal-content -->
   </div>

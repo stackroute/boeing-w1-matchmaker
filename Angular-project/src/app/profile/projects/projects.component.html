@@ -36,10 +36,7 @@
       <!-- end modal-header -->
       <div class="modal-body">
         <form class="form-horizontal" (submit)="addPost_Project()">
-          <div class="form-group">
-            <input class="form-control" placeholder="Profile Id" type="text" [(ngModel)]="newPost_Project.profileId" name="profileId">
-          </div>
-
+        
           <div class="form-group">
             <input class="form-control" placeholder="Project Id" type="text" [(ngModel)]="newPost_Project.projectId" name="proId">
           </div>
@@ -100,16 +97,11 @@
             <input class="form-control" placeholder="Message" type="text" [(ngModel)]="newPost_Project.message" name="mess">
           </div>
           <div class="form-group">
-            <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
+            <button class="btn btn-primary pull-right submitbtn" type="submit">Add</button>
           </div>
         </form>
       </div>
       <!-- end modal-body -->
-
-      <div class="modal-footer">
-        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-      </div>
-      <!-- end modal-footer -->
     </div>
     <!-- end modal-content -->
   </div>

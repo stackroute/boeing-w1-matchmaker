@@ -12,22 +12,22 @@ import com.stackroute.matchmaker.model.Certificates;
 public class Consumer {
 
 	private static final Logger LOG = LoggerFactory.getLogger(KafkaConsumer.class);
-	
+
 	//KafkaTemplate<String, String> kt;
 
 
-//	//Listens to the topic "training" of kafka
-//	@KafkaListener(topics = "training")
-//	public void consumeJson(Training training) {
-//		//System.out.println("Consumed JSON Message: " + training);
-//		LOG.info("consumed message='{}'", training);
-//	}
-	
+	//	//Listens to the topic "training" of kafka
+	//	@KafkaListener(topics = "training")
+	//	public void consumeJson(Training training) {
+	//		//System.out.println("Consumed JSON Message: " + training);
+	//		LOG.info("consumed message='{}'", training);
+	//	}
+
 	//Listens to the topic "Certificates" of upstream
-		@KafkaListener(topics = "${app.topic.training}",groupId = "group_json", containerFactory = "userKafkaListenerFactory")
-		public void receiveJson(Certificates certificates) {
-			//System.out.println("Consumed JSON Message: " + training);
-			LOG.info("consumed message='{}'", certificates);
-		}
+	@KafkaListener(topics = "${app.topic.training}",groupId = "group_json", containerFactory = "userKafkaListenerFactory")
+	public void receiveJson(Certificates certificates) {
+		//System.out.println("Consumed JSON Message: " + training);
+		LOG.info("consumed message='{}'", certificates);
+	}
 
 }

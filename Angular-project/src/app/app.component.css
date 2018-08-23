@@ -9,3 +9,15 @@ a {
     background: #00b3b3;
     color: white;
 }
+
+#usercaret {
+    color: white;
+}
+
+#usercaret:hover {
+    color: #ccc;
+}
+#userDrop li a:hover{
+    background: #00b3b3;
+    color: white;
+}

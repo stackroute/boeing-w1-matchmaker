@@ -14,7 +14,9 @@ public class Receiver {
 	public void receiveObject(PersonalInfo personalInfo) {
 		
 		//sends the object to kafka producer
-		System.out.println(personalInfo.toString());
+		System.out.println(personalInfo.getPicture());
+		personalInfo.setPicture(personalInfo.getPicture().split(",")[1]);
+		System.out.println(personalInfo.getPicture());
 		producer.sendObject(personalInfo);
 
 	}

@@ -4,15 +4,15 @@ public class Experience {
 	private String profileId;
 	private String organizationName;
 	private String role;
-	private String message;
 	private String startDate;
 	private String endDate;
+	private String message;
 	
 	public Experience() {
 	}
 
-	public Experience(String profileId, String organizationName, String role, String message, String startDate,
-			String endDate) {
+	public Experience(String profileId, String organizationName, String role, String startDate,
+			String endDate, String message) {
 		super();
 		this.profileId = profileId;
 		this.organizationName = organizationName;

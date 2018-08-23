@@ -27,6 +27,7 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   addPost_PI() {
+    this.newPost_PI.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.addPost_PI(this.newPost_PI).subscribe(() => {
     });
     this.pi_check = true;
@@ -39,6 +40,7 @@ export class PersonalInfoComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = (event: any) => {
         this.imageUrl = event.target.result;
+        this.newPost_PI.picture = reader.result;
 
       };
       reader.readAsDataURL(this.fileToUpload);

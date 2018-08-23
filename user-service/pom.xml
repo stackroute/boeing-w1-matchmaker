@@ -7,9 +7,6 @@
 	<artifactId>user-service</artifactId>
 	<packaging>jar</packaging>
 
-	<name>user-springboot</name>
-	<description>user project for Spring Boot</description>
-
 	<parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>boeing-w1-matchmaker</artifactId>

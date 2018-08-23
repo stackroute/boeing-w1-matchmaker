@@ -29,6 +29,7 @@ export class LocationComponent implements OnInit {
   }
 
   addPost_Location() {
+    this.newPost_Loc.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.addPost_Location(this.newPost_Loc).subscribe(() => {
     });
     this.loc_check = true;
