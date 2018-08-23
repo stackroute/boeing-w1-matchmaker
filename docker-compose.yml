@@ -92,12 +92,15 @@ services:
       - ./import:/import  
 
  mongodb:
-   image: mongo:latest
-   container_name: mongodb
+   image: mongo
+   container_name: "mongodb"
    volumes:
      - ./data/db:/data/db
    ports:
-     - 27017:27017
+     - 27000:27017
+   restart: always
+   healthcheck:
+     test: "exit 0"
  
  
 
