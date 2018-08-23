@@ -99,6 +99,8 @@ services:
      - ./data/configdb:/data/configdb
    ports:
      - 27017:27017
+   network_mode: "host"
+   hostname: localhost
    restart: always
    healthcheck:
      test: "exit 0"
