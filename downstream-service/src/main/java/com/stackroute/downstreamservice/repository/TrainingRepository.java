@@ -1,11 +1,11 @@
 package com.stackroute.downstreamservice.repository;
 
-import org.springframework.data.cassandra.repository.CassandraRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.downstreamservice.model.Training;
+import com.stackroute.downstreamservice.model.Certificates;
 
 @Repository
-public interface TrainingRepository extends CassandraRepository<Training, String> {
+public interface TrainingRepository extends MongoRepository<Certificates, String> {
 
 }

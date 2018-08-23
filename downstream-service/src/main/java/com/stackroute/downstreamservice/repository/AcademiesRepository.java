@@ -1,11 +1,11 @@
 package com.stackroute.downstreamservice.repository;
 
-import org.springframework.data.cassandra.repository.CassandraRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.downstreamservice.model.Academics;
+import com.stackroute.downstreamservice.model.AcademicQualification;
 
 @Repository
-public interface AcademiesRepository extends CassandraRepository<Academics, String> {
+public interface AcademiesRepository extends MongoRepository<AcademicQualification,String> {
 
 }

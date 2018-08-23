@@ -3,7 +3,7 @@ package com.stackroute.downstreamservice.model;
 import org.junit.Before;
 import org.junit.Test;
 
-public class AcademicsTest {
+public class AcademicQualifactionTest {
 
 	@Before
 	public void setUp() throws Exception {
