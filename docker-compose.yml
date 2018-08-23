@@ -1,7 +1,6 @@
 version: '2.1'
 
 services:
- 
  zuul-service:
     build: zuul-apigateway/
     image: zuul-service
