@@ -24,16 +24,19 @@
 					</a>
 					<ul class="dropdown-menu" id="userDrop">
 						<li>
+							<a href="#" [routerLink]="['/portfolios']" class="dropdown-item">Portfolios</a>
+					    </li>
+						<li>
 							<a href="#" class="dropdown-item">Settings</a>
 						</li>
 						<div *ngIf="user_check">
-						<li>
-							<a href="#" class="dropdown-item">Welcome {{profile}}</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#" class="dropdown-item" (click)="logout()">Log Out</a>
-						</li>
+							<li>
+								<a href="#" class="dropdown-item">Welcome {{profile}}</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#" class="dropdown-item" (click)="logout()">Log Out</a>
+							</li>
 						</div>
 					</ul>
 				</li>
