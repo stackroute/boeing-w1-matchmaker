@@ -220,10 +220,10 @@ services:
     hostname: localhost
     ports:
       - 8090:8090
-   depends_on:
-     - cassandra-service
-   healthcheck:
-     test: "exit 0"
+    depends_on:
+      - cassandra-service
+    healthcheck:
+      test: "exit 0"
 
  index-service:
     build: indexer-service/
