@@ -90,6 +90,22 @@ services:
       - ./plugins:/plugins
       - $HOME/neo4j/data:/data
       - ./import:/import  
+
+ cassandra-service:
+    image: cassandra
+    ports:
+      - "7000:7000"
+      - "7001:7001"
+      - "7199:7199"
+      - "9042:9042"
+      - "9160:9160"
+    network_mode: "host"
+    hostname: localhost
+    volumes:
+    - /my/own/datadir:/var/lib/cassandra
+    restart: always
+    healthcheck:
+      test: "exit 0"
  
  
 
@@ -204,8 +220,10 @@ services:
     hostname: localhost
     ports:
       - 8090:8090
-    healthcheck:
-      test: "exit 0"
+   depends_on:
+     - cassandra-service
+   healthcheck:
+     test: "exit 0"
 
  index-service:
     build: indexer-service/
