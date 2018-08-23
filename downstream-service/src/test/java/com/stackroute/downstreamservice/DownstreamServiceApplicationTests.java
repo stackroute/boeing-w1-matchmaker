@@ -1,4 +1,4 @@
-package com.stackroute.downstreamservice;
+/*package com.stackroute.downstreamservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,3 +14,4 @@ public class DownstreamServiceApplicationTests {
 	}
 
 }
+*/
