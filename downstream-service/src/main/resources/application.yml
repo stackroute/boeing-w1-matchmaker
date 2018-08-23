@@ -6,7 +6,7 @@ spring:
       kafka:
         binder:
           brokers:
-          - 172.23.238.184:9092
+          - 172.23.238.163:9092
       bindings:
         Projects:
           destination: Projects
