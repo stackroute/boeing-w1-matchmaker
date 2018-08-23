@@ -1,8 +1,8 @@
 spring:
   kafka:
     consumer:
-      bootstrap-servers: 172.23.238.163:9092
-    bootstrap-servers: 172.23.238.163:9092
+      bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:9092
 producer:
   location:
     topic: outputToIndexer

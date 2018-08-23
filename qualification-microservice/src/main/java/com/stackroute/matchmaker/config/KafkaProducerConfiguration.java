@@ -25,7 +25,7 @@ public class KafkaProducerConfiguration {
 		Map<String, Object> configProps = new HashMap<>();
 		// specifies a list of host/port pairs to use for establishing the initial
 		// connection to the Kafka cluster
-		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.163:9092");
+		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		// specifies the serializer class for key that implements the
 		// org.apache.kafka.common.serialization.Serializer interface.
 		configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
