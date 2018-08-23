@@ -28,6 +28,7 @@
 		<module>eureka-server</module>
 		<module>user-service</module>
 		<module>zuul-apigateway</module>
+                <module>login-service</module>
 		<module>experience-microservice</module>
         	<module>location-microservice</module>
         	<module>project-microservice</module>
