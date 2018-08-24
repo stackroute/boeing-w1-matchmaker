@@ -10,4 +10,4 @@ EXPOSE 8089
 
 RUN sh -c 'touch /src/skill.jar'
 
-ENTRYPOINT ["java","-jar","/src/user.jar"]
+ENTRYPOINT ["java","-jar","/src/skill.jar"]
