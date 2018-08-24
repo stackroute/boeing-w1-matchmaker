@@ -1,4 +1,4 @@
-package com.stackroute.downstream.controller;
+package com.stackroute.downstreamservice.controller;
 
 import java.util.Optional;
 
