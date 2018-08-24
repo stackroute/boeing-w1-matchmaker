@@ -7,25 +7,24 @@ public class AcademicQualification {
 	private String instituteName;
 	private String yearOfJoining;
 	private String yearOfCompletion;
-	private String instituteType;
-	private String streams;
+	private String stream;
 	private String marks;
-
+	private String message;
+	
 	public AcademicQualification() {
 	}
 
-	public AcademicQualification(String profileId, String qualification, String instituteName, 
-			String yearOfJoining, String yearOfCompletion, String instituteType, String streams,
-			String marks) {
+	public AcademicQualification(String profileId, String qualification, String instituteName, String yearOfJoining,
+			String yearOfCompletion, String stream, String marks, String message) {
 		super();
 		this.profileId = profileId;
 		this.qualification = qualification;
 		this.instituteName = instituteName;
 		this.yearOfJoining = yearOfJoining;
 		this.yearOfCompletion = yearOfCompletion;
-		this.instituteType = instituteType;
-		this.streams = streams;
+		this.stream = stream;
 		this.marks = marks;
+		this.message = message;
 	}
 
 	public String getProfileId() {
@@ -68,20 +67,12 @@ public class AcademicQualification {
 		this.yearOfCompletion = yearOfCompletion;
 	}
 
-	public String getInstituteType() {
-		return instituteType;
+	public String getStream() {
+		return stream;
 	}
 
-	public void setInstituteType(String instituteType) {
-		this.instituteType = instituteType;
-	}
-
-	public String getStreams() {
-		return streams;
-	}
-
-	public void setStreams(String streams) {
-		this.streams = streams;
+	public void setStream(String streams) {
+		this.stream = streams;
 	}
 
 	public String getMarks() {
@@ -92,11 +83,23 @@ public class AcademicQualification {
 		this.marks = marks;
 	}
 
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	@Override
 	public String toString() {
 		return "AcademicQualification [profileId=" + profileId + ", qualification=" + qualification + ", instituteName="
 				+ instituteName + ", yearOfJoining=" + yearOfJoining + ", yearOfCompletion=" + yearOfCompletion
-				+ ", instituteType=" + instituteType + ", streams=" + streams + ", marks=" + marks + "]";
+				+ ", streams=" + stream + ", marks=" + marks + ", message=" + message + "]";
 	}
 
+	
+    
+	
+	
 }

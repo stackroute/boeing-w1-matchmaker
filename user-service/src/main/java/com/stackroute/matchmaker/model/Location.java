@@ -7,12 +7,13 @@ public class Location {
 	private String pin;
 	private String state;
 	private String country;
+	private String addressType;
 
 	public Location() {
 	}
 
-	public Location(String profileId, String address, String city, String pin, String state, 
-			String country) {
+	public Location(String profileId, String address, String city, String pin, String state, String country,
+			String addressType) {
 		super();
 		this.profileId = profileId;
 		this.address = address;
@@ -20,6 +21,7 @@ public class Location {
 		this.pin = pin;
 		this.state = state;
 		this.country = country;
+		this.addressType = addressType;
 	}
 
 	public String getProfileId() {
@@ -70,11 +72,20 @@ public class Location {
 		this.country = country;
 	}
 
+	public String getAddressType() {
+		return addressType;
+	}
+
+	public void setAddressType(String addressType) {
+		this.addressType = addressType;
+	}
+
 	@Override
 	public String toString() {
 		return "Location [profileId=" + profileId + ", address=" + address + ", city=" + city + ", pin=" + pin
-				+ ", state=" + state + ", country=" + country + "]";
+				+ ", state=" + state + ", country=" + country + ", addressType=" + addressType + "]";
 	}
 
+	
 	
 }

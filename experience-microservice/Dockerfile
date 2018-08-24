@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/experience-microservice-1.0.0.jar /src/experience.jar
+COPY target/experience-microservice-1.1.0.jar /src/experience.jar
 
 EXPOSE 8083
 

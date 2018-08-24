@@ -8,7 +8,9 @@ app:
      
 listener:
     topic:
-      name: training 
-     
+      name: training
+
+server: 
+  port: 8084   
     
   

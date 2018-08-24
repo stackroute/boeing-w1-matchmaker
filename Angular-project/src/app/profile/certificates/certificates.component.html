@@ -25,38 +25,30 @@
       <!-- end modal-header -->
       <div class="modal-body">
         <form class="form-horizontal" (submit)="addPost_Certificates()">
-          <div class="form-group">
-            <input class="form-control" placeholder="Profile Id" type="text" [(ngModel)]="newPost_Certificates.profileId" name="profileId">
-          </div>
-
+        
           <div class="form-group">
             <input class="form-control" placeholder="Training Id" type="text" [(ngModel)]="newPost_Certificates.trainingId" name="trainId">
           </div>
           <div class="form-group">
-            <input class="form-control" placeholder="Training name" type="text" [(ngModel)]="newPost_Certificates.trainingName" name="trainName">
+            <input class="form-control" placeholder="I undergone training named" type="text" [(ngModel)]="newPost_Certificates.trainingName" name="trainName">
           </div>
 
           <div class="form-group">
-            <input class="form-control" placeholder="Authority" type="text" [(ngModel)]="newPost_Certificates.authority" name="authority">
+            <input class="form-control" placeholder="conducted by" type="text" [(ngModel)]="newPost_Certificates.authority" name="authority">
           </div>
           <div class="form-group">
-            <input class="form-control" placeholder="Duration" type="text" [(ngModel)]="newPost_Certificates.duration" name="duration">
+            <input class="form-control" placeholder="for a duration of" type="text" [(ngModel)]="newPost_Certificates.duration" name="duration">
           </div>
 
           <div class="form-group">
-            <input class="form-control" placeholder="Skills tested" type="text" [(ngModel)]="newPost_Certificates.skillsTested" name="skillTest">
+            <input class="form-control" placeholder="Skills acquired in training" type="text" [(ngModel)]="newPost_Certificates.skillsTested" name="skillTest">
           </div>
           <div class="form-group">
-            <button class="btn btn-dark pull-right submitbtn" type="submit">Send!</button>
+            <button class="btn btn-primary pull-right submitbtn" type="submit">Add</button>
           </div>
         </form>
       </div>
       <!-- end modal-body -->
-
-      <div class="modal-footer">
-        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-      </div>
-      <!-- end modal-footer -->
     </div>
     <!-- end modal-content -->
   </div>

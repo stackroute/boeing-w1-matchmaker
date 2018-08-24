@@ -18,7 +18,7 @@ public class LocationController {
 	@Autowired
     private KafkaTemplate<String, Location> kafkaTemplate;
 
-    private static final String TOPIC = "Location";
+    private static final String TOPIC = "UserLocation";
 
     @PostMapping("/publish")
     public String post(@RequestBody Location location) {

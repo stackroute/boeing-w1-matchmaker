@@ -13,7 +13,7 @@ export class CertificatesComponent implements OnInit {
   private getPost_Certificates;
   private train_check;
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService) {
     this.train_check = false;
   }
 
@@ -23,6 +23,7 @@ export class CertificatesComponent implements OnInit {
   }
 
   addPost_Certificates() {
+    this.newPost_Certificates.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.addPost_Certificates(this.newPost_Certificates).subscribe(() => {
     });
     this.train_check = true;

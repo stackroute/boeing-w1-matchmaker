@@ -7,12 +7,11 @@
 	<artifactId>location-microservice</artifactId>
 	<packaging>jar</packaging>
 
-	<parent>
+	 <parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>boeing-w1-matchmaker</artifactId>
-		<version>1.0.0</version>
-		<!-- <relativePath/> lookup parent from repository -->
-	</parent>
+		<version>1.1.0</version>
+     </parent>  
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -44,6 +43,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.meanbean</groupId>
+			<artifactId>meanbean</artifactId>
+			<version>2.0.3</version>
+			<scope>test</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -52,14 +59,13 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
 				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
+				<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 

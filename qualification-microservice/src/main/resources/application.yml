@@ -1,9 +1,10 @@
 spring:
-  kafka:
-     bootstrap-servers: localhost:9092 
-     consumer:
+ kafka:
+    bootstrap-servers:
+     localhost:9092  
+    consumer:
       group-id: group_json
-
+    
 app:
   topic:
      name: Academies

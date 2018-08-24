@@ -14,7 +14,7 @@ public class Projects {
 	private String to;
 	private String synopsis;
 	private String url;
-	private String demoUrl;
+	private String demoURL;
 	private String skills;
 	private String message;
 	
@@ -22,8 +22,8 @@ public class Projects {
 	}
 
 	public Projects(String profileId, String projectId, String projectAt, String role, String department,
-			String projectLocation, String projectTitle, String teamSize, String from, String to, 
-			String synopsis, String url, String demoUrl, String skills, String message) {
+			String projectLocation, String projectTitle, String teamSize, String from, String to, String synopsis,
+			String url, String demoURL, String skills, String message) {
 		super();
 		this.profileId = profileId;
 		this.projectId = projectId;
@@ -37,7 +37,7 @@ public class Projects {
 		this.to = to;
 		this.synopsis = synopsis;
 		this.url = url;
-		this.demoUrl = demoUrl;
+		this.demoURL = demoURL;
 		this.skills = skills;
 		this.message = message;
 	}
@@ -139,11 +139,11 @@ public class Projects {
 	}
 
 	public String getDemoUrl() {
-		return demoUrl;
+		return demoURL;
 	}
 
-	public void setDemoUrl(String demoUrl) {
-		this.demoUrl = demoUrl;
+	public void setDemoUrl(String demoURL) {
+		this.demoURL = demoURL;
 	}
 
 	public String getSkills() {
@@ -167,7 +167,7 @@ public class Projects {
 		return "Projects [profileId=" + profileId + ", projectId=" + projectId + ", projectAt=" + projectAt + ", role="
 				+ role + ", department=" + department + ", projectLocation=" + projectLocation + ", projectTitle="
 				+ projectTitle + ", teamSize=" + teamSize + ", from=" + from + ", to=" + to + ", synopsis=" + synopsis
-				+ ", url=" + url + ", demoUrl=" + demoUrl + ", skills=" + skills + ", message=" + message + "]";
+				+ ", url=" + url + ", demoUrl=" + demoURL + ", skills=" + skills + ", message=" + message + "]";
 	}
 
 	

@@ -1,51 +1,40 @@
 version: '2.1'
 
 services:
-  eureka-server:
-    build: eureka-server/
-    depends_on:
-      config-service:
-        condition: service_healthy
+ zuul-service:
+    build: zuul-apigateway/
+    image: zuul-service
     restart: always
     network_mode: "host"
-    image: demo-eureka-service
     hostname: localhost
     ports:
-      - 9090:9090
+      - 8092:8092
     healthcheck:
       test: "exit 0"
-
-  config-service:
+    
+ config-service:
     build: config-service/
+    image: config-service
     restart: always
     network_mode: "host"
-    image: demo-config-service
     hostname: localhost
     ports:
       - 8891:8891
     healthcheck:
       test: "exit 0"
 
-  api-gateway:
-    build: zuul-apigateway/
-    depends_on:
-      config-service:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-#      user-service:
-#        condition: service_healthy
+ eureka-service:
+    build: eureka-server/
+    image: eureka-server
     restart: always
     network_mode: "host"
-    image: demo-zuul-service
     hostname: localhost
     ports:
-      - 8092:8092
+      - 9090:9090
     healthcheck:
       test: "exit 0"
-
-
-  zookeeper:
+ 
+ zookeeper:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
@@ -55,7 +44,7 @@ services:
     healthcheck:
       test: "exit 0"
 
-  kafka:
+ kafka:
     image: wurstmeister/kafka
     ports:
       - "9092:9092"
@@ -63,7 +52,8 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_ZOOKEEPER_CONNECT: localhost:2181
-      KAFKA_CREATE_TOPICS: "Location:1:1, Certificates:1:1, Academies:1:1, PersonalInfo:1:1, Experience:1:1, Projects:1:1, Skills:1:1"
+      KAFKA_CREATE_TOPICS: "Location:1:1, Certificates:1:1, Academies:1:1, PersonalInfo:1:1, Experience:1:1, Projects:1:1, 
+       Skills:1:1, CassandraRegistration:1:1"
     network_mode: "host"
     hostname: localhost
     depends_on:
@@ -71,44 +61,78 @@ services:
     restart: always
     healthcheck:
       test: "exit 0"
+  
+ mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=register
+      - MYSQL_PASSWORD=root
+      - MYSQL_USER=root
+    network_mode: "host"
+    hostname: localhost
+    restart: always
+    healthcheck:
+      test: "exit 0"
 
-  user-service:
+ neo4j:
+    image: neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/12345
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_dbms_shell_enabled=true
+    volumes:
+      - ./plugins:/plugins
+      - $HOME/neo4j/data:/data
+      - ./import:/import  
+
+ mongodb:
+   image: mongo
+   container_name: "mongodb"
+   volumes:
+     - /my/own/datadir:/data/db
+   ports:
+     - 27017:27017
+   network_mode: "host"
+   hostname: localhost
+   restart: always
+   healthcheck:
+     test: "exit 0"
+ 
+ 
+
+ user-service:
     build: user-service/
-    image: demo-user-service
+    image: user-service
     restart: always
     network_mode: "host"
     hostname: localhost
     ports:
       - 8081:8081
-    depends_on:
-      - config-service
-      - eureka-server
     healthcheck:
-      test: "exit 0"
+      test: "exit 0" 
 
-  personal-service:
-    build: personalinformation-microservice/ 
-    image: personal-service
-    ports: 
-      - 8087:8087
-    restart: always
-    network_mode: "host"
-    hostname: localhost
-    healthcheck:
-      test: "exit 0"
+ 
 
-  location-service:
-    build: location-microservice/
-    image: loca-service
+ login-service:
+    build: login-service/
+    image: login-service
     restart: always
     network_mode: "host"
     hostname: localhost
     ports:
-      - 8086:8086
+      - 8082:8082
     healthcheck:
       test: "exit 0"
 
-  experience-service:
+
+ experience-service:
     build: experience-microservice/
     image: experience-service
     restart: always
@@ -119,7 +143,7 @@ services:
     healthcheck:
       test: "exit 0"
 
-  training-service: 
+ training-service:
     build: training-microservice/
     image: training-service
     restart: always
@@ -129,8 +153,41 @@ services:
       - 8084:8084
     healthcheck:
       test: "exit 0"
+  
+ qual-service:
+    build: qualification-microservice/
+    image: qualification-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8085:8085
+    healthcheck:
+      test: "exit 0"
 
-  project-service:
+ location-service:
+    build: location-microservice/
+    image: location-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8086:8086
+    healthcheck:
+      test: "exit 0"
+
+ personalinformation-service:
+    build: personalinformation-microservice/
+    image: personalinformation-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8087:8087
+    healthcheck:
+      test: "exit 0"
+
+ project-service:
     build: project-microservice/
     image: project-service
     restart: always
@@ -141,7 +198,8 @@ services:
     healthcheck:
       test: "exit 0"
 
-  skill-service:
+ 
+ skill-service:
     build: skill-microservice/
     image: skill-service
     restart: always
@@ -151,15 +209,32 @@ services:
       - 8089:8089
     healthcheck:
       test: "exit 0"
-
-  qualification-service:
-    build: qualification-microservice
-    image: qualification-service
+ 
+ downstream-service:
+    build: downstream-service/
+    image: downstream-service
     restart: always
     network_mode: "host"
     hostname: localhost
     ports:
-      - 8085:8085
+      - 8090:8090
+    depends_on:
+      - mongodb
     healthcheck:
       test: "exit 0"
-    
+
+ index-service:
+    build: indexer-service/
+    image: indexer-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8091:8091
+    depends_on:
+      - neo4j
+    healthcheck:
+      test: "exit 0"    
+ 
+
+

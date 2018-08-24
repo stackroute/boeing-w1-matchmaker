@@ -10,13 +10,14 @@ import { UserPI } from '../../userPI';
   providers: [UserService]
 })
 export class PersonalInfoComponent implements OnInit {
-  private imageUrl : String = "assets/img/default-profile-picture.jpg";
-  private fileToUpload : File = null;
+
+  private imageUrl: String = 'assets/img/default-profile-picture.jpg';
+  private fileToUpload: File = null;
   private newPost_PI;
   private getPost_PI;
   private pi_check;
-  
-  constructor(private userService: UserService) { 
+
+  constructor(private userService: UserService) {
     this.pi_check = false;
   }
 
@@ -26,22 +27,24 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   addPost_PI() {
+    this.newPost_PI.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.addPost_PI(this.newPost_PI).subscribe(() => {
     });
     this.pi_check = true;
     this.getPost_PI = this.newPost_PI;
     }
 
-    handleFileInput(file : FileList) {
-      this.fileToUpload = file.item(0); 
-  
-      var reader = new FileReader();
-      reader.onload = (event:any) => {
+    handleFileInput(file: FileList) {
+      this.fileToUpload = file.item(0);
+
+      const reader = new FileReader();
+      reader.onload = (event: any) => {
         this.imageUrl = event.target.result;
-  
-      }
+        this.newPost_PI.picture = reader.result;
+
+      };
       reader.readAsDataURL(this.fileToUpload);
-  
+
     }
-    
+
 }

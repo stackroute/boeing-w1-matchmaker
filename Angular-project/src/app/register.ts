@@ -1,7 +1,7 @@
 export class Register {
-    username:String
-    email:String
-    password:String
+    username: String;
+    email: String;
+    password: String;
 
-    constructor(){}
+    constructor() {}
 }
