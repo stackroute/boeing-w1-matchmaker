@@ -15,18 +15,23 @@ import com.stackroute.downstreamservice.model.User;
 import com.stackroute.downstreamservice.repository.UserRepository;
 
 @CrossOrigin("*")
-@RequestMapping("/api/v1")
 @RestController
+@RequestMapping("/api/v1")
 public class UserController {
 	
-	@Autowired
 	private UserRepository userRepo;
 	
+	@Autowired
 	public UserController(UserRepository userRepo) {
 		
 		this.userRepo = userRepo;
 	}
 	
+	@GetMapping("/test")
+	public ResponseEntity<?> test(){
+		System.out.println("working fine.");
+		return null;
+	}
 	
 	@GetMapping("/user/{username}")
 	public ResponseEntity<?> getUser(@PathVariable("username") String username){

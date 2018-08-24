@@ -29,8 +29,4 @@ spring:
         Skills:
           destination: Skills
           content-type: application/json
-<<<<<<< HEAD
   
-=======
-  
->>>>>>> b21a11806c166a7bc35025c32d875f1fd4cbca39

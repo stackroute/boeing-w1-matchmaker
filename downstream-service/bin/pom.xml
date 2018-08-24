@@ -30,13 +30,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-<<<<<<< HEAD
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-=======
->>>>>>> b21a11806c166a7bc35025c32d875f1fd4cbca39
 		</dependency>
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
