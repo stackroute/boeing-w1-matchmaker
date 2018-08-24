@@ -44,6 +44,7 @@ public class RegistrationController {
 
 	@PostMapping("/register")
 	public ResponseEntity<?> addUser(@RequestBody Registration registrant) {
+		registrant.setPassword(bCryptPasswordEncoder.encode(registrant.getPassword()));
 		registerUser.addUser(registrant);
 		kafkaTemplate.send(TOPIC , registrant);
 		return new ResponseEntity<String>("New User Added", HttpStatus.CREATED);
