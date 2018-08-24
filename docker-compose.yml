@@ -94,6 +94,8 @@ services:
  mongodb:
    image: mongo
    container_name: "mongodb"
+   volumes:
+     - /my/own/datadir:/data/db
    ports:
      - 27017:27017
    network_mode: "host"
