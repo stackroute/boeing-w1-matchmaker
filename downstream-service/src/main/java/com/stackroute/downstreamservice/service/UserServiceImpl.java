@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService{
 			list = new ArrayList<>();
 		else
 			list = user.getSkills();
-
+		
 		list.add(skills);
 		user.setSkills(list);
 		userRepo.save(user);
@@ -154,8 +154,8 @@ public class UserServiceImpl implements UserService{
 			list = new ArrayList<>();
 		else
 			list = user.getCertificates();
-
 		list.remove(certificate);
+		System.out.println(list);
 		user.setCertificates(list);
 		user.setUsername(certificate.getProfileId());
 		userRepo.save(user);	}
@@ -169,8 +169,15 @@ public class UserServiceImpl implements UserService{
 			list = new ArrayList<>();
 		else
 			list = user.getSkills();
-
-		list.remove(skill);
+			for (Skills skills : list) {
+			if(skills.getSkill().equals(skill.getSkill())) {
+				list.remove(skills);
+			}
+		}
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i).toString());
+		}
+		System.out.println(list.size());
 		user.setSkills(list);
 		userRepo.save(user);
 	}

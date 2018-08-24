@@ -54,5 +54,10 @@ public class Skills {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	@Override
+	public String toString() {
+		return "Skills [profileId=" + profileId + ", skill=" + skill + ", level=" + level + ", noOfMonths=" + noOfMonths
+				+ ", furtherUsage=" + furtherUsage + ", message=" + message + "]";
+	}
 
 }
