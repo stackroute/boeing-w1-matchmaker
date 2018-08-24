@@ -3,6 +3,7 @@ package com.stackroute.matchmaker.indexerdata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +18,10 @@ public class IndexerOutput {
 	// Use proper naming conventions
 	@Autowired
 	private KafkaTemplate<String, Index> kafkaTemplate;
+	
+	@Value("${producer.topic.name}")
+	private String topic;
 
-	private String topic = "SkillIndexer1";
 //	private String profileId;
 //	private String mySkill;
 //	private String level;
