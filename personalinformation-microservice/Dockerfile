@@ -4,10 +4,10 @@ RUN mkdir /src
 
 WORKDIR /src
 
-ADD target/personalinformation-microservice-1.1.0.jar /src/personalinformation.jar
+COPY target/personalinformation-microservice-1.0.0.jar /src/personal.jar
 
 EXPOSE 8087
 
-RUN sh -c 'touch /src/personalinformation.jar'
+RUN sh -c 'touch /src/personal.jar'
 
-ENTRYPOINT ["java","-jar","/src/personalinformation.jar"]
+ENTRYPOINT ["java","-jar","/src/personal.jar"]

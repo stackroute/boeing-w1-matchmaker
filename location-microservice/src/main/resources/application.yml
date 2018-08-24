@@ -10,3 +10,6 @@ producer:
 consumer:
   location:
     topic: UserLocation
+
+server:
+  port: 8086

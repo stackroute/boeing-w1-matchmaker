@@ -5,6 +5,6 @@ spring:
 listener:
   topic:
     name: Skills
-    
+
 server:
   port: 8089

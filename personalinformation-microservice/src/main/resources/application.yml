@@ -10,4 +10,4 @@ app:
     producer: PersonalInfoIndexer
 
 server:
- port: 8088
+ port: 8087
