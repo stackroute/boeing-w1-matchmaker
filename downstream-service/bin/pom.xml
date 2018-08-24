@@ -29,11 +29,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-<<<<<<< HEAD
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-=======
-			<artifactId>spring-boot-starter-data-cassandra</artifactId>
->>>>>>> 147c2c941d4ce01eded412513e1d6c9ede2c05c6
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
@@ -70,10 +70,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-<<<<<<< HEAD
 		
-=======
->>>>>>> 147c2c941d4ce01eded412513e1d6c9ede2c05c6
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -114,15 +111,12 @@
             </plugin>
 		</plugins>
 	</build>
-<<<<<<< HEAD
 	<repositories>
     <repository>
         <id>projectlombok.org</id>
         <url>http://projectlombok.org/mavenrepo</url>
     </repository>
 </repositories>
-=======
->>>>>>> 147c2c941d4ce01eded412513e1d6c9ede2c05c6
 
 
 </project>

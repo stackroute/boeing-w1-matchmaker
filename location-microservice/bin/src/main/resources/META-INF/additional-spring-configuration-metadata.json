@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "app.topic.foo",
+    "type": "java.lang.String",
+    "description": "A description for 'app.topic.foo'"
+  },
+  {
+    "name": "producer.location.topic",
+    "type": "java.lang.String",
+    "description": "A description for 'producer.location.topic'"
+  },
+  {
+    "name": "consumer.location.topic",
+    "type": "java.lang.String",
+    "description": "A description for 'consumer.location.topic'"
+  }
+]}
