@@ -25,6 +25,7 @@ export class UserService {
       headers: httpHeaders
          };
     return this.http.post('http://localhost:8081/api/v1/personalInfo/publish', JSON.stringify(user_PI), options);
+    // return this.http.post('http://172.23.238.198:8081/api/v1/personalInfo/publish', JSON.stringify(user_PI), options);
     }
 
   addPost_Skill(user_Skill: UserSkill): Observable<any> {
@@ -36,6 +37,7 @@ export class UserService {
       headers: httpHeaders
           };
     return this.http.post('http://localhost:8081/api/v1/skills/publish', JSON.stringify(user_Skill), options);
+    // return this.http.post('http://172.23.238.198:8081/api/v1/personalInfo/publish', JSON.stringify(user_PI), options);   
     }
 
   addPost_Exp(user_Exp: UserExp): Observable<any> {
@@ -47,6 +49,7 @@ export class UserService {
       headers: httpHeaders
           };
     return this.http.post('http://localhost:8081/api/v1/experience/publish', JSON.stringify(user_Exp), options);
+    // return this.http.post('http://172.23.238.198:8081/api/v1/personalInfo/publish', JSON.stringify(user_PI), options);    
     }
 
   addPost_Location(user_Loc: UserLocation): Observable<any> {
@@ -58,6 +61,7 @@ export class UserService {
       headers: httpHeaders
           };
     return this.http.post('http://localhost:8081/api/v1/location/publish', JSON.stringify(user_Loc), options);
+    // return this.http.post('http://172.23.238.198:8081/api/v1/personalInfo/publish', JSON.stringify(user_PI), options);    
     }
   addPost_Project(user_Pro: UserProject): Observable<any> {
     const httpHeaders = new HttpHeaders({
@@ -68,6 +72,7 @@ export class UserService {
       headers: httpHeaders
           };
     return this.http.post('http://localhost:8081/api/v1/projects/publish', JSON.stringify(user_Pro), options);
+    // return this.http.post('http://172.23.238.198:8081/api/v1/personalInfo/publish', JSON.stringify(user_PI), options);    
     }
   addPost_Certificates(user_Cer: UserCertificates): Observable<any> {
     const httpHeaders = new HttpHeaders({
@@ -77,7 +82,9 @@ export class UserService {
           const options = {
       headers: httpHeaders
           };
+    
     return this.http.post('http://localhost:8081/api/v1/certificates/publish', JSON.stringify(user_Cer), options);
+    // return this.http.post('http://172.23.238.198:8081/api/v1/personalInfo/publish', JSON.stringify(user_PI), options);    
     }
 
   addPost_Academy(user_aca: UserAcademy): Observable<any> {
@@ -89,5 +96,7 @@ export class UserService {
       headers: httpHeaders
           };
     return this.http.post('http://localhost:8081/api/v1/qualification/publish', JSON.stringify(user_aca), options);
+    // return this.http.post('http://172.23.238.198:8081/api/v1/personalInfo/publish', JSON.stringify(user_PI), options);
+    
     }
 }

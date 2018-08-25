@@ -11,10 +11,6 @@
   </div>
 </div>
 
-
-
-
-
 <div class="modal fade" id="myModal2">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -27,19 +23,19 @@
       <div class="modal-body">
         <form class="form-horizontal" (submit)="addPost_Skill()">
           <div class="form-group">
-            <input class="form-control" placeholder="Skill" type="text" [(ngModel)]="newPost_Skill.skill" name="skill">
+            <input class="form-control" placeholder="Skill" type="text" [(ngModel)]="newPost_Skill.skill" [ngModelOptions]="{standalone: true}" name="skill">
           </div>
           <div class="form-group">
-            <input class="form-control" placeholder="Level" type="text" [(ngModel)]="newPost_Skill.level" name="level">
+            <input class="form-control" placeholder="Level" type="number" [(ngModel)]="newPost_Skill.level" [ngModelOptions]="{standalone: true}" name="level">
           </div>
           <div class="form-group">
-            <input class="form-control" placeholder="Duration" type="text" [(ngModel)]="newPost_Skill.noOfMonths" name="months">
+            <input class="form-control" placeholder="Duration" type="number" [(ngModel)]="newPost_Skill.noOfMonths" [ngModelOptions]="{standalone: true}" name="months">
           </div>
           <div class="form-group">
-            <input class="form-control" placeholder="Further usage" type="text" [(ngModel)]="newPost_Skill.furtherUsage" name="use">
+            <input class="form-control" placeholder="Further usage" type="text" [(ngModel)]="newPost_Skill.furtherUsage" [ngModelOptions]="{standalone: true}" name="use">
           </div>
           <div class="form-group">
-            <button class="btn btn-primary pull-right submitbtn" type="submit">Add</button>
+            <button class="btn btn-primary pull-right submitbtn" type="submit" onclick="this.form.reset();">Add</button>
           </div>
         </form>
       </div>

@@ -1,39 +1,67 @@
 <div class="loginSubmit">
   <div class="row">
-    <div class="col-sm-5"></div>
+    <div class="col-sm-5">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <h1>Apply with One Click</h1>
+        </mat-card-header>
+        <img mat-card-image src="https://www.ziprecruiter.com/zrs/e95c0ddd/img/jobs/apply_click.svg" alt="One Click">
+        <mat-card-content>
+          <h3>
+            Say goodbye to long applications. Upload your resume and apply to jobs in a click or a tap.
+          </h3>
+        </mat-card-content>
+      </mat-card>
+    </div>
     <div class="col-sm-1" id="border_seperate"></div>
     <div class="col-sm-6">
-    <div class="card" id="card-align">
-      <div class="card-body">
-        <form class="form-horizontal" [formGroup]="userForm" (ngSubmit)="loginSubmit()">
-          <h4>Login</h4>
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" formControlName="username" class="form-control" name=username/>
-            <div *ngIf="username.dirty && username.errors" class="error">
-              <div *ngIf="username.errors.required" class="validation_message">
-                Username required.
+      <div class="card" id="card-align">
+        <div class="card-body">
+          <form class="form-horizontal" [formGroup]="userForm" (ngSubmit)="loginSubmit()">
+            <h4>Login</h4>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" formControlName="username" class="form-control" name=username/>
+              <div *ngIf="username.dirty && username.errors" class="error">
+                <div *ngIf="username.errors.required" class="validation_message">
+                  Username required.
+                </div>
               </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" formControlName="password" />
-            <div *ngIf="password.dirty && password.errors" class="error">
-              <div *ngIf="password.errors.required" class="validation_message">
-                Password required.
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" formControlName="password" />
+              <div *ngIf="password.dirty && password.errors" class="error">
+                <div *ngIf="password.errors.required" class="validation_message">
+                  Password required.
+                </div>
               </div>
             </div>
-          </div>
-          <div class="form-group">
-            <button [disabled]="userForm.invalid" class="btn btn-block btn-danger">Sign In</button>
-          <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-            <p id="orStyle"> OR </p>
-            <button class="btn btn-block" id="signUp" [routerLink]="['/register']">SignUp</button>
-          </div>
-        </form>
+            <div class="form-group">
+              <button [disabled]="userForm.invalid" class="btn btn-block btn-danger">Sign In</button>
+              <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+              <p id="orStyle"> OR </p>
+              <button class="btn btn-block" id="signUp" [routerLink]="['/register']">SignUp</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-  </div>
+  <div class class="row">
+    <br><br><br><br>
+    <div class="row">
+      <div class="col-sm-5">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <h1>Know Where You Stand</h1>
+          </mat-card-header>
+          <img mat-card-image src="https://www.ziprecruiter.com/zrs/b85ba918/img/jobs/notification.svg" alt="notifications">
+          <mat-card-content>
+            <h3>
+                When you apply to a job, we let you know what happens next. We'll keep you updated every step of the way and give you regular reminders to update your resume.            </h3>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
   </div>
