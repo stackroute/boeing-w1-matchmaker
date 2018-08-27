@@ -37,7 +37,7 @@
 		<module>skill-microservice</module>
 		<module>qualification-microservice</module>
 		<module>downstream-service</module>
-		<module>indexer-service</module>
+		<module>indexer-microservice</module>
                 <module>nlp-service</module>
                 <module>search-microservice</module>
                 
