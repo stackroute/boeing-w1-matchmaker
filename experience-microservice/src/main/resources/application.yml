@@ -1,3 +1,40 @@
+server:
+  port: 8090
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers:
+            - 'localhost:9092'
+      bindings:
+        Projects:
+          destination: Projects
+          content-type: application/json
+        Location:
+          destination: Location
+          content-type: application/json
+        Certificates:
+          destination: Certificates
+          content-type: application/json
+        AcademicQualification:
+          destination: AcademicQualification
+          content-type: application/json
+        PersonalInfo:
+          destination: PersonalInfo
+          content-type: application/json
+        Experience:
+          destination: Experience
+          content-type: application/json
+        Skills:
+          destination: Skills
+          content-type: application/json
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: 'http://localhost:9090/eureka'
+  instance:
+    hostname: localhost
 
-    
-    
