@@ -1,6 +1,6 @@
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { NgModule } from '@angular/core';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
 import { MatOption, MatOptionModule, MatSelectModule, MatButton} from '@angular/material';
@@ -10,14 +10,16 @@ import { MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatAutoc
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule, MatSliderModule, DateAdapter} from '@angular/material';
 @NgModule({
-  imports: [ MatCheckboxModule, MatMenuModule,
-    MatIconModule, MatDialogModule, MatToolbarModule, MatFormFieldModule,
+  imports: [ MatCheckboxModule, MatMenuModule,MatSidenavModule,MatDatepickerModule,
+    MatIconModule, MatDialogModule, MatToolbarModule, MatFormFieldModule,MatNativeDateModule, MatSliderModule,
     MatOptionModule, MatOptionModule, MatSelectModule, BrowserAnimationsModule, MatCardModule,
     MatAutocompleteModule, MatInputModule, MatChipsModule, FlexLayoutModule, MatTooltipModule, MatRadioModule ],
 
-  exports: [ MatCheckboxModule, MatMenuModule, MatIconModule,
-    MatDialogModule, MatToolbarModule, MatFormFieldModule,
+  exports: [ MatCheckboxModule, MatMenuModule, MatIconModule,MatSidenavModule,MatDatepickerModule,
+    MatDialogModule, MatToolbarModule, MatFormFieldModule,MatNativeDateModule, MatSliderModule,
     MatOptionModule, MatOptionModule, MatSelectModule, BrowserAnimationsModule,
     MatCardModule, MatAutocompleteModule, MatInputModule, MatChipsModule, FlexLayoutModule, MatTooltipModule,
     MatRadioModule ]

@@ -30,6 +30,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule, MatSliderModule, DateAdapter} from '@angular/material';
 // export function tokenGetter() {
 //   return localStorage.getItem('access_token');
 // }

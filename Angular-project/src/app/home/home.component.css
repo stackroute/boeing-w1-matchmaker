@@ -1,0 +1,48 @@
+.jumbotron {
+    margin-top: 125px;
+    height: 200px;
+  }
+  
+  input[type="text"] {
+    font-size: 30px;
+    height: 75px;
+    width: 500px;
+  }
+  
+  .button {
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+      border-radius: 10px;
+    position: relative;
+    border: none;
+    font-size: 25px;
+    color: #ffffff;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .button:after {
+    content: "";
+    background: rgb(144, 203, 238);
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+  }
+  
+  .button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+  }
+  
