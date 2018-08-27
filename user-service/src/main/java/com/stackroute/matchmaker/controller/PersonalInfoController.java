@@ -1,6 +1,7 @@
 package com.stackroute.matchmaker.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +19,13 @@ public class PersonalInfoController {
 	@Autowired
     private KafkaTemplate<String, PersonalInfo> kafkaTemplate;
 
-    private static final String TOPIC = "PersonalInfo";
+	@Value("${app.personalInfo.name}")
+    private String topic;
 
     @PostMapping("/publish")
     public String post(@RequestBody PersonalInfo perInfo) {
 
-        kafkaTemplate.send(TOPIC , perInfo);
+        kafkaTemplate.send(topic , perInfo);
 
         return "Published successfully";
     }
