@@ -28,3 +28,13 @@
     color: red;
     margin-top: -4%;
 }
+
+.list-group-item{
+  padding: 4px 0 4px 20px;
+  color: black;
+  text-align: left;
+}
+
+.list-group-item:hover{
+  color: blue;
+}

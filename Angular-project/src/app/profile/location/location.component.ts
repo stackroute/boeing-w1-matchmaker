@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import { UserLocation } from '../../userLocation';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-location',
@@ -11,32 +14,55 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LocationComponent implements OnInit {
   private newPost_Loc ;
-  private getPost_Loc;
-  private loc_check;
+  private editPost_Loc;
+  private firstTime_check = false;
+  UserData: any = [];
+  url: string = 'http://172.23.238.203:8090/api/v1/user/' + JSON.parse(localStorage.getItem('currentUser'));
   locForm: FormGroup;
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
-    this.loc_check = false;
+  constructor(private userService: UserService, private http: HttpClient) {
+
   }
 
   ngOnInit() {
     this.newPost_Loc = new UserLocation();
-    this.getPost_Loc = new UserLocation();
+    this.editPost_Loc = new UserLocation();
     this.newPost_Loc.addressType = 'previous';
-    this.newPost_Loc.profileId = 'rgrVik123';
-    this.locForm = this.formBuilder.group({
-      city: ['', [Validators.required]]
-    });
+    this.getLocations();
   }
 
   addPost_Location() {
     this.newPost_Loc.profileId = JSON.parse(localStorage.getItem('currentUser'));
-    this.userService.addPost_Location(this.newPost_Loc).subscribe(() => {
-    });
-    this.loc_check = true;
-    this.getPost_Loc = this.newPost_Loc;
+    this.newPost_Loc.message = 'save';
+    this.userService.addPost_Location(this.newPost_Loc).subscribe(() => {  });
     }
 
-    get city() {
-      return this.locForm.get('city');
-    }
+  update(j) {
+    this.editPost_Loc[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
+    this.editPost_Loc[j].message = 'update' + j;
+    this.userService.addPost_Location(this.editPost_Loc[j]).subscribe(() => {  });
+  }
+
+  delete(j) {
+    this.editPost_Loc[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
+    this.editPost_Loc[j].message = 'delete' + j;
+    this.userService.addPost_Location(this.editPost_Loc[j]).subscribe(() => {  });
+  }
+
+  getLocations() {
+     this.get().subscribe( data => {
+        this.UserData = data;
+        this.editPost_Loc = data.location;
+        console.log('hey');
+        if (this.UserData.location == null) {
+          this.firstTime_check = false;
+        } else {
+          this.firstTime_check = true;
+        }
+      });
+  }
+
+  get(): Observable<any> {
+    return this.http.get(`http://172.23.238.203:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+  }
+
 }
