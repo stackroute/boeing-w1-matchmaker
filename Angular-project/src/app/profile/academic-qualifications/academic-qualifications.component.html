@@ -1,6 +1,6 @@
 <div *ngIf="acad_check">
-    <div class="card border-secondary mb-3">
-        <div class="card-header text-primary border-secondary">Academics</div>
+    <div class="card shade">
+        <div class="card-header text-primary border-light">Academics</div>
 
         <div class="card-body">
             Profile Id: {{getPost_Academy.profileId}}
@@ -28,33 +28,42 @@
             </div>
             <!-- end modal-header -->
             <div class="modal-body">
-                <form class="form-horizontal" (submit)="addPost_Academy()">
-
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Qualification" type="text" [(ngModel)]="newPost_Academy.qualification" name="qualification">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Institute Name" type="text" [(ngModel)]="newPost_Academy.instituteName" name="instituteName">
-                    </div>
-
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Joining Year" type="text" [(ngModel)]="newPost_Academy.yearOfJoining" name="joinYear">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Completion Year" type="text" [(ngModel)]="newPost_Academy.yearOfCompletion" name="completeYear">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Stream" type="text" [(ngModel)]="newPost_Academy.stream" name="stream">
-                    </div>
-
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Marks" type="text" [(ngModel)]="newPost_Academy.marks" name="marks">
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary pull-right submitbtn" type="submit">Add</button>
-                    </div>
-                </form>
-            </div>
+                    <form class="form-horizontal" id="academy-form" (submit)="addPost_Academy()">
+     
+                        <div class="center-align">
+                            <mat-form-field>
+                                <input matInput placeholder="My qualification is" [(ngModel)]="newPost_Academy.qualification" [ngModelOptions]="{standalone: true}"
+                                    name="qual">
+                            </mat-form-field>
+     
+                            <mat-form-field>
+                                <input matInput placeholder="from the Institute" [(ngModel)]="newPost_Academy.instituteName"
+                                    name="instituteName">
+                            </mat-form-field>
+     
+                            <mat-form-field>
+                                <input matInput placeholder="I joined in year" [(ngModel)]="newPost_Academy.yearOfJoining"
+                                    name="joinYear">
+                            </mat-form-field>
+     
+                            <mat-form-field>
+                                <input matInput placeholder="and graduated in year" [(ngModel)]="newPost_Academy.yearOfCompletion"
+                                 name="completeYear">
+                            </mat-form-field>
+     
+                            <mat-form-field>
+                                <input matInput placeholder="my stream was" [(ngModel)]="newPost_Academy.stream" name="stream">
+                            </mat-form-field>
+     
+                            <mat-form-field>
+                                <input matInput placeholder="My final marks were" [(ngModel)]="newPost_Academy.marks" name="marks">
+                            </mat-form-field>
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+     
+                    </form>
+                </div>
             <!-- end modal-body -->
         </div>
         <!-- end modal-content -->

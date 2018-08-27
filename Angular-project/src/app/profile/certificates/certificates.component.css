@@ -1,0 +1,11 @@
+.center-align > * {
+    text-align: center;
+  }
+ 
+  .center-align {
+    text-align: center;
+  }
+ 
+  .shade {
+    box-shadow: 3px 3px 5px grey;
+ }

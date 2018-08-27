@@ -1,8 +1,9 @@
 <div *ngIf="firstTime_check">
-    <div class="card">
+    <div class="card shadow-lg shade">
+        <div class="card-header text-primary border-light">Location</div>
       <div class="card-body">
         
-        <h2>Location</h2>
+        <!-- <h2>Location</h2> -->
   
         <div [ngSwitch]="newPost_Loc.addressType">
             <div *ngSwitchCase="'present'">
@@ -15,7 +16,7 @@
         <!-- <button (click)="getLocations()">Click</button>   -->
         <!-- <ul><li *ngFor="let loc of UserData.location">{{loc.city}}</li></ul> -->
         <ul class="list-group list-group-flush">
-  <div *ngFor="let loc of UserData.location; index as i"><a href="#AddressModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{loc.city}}</a>
+  <div class="w-auto" *ngFor="let loc of UserData.location; index as i"><a href="#AddressModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{loc.city}}</a>
        
     <!-- {{Locations.location[1].city}} -->
         
