@@ -18,27 +18,20 @@ import com.stackroute.downstreamservice.repository.UserRepository;
 @RestController
 @RequestMapping("/api/v1")
 public class UserController {
-	
+
 	private UserRepository userRepo;
-	
+
 	@Autowired
 	public UserController(UserRepository userRepo) {
-		
+
 		this.userRepo = userRepo;
 	}
-	
-	@GetMapping("/test")
-	public ResponseEntity<?> test(){
-		System.out.println("working fine.");
-		return null;
-	}
-	
+
 	@GetMapping("/user/{username}")
-	public ResponseEntity<?> getUser(@PathVariable("username") String username){
-				
-		System.out.println("sdf");
-		return new ResponseEntity<Optional<User>>(userRepo.findById(username),HttpStatus.OK);
-		
+	public ResponseEntity<?> getUser(@PathVariable("username") String username) {
+
+		return new ResponseEntity<Optional<User>>(userRepo.findById(username), HttpStatus.OK);
+
 	}
-	
+
 }

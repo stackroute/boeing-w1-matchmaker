@@ -8,7 +8,7 @@ import org.springframework.messaging.SubscribableChannel;
  */
 public interface LocationStream {
 	// INPUT is the topic
-	String INPUT = "Location";
+	String INPUT = "UserLocation";
 
 	// method inboundLocation is to subscribe the topic
 	@Input(INPUT)

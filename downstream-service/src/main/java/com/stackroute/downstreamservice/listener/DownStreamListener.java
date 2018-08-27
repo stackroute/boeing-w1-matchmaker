@@ -52,7 +52,6 @@ public class DownStreamListener {
 	private UserService userService;
 	private UserRepository userRepo;
 
-
 	/*
 	 * @Autowired public DownStreamListener(AcademiesRepository academiesRepository,
 	 * ExperienceRepository experienceRepository, LocationRepository
@@ -69,20 +68,18 @@ public class DownStreamListener {
 	 * userRepository; this.user = user; }
 	 */
 	@Autowired
-	public DownStreamListener(UserRepository userRepo,UserService userService) {
+	public DownStreamListener(UserRepository userRepo, UserService userService) {
 		this.userRepo = userRepo;
 		this.userService = userService;
 	}
 
 	@StreamListener(ExperienceStream.INPUT)
 	public void experiencePost(@Payload Experience experience) {
-		if(experience.getMessage().equals("save")) {
+		if (experience.getMessage().equals("save")) {
 			userService.saveExperience(experience);
-		}
-		else if(experience.getMessage().equals("delete")) {
+		} else if (experience.getMessage().equals("delete")) {
 			userService.deleteExperience(experience);
-		}
-		else if(experience.getMessage().equals("update")) {
+		} else if (experience.getMessage().equals("update")) {
 			userService.updateExperience(experience);
 		}
 	}
@@ -93,13 +90,11 @@ public class DownStreamListener {
 		 * try { academiesRepository.save(academies); } catch (Exception e) {
 		 * logger.info("Error in saving"); }
 		 */
-		if(academies.getMessage().equals("save")) {
+		if (academies.getMessage().equals("save")) {
 			userService.saveAcademies(academies);
-		}
-		else if(academies.getMessage().equals("delete")) {
+		} else if (academies.getMessage().equals("delete")) {
 			userService.deleteAcademies(academies);
-		}
-		else if(academies.getMessage().equals("update")) {
+		} else if (academies.getMessage().equals("update")) {
 			userService.updateAcademies(academies);
 		}
 	}
@@ -110,13 +105,13 @@ public class DownStreamListener {
 		 * try { locationRepository.save(location); } catch (Exception e) {
 		 * logger.info("Error in saving"); }
 		 */
-		if(location.getMessage().equals("save")) {
+		if (location.getMessage().equals("save")) {
 			userService.saveLocation(location);
 		}
-		else if(location.getMessage().equals("delete")) {
+		
+		  else if (location.getMessage().contains("delete")) {
 			userService.deleteLocation(location);
-		}
-		else if(location.getMessage().equals("update")) {
+		} else if (location.getMessage().contains("update")) {
 			userService.updateLocation(location);
 		}
 	}
@@ -127,10 +122,9 @@ public class DownStreamListener {
 		 * try { personalInfoRepository.save(personalInfo); } catch (Exception e) {
 		 * logger.info("Error in saving"); }
 		 */
-		if(personalInfo.getMessage().equals("save")) {
+		if (personalInfo.getMessage().equals("save")) {
 			userService.savePersonalInfo(personalInfo);
-		}
-		else if(personalInfo.getMessage().equals("update")) {
+		} else if (personalInfo.getMessage().equals("update")) {
 			userService.updatePersonalInfo(personalInfo);
 		}
 	}
@@ -141,13 +135,11 @@ public class DownStreamListener {
 		 * try { projectRepository.save(project); } catch (Exception e) {
 		 * logger.info("Error in saving"); }
 		 */
-		if(project.getMessage().equals("save")) {
+		if (project.getMessage().equals("save")) {
 			userService.saveProject(project);
-		}
-		else if(project.getMessage().equals("delete")){
+		} else if (project.getMessage().equals("delete")) {
 			userService.deleteProject(project);
-		}
-		else if(project.getMessage().equals("update")) {
+		} else if (project.getMessage().equals("update")) {
 			userService.updateProject(project);
 		}
 	}
@@ -158,16 +150,14 @@ public class DownStreamListener {
 		 * try { skillsRepository.save(skills); } catch (Exception e) {
 		 * logger.info("Error in saving"); }
 		 */
-		if(skills.getMessage().equals("save")) {
+		if (skills.getMessage().equals("save")) {
 			userService.saveSkill(skills);
-		}
-		else if(skills.getMessage().equals("delete")) {
+		} else if (skills.getMessage().equals("delete")) {
 			userService.deleteSkill(skills);
-		}
-		else if(skills.getMessage().equals("update")) {
+		} else if (skills.getMessage().equals("update")) {
 			userService.updateSkill(skills);
 		}
-		
+
 	}
 
 	@StreamListener(TrainingStream.INPUT)
@@ -176,17 +166,15 @@ public class DownStreamListener {
 		 * try { trainingRepository.save(training); } catch (Exception e) {
 		 * logger.info("Error in saving"); }
 		 */
-		if(certificates.getMessage().equals("save")) {
+		if (certificates.getMessage().equals("save")) {
 			userService.saveCertificate(certificates);
-		}	
-		else if(certificates.getMessage().equals("delete")) {
+		} else if (certificates.getMessage().equals("delete")) {
 			userService.deleteCertificate(certificates);
-		}
-		else if(certificates.getMessage().equals("update")) {
+		} else if (certificates.getMessage().equals("update")) {
 			userService.updateCertificate(certificates);
 		}
 	}
-	
+
 	@StreamListener(UserStream.INPUT)
 	public void userPost(@Payload User user) {
 		/*
