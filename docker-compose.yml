@@ -5,6 +5,7 @@ services:
     build: zuul-apigateway/
     image: zuul-service
     restart: always
+    container_name: zuul
     network_mode: "host"
     hostname: localhost
     ports:
@@ -16,6 +17,7 @@ services:
     build: config-service/
     image: config-service
     restart: always
+    container_name: config
     network_mode: "host"
     hostname: localhost
     ports:
@@ -27,6 +29,7 @@ services:
     build: eureka-server/
     image: eureka-server
     restart: always
+    container_name: eureka
     network_mode: "host"
     hostname: localhost
     ports:
@@ -39,6 +42,7 @@ services:
     ports:
       - "2181:2181"
     network_mode: "host"
+    container_name: zookeeper
     hostname: localhost
     restart: always
     healthcheck:
@@ -48,6 +52,7 @@ services:
     image: wurstmeister/kafka
     ports:
       - "9092:9092"
+    container_name: kafka
     environment:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_LISTENERS: PLAINTEXT://localhost:9092
@@ -66,6 +71,7 @@ services:
     image: mysql:5.7
     ports:
       - 3306:3306
+    container_name: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=register
@@ -82,6 +88,7 @@ services:
     ports:
       - "7474:7474"
       - "7687:7687"
+    container_name: neo4j
     environment:
       - NEO4J_AUTH=neo4j/12345
       - NEO4J_dbms_security_procedures_unrestricted=apoc.*
@@ -115,6 +122,7 @@ services:
     hostname: localhost
     ports:
       - 8081:8081
+    container_name: user
     healthcheck:
       test: "exit 0" 
 
@@ -128,6 +136,7 @@ services:
     hostname: localhost
     ports:
       - 8082:8082
+    container_name: login
     healthcheck:
       test: "exit 0"
 
@@ -140,6 +149,7 @@ services:
     hostname: localhost
     ports:
       - 8083:8083
+    container_name: exp
     healthcheck:
       test: "exit 0"
 
@@ -151,6 +161,7 @@ services:
     hostname: localhost
     ports:
       - 8084:8084
+    container_name: training
     healthcheck:
       test: "exit 0"
   
@@ -162,6 +173,7 @@ services:
     hostname: localhost
     ports:
       - 8085:8085
+    container_name: academy
     healthcheck:
       test: "exit 0"
 
@@ -173,6 +185,7 @@ services:
     hostname: localhost
     ports:
       - 8086:8086
+    container_name: location
     healthcheck:
       test: "exit 0"
 
@@ -184,6 +197,7 @@ services:
     hostname: localhost
     ports:
       - 8087:8087
+    container_name: personal
     healthcheck:
       test: "exit 0"
 
@@ -207,6 +221,7 @@ services:
     hostname: localhost
     ports:
       - 8089:8089
+    container_name: project
     healthcheck:
       test: "exit 0"
  
@@ -218,6 +233,7 @@ services:
     hostname: localhost
     ports:
       - 8090:8090
+    container_name: downstream
     depends_on:
       - mongodb
     healthcheck:
@@ -231,6 +247,7 @@ services:
     hostname: localhost
     ports:
       - 8091:8091
+    container_name: indexer
     depends_on:
       - neo4j
     healthcheck:
