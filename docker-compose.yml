@@ -254,6 +254,19 @@ services:
     healthcheck:
       test: "exit 0"
 
+ nlp-service:
+    build: nlp-service/
+    image: nlp-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8999:8999
+    container_name: nlp
+    healthcheck:
+      test: "exit 0"
+   
+
  angular-app:
     build: Angular-project/
     image: angular
