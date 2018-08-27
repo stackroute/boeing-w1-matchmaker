@@ -267,7 +267,7 @@ services:
       test: "exit 0"
 
  search-service:
-    build: search-service/
+    build: search-microservice/
     image: search-service
     restart: always
     network_mode: "host"

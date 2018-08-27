@@ -39,7 +39,7 @@
 		<module>downstream-service</module>
 		<module>indexer-service</module>
                 <module>nlp-service</module>
-                <module>search-service</module>
+                <module>search-microservice</module>
                 
        </modules>
 </project>
