@@ -167,7 +167,7 @@ services:
   
  qual-service:
     build: qualification-microservice/
-    image: academy-service
+    image: qualification-service
     restart: always
     network_mode: "host"
     hostname: localhost
