@@ -241,7 +241,7 @@ services:
       test: "exit 0"
 
  index-service:
-    build: indexer-service/
+    build: indexer-microservice/
     image: indexer-service
     restart: always
     network_mode: "host"
