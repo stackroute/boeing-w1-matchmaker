@@ -150,13 +150,8 @@ public class UserServiceImpl implements UserService {
 		opt = userRepo.findById(certificate.getProfileId());
 		user = opt.get();
 		List<Certificates> list = user.getCertificates();
-		for (Certificates cert : list) {
-			if(cert.getTrainingId().equalsIgnoreCase(certificate.getTrainingId())) {
-				list.remove(cert);
-				break;
-			}
-		}
-
+		int index = Integer.parseInt(certificate.getMessage().substring(6));
+		list.remove(index);
 		user.setCertificates(list);
 		user.setUsername(certificate.getProfileId());
 		userRepo.save(user);
@@ -179,12 +174,8 @@ public class UserServiceImpl implements UserService {
 		List<Projects> list = user.getProject();
 		opt = userRepo.findById(project.getProfileId());
 		user = opt.get();
-		for (Projects proj : list) {
-			if(proj.getProjectId().equalsIgnoreCase(project.getProjectId())) {
-				list.remove(proj);
-				break;
-			}
-		}
+		int index = Integer.parseInt(project.getMessage().substring(6));
+		list.remove(index);
 		user.setProject(list);
 		userRepo.save(user);
 	}
@@ -234,12 +225,8 @@ public class UserServiceImpl implements UserService {
 		opt = userRepo.findById(certificate.getProfileId());
 		user = opt.get();
 		List<Certificates> list = user.getCertificates();
-		for (Certificates cert : list) {
-			if(cert.getTrainingId().equalsIgnoreCase(certificate.getTrainingId())) {
-				list.remove(cert);
-				break;
-			}
-		}
+		int index = Integer.parseInt(certificate.getMessage().substring(6));
+		list.remove(index);
 		certificate.setMessage("save");
 		list.add(certificate);
 		user.setCertificates(list);
@@ -265,12 +252,8 @@ public class UserServiceImpl implements UserService {
 		List<Projects> list = user.getProject();
 		opt = userRepo.findById(project.getProfileId());
 		user = opt.get();
-		for (Projects proj : list) {
-			if(proj.getProjectId().equalsIgnoreCase(project.getProjectId())) {
-				list.remove(proj);
-				break;
-			}
-		}
+		int index = Integer.parseInt(project.getMessage().substring(6));
+		list.remove(index);
 		project.setMessage("save");
 		list.add(project);
 		user.setProject(list);
