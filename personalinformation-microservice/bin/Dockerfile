@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/personalinformation-microservice-1.1.0.jar /src/personal.jar
+COPY target/personalinformation-microservice-1.0.0.jar /src/personal.jar
 
 EXPOSE 8087
 

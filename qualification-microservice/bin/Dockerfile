@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/qualification-microservice-1.1.0.jar /src/qualification.jar
+COPY target/qualification-microservice-1.0.0.jar /src/qualification.jar
 
 EXPOSE 8085
 

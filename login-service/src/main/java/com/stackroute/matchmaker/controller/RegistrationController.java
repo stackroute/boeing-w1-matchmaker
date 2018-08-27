@@ -1,6 +1,7 @@
 package com.stackroute.matchmaker.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -29,7 +30,8 @@ public class RegistrationController {
 	 @Autowired
 	 private KafkaTemplate<String, Registration> kafkaTemplate;
 	
-	 private static final String TOPIC = "CassandraRegistration";
+		@Value("${app.cassandra.name}")
+	    private String topic;
 	
 	@Autowired
 	public RegistrationController(RegisterUserImpl registerUser, BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -46,7 +48,7 @@ public class RegistrationController {
 	public ResponseEntity<?> addUser(@RequestBody Registration registrant) {
 		registrant.setPassword(bCryptPasswordEncoder.encode(registrant.getPassword()));
 		registerUser.addUser(registrant);
-		kafkaTemplate.send(TOPIC , registrant);
+		kafkaTemplate.send(topic, registrant);
 		return new ResponseEntity<String>("New User Added", HttpStatus.CREATED);
 	}
 
