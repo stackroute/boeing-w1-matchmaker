@@ -209,6 +209,7 @@ services:
     hostname: localhost
     ports:
       - 8088:8088
+    container_name: project
     healthcheck:
       test: "exit 0"
 
