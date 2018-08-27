@@ -77,9 +77,9 @@ public class DownStreamListener {
 	public void experiencePost(@Payload Experience experience) {
 		if (experience.getMessage().equals("save")) {
 			userService.saveExperience(experience);
-		} else if (experience.getMessage().equals("delete")) {
+		} else if (experience.getMessage().contains("delete")) {
 			userService.deleteExperience(experience);
-		} else if (experience.getMessage().equals("update")) {
+		} else if (experience.getMessage().contains("update")) {
 			userService.updateExperience(experience);
 		}
 	}
@@ -92,9 +92,9 @@ public class DownStreamListener {
 		 */
 		if (academies.getMessage().equals("save")) {
 			userService.saveAcademies(academies);
-		} else if (academies.getMessage().equals("delete")) {
+		} else if (academies.getMessage().contains("delete")) {
 			userService.deleteAcademies(academies);
-		} else if (academies.getMessage().equals("update")) {
+		} else if (academies.getMessage().contains("update")) {
 			userService.updateAcademies(academies);
 		}
 	}
@@ -124,7 +124,7 @@ public class DownStreamListener {
 		 */
 		if (personalInfo.getMessage().equals("save")) {
 			userService.savePersonalInfo(personalInfo);
-		} else if (personalInfo.getMessage().equals("update")) {
+		} else if (personalInfo.getMessage().contains("update")) {
 			userService.updatePersonalInfo(personalInfo);
 		}
 	}
@@ -137,9 +137,9 @@ public class DownStreamListener {
 		 */
 		if (project.getMessage().equals("save")) {
 			userService.saveProject(project);
-		} else if (project.getMessage().equals("delete")) {
+		} else if (project.getMessage().contains("delete")) {
 			userService.deleteProject(project);
-		} else if (project.getMessage().equals("update")) {
+		} else if (project.getMessage().contains("update")) {
 			userService.updateProject(project);
 		}
 	}
@@ -152,9 +152,9 @@ public class DownStreamListener {
 		 */
 		if (skills.getMessage().equals("save")) {
 			userService.saveSkill(skills);
-		} else if (skills.getMessage().equals("delete")) {
+		} else if (skills.getMessage().contains("delete")) {
 			userService.deleteSkill(skills);
-		} else if (skills.getMessage().equals("update")) {
+		} else if (skills.getMessage().contains("update")) {
 			userService.updateSkill(skills);
 		}
 
@@ -168,9 +168,9 @@ public class DownStreamListener {
 		 */
 		if (certificates.getMessage().equals("save")) {
 			userService.saveCertificate(certificates);
-		} else if (certificates.getMessage().equals("delete")) {
+		} else if (certificates.getMessage().contains("delete")) {
 			userService.deleteCertificate(certificates);
-		} else if (certificates.getMessage().equals("update")) {
+		} else if (certificates.getMessage().contains("update")) {
 			userService.updateCertificate(certificates);
 		}
 	}
