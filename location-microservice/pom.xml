@@ -10,7 +10,7 @@
 	 <parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>boeing-w1-matchmaker</artifactId>
-		<version>1.1.0</version>
+		<version>1.2.0</version>
      </parent>  
 
 	<properties>

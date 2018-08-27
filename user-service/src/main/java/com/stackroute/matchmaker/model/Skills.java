@@ -6,18 +6,34 @@ public class Skills {
 	private String level;
 	private String noOfMonths;
 	private String furtherUsage;
+	private String message;
 
 	public Skills() {
 	}
 
-	public Skills(String profileId, String skill, String level, String noOfMonths, String furtherUsage) {
+
+	public Skills(String profileId, String skill, String level, String noOfMonths, String furtherUsage,
+			String message) {
 		super();
 		this.profileId = profileId;
 		this.skill = skill;
 		this.level = level;
 		this.noOfMonths = noOfMonths;
 		this.furtherUsage = furtherUsage;
+		this.message = message;
 	}
+
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 
 	public String getProfileId() {
 		return profileId;
@@ -59,11 +75,14 @@ public class Skills {
 		this.furtherUsage = furtherUsage;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Skills [profileId=" + profileId + ", skill=" + skill + ", level=" + level + ", noOfMonths=" + noOfMonths
-				+ ", furtherUsage=" + furtherUsage + "]";
+				+ ", furtherUsage=" + furtherUsage + ", message=" + message + "]";
 	}
+
+
 
 	
 

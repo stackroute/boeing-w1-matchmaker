@@ -1,7 +1,8 @@
 <div *ngIf="pi_check">
-  <div class="card">
+  <div class="card shade">
+    <div class="card-header text-primary">Personal Information</div>
     <div class="card-body">
-      <h2>Personal Information</h2>
+      
       <img style="width:100px;height:100px"  src={{imageUrl}}>
       <br> Profile Id: {{getPost_PI.profileId}}
       <br> Name: {{getPost_PI.name}}
@@ -30,55 +31,63 @@
 
       </div>
       <!-- end modal-header -->
-      <div class="modal-body">
-        <form class="form-horizontal" (submit)="addPost_PI()">
-
-          <div style="margin-bottom: 12px;">
-              <img style="width:100px;height:100px"  src={{imageUrl}}>
+      <div class="modal-body center-align">
+          <form class="form-horizontal" id="pi-form" (submit)="addPost_PI()">
+   
+            <div style="margin-bottom: 12px;">
+              <img class="rounded-circle" style="width:100px;height:100px" src={{imageUrl}}>
               <input #fileInput style="display: none;" type="file" #Image accept="/image/*" (change)="handleFileInput($event.target.files)">
-              <button type="button" class="btn btn-sm btn-light" (click)="fileInput.click()" >Choose File</button>
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Name" [(ngModel)]="newPost_PI.name" name="name" type="text">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Age" type="number" [(ngModel)]="newPost_PI.age" name="age">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Contact no." type="text" [(ngModel)]="newPost_PI.mobile" name="mobile">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Email" type="email" [(ngModel)]="newPost_PI.email" name="email">
-          </div>
-          
-          <div class="form-group">
-            <input class="form-control" placeholder="Date of birth" type="date" [(ngModel)]="newPost_PI.dob" name="dob">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Gender" type="text" [(ngModel)]="newPost_PI.gender" name="gender">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Blood Group" type="text" [(ngModel)]="newPost_PI.bloodGroup" name="blood">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Facebook" type="url" [(ngModel)]="newPost_PI.facebook" name="facebook">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="LinkedIn" type="url" [(ngModel)]="newPost_PI.linkedin" name="linkedin">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Github" type="url" [(ngModel)]="newPost_PI.github" name="github">
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary pull-right submitbtn" type="submit">Create</button>
-          </div>
-        </form>
-      </div>
+              <button type="button" class="btn btn-sm btn-light" (click)="fileInput.click()">Choose File</button>
+            </div>
+   
+            <mat-form-field>
+              <input matInput placeholder="My name is" [(ngModel)]="newPost_PI.name" name="name">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="My age is" [(ngModel)]="newPost_PI.age" name="age">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="Call me at" [(ngModel)]="newPost_PI.mobile" name="mobile">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="email me on" [(ngModel)]="newPost_PI.email" name="email">
+            </mat-form-field>
+   
+            <!-- <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="I was born on" [(ngModel)]="newPost_PI.dob">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field> -->
+            <mat-form-field>
+              <input matInput placeholder="I was born on" [(ngModel)]="newPost_PI.dob" type="date" name="dob">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="My gender is" [(ngModel)]="newPost_PI.gender" name="gender">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="My blood type is" [(ngModel)]="newPost_PI.bloodGroup" name="blood">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="find me on Facebook" type="url" [(ngModel)]="newPost_PI.facebook" name="facebook">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="find me on Linkedin" type="url" [(ngModel)]="newPost_PI.linkedin" name="linkedin">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="find me on Github" type="url" [(ngModel)]="newPost_PI.github" name="github">
+            </mat-form-field>
+            <hr>
+            <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+          </form>
+        </div>
       <!-- end modal-body -->
     </div>
     <!-- end modal-content -->

@@ -1,35 +1,80 @@
+<!--Navbar-->
+<nav class="mb-1 navbar navbar-expand-lg navbar-light warning-color fixed-top">
+	<a class="navbar-brand" href="#">Matchify</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
+	 aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="http://localhost:4200/">Home <span class="sr-only">(current)</span></a>
+			</li>
+
+			<!-- Dropdown -->
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
+				<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="#">Search Projects</a>
+					<a class="dropdown-item" href="#">Search employee</a>
+				</div>
+			</li>
+
+		</ul>
+		<form class="form-inline mx-auto">
+			<input class="form-control" type="text" placeholder="Search" aria-label="Search">
+			<button class="btn btn-black btn-md my-0 ml-sm-2" type="submit">Search</button>
+		</form>
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link waves-effect waves-light" href="#">
+					<i class="fa fa-envelope"></i> Contact
+					<span class="sr-only">(current)</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link waves-effect waves-light" href="#">
+					<i class="fa fa-gear"></i> Settings</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
+				 aria-expanded="true">
+					<i class="fa fa-user"></i> Profile </a>
+				<div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+					<a class="dropdown-item waves-effect waves-light" href="http://localhost:4200/">Settings</a>
+					<a class="dropdown-item waves-effect waves-light" href="http://localhost:4200/">My account</a>
+					<a class="dropdown-item waves-effect waves-light" href="#" (click)="logout()">Log out</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</nav>
+<!--/.Navbar-->
+<!-- </nav>
 <header class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
 	<div class="container">
 		<button class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" type="button">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" id="heading">MatchMaker</a>
-		<!-- navbar starts here -->
-		<nav class="navbar-collapse collapse" id="navbarCollapse">
-			<ul class="navbar-nav">
-				<li class="nav-item active">
-					<a href="#" class="nav-link">Home</a>
-				</li>
-				<li class="nav-item">
-					<a href="#" class="nav-link">Help</a>
-				</li>
-			</ul>
-			<form class="form-inline">
-				<input type="text" class="form-control" id="searchbar">
+		<a href="#" class="navbar-brand nav-link" id="heading">Matchify</a> -->
+<!-- navbar starts here -->
+<!-- <nav class="navbar-collapse collapse d-flex justify-content-around" id="navbarCollapse">
+			<form class="form-inline" action="/action_page.php">
+				<div class="col-xs-6">
+					<input class="form-control mr-sm-2" type="text" placeholder="Search">
+				</div>	<button class="btn btn-success pull-right" type="submit">Search</button>
+				
 			</form>
-			<ul class="navbar-nav ml-auto">
-				<li class="dropdown nav-item">
-					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" id="usercaret">
-						<span>User</span>
-					</a>
-					<ul class="dropdown-menu" id="userDrop">
-						<li>
-							<a href="#" [routerLink]="['/portfolios']" class="dropdown-item">Portfolios</a>
-					    </li>
-						<li>
-							<a href="#" class="dropdown-item">Settings</a>
-						</li>
-						<div *ngIf="user_check">
+			<div *ngIf="user_check">
+				<ul class="navbar-nav ml-auto">
+					<li class="dropdown nav-item">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" id="usercaret">
+							<span>User</span>
+						</a>
+						<ul class="dropdown-menu" id="userDrop">
+							<li>
+								<a href="#" class="dropdown-item">Settings</a>
+							</li>
 							<li>
 								<a href="#" class="dropdown-item">Welcome {{profile}}</a>
 							</li>
@@ -37,17 +82,125 @@
 							<li>
 								<a href="#" class="dropdown-item" (click)="logout()">Log Out</a>
 							</li>
-						</div>
-					</ul>
-				</li>
-			</ul>
-		</nav>
-		<!-- navbar ends here -->
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav> -->
+<!-- navbar ends here -->
 
-
+<!-- 
 	</div>
-</header>
+</header> -->
 
 <div class="container">
 	<router-outlet></router-outlet>
 </div>
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small teal">
+
+	<!-- Footer Links -->
+	<div class="container">
+
+		<!-- Grid row-->
+		<div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+			<!-- Grid column -->
+			<div class="col-md-2 mb-3">
+				<h6 class="text-uppercase font-weight-bold">
+					<a href="#!">About us</a>
+				</h6>
+			</div>
+			<!-- Grid column -->
+
+
+			<!-- Grid column -->
+			<div class="col-md-2 mb-3">
+				<h6 class="text-uppercase font-weight-bold">
+					<a href="#!">Help</a>
+				</h6>
+			</div>
+			<!-- Grid column -->
+
+			<!-- Grid column -->
+			<div class="col-md-2 mb-3">
+				<h6 class="text-uppercase font-weight-bold">
+					<a href="#!">Contact</a>
+				</h6>
+			</div>
+			<!-- Grid column -->
+
+		</div>
+		<!-- Grid row-->
+		<hr class="rgba-white-light" style="margin: 0 15%;">
+
+		<!-- Grid row-->
+		<div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+			<!-- Grid column -->
+			<div class="col-md-8 col-12 mt-5">
+				<p style="line-height: 1.7rem">This website will help you to find the best resources within your buisness to work on
+					the projects you have in stock. It's simple and easy to use and will help you find the best people with desired skills
+					and other desired requirements to work on your projects.</p>
+			</div>
+			<!-- Grid column -->
+
+		</div>
+		<!-- Grid row-->
+		<hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+		<!-- Grid row-->
+		<div class="row pb-3">
+
+			<!-- Grid column -->
+			<div class="col-md-12">
+
+				<div class="mb-5 flex-center">
+
+					<!-- Facebook -->
+					<a class="fb-ic">
+						<i class="fa fa-facebook fa-lg white-text mr-4"> </i>
+					</a>
+					<!-- Twitter -->
+					<a class="tw-ic">
+						<i class="fa fa-twitter fa-lg white-text mr-4"> </i>
+					</a>
+					<!-- Google +-->
+					<a class="gplus-ic">
+						<i class="fa fa-google-plus fa-lg white-text mr-4"> </i>
+					</a>
+					<!--Linkedin -->
+					<a class="li-ic">
+						<i class="fa fa-linkedin fa-lg white-text mr-4"> </i>
+					</a>
+					<!--Instagram-->
+					<a class="ins-ic">
+						<i class="fa fa-instagram fa-lg white-text mr-4"> </i>
+					</a>
+					<!--Pinterest-->
+					<a class="pin-ic">
+						<i class="fa fa-pinterest fa-lg white-text"> </i>
+					</a>
+
+				</div>
+
+			</div>
+			<!-- Grid column -->
+
+		</div>
+		<!-- Grid row-->
+
+	</div>
+	<!-- Footer Links -->
+
+	<!-- Copyright -->
+	<div class="footer-copyright text-center py-3">© 2018 Copyright:
+		<a href="http://localhost:4200/"> Matchify.com</a>
+	</div>
+	<!-- Copyright -->
+
+</footer>
+<!-- Footer -->

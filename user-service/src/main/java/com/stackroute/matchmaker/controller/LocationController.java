@@ -1,6 +1,7 @@
 package com.stackroute.matchmaker.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +19,13 @@ public class LocationController {
 	@Autowired
     private KafkaTemplate<String, Location> kafkaTemplate;
 
-    private static final String TOPIC = "UserLocation";
+	@Value("${app.location.name}")
+    private String topic;
 
     @PostMapping("/publish")
     public String post(@RequestBody Location location) {
 
-        kafkaTemplate.send(TOPIC , location);
+        kafkaTemplate.send(topic , location);
 
         return "Published successfully";
     }

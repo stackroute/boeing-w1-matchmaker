@@ -1,19 +1,14 @@
 <div *ngIf="skills_check">
-  <div class="card">
+  <div class="card shade">
+      <div class="card-header text-primary border-light">Skills</div>
     <div class="card-body">
-      <h2>Skills</h2>
-      Profile Id: {{getPost_Skill.profileId}}
-      <br> Skill: {{getPost_Skill.skill}}
+           Skill: {{getPost_Skill.skill}}
       <br> Level: {{getPost_Skill.level}}
       <br> Duration: {{getPost_Skill.noOfMonths}}
       <br> Further Usage: {{getPost_Skill.furtherUsage}}
     </div>
   </div>
 </div>
-
-
-
-
 
 <div class="modal fade" id="myModal2">
   <div class="modal-dialog">
@@ -24,25 +19,28 @@
 
       </div>
       <!-- end modal-header -->
-      <div class="modal-body">
-        <form class="form-horizontal" (submit)="addPost_Skill()">
-          <div class="form-group">
-            <input class="form-control" placeholder="Skill" type="text" [(ngModel)]="newPost_Skill.skill" name="skill">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Level" type="text" [(ngModel)]="newPost_Skill.level" name="level">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Duration" type="text" [(ngModel)]="newPost_Skill.noOfMonths" name="months">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Further usage" type="text" [(ngModel)]="newPost_Skill.furtherUsage" name="use">
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary pull-right submitbtn" type="submit">Add</button>
-          </div>
-        </form>
-      </div>
+      <div class="modal-body center-align">
+          <form class="form-horizontal" id="skill-form" (submit)="addPost_Skill()">
+            <mat-form-field>
+              <input matInput placeholder="I am skilled at" [(ngModel)]="newPost_Skill.skill" name="skill">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="my skill level is" type="number" [(ngModel)]="newPost_Skill.level" name="level">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="I trained at it for" type="number" [(ngModel)]="newPost_Skill.noOfMonths" name="months">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="further use of it is" type="text" [(ngModel)]="newPost_Skill.furtherUsage"  name="use">
+            </mat-form-field>
+   
+            <hr>
+            <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+          </form>
+        </div>
       <!-- end modal-body -->
     </div>
     <!-- end modal-content -->

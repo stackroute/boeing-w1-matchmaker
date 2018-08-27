@@ -1,20 +1,16 @@
-<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
 <div *ngIf="exp_check">
- <div class="card">
+ <div class="card shade">
+    <div class="card-header text-primary">Experience</div>
    <div class="card-body">
-     <h2>Experience</h2>
+     
      Profile Id: {{getPost_Exp.profileId}}
      <br> Organization name: {{getPost_Exp.organizationName}}
      <br> Role: {{getPost_Exp.role}}
      <br> Start date: {{getPost_Exp.startDate}}
      <br> End date: {{getPost_Exp.endDate}}
-     <br> Message: {{getPost_Exp.message}}
    </div>
  </div>
 </div>
-
-
-
 
 <div class="modal fade" id="myModal3">
  <div class="modal-dialog">
@@ -25,48 +21,34 @@
 
      </div>
      <!-- end modal-header -->
-     <div class="modal-body">
-       <form class="form-horizontal" (submit)="addPost_Exp()">
-         <div class="form-group">
-           <input class="form-control" placeholder="Name of the organization" type="text" [(ngModel)]="newPost_Exp.organizationName"
-             name="org">
-         </div>
-         <div class="form-group">
-           <input class="form-control" placeholder="Role" type="text" [(ngModel)]="newPost_Exp.role" name="role">
-         </div>
-
-         <div class="form-group">
-             <div class="form-group">
-                 <label >Start Date</label>
-                 <input type="date" placeholder="Start Date" min="1000-01-01" [(ngModel)]="newPost_Exp.startDate"
-                        max="3000-12-31" class="form-control" name="start">
-             </div>
-           <!-- <input class="form-control" placeholder="Start Date" type="text" [(ngModel)]="newPost_Exp.startDate" name="start"> -->
-         </div>
-         <div class="form-group">
-             <div class="form-group">
-                 <label >End Date</label>
-                 <input type="date"  min="1000-01-01" [(ngModel)]="newPost_Exp.endDate"
-                        max="3000-12-31" class="form-control" name="end">
-             </div>
-           <!-- <input class="form-control" placeholder="End Date" type="text" [(ngModel)]="newPost_Exp.endDate" name="end"> -->
-         </div>
-
-         <div class="form-group">
-           <input class="form-control" placeholder="Message" type="text" [(ngModel)]="newPost_Exp.message" name="message">
-         </div>
-         <div class="row">
-           <div class="col-6">
-             
-           </div>
-           <div class="col-6">
-             <div class="pull-right py-auto">
-                 <button class="btn btn-primary pull-right submitbtn" type="submit">Add</button>
-             </div>
-           </div>
-         </div>
-       </form>
-     </div>
+     <div class="modal-body center-align">
+        <form class="form-horizontal" id="exp-form" (submit)="addPost_Exp()">
+          <div class="center-align">
+ 
+            <mat-form-field>
+              <input matInput placeholder="I previously worked in" [(ngModel)]="newPost_Exp.organizationName" name="org">
+            </mat-form-field>
+ 
+            <mat-form-field>
+              <input matInput placeholder="as a" [(ngModel)]="newPost_Exp.role" name="role">
+            </mat-form-field>
+ 
+            <mat-form-field>
+              <input matInput type="date" [matDatepicker]="picker" placeholder="I started on" [(ngModel)]="newPost_Exp.startDate" name="startDate">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+ 
+            <mat-form-field>
+              <input matInput type="date" [matDatepicker]="picker" placeholder="I worked till" [(ngModel)]="newPost_Exp.endDate" name="endDate">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div> <!-- end of center align -->
+          <hr>
+          <button class="btn btn-primary submitbtn" type="submit">Send</button> &nbsp;&nbsp;
+        </form>
+      </div>
      <!-- end modal-body -->
    </div>
    <!-- end modal-content -->

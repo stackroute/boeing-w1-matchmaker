@@ -10,8 +10,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.matchmaker.indexerdata.Index;
-import com.stackroute.matchmaker.indexerdata.Indexer;
+import com.stackroute.matchmaker.indexermodel.SkillIndex;
+import com.stackroute.matchmaker.indexermodel.Indexer;
 import com.stackroute.matchmaker.model.Skills;
 
 import java.util.HashMap;
@@ -36,7 +36,7 @@ public class KakfaProducerConfiguration {
 	}
 	
 	@Bean
-	public ProducerFactory<String, Index> producerFactoryIndex() {
+	public ProducerFactory<String, SkillIndex> producerFactoryIndex() {
 		Map<String, Object> config = new HashMap<>();
 
 		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -69,7 +69,7 @@ public class KakfaProducerConfiguration {
 	}
 	
 	@Bean
-	public KafkaTemplate<String, Index> kafkaTemplateIndex() {
+	public KafkaTemplate<String, SkillIndex> kafkaTemplateIndex() {
 		return new KafkaTemplate<>(producerFactoryIndex());
 	}
 

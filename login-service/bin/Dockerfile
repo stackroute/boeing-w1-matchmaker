@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/login-service-1.1.0.jar /src/user.jar
+COPY target/login-service-1.0.0.jar /src/user.jar
 
 EXPOSE 8082
 

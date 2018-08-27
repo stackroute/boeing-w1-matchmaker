@@ -14,9 +14,20 @@ public class PersonalInfo {
 	private String linkedin;
 	private String github;
 	private String bloodGroup;
+	private String message;
 
 	
 	// private String certificates;
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 
 	public PersonalInfo() {
 
@@ -24,7 +35,8 @@ public class PersonalInfo {
 
 
 	public PersonalInfo(String profileId, String picture, String name, String dob, String age, String gender,
-			String mobile, String email, String facebook, String linkedin, String github, String bloodGroup) {
+			String mobile, String email, String facebook, String linkedin, String github, String bloodGroup,
+			String message) {
 		super();
 		this.profileId = profileId;
 		this.picture = picture;
@@ -38,6 +50,7 @@ public class PersonalInfo {
 		this.linkedin = linkedin;
 		this.github = github;
 		this.bloodGroup = bloodGroup;
+		this.message = message;
 	}
 
 
@@ -165,8 +178,11 @@ public class PersonalInfo {
 	public String toString() {
 		return "PersonalInfo [profileId=" + profileId + ", picture=" + picture + ", name=" + name + ", dob=" + dob
 				+ ", age=" + age + ", gender=" + gender + ", mobile=" + mobile + ", email=" + email + ", facebook="
-				+ facebook + ", linkedin=" + linkedin + ", github=" + github + ", bloodGroup=" + bloodGroup + "]";
+				+ facebook + ", linkedin=" + linkedin + ", github=" + github + ", bloodGroup=" + bloodGroup
+				+ ", message=" + message + "]";
 	}
+
+
   
 	
 	
