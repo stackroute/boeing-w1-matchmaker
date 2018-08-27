@@ -1,0 +1,17 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+     group-id: group_json
+
+experienceproducer:
+  producer:
+    exp: Experience
+    
+experienceproducer1:
+   producer1:
+    exp1: ExperienceIndexer123
+server:
+  port: 8083 
+    
+    

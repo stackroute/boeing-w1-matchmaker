@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 spring:
   kafka:
     bootstrap-servers: localhost:9092
@@ -18,3 +19,5 @@ server:
   port: 8084   
     
   
+=======
+>>>>>>> ac82e351da1f154eeb53f2de1e6733e8c84f777d

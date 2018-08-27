@@ -1,0 +1,1 @@
+This File contains Personal Information Microservice which takes the data from the Kafka message bus and processes it as required by the indexer and pushes it back in to the message bus which then is picked by the Indexer.
