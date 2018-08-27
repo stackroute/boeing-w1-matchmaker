@@ -7,7 +7,12 @@ import org.neo4j.ogm.annotation.StartNode;
 
 import com.stackroute.matchmaker.nodes.Company;
 import com.stackroute.matchmaker.nodes.ProfileId;
-
+/**
+ * 
+ * @author syam
+ *
+ */
+// this is the pojo class based on which the relationships and their properties in the neo4j  are created upon
 @RelationshipEntity(type = "employeeOf")
 public class EmployeeOfRelation {
 	@Id

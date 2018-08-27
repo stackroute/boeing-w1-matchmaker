@@ -7,7 +7,12 @@ import org.neo4j.ogm.annotation.StartNode;
 
 import com.stackroute.matchmaker.nodes.Skill;
 import com.stackroute.matchmaker.nodes.Training;
-
+/**
+ * 
+ * @author syam
+ *
+ */
+// this is the pojo class based on which the relationships and their properties in the neo4j  are created upon
 @RelationshipEntity(type = "coversSkill")
 public class TrainingCoversSkill {
 	@Id

@@ -7,10 +7,16 @@ import org.neo4j.ogm.annotation.StartNode;
 
 import com.stackroute.matchmaker.nodes.City;
 import com.stackroute.matchmaker.nodes.ProfileId;
-
+/**
+ * 
+ * @author syam
+ *
+ */
+// this is the pojo class based on which the relationships and their properties in the neo4j  are created upon
 @RelationshipEntity(type = "livesIn")
 public class LivesInRelation {
 	@Id
+	private String locationProfileId;
 	@StartNode
 	private ProfileId profileId;
 	@EndNode
@@ -20,10 +26,19 @@ public class LivesInRelation {
 		super();
 	}
 
-	public LivesInRelation(ProfileId profileId, City city) {
+	public LivesInRelation(String locationProfileId, ProfileId profileId, City city) {
 		super();
+		this.locationProfileId = locationProfileId;
 		this.profileId = profileId;
 		this.city = city;
+	}
+
+	public String getLocationProfileId() {
+		return locationProfileId;
+	}
+
+	public void setLocationProfileId(String locationProfileId) {
+		this.locationProfileId = locationProfileId;
 	}
 
 	public ProfileId getProfileId() {
@@ -44,7 +59,8 @@ public class LivesInRelation {
 
 	@Override
 	public String toString() {
-		return "LivesInRelation [profileId=" + profileId + ", city=" + city + "]";
+		return "LivesInRelation [locationProfileId=" + locationProfileId + ", profileId=" + profileId + ", city=" + city
+				+ "]";
 	}
 
 }

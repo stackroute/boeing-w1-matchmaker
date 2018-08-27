@@ -36,6 +36,16 @@ import com.stackroute.matchmaker.repositories.TrainingUndergoneRepository;
 import com.stackroute.matchmaker.repositories.UsesSkillRelationRepository;
 import com.stackroute.matchmaker.repositories.WorkedInRelationRepository;
 
+/**
+ * 
+ * @author syam
+ *
+ */
+// this is where everthing happens
+// we listen from the kafka to the pojo classes, and then assign respectives
+// values to the respective classes and call the objects of nodes, and save them
+// into relationships, and finally calling the repositories objects and call the
+// curd operations based on the message we get.
 @Service
 public class KafkaConsumer {
 	private HasSkillRepository hasSkillRepository;
@@ -82,93 +92,109 @@ public class KafkaConsumer {
 		System.out.println("Consumed JSON Message: " + locationIndex);
 		ProfileId profileId = new ProfileId(locationIndex.getProfileId());
 		City city = new City(locationIndex.getCity());
-		if (locationIndex.getAddressType().equals("present")) {
-			LivesInRelation livesInRelation = new LivesInRelation(profileId, city);
-			livesInRelationRepository.save(livesInRelation);
-		} else {
-			LivedInRelation livedInRelation = new LivedInRelation(profileId, city);
-			livedInRelationRepository.save(livedInRelation);
+		if (locationIndex.getMessage().equals("save")) {
+			if (locationIndex.getAddressType().equals("present") || locationIndex.getMessage().equals("update")) {
+				LivesInRelation livesInRelation = new LivesInRelation(locationIndex.getProfileId(), profileId, city);
+				livesInRelationRepository.save(livesInRelation);
+			} else {
+				LivedInRelation livedInRelation = new LivedInRelation(locationIndex.getProfileId(), profileId, city);
+				livedInRelationRepository.save(livedInRelation);
 
+			}
+		} else if (locationIndex.getMessage().equals("delete")) {
+			if (locationIndex.getAddressType().equals("present")) {
+				LivesInRelation livesInRelation = new LivesInRelation(locationIndex.getProfileId(), profileId, city);
+				livesInRelationRepository.deleteById(livesInRelation.getLocationProfileId());
+			} else {
+				LivedInRelation livedInRelation = new LivedInRelation(locationIndex.getProfileId(), profileId, city);
+				livedInRelationRepository.deleteById(livedInRelation.getLocationProfileId());
+
+			}
 		}
 
 	}
 
-	@KafkaListener(topics = "SkillIndexer123", groupId = "group_json", containerFactory = "skillKafkaListenerFactory")
+	@KafkaListener(topics = "SkillIndexer", groupId = "group_json", containerFactory = "skillKafkaListenerFactory")
 	public void consumeJson(SkillIndex skillIndex) {
 		System.out.println("Consumed JSON Message: " + skillIndex);
-		// cityRepository.findById(locationListner.getCityName());
-		// System.out.println(cityRepository.findById(locationListner.getCityName()));
 		Skill skill = new Skill(skillIndex.getSkill());
 		ProfileId profileId = new ProfileId(skillIndex.getProfileId());
 		HasSkill hasSkill = new HasSkill(skillIndex.getWeightage(), profileId, skill);
-		// profileIdRepository.save(profileId);
-		hasSkillRepository.save(hasSkill);
+		if (skillIndex.getMessage().equals("create") || skillIndex.getMessage().equals("update")) {
+			hasSkillRepository.save(hasSkill);
+		} else if (skillIndex.getMessage().equals("delete")) {
+			hasSkillRepository.deleteById(hasSkill.getWeight());
+		}
 
 	}
 
 	@KafkaListener(topics = "TrainingIndexer", groupId = "group_json", containerFactory = "trainingKafkaListenerFactory")
 	public void consumeJson(TrainingIndex trainingIndex) {
 		System.out.println("Consumed JSON Message: " + trainingIndex);
-		// cityRepository.findById(locationListner.getCityName());
-		// System.out.println(cityRepository.findById(locationListner.getCityName()));
 		Skill skill = new Skill(trainingIndex.getSkills());
 		Training training = new Training(trainingIndex.getTrainingId(), trainingIndex.getTrainingName(),
 				trainingIndex.getAuthority());
 		ProfileId profileId = new ProfileId(trainingIndex.getProfileId());
 		TrainingUndergone trainingUndergone = new TrainingUndergone(trainingIndex.getDuration(), profileId, training);
 		TrainingCoversSkill trainingCoversSkill = new TrainingCoversSkill(trainingIndex.getWeight(), training, skill);
-		// profileIdRepository.save(profileId);
-		trainingUndergoneRepository.save(trainingUndergone);
-		trainingCoversSkillRepository.save(trainingCoversSkill);
-		// trainingCoversSkillRepository.delete(trainingCoversSkill);
+		if (trainingIndex.getMessage().equals("create") || trainingIndex.getMessage().equals("update")) {
+			trainingUndergoneRepository.save(trainingUndergone);
+			trainingCoversSkillRepository.save(trainingCoversSkill);
+		} else if (trainingIndex.getMessage().equals("delete")) {
+			trainingUndergoneRepository.deleteById(trainingUndergone.getDuration());
+			trainingCoversSkillRepository.deleteById(trainingCoversSkill.getWeight());
+		}
 
 	}
 
-	@KafkaListener(topics = "ExperienceIndexer123", groupId = "group_json", containerFactory = "experienceKafkaListenerFactory")
+	@KafkaListener(topics = "ExperienceIndexer", groupId = "group_json", containerFactory = "experienceKafkaListenerFactory")
 	public void consumeJson(ExperienceIndex experienceIndex) {
 		System.out.println("Consumed JSON Message: " + experienceIndex);
-		// cityRepository.findById(locationListner.getCityName());
-		// System.out.println(cityRepository.findById(locationListner.getCityName()));
 		ProfileId profileId = new ProfileId(experienceIndex.getProfileId());
 		Company company = new Company(experienceIndex.getOrganizationName());
 		EmployeeOfRelation employeeOfRelation = new EmployeeOfRelation(experienceIndex.getRole(),
 				experienceIndex.getStartDate(), experienceIndex.getEndDate(), profileId, company);
-		employeeOfRelationRepository.save(employeeOfRelation);
-		// trainingCoversSkillRepository.delete(trainingCoversSkill);
+		if (experienceIndex.getMessage().equals("create") || experienceIndex.getMessage().equals("update")) {
+			employeeOfRelationRepository.save(employeeOfRelation);
+		} else if (experienceIndex.getMessage().equals("delete")) {
+			employeeOfRelationRepository.deleteById(employeeOfRelation.getRole());
+		}
 
 	}
 
 	@KafkaListener(topics = "ProjectIndexer", groupId = "group_json", containerFactory = "projectKafkaListenerFactory")
 	public void consumeJson(ProjectIndex projectIndex) {
 		System.out.println("Consumed JSON Message: " + projectIndex);
-		// cityRepository.findById(locationListner.getCityName());
-		// System.out.println(cityRepository.findById(locationListner.getCityName()));
 		ProfileId profileId = new ProfileId(projectIndex.getProfileId());
 		Skill skill = new Skill(projectIndex.getSkills());
 		Project project = new Project(projectIndex.getProjectId(), projectIndex.getProjectTitle(),
 				projectIndex.getProjectAt(), projectIndex.getDepartment(), projectIndex.getProjectLocation());
 		WorkedInRelation workedInRelation = new WorkedInRelation(projectIndex.getProjectId(), projectIndex.getRole(),
 				projectIndex.getFrom(), projectIndex.getTo(), profileId, project);
-		UsesSkillRelation usesSkillRelation = new UsesSkillRelation(project, skill);
-		workedInRelationRepository.save(workedInRelation);
-		usesSkillRelationRepository.save(usesSkillRelation);
-		// trainingCoversSkillRepository.delete(trainingCoversSkill);
+		UsesSkillRelation usesSkillRelation = new UsesSkillRelation(projectIndex.getProfileId(), project, skill);
+		if (projectIndex.getMessage().equals("create") || projectIndex.getMessage().equals("update")) {
+			workedInRelationRepository.save(workedInRelation);
+			usesSkillRelationRepository.save(usesSkillRelation);
+		} else if (projectIndex.getMessage().equals("delete")) {
+			workedInRelationRepository.deleteById(workedInRelation.getRole());
+			usesSkillRelationRepository.deleteById(usesSkillRelation.getProjectProfileId());
+		}
 
 	}
 
 	@KafkaListener(topics = "QualificationIndexer", groupId = "group_json", containerFactory = "qualificationKafkaListenerFactory")
 	public void consumeJson(QualificationIndex qualificationIndex) {
 		System.out.println("Consumed JSON Message: " + qualificationIndex);
-		// cityRepository.findById(locationListner.getCityName());
-		// System.out.println(cityRepository.findById(locationListner.getCityName()));
 		ProfileId profileId = new ProfileId(qualificationIndex.getProfileId());
 		University university = new University(qualificationIndex.getInstituteName());
 		StudiedAtRelation studiedAtRelation = new StudiedAtRelation(qualificationIndex.getQualification(),
 				qualificationIndex.getYearOfJoining(), qualificationIndex.getYearOfCompletion(),
 				qualificationIndex.getStream(), qualificationIndex.getMarks(), profileId, university);
-		// trainingCoversSkillRepository.delete(trainingCoversSkill);
-		studiedAtRelationRepository.save(studiedAtRelation);
-		// studiedAtRelationRepository.deleteById(studiedAtRelation.getQualification());
+		if (qualificationIndex.getMessage().equals("create") || qualificationIndex.getMessage().equals("update")) {
+			studiedAtRelationRepository.save(studiedAtRelation);
+		} else if (qualificationIndex.getMessage().equals("delete")) {
+			studiedAtRelationRepository.deleteById(studiedAtRelation.getMarks());
+		}
 
 	}
 

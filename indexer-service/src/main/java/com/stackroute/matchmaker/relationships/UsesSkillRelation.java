@@ -7,10 +7,16 @@ import org.neo4j.ogm.annotation.StartNode;
 
 import com.stackroute.matchmaker.nodes.Project;
 import com.stackroute.matchmaker.nodes.Skill;
-
+/**
+ * 
+ * @author syam
+ *
+ */
+// this is the pojo class based on which the relationships and their properties in the neo4j  are created upon
 @RelationshipEntity(type = "usesSkill")
 public class UsesSkillRelation {
 	@Id
+	private String projectProfileId;
 	@StartNode
 	private Project project;
 	@EndNode
@@ -21,10 +27,19 @@ public class UsesSkillRelation {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UsesSkillRelation(Project project, Skill skill) {
+	public UsesSkillRelation(String projectProfileId, Project project, Skill skill) {
 		super();
+		this.projectProfileId = projectProfileId;
 		this.project = project;
 		this.skill = skill;
+	}
+
+	public String getProjectProfileId() {
+		return projectProfileId;
+	}
+
+	public void setProjectProfileId(String projectProfileId) {
+		this.projectProfileId = projectProfileId;
 	}
 
 	public Project getProject() {
@@ -45,7 +60,8 @@ public class UsesSkillRelation {
 
 	@Override
 	public String toString() {
-		return "UsesSkillRelation [project=" + project + ", skill=" + skill + "]";
+		return "UsesSkillRelation [projectProfileId=" + projectProfileId + ", project=" + project + ", skill=" + skill
+				+ "]";
 	}
 
 }

@@ -7,7 +7,12 @@ import org.neo4j.ogm.annotation.StartNode;
 
 import com.stackroute.matchmaker.nodes.ProfileId;
 import com.stackroute.matchmaker.nodes.Project;
-
+/**
+ * 
+ * @author syam
+ *
+ */
+// this is the pojo class based on which the relationships and their properties in the neo4j  are created upon
 @RelationshipEntity(type = "workedIn")
 public class WorkedInRelation {
 	@Id

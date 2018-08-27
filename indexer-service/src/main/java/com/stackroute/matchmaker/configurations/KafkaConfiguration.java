@@ -21,12 +21,18 @@ import com.stackroute.matchmaker.indexermodel.QualificationIndex;
 import com.stackroute.matchmaker.indexermodel.SkillIndex;
 import com.stackroute.matchmaker.indexermodel.TrainingIndex;
 
+/**
+ * 
+ * @author syam
+ *
+ */
 @EnableKafka
 @Configuration
 public class KafkaConfiguration {
-    @Value("${spring.kafka.bootstrap-servers}")
-    private String bootstrapServers;
+	@Value("${spring.kafka.bootstrap-servers}") // this takes the ip address from application.yml file
+	private String bootstrapServers;
 
+	// this is to configure the listner to respective data type formats
 	@Bean
 	public ConsumerFactory<String, String> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();

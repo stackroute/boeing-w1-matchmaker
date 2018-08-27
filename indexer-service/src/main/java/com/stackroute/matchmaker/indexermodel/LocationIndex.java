@@ -1,5 +1,10 @@
 package com.stackroute.matchmaker.indexermodel;
-
+/**
+ * 
+ * @author syam
+ *
+ */
+//this is the model class , that is listned from kafka consumer
 public class LocationIndex {
 	private String profileId;
 	private String city;
