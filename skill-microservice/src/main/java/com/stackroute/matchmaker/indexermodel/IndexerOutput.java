@@ -1,4 +1,4 @@
-package com.stackroute.matchmaker.indexerdata;
+package com.stackroute.matchmaker.indexermodel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ public class IndexerOutput {
 
 	// Use proper naming conventions
 	@Autowired
-	private KafkaTemplate<String, Index> kafkaTemplate;
+	private KafkaTemplate<String, SkillIndex> kafkaTemplate;
 	
 	@Value("${producer.topic.name}")
 	private String topic;
@@ -48,7 +48,7 @@ public class IndexerOutput {
 	public void consumeJson(Skills skill) {
 
 		kafkaTemplate.send(topic,
-				new Index(skill.getProfileId(),skill.getSkill(),"50", "Create"));
+				new SkillIndex(skill.getProfileId(),skill.getSkill(),"50", "Create"));
 		LOG.info("Produced JSON message on indexer='{}'");
 
 	}

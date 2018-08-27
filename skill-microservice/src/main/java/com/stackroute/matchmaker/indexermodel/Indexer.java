@@ -1,4 +1,4 @@
-package com.stackroute.matchmaker.indexerdata;
+package com.stackroute.matchmaker.indexermodel;
 
 public class Indexer {
 

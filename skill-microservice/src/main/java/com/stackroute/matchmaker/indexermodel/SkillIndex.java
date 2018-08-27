@@ -1,6 +1,6 @@
-package com.stackroute.matchmaker.indexerdata;
+package com.stackroute.matchmaker.indexermodel;
 
-public class Index {
+public class SkillIndex {
 
 	private String profileId;
 	private String skill;
@@ -32,10 +32,10 @@ public class Index {
 		this.skill = skill;
 	}
 	
-	public Index() {
+	public SkillIndex() {
 		super();
 	}
-	public Index(String profileId, String skill, String weightage, String message) {
+	public SkillIndex(String profileId, String skill, String weightage, String message) {
 		super();
 		this.profileId = profileId;
 		this.skill = skill;
@@ -44,7 +44,7 @@ public class Index {
 	}
 	@Override
 	public String toString() {
-		return "Index [profileId=" + profileId + ", skill=" + skill + ", weightage=" + weightage + ", message="
+		return "SkillIndex [profileId=" + profileId + ", skill=" + skill + ", weightage=" + weightage + ", message="
 				+ message + "]";
 	}
 		
