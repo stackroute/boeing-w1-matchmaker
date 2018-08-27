@@ -1,33 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import { UserExp } from '../../userExp';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Component({
-  selector: 'app-experience',
-  templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.css'],
-  providers: [UserService]
+ selector: 'app-experience',
+ templateUrl: './experience.component.html',
+ styleUrls: ['./experience.component.css'],
+ providers: [UserService]
 })
 export class ExperienceComponent implements OnInit {
-  private newPost_Exp ;
-  private getPost_Exp;
-  private exp_check;
+ private newPost_Exp ;
+ private getPost_Exp;
+ private editPost_Exp;
+ private firstTime_check = false;
+ UserData: any = [];
+ url: string = 'http://172.23.238.203:8090/api/v1/user/' + JSON.parse(localStorage.getItem('currentUser'));
 
-  constructor(private userService: UserService) {
-    this.exp_check = false;
-   }
-
-  ngOnInit() {
-    this.newPost_Exp = new UserExp();
-    this.getPost_Exp = new UserExp();
+ constructor(private userService: UserService,private http: HttpClient) {
   }
 
-  addPost_Exp() {
-    this.newPost_Exp.profileId = JSON.parse(localStorage.getItem('currentUser'));
-    this.userService.addPost_Exp(this.newPost_Exp).subscribe(() => {
-    });
-    this.exp_check = true;
-    this.getPost_Exp = this.newPost_Exp;
-    }
+ ngOnInit() {
+   this.newPost_Exp = new UserExp();
+   this.editPost_Exp = new UserExp();
+   this.getExperience();
+ }
 
+  addPost_Exp() {
+   this.newPost_Exp.profileId = JSON.parse(localStorage.getItem('currentUser'));
+   this.newPost_Exp.message = 'save';
+   this.userService.addPost_Exp(this.newPost_Exp).subscribe(() => {});
+   }
+   update(j) {
+     this.editPost_Exp[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
+     this.editPost_Exp[j].message = 'update' + j;
+     this.userService.addPost_Exp(this.editPost_Exp[j]).subscribe(() => {  });
+   }
+
+   delete(j) {
+     this.editPost_Exp[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
+     this.editPost_Exp[j].message = 'delete' + j;
+     this.userService.addPost_Location(this.editPost_Exp[j]).subscribe(() => {  });
+   }
+
+   getExperience() {
+     this.get().subscribe( data => {
+        this.UserData = data;
+        this.editPost_Exp = data.experience;
+       
+        if (this.UserData.experience == null) {
+          this.firstTime_check = false;
+        } else {
+          this.firstTime_check = true;
+        }
+      });
+
+}
+get(): Observable<any> {
+ return this.http.get(`http://172.23.238.203:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+}
 }

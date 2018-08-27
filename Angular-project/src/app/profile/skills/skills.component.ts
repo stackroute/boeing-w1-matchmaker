@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import { UserSkill } from '../../userSkill';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-skills',
@@ -10,24 +12,53 @@ import { UserSkill } from '../../userSkill';
 })
 export class SkillsComponent implements OnInit {
   private newPost_Skill ;
-  private getPost_Skill;
-  private skills_check;
+  private editPost_Skill;
+  // private editPost_Skill;
+  private firstTime_check = false;
+  UserData: any = [];
 
-  constructor(private userService: UserService) {
-    this.skills_check = false;
+  constructor(private userService: UserService, private http: HttpClient) {
+    this.firstTime_check = false;
    }
 
   ngOnInit() {
     this.newPost_Skill = new UserSkill();
-    this.getPost_Skill = new UserSkill();
+    this.editPost_Skill = new UserSkill();
+    this.getSkills();
   }
 
   addPost_Skill() {
     this.newPost_Skill.profileId = JSON.parse(localStorage.getItem('currentUser'));
+    this.newPost_Skill.message = 'save';
     this.userService.addPost_Skill(this.newPost_Skill).subscribe(() => {
     });
-    this.skills_check = true;
-    this.getPost_Skill = this.newPost_Skill;
-    }
+  }
+  
+  update(j) {
+    this.editPost_Skill[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
+    this.editPost_Skill[j].message = 'update' + j;
+    this.userService.addPost_Location(this.editPost_Skill[j]).subscribe(() => {  });
+  }
 
+  delete(j) {
+    this.editPost_Skill[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
+    this.editPost_Skill[j].message = 'delete' + j;
+    this.userService.addPost_Location(this.editPost_Skill[j]).subscribe(() => {  });
+  }
+
+  getSkills() {
+     this.get().subscribe( data => {
+        this.UserData = data;
+        this.editPost_Skill = data.skills;
+        if (this.UserData.location == null) {
+          this.firstTime_check = false;
+        } else {
+          this.firstTime_check = true;
+        }
+      });
+  }
+
+  get(): Observable<any> {
+    return this.http.get(`http://172.23.238.203:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+  }
 }

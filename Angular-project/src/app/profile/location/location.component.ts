@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import { UserLocation } from '../../userLocation';
-import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -18,7 +17,7 @@ export class LocationComponent implements OnInit {
   private firstTime_check = false;
   UserData: any = [];
   url: string = 'http://172.23.238.203:8090/api/v1/user/' + JSON.parse(localStorage.getItem('currentUser'));
-  locForm: FormGroup;
+ 
   constructor(private userService: UserService, private http: HttpClient) {
 
   }
