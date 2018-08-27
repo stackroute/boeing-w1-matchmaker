@@ -265,6 +265,19 @@ services:
     container_name: nlp
     healthcheck:
       test: "exit 0"
+
+ search-service:
+    build: search-service/
+    image: search-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8998:8998
+    container_name: search
+    healthcheck:
+      test: "exit 0"
+
    
 
  angular-app:
