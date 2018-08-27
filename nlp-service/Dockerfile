@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/nlp-service-1.2.0.jar /src/nlp.jar
+COPY target/nlp-microservice-1.2.0.jar /src/nlp.jar
 
 EXPOSE 8999
 
