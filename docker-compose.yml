@@ -222,7 +222,7 @@ services:
     hostname: localhost
     ports:
       - 8089:8089
-    container_name: project
+    container_name: skill
     healthcheck:
       test: "exit 0"
  

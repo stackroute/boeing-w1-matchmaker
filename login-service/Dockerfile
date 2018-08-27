@@ -4,10 +4,10 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/login-service-1.2.0.jar /src/user.jar
+COPY target/login-service-1.2.0.jar /src/login.jar
 
 EXPOSE 8082
 
-RUN sh -c 'touch /src/user.jar'
+RUN sh -c 'touch /src/login.jar'
 
-ENTRYPOINT ["java","-jar","/src/user.jar"]
+ENTRYPOINT ["java","-jar","/src/login.jar"]
