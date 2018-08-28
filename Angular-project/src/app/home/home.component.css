@@ -1,48 +1,30 @@
-.jumbotron {
-    margin-top: 125px;
-    height: 200px;
-  }
-  
+form {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+@media (min-width: 768px) {
   input[type="text"] {
+    width: 600px;
+    height: 100px;
+    border-radius: 50px;
     font-size: 30px;
+  }
+  button {
+    border-radius: 100px;
+    font-size: 30px;
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  }
+}
+@media (max-width: 768px) {
+  input[type="text"] {
+    width: 300px;
     height: 75px;
-    width: 500px;
+    border-radius: 50px;
+    font-size: 20px;
   }
-  
-  .button {
-    background-image: linear-gradient(to right, #434343 0%, black 100%);
-      border-radius: 10px;
-    position: relative;
-    border: none;
-    font-size: 25px;
-    color: #ffffff;
-    padding: 20px;
-    width: 150px;
-    text-align: center;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
+  button {
+    border-radius: 100px;
+    font-size: 20px;
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
   }
-  
-  .button:after {
-    content: "";
-    background: rgb(144, 203, 238);
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s;
-  }
-  
-  .button:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s;
-  }
-  
+}
