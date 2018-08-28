@@ -92,8 +92,8 @@ public class KafkaConsumer {
 		System.out.println("Consumed JSON Message: " + locationIndex);
 		ProfileId profileId = new ProfileId(locationIndex.getProfileId());
 		City city = new City(locationIndex.getCity());
-		if (locationIndex.getMessage().equals("save")) {
-			if (locationIndex.getAddressType().equals("present") || locationIndex.getMessage().equals("update")) {
+		if (locationIndex.getMessage().equals("save") || locationIndex.getMessage().contains("update")) {
+			if (locationIndex.getAddressType().equals("present")) {
 				LivesInRelation livesInRelation = new LivesInRelation(locationIndex.getProfileId(), profileId, city);
 				livesInRelationRepository.save(livesInRelation);
 			} else {
@@ -101,7 +101,7 @@ public class KafkaConsumer {
 				livedInRelationRepository.save(livedInRelation);
 
 			}
-		} else if (locationIndex.getMessage().equals("delete")) {
+		} else if (locationIndex.getMessage().contains("delete")) {
 			if (locationIndex.getAddressType().equals("present")) {
 				LivesInRelation livesInRelation = new LivesInRelation(locationIndex.getProfileId(), profileId, city);
 				livesInRelationRepository.deleteById(livesInRelation.getLocationProfileId());
@@ -120,9 +120,9 @@ public class KafkaConsumer {
 		Skill skill = new Skill(skillIndex.getSkill());
 		ProfileId profileId = new ProfileId(skillIndex.getProfileId());
 		HasSkill hasSkill = new HasSkill(skillIndex.getWeightage(), profileId, skill);
-		if (skillIndex.getMessage().equals("create") || skillIndex.getMessage().equals("update")) {
+		if (skillIndex.getMessage().equals("create") || skillIndex.getMessage().contains("update")) {
 			hasSkillRepository.save(hasSkill);
-		} else if (skillIndex.getMessage().equals("delete")) {
+		} else if (skillIndex.getMessage().contains("delete")) {
 			hasSkillRepository.deleteById(hasSkill.getWeight());
 		}
 
@@ -137,10 +137,10 @@ public class KafkaConsumer {
 		ProfileId profileId = new ProfileId(trainingIndex.getProfileId());
 		TrainingUndergone trainingUndergone = new TrainingUndergone(trainingIndex.getDuration(), profileId, training);
 		TrainingCoversSkill trainingCoversSkill = new TrainingCoversSkill(trainingIndex.getWeight(), training, skill);
-		if (trainingIndex.getMessage().equals("create") || trainingIndex.getMessage().equals("update")) {
+		if (trainingIndex.getMessage().equals("save") || trainingIndex.getMessage().contains("update")) {
 			trainingUndergoneRepository.save(trainingUndergone);
 			trainingCoversSkillRepository.save(trainingCoversSkill);
-		} else if (trainingIndex.getMessage().equals("delete")) {
+		} else if (trainingIndex.getMessage().contains("delete")) {
 			trainingUndergoneRepository.deleteById(trainingUndergone.getDuration());
 			trainingCoversSkillRepository.deleteById(trainingCoversSkill.getWeight());
 		}
@@ -154,9 +154,9 @@ public class KafkaConsumer {
 		Company company = new Company(experienceIndex.getOrganizationName());
 		EmployeeOfRelation employeeOfRelation = new EmployeeOfRelation(experienceIndex.getRole(),
 				experienceIndex.getStartDate(), experienceIndex.getEndDate(), profileId, company);
-		if (experienceIndex.getMessage().equals("create") || experienceIndex.getMessage().equals("update")) {
+		if (experienceIndex.getMessage().equals("save") || experienceIndex.getMessage().contains("update")) {
 			employeeOfRelationRepository.save(employeeOfRelation);
-		} else if (experienceIndex.getMessage().equals("delete")) {
+		} else if (experienceIndex.getMessage().contains("delete")) {
 			employeeOfRelationRepository.deleteById(employeeOfRelation.getRole());
 		}
 
@@ -172,10 +172,10 @@ public class KafkaConsumer {
 		WorkedInRelation workedInRelation = new WorkedInRelation(projectIndex.getProjectId(), projectIndex.getRole(),
 				projectIndex.getFrom(), projectIndex.getTo(), profileId, project);
 		UsesSkillRelation usesSkillRelation = new UsesSkillRelation(projectIndex.getProfileId(), project, skill);
-		if (projectIndex.getMessage().equals("create") || projectIndex.getMessage().equals("update")) {
+		if (projectIndex.getMessage().equals("save") || projectIndex.getMessage().contains("update")) {
 			workedInRelationRepository.save(workedInRelation);
 			usesSkillRelationRepository.save(usesSkillRelation);
-		} else if (projectIndex.getMessage().equals("delete")) {
+		} else if (projectIndex.getMessage().contains("delete")) {
 			workedInRelationRepository.deleteById(workedInRelation.getRole());
 			usesSkillRelationRepository.deleteById(usesSkillRelation.getProjectProfileId());
 		}
@@ -190,9 +190,9 @@ public class KafkaConsumer {
 		StudiedAtRelation studiedAtRelation = new StudiedAtRelation(qualificationIndex.getQualification(),
 				qualificationIndex.getYearOfJoining(), qualificationIndex.getYearOfCompletion(),
 				qualificationIndex.getStream(), qualificationIndex.getMarks(), profileId, university);
-		if (qualificationIndex.getMessage().equals("create") || qualificationIndex.getMessage().equals("update")) {
+		if (qualificationIndex.getMessage().equals("save") || qualificationIndex.getMessage().contains("update")) {
 			studiedAtRelationRepository.save(studiedAtRelation);
-		} else if (qualificationIndex.getMessage().equals("delete")) {
+		} else if (qualificationIndex.getMessage().contains("delete")) {
 			studiedAtRelationRepository.deleteById(studiedAtRelation.getMarks());
 		}
 
