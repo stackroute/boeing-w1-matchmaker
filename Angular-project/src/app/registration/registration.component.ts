@@ -38,7 +38,7 @@ export class RegistrationComponent implements OnInit {
   profileSubmit() {
     const newUser = this.userForm.value;
     this.registerService.addNewUser(newUser).subscribe(() => {});
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 
   get username() {

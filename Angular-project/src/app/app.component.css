@@ -1,6 +1,8 @@
 
 nav{
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    /* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
+    background: #444;
+    color:white;
 }
 
 .btn{
@@ -11,6 +13,7 @@ footer{
     margin-bottom: 0;
         background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 }
+
 @media (max-width: 575px) {
     input[type="text"] {
     width: 50%;
