@@ -118,7 +118,7 @@ public class UserServiceImpl implements UserService {
 		opt = userRepo.findById(academies.getProfileId());
 		user = opt.get();
 		List<AcademicQualification> list;
-		if (user.getExperience() == null)
+		if (user.getAcademics() == null)
 			list = new ArrayList<>();
 		else
 			list = user.getAcademics();
