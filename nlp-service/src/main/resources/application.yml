@@ -1,6 +1,8 @@
-eureka:
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: 'http://localhost:9090/eureka'
+#eureka:
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: 'http://localhost:9090/eureka'
+server:
+  port: 8999
