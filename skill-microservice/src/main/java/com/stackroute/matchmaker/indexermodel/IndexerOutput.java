@@ -48,7 +48,7 @@ public class IndexerOutput {
 	public void consumeJson(Skills skill) {
 
 		kafkaTemplate.send(topic,
-				new SkillIndex(skill.getProfileId(),skill.getSkill(),"50", "Create"));
+				new SkillIndex(skill.getProfileId(),skill.getSkill(),"50", skill.getMessage()));
 		LOG.info("Produced JSON message on indexer='{}'");
 
 	}

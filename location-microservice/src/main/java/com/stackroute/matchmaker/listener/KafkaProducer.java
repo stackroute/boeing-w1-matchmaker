@@ -25,7 +25,7 @@ public class KafkaProducer {
 		kafkaTemplate.send(topic, indexer);
 		LOG.info("Indexer message='{}'", indexer);*/
     	
-    	Index index = new Index(location.getProfileId(), location.getCity(), location.getAddressType(), "create");
+    	Index index = new Index(location.getProfileId(), location.getCity(), location.getAddressType(), location.getMessage());
 		kafkaTemplate.send(topic, index);
 		LOG.info("Index message='{}'", index);
     }
