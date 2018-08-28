@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;
-import com.stackroute.matchmaker.indexermodel.Index;
+import com.stackroute.matchmaker.indexermodel.LocationIndex;
 import com.stackroute.matchmaker.model.Location;
 
 @Service
@@ -14,7 +14,7 @@ public class KafkaProducer {
     private static final Logger LOG = LoggerFactory.getLogger(KafkaProducer.class);
     
     @Autowired
-    private KafkaTemplate<String, Index> kafkaTemplate;
+    private KafkaTemplate<String, LocationIndex> kafkaTemplate;
     
     @Value("${producer.location.topic}")
     private String topic;
@@ -27,9 +27,9 @@ public class KafkaProducer {
 		kafkaTemplate.send(topic, indexer);
 		LOG.info("Indexer message='{}'", indexer);*/
     	
-    	Index index = new Index(location.getProfileId(), location.getCity(), location.getAddressType(), location.getMessage());
-		kafkaTemplate.send(topic, index);
-		LOG.info("Index message='{}'", index);
+    	LocationIndex locationIndex = new LocationIndex(location.getProfileId(), location.getCity(), location.getAddressType(), location.getMessage());
+		kafkaTemplate.send(topic, locationIndex);
+		LOG.info("LocationIndex message='{}'", locationIndex);
     }
      
 }
