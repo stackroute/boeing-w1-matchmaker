@@ -47,3 +47,6 @@ mat-card-content{
 .row{
     margin-bottom: 10px;
 }
+button{
+    border-radius: 10px;
+}

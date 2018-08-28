@@ -9,8 +9,7 @@ nav{
 }
 footer{
     margin-bottom: 0;
-    background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
-    color: black;
+        background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 }
 @media (max-width: 575px) {
     input[type="text"] {
