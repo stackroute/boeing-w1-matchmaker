@@ -63,7 +63,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   get(): Observable<any> {
-    return this.http.get(`http://13.232.19.29:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+    return this.http.get(`http://13.232.19.29:8092/downstream/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
   }
 
 }
