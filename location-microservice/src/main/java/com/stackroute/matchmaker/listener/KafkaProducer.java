@@ -4,7 +4,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-
+import org.springframework.beans.factory.annotation.Value;
 import com.stackroute.matchmaker.indexermodel.Index;
 import com.stackroute.matchmaker.model.Location;
 
@@ -15,7 +15,9 @@ public class KafkaProducer {
     
     @Autowired
     private KafkaTemplate<String, Index> kafkaTemplate;
-    private String topic = "LocationOutput";
+    
+    @Value("${producer.location.topic}")
+    private String topic;
     
     public void post(Location location) {
     	
