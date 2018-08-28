@@ -120,7 +120,7 @@ public class KafkaConsumer {
 		Skill skill = new Skill(skillIndex.getSkill());
 		ProfileId profileId = new ProfileId(skillIndex.getProfileId());
 		HasSkill hasSkill = new HasSkill(skillIndex.getWeightage(), profileId, skill);
-		if (skillIndex.getMessage().equals("create") || skillIndex.getMessage().contains("update")) {
+		if (skillIndex.getMessage().equals("save") || skillIndex.getMessage().contains("update")) {
 			hasSkillRepository.save(hasSkill);
 		} else if (skillIndex.getMessage().contains("delete")) {
 			hasSkillRepository.deleteById(hasSkill.getWeight());
