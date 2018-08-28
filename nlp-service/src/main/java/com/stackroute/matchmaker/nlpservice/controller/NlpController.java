@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import com.stackroute.matchmaker.nlpservice.model.Search;
 import com.stackroute.matchmaker.nlpservice.nlpprocess.Tagging;
@@ -32,9 +30,9 @@ public class NlpController {
 	Scanner s;
 	Tagging tagging = new Tagging();
 	Search search = new Search();
-	private RestTemplate restTemplate = new RestTemplate();
-	HttpEntity<Search> entity;
-	Producer producer = new Producer();
+
+	@Autowired
+	Producer producer;
 
 	@GetMapping("/search/{search}")
 	public ResponseEntity<?> breakString(@PathVariable("search") String string) throws FileNotFoundException {
@@ -75,14 +73,11 @@ public class NlpController {
 		search.setOrganisation(tagging.taggingFunc(tokenString, organisation));
 		search.setYears(tagging.taggingYears(tokenString, extra));
 
-		entity = new HttpEntity<Search>(search);
+		System.out.println(search);
 
-		s.close();
+		producer.sender(search);
 
-//		restTemplate.exchange("http://localhost:8998/api/v1/search/" + search.toString(), HttpMethod.GET, entity,
-//				String.class);
-
-		producer.send(search);
+		System.out.println("Dfv");
 
 		return new ResponseEntity<Search>(search, HttpStatus.OK);
 	}
