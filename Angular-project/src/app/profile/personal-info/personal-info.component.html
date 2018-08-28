@@ -1,26 +1,128 @@
-<div *ngIf="pi_check">
+<div *ngIf="firstTime_check">
   <div class="card shade">
     <div class="card-header text-primary">Personal Information</div>
     <div class="card-body">
       
-      <img style="width:100px;height:100px"  src={{imageUrl}}>
-      <br> Profile Id: {{getPost_PI.profileId}}
-      <br> Name: {{getPost_PI.name}}
-      <br> Age: {{getPost_PI.age}}
-      <br> Contact no.: {{getPost_PI.mobile}}
-      <br> Email: {{getPost_PI.email}}
-      <br> Date of Birth: {{getPost_PI.dob}}
-      <br> Gender: {{getPost_PI.gender}}
-      <br> Blood Group: {{getPost_PI.bloodGroup}}
-      <br> Facebook: {{getPost_PI.facebook}}
-      <br> LinkedIn: {{getPost_PI.linkedin}}
-      <br> Github: {{getPost_PI.github}}
+      <img class="rounded-circle" style="width:100px;height:100px"  src={{imageUrl}}>
+      <br>
+      <br> Name: {{UserData.personalInfo.name}}
+      <br> Age: {{UserData.personalInfo.age}}
+      <br> Contact no.: {{UserData.personalInfo.mobile}}
+      <br> Email: {{UserData.personalInfo.email}}   
+     
+  <a href="#PIModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">See More</a>
+
+  <div class="modal fade" id="PIModal-{{i}}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Personal Information</h4>
+              <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <div class="card-body">
+         
+                <div class="card-header d-flex">
+                  <h3 style="flex-grow: 20">Personal Information</h3>
+                  <a href="#UpdatePIModal" data-toggle="modal"><i class="material-icons">mode_edit</i></a> &nbsp;
+                  
+                </div> 
+                <div class="card-body">   
+                  Name: {{UserData.personalInfo.name}}
+                  <br> Age: {{UserData.personalInfo.age}}
+                  <br> Contact no.: {{UserData.personalInfo.mobile}}
+                  <br> Email: {{UserData.personalInfo.email}}
+                  <br> Date of Birth: {{UserData.personalInfo.dob}}
+                  <br> Gender: {{UserData.personalInfo.gender}}
+                  <br> Blood Group: {{UserData.personalInfo.bloodGroup}}
+                  <br> Facebook: {{UserData.personalInfo.facebook}}
+                  <br> LinkedIn: {{UserData.personalInfo.linkedin}}
+                  <br> Github: {{UserData.personalInfo.github}}
+                </div>  
+              </div>
+          </div><!-- end modal body -->
+      </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+  </div><!-- end myModal --> 
+
+<div class="modal fade" id="UpdatePIModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Personal Info</h4>
+        <button class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <!-- end modal-header -->
+      <div class="modal-body center-align">
+          <form class="form-horizontal" id="pi-form" (submit)="update()">
+   
+            <div style="margin-bottom: 12px;">
+              <img class="rounded-circle" style="width:100px;height:100px" src={{imageUrl}}>
+              <input #fileInput style="display: none;" type="file" #Image accept="/image/*" (change)="handleFileInput($event.target.files)">
+              <button type="button" class="btn btn-sm btn-light" (click)="fileInput.click()">Choose File</button>
+            </div>
+   
+            <mat-form-field>
+              <input matInput placeholder="My name is" [(ngModel)]="editPost_PI.name" name="name">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="My age is" [(ngModel)]="editPost_PI.age" name="age">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="Call me at" [(ngModel)]="editPost_PI.mobile" name="mobile">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="email me on" [(ngModel)]="editPost_PI.email" name="email">
+            </mat-form-field>
+   
+            <!-- <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="I was born on" [(ngModel)]="newPost_PI.dob">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field> -->
+            <mat-form-field>
+              <input matInput placeholder="I was born on" [(ngModel)]="editPost_PI.dob" type="date" name="dob">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="My gender is" [(ngModel)]="editPost_PI.gender" name="gender">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="My blood type is" [(ngModel)]="editPost_PI.bloodGroup" name="blood">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="find me on Facebook" type="url" [(ngModel)]="editPost_PI.facebook" name="facebook">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="find me on Linkedin" type="url" [(ngModel)]="editPost_PI.linkedin" name="linkedin">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="find me on Github" type="url" [(ngModel)]="editPost_PI.github" name="github">
+            </mat-form-field>
+            <hr>
+            <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+          </form>
+        </div>
+      <!-- end modal-body -->
     </div>
+    <!-- end modal-content -->
   </div>
+  <!-- end modal-dialog -->
+</div>
+<!-- end myModal -->
+
 
 </div>
-
-
+</div>
+</div>  
 
 <div class="modal fade" id="myModal1">
   <div class="modal-dialog">

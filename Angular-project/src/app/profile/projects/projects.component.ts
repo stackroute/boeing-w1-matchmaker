@@ -16,7 +16,7 @@ export class ProjectsComponent implements OnInit {
   private firstTime_check;
   UserData: any = [];
   constructor(private userService: UserService, private http: HttpClient) {
-    
+
    }
 
   ngOnInit() {
@@ -30,18 +30,24 @@ export class ProjectsComponent implements OnInit {
     this.newPost_Project.message = 'save';
     this.userService.addPost_Project(this.newPost_Project).subscribe(() => {
     });
+    setTimeout(() => {
+      this.getProjects();
+      }, 1000);
   }
 
   update(j) {
     this.editPost_Project[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.editPost_Project[j].message = 'update' + j;
-    this.userService.addPost_Location(this.editPost_Project[j]).subscribe(() => {  });
+    this.userService.addPost_Project(this.editPost_Project[j]).subscribe(() => {  });
   }
 
   delete(j) {
     this.editPost_Project[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.editPost_Project[j].message = 'delete' + j;
-    this.userService.addPost_Location(this.editPost_Project[j]).subscribe(() => {  });
+    this.userService.addPost_Project(this.editPost_Project[j]).subscribe(() => {  });
+    setTimeout(() => {
+      this.getProjects();
+      }, 1000);
   }
 
   getProjects() {
@@ -57,7 +63,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   get(): Observable<any> {
-    return this.http.get(`http://172.23.238.203:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+    return this.http.get(`http://172.23.238.198:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
   }
 
 }

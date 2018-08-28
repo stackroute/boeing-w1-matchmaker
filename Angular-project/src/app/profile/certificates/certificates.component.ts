@@ -30,19 +30,25 @@ export class CertificatesComponent implements OnInit {
     this.newPost_Certificates.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.newPost_Certificates.message = 'save';   
     this.userService.addPost_Certificates(this.newPost_Certificates).subscribe(() => {
-    }); 
+    });
+    setTimeout(() => {
+      this.getCertificates();
+      }, 1000);
   }
 
   update(j) {
     this.editPost_Certificates[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.editPost_Certificates[j].message = 'update' + j;
-    this.userService.addPost_Location(this.editPost_Certificates[j]).subscribe(() => {  });
+    this.userService.addPost_Certificates(this.editPost_Certificates[j]).subscribe(() => {  });
   }
 
   delete(j) {
     this.editPost_Certificates[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.editPost_Certificates[j].message = 'delete' + j;
-    this.userService.addPost_Location(this.editPost_Certificates[j]).subscribe(() => {  });
+    this.userService.addPost_Certificates(this.editPost_Certificates[j]).subscribe(() => {  });
+    setTimeout(() => {
+      this.getCertificates();
+      }, 1000);
   }
 
   getCertificates() {
@@ -58,7 +64,7 @@ export class CertificatesComponent implements OnInit {
   }
 
   get(): Observable<any> {
-    return this.http.get(`http://172.23.238.203:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+    return this.http.get(`http://172.23.238.198:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
   }
 
 }

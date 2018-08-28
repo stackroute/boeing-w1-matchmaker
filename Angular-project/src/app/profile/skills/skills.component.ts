@@ -18,7 +18,6 @@ export class SkillsComponent implements OnInit {
   UserData: any = [];
 
   constructor(private userService: UserService, private http: HttpClient) {
-    this.firstTime_check = false;
    }
 
   ngOnInit() {
@@ -32,25 +31,31 @@ export class SkillsComponent implements OnInit {
     this.newPost_Skill.message = 'save';
     this.userService.addPost_Skill(this.newPost_Skill).subscribe(() => {
     });
+        setTimeout(() => {
+        this.getSkills();
+        }, 1000);
   }
-  
+
   update(j) {
     this.editPost_Skill[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.editPost_Skill[j].message = 'update' + j;
-    this.userService.addPost_Location(this.editPost_Skill[j]).subscribe(() => {  });
+    this.userService.addPost_Skill(this.editPost_Skill[j]).subscribe(() => {  });
   }
 
   delete(j) {
     this.editPost_Skill[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.editPost_Skill[j].message = 'delete' + j;
-    this.userService.addPost_Location(this.editPost_Skill[j]).subscribe(() => {  });
+    this.userService.addPost_Skill(this.editPost_Skill[j]).subscribe(() => {  });
+    setTimeout(() => {
+      this.getSkills();
+      }, 1000);
   }
 
   getSkills() {
      this.get().subscribe( data => {
         this.UserData = data;
         this.editPost_Skill = data.skills;
-        if (this.UserData.location == null) {
+        if (this.UserData.skills == null) {
           this.firstTime_check = false;
         } else {
           this.firstTime_check = true;
@@ -59,6 +64,6 @@ export class SkillsComponent implements OnInit {
   }
 
   get(): Observable<any> {
-    return this.http.get(`http://172.23.238.203:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+    return this.http.get(`http://172.23.238.198:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
   }
 }

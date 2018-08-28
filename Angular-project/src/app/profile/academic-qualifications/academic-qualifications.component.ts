@@ -18,7 +18,7 @@ export class AcademicQualificationsComponent implements OnInit {
   UserData: any = [];
 
   constructor(private userService: UserService, private http: HttpClient) {
-    
+
   }
 
   ngOnInit() {
@@ -32,6 +32,9 @@ export class AcademicQualificationsComponent implements OnInit {
     this.newPost_Academy.message = 'save';
     this.userService.addPost_Academy(this.newPost_Academy).subscribe(() => {
     });
+    setTimeout(() => {
+      this.getAcademics();
+      }, 1000);
     // this.firstTime_check = true;
     // this.getPost_Academy = this.newPost_Academy;
     }
@@ -39,20 +42,22 @@ export class AcademicQualificationsComponent implements OnInit {
     update(j) {
       this.editPost_Academy[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
       this.editPost_Academy[j].message = 'update' + j;
-      this.userService.addPost_Location(this.editPost_Academy[j]).subscribe(() => {  });
+      this.userService.addPost_Academy(this.editPost_Academy[j]).subscribe(() => {  });
     }
-  
+
     delete(j) {
       this.editPost_Academy[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
       this.editPost_Academy[j].message = 'delete' + j;
-      this.userService.addPost_Location(this.editPost_Academy[j]).subscribe(() => {  });
+      this.userService.addPost_Academy(this.editPost_Academy[j]).subscribe(() => {  });
+      setTimeout(() => {
+        this.getAcademics();
+        }, 1000);
     }
-  
+
     getAcademics() {
        this.get().subscribe( data => {
           this.UserData = data;
           this.editPost_Academy = data.academics;
-          console.log('hey');
           if (this.UserData.academics == null) {
             this.firstTime_check = false;
           } else {
@@ -60,9 +65,9 @@ export class AcademicQualificationsComponent implements OnInit {
           }
         });
     }
-  
+
     get(): Observable<any> {
-      return this.http.get(`http://172.23.238.203:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
-    }  
+      return this.http.get(`http://172.23.238.198:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+    }
 
 }

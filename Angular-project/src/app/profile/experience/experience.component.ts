@@ -17,7 +17,6 @@ export class ExperienceComponent implements OnInit {
  private editPost_Exp;
  private firstTime_check = false;
  UserData: any = [];
- url: string = 'http://172.23.238.203:8090/api/v1/user/' + JSON.parse(localStorage.getItem('currentUser'));
 
  constructor(private userService: UserService,private http: HttpClient) {
   }
@@ -32,6 +31,9 @@ export class ExperienceComponent implements OnInit {
    this.newPost_Exp.profileId = JSON.parse(localStorage.getItem('currentUser'));
    this.newPost_Exp.message = 'save';
    this.userService.addPost_Exp(this.newPost_Exp).subscribe(() => {});
+   setTimeout(() => {
+    this.getExperience();
+    }, 1000);
    }
    update(j) {
      this.editPost_Exp[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
@@ -42,14 +44,16 @@ export class ExperienceComponent implements OnInit {
    delete(j) {
      this.editPost_Exp[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
      this.editPost_Exp[j].message = 'delete' + j;
-     this.userService.addPost_Location(this.editPost_Exp[j]).subscribe(() => {  });
-   }
+     this.userService.addPost_Exp(this.editPost_Exp[j]).subscribe(() => {  });
+     setTimeout(() => {
+      this.getExperience();
+      }, 1000);
+  }
 
    getExperience() {
      this.get().subscribe( data => {
         this.UserData = data;
         this.editPost_Exp = data.experience;
-       
         if (this.UserData.experience == null) {
           this.firstTime_check = false;
         } else {
@@ -59,6 +63,6 @@ export class ExperienceComponent implements OnInit {
 
 }
 get(): Observable<any> {
- return this.http.get(`http://172.23.238.203:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+ return this.http.get(`http://172.23.238.198:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
 }
 }

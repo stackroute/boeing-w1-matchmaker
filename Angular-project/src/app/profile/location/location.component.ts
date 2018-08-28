@@ -16,8 +16,6 @@ export class LocationComponent implements OnInit {
   private editPost_Loc;
   private firstTime_check = false;
   UserData: any = [];
-  url: string = 'http://172.23.238.203:8090/api/v1/user/' + JSON.parse(localStorage.getItem('currentUser'));
- 
   constructor(private userService: UserService, private http: HttpClient) {
 
   }
@@ -33,6 +31,9 @@ export class LocationComponent implements OnInit {
     this.newPost_Loc.profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.newPost_Loc.message = 'save';
     this.userService.addPost_Location(this.newPost_Loc).subscribe(() => {  });
+    setTimeout(() => {
+      this.getLocations();
+      }, 1000);
     }
 
   update(j) {
@@ -45,6 +46,9 @@ export class LocationComponent implements OnInit {
     this.editPost_Loc[j].profileId = JSON.parse(localStorage.getItem('currentUser'));
     this.editPost_Loc[j].message = 'delete' + j;
     this.userService.addPost_Location(this.editPost_Loc[j]).subscribe(() => {  });
+    setTimeout(() => {
+      this.getLocations();
+      }, 1000);
   }
 
   getLocations() {
@@ -61,7 +65,7 @@ export class LocationComponent implements OnInit {
   }
 
   get(): Observable<any> {
-    return this.http.get(`http://172.23.238.203:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
+    return this.http.get(`http://172.23.238.198:8090/api/v1/user/${JSON.parse(localStorage.getItem('currentUser'))}`);
   }
 
 }
