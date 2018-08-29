@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/skill-microservice-1.2.0.jar /src/skill.jar
+COPY target/skill-microservice-1.3.0.jar /src/skill.jar
 
 EXPOSE 8089
 

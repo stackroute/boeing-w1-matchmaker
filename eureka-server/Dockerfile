@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/eureka-server-1.2.0.jar /src/eureka.jar
+COPY target/eureka-server-1.3.0.jar /src/eureka.jar
 
 EXPOSE 9090
 
