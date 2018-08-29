@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'register', component: RegistrationComponent},
   {path: '', component: LoginComponent},
   {path: 'portfolios/visiting', component: VisitingCardComponent},
-  {path: 'portfolios/visiting', component: SocialMediaComponent}
+  {path: 'portfolios/socialmedia', component: SocialMediaComponent}
 ];
 
 @NgModule({
