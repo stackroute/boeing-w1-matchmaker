@@ -19,13 +19,18 @@ public class SearchService {
 
 	@Autowired
 	public SearchService(ProfileIdRepository profileIdRepository) {
-		super();
 		this.profileIdRepository = profileIdRepository;
 	}
 
 	public List<ProfileId> searchbasedOnSkill(String name) {
 
 		return profileIdRepository.profilebasedOnSkill(name);
+
+	}
+	
+	public List<ProfileId> searchbasedOnSkills(List<String> list) {
+
+		return profileIdRepository.profilebasedOnSkills(list);
 
 	}
 
