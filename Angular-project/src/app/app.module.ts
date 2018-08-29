@@ -30,6 +30,7 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
+import { SocialMediaComponent } from './portfolios/social-media/social-media.component';
 
 // export function tokenGetter() {
 //   return localStorage.getItem('access_token');
@@ -53,7 +54,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     PortfoliosComponent,
     VisitingCardComponent,
-    HomeComponent
+    HomeComponent,
+    SocialMediaComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule,MatDividerModule,MatListModule,
