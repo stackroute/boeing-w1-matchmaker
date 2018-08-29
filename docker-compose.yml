@@ -295,7 +295,20 @@ services:
     ports:
       - 4200:4200
     healthcheck:
-      test: "exit 0"    
- 
+      test: "exit 0"   
+
+ autocomplete-service:
+    build: autocomplete-microservice/
+    image: autocomplete-service
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 6969:6969
+    container_name: autocomplete
+    depends_on:
+      - neo4j
+    healthcheck:
+      test: "exit 0"
 
 

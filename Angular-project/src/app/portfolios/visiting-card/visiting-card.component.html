@@ -1,17 +1,26 @@
-<div class="visiting">
-  <mat-card class="visiting-card">
-      <mat-card-title>MATCHMAKER</mat-card-title>
-      <mat-card-subtitle>Visiting Card</mat-card-subtitle>
-    <img mat-card-lg-image src="https://scontent.fblr2-1.fna.fbcdn.net/v/t1.0-9/21430553_588573508200153_2361372440587924427_n.jpg?_nc_cat=0&oh=cdfb60622258f5ce98203032f96e7d87&oe=5BFF4AB8" alt="Profile Pic">
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item>Name:</mat-list-item>
-       
-        <mat-list-item>Role:</mat-list-item>
-      
-        <mat-list-item>Address:</mat-list-item>
-      </mat-list>
-    </mat-card-content>
-    <mat-card-footer>	Stackroute </mat-card-footer>
-  </mat-card>
+<div class="visiting d-flex justify-content-center">
+<div class="card" style="width: 18rem;">
+  <a [routerLink]="['/portfolios/visiting']">
+   <img class="card-img-top" src="https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/02/28/Pictures/monaco-sport-award-laureus_f1cae27c-1c42-11e8-98c0-31c951fae3be.jpg" alt="Card image cap">
+  </a>
+  <div class="card-body">
+    <h5 class="card-title mb-0">Vikram Hanji {{UserData.personalInfo.name}}</h5>
+    <h6><small class="card-subtitle text-muted">Full Stack developer at Boeing</small></h6>
+    <p class="">Some quick example text to build on the card title and make up the bulk of the card's content. Worked as ... {{UserData.experience[0].role}} at ...{{UserData.experience[0].organisationName}} and
+      knows {{UserData.skills[0].skill}}, {{UserData.skills[1].skill}}, {{UserData.skills[2].skill}}.
+    </p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> 
+  </div>
+  <!-- <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul> -->
+  <!-- <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div> -->
 </div>
+
+<br>

@@ -1,9 +1,28 @@
 <div class="container profileSection">
   <div class="dropdown">
-    <button class="btn dropdown-toggle" id="Portfolio" type="button" data-toggle="dropdown">Select Tempelates
+    <button class="btn btn-info dropdown-toggle" id="Portfolio" type="button" data-toggle="dropdown">Select Tempelates
     <span class="caret"></span></button>
     <ul class="dropdown-menu drop">
      <li><a class="dropdown-item" [routerLink]="['/portfolios/visiting']">Visiting Card</a></li>
+     <li><a class="dropdown-item" [routerLink]="['/portfolios/socialmedia']">Social Media</a></li>
+
     </ul>
   </div>
 </div>  
+
+<div class="flex-container">
+
+  <div class="column">
+    <app-visiting-card></app-visiting-card>
+    
+  </div>
+  <div class="column">
+      <a [routerLink]="['/portfolios/socialmedia']">
+       <app-social-media></app-social-media>
+       </a>
+  </div>
+  <div class="column">
+    
+  </div>
+
+</div>

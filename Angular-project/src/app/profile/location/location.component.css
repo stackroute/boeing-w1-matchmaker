@@ -50,3 +50,7 @@
 .shade {
   box-shadow: 3px 3px 5px grey;
 }
+
+#autocomplete {
+  z-index: 1050;
+}

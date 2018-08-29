@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/location-microservice-1.2.0.jar /src/location.jar
+COPY target/location-microservice-1.3.0.jar /src/location.jar
 
 EXPOSE 8086
 

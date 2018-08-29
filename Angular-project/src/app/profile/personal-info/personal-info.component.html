@@ -79,14 +79,14 @@
               <input matInput placeholder="email me on" [(ngModel)]="editPost_PI.email" name="email">
             </mat-form-field>
    
-            <!-- <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="I was born on" [(ngModel)]="newPost_PI.dob">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field> -->
             <mat-form-field>
-              <input matInput placeholder="I was born on" [(ngModel)]="editPost_PI.dob" type="date" name="dob">
+              <input matInput [matDatepicker]="picker3" placeholder="I was born on" [(ngModel)]="newPost_PI.dob">
+              <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
             </mat-form-field>
+            <!-- <mat-form-field>
+              <input matInput placeholder="I was born on" [(ngModel)]="editPost_PI.dob" type="date" name="dob">
+            </mat-form-field> -->
    
             <mat-form-field>
               <input matInput placeholder="My gender is" [(ngModel)]="editPost_PI.gender" name="gender">

@@ -153,7 +153,7 @@ public class KafkaConsumer {
 		ProfileId profileId = new ProfileId(experienceIndex.getProfileId());
 		Company company = new Company(experienceIndex.getOrganizationName());
 		EmployeeOfRelation employeeOfRelation = new EmployeeOfRelation(experienceIndex.getRole(),
-				experienceIndex.getStartDate(), experienceIndex.getEndDate(), profileId, company);
+				experienceIndex.getDuration(), profileId, company);
 		if (experienceIndex.getMessage().equals("save") || experienceIndex.getMessage().contains("update")) {
 			employeeOfRelationRepository.save(employeeOfRelation);
 		} else if (experienceIndex.getMessage().contains("delete")) {

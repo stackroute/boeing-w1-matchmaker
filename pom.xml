@@ -7,7 +7,7 @@
 
 	<groupId>com.stackroute</groupId>
 	<artifactId>boeing-w1-matchmaker</artifactId>
-	<version>1.2.0</version>
+	<version>1.3.0</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -40,6 +40,7 @@
 		<module>indexer-microservice</module>
                 <module>nlp-service</module>
                 <module>search-microservice</module>
+                <module>autocomplete-microservice</module>
                 
        </modules>
 </project>

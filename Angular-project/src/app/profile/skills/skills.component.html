@@ -89,9 +89,20 @@
       <!-- end modal-header -->
       <div class="modal-body center-align">
           <form class="form-horizontal" id="skill-form" (submit)="addPost_Skill()">
-            <mat-form-field>
+              <mat-form-field>
+                  <input type="text" placeholder="I am skilled at" [(ngModel)]="newPost_Skill.skill" name="skill" matInput
+                      [formControl]="searchTerm" [matAutocomplete]="auto">
+
+                  <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let ski of skill" [value]="ski.name">
+                          {{ ski.name }}
+                      </mat-option>
+                  </mat-autocomplete>
+              </mat-form-field>
+            
+            <!-- <mat-form-field>
               <input matInput placeholder="I am skilled at" [(ngModel)]="newPost_Skill.skill" name="skill">
-            </mat-form-field>
+            </mat-form-field> -->
    
             <mat-form-field>
               <input matInput placeholder="my skill level is" type="number" [(ngModel)]="newPost_Skill.level" name="level">
