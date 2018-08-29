@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'portfolios/visiting', component: VisitingCardComponent},
   {path: 'portfolios/socialmedia', component: SocialMediaComponent},
   {path: '', component: StartComponent}
-];
+  ];
 
 @NgModule({
     imports: [
