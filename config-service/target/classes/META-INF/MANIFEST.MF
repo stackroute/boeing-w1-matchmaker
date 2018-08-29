@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Implementation-Title: configuration-service
-Implementation-Version: 1.1.0
+Implementation-Version: 1.2.0
 Built-By: user
 Implementation-Vendor-Id: com.stackroute
 Build-Jdk: 1.8.0_171
