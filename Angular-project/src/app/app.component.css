@@ -1,8 +1,6 @@
 
 nav{
-    /* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
-    background: #444;
-    color:white;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
 .btn{
