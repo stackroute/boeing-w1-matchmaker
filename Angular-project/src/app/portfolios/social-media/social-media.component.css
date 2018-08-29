@@ -1,0 +1,19 @@
+.socialmedia{
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+img{
+   width: 100%; 
+}
+p{
+    color: rgb(39, 39, 39);
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
