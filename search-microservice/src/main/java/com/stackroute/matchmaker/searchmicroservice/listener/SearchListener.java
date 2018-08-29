@@ -30,7 +30,6 @@ public class SearchListener {
 	@StreamListener(SearchStream.INPUT)
 	public void searchPost(@Payload Search search) {
 		logger.info(search +"search");
-		logger.info(searchService.searchbasedOnSkills(search.getSkill()) +"search result");
 		
 
 	}
