@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'register', component: RegistrationComponent},
   {path: '', component: LoginComponent},
   {path: 'portfolios/visiting', component: VisitingCardComponent, canActivate: [AuthGuard]},
-  {path: 'portfolios/socialmedia', component: SocialMediaComponent, , canActivate: [AuthGuard]}
+  {path: 'portfolios/socialmedia', component: SocialMediaComponent, canActivate: [AuthGuard]}
 
 ];
 
