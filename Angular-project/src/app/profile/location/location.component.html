@@ -142,8 +142,23 @@
   
             <div class="center-align">
                 <mat-form-field>
+	  
+                    <input type="text" placeholder="Search cities ..."
+                      matInput 
+                      [formControl]="searchTerm" 
+                      [matAutocomplete]="auto"
+                      [(ngModel)]=newPost_Loc.city >  
+                
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let cities of city" [value]="cities.city">
+                      {{ cities.city }}
+                      </mat-option>
+                    </mat-autocomplete>
+                
+                  </mat-form-field>
+                <!-- <mat-form-field>
                   <input matInput placeholder="in City *" [(ngModel)]=newPost_Loc.city name="city">
-                </mat-form-field>          
+                </mat-form-field>           -->
                 <mat-form-field>
                   <input matInput placeholder="with Pincode" [(ngModel)]="newPost_Loc.pin" [ngModelOptions]="{standalone: true}" name="pin">
                 </mat-form-field>
