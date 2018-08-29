@@ -1,5 +1,5 @@
 .loginSubmit {
-    margin-top: 100px;
+    margin-top: 90px;
     width: 100%;
 }
 
@@ -27,9 +27,26 @@
     width: 90%;
     top: 50px;
 }
-
+mat-card-header{
+    text-align: center;
+}
+mat-card-content{
+    text-align: center;
+}
 #border_seperate {
     border-right: 0.5px solid #999;
     position: relative;
     top: 50px;
+}
+#card-align1{
+    position: relative;
+    left: 40px;
+    width: 90%;
+    top: 50px;
+}
+.row{
+    margin-bottom: 10px;
+}
+button{
+    border-radius: 10px;
 }

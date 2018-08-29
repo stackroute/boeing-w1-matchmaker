@@ -6,34 +6,19 @@ spring:
       kafka:
         binder:
           brokers:
-<<<<<<< HEAD
           - localhost:9092
       bindings:
         Projects:
           destination: Projects
-=======
-          - 172.23.238.163:9092
-      bindings:
-        Project:
-          destination: Project
->>>>>>> 147c2c941d4ce01eded412513e1d6c9ede2c05c6
           content-type: application/json
         Location:
           destination: Location
           content-type: application/json
-<<<<<<< HEAD
         Certificates:
           destination: Certificates
           content-type: application/json
         AcademicQualification:
           destination: AcademicQualification
-=======
-        Training:
-          destination: Training
-          content-type: application/json
-        Academies:
-          destination: Academies
->>>>>>> 147c2c941d4ce01eded412513e1d6c9ede2c05c6
           content-type: application/json
         PersonalInfo:
           destination: PersonalInfo
@@ -44,11 +29,4 @@ spring:
         Skills:
           destination: Skills
           content-type: application/json
-<<<<<<< HEAD
   
-=======
-  data:
-    cassandra:
-      keyspace-name: matchmaker
-      port: 9042
->>>>>>> 147c2c941d4ce01eded412513e1d6c9ede2c05c6

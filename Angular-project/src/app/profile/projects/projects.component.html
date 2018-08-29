@@ -1,28 +1,149 @@
-<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
-<div *ngIf="proj_check">
-  <div class="card">
+<!-- <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script> -->
+<div *ngIf="firstTime_check">
+  <div class="card shade">
+      <div class="card-header text-primary">Projects</div>
+
     <div class="card-body">
-      <h2>Projects</h2>
-      Profile Id: {{getPost_Project.profileId}}
-      <br> Project Id: {{getPost_Project.projectId}}
-      <br> Project At: {{getPost_Project.projectAt}}
-      <br> Role: {{getPost_Project.role}}
-      <br> Department: {{getPost_Project.department}}
-      <br> Project Location: {{getPost_Project.projectLocation}}
-      <br> Project Title: {{getPost_Project.projectTitle}}
-      <br> Team Size: {{getPost_Project.teamSize}}
-      <br> Start Date: {{getPost_Project.from}}
-      <br> End Date: {{getPost_Project.to}}
-      <br> Synopsis: {{getPost_Project.synopsis}}
-      <br> Url: {{getPost_Project.url}}
-      <br> DemoURL: {{getPost_Project.demoURL}}
-      <br> Skills: {{getPost_Project.skills}}
-      <br> Message: {{getPost_Project.message}}
+
+      <ul class="list-group list-group-flush">
+        <div class="w-auto" *ngFor="let item of UserData.project; index as i"><a href="#ProjectsModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.projectTitle}}</a>
+            
+    
+
+<div class="modal fade" id="ProjectsModal-{{i}}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title">Projects</h4>
+                  <button class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <div class="card-body">
+             
+                    <div class="card-header d-flex">
+                      <h3 style="flex-grow: 20">Project</h3>
+                      <a href="#UpdateProjectModal-{{i}}" data-toggle="modal"><i class="material-icons">mode_edit</i></a> &nbsp;
+                      <a (click)="delete(i)" data-dismiss="modal"><i class="material-icons">delete</i></a>
+                    </div> 
+                    <div class="card-body">   
+                           
+                      Project At: {{item.projectAt}}
+                      <br> Role: {{item.role}}
+                      <br> Department: {{item.department}}
+                      <br> Project Location: {{item.projectLocation}}
+                      <br> Project Title: {{item.projectTitle}}
+                      <br> Team Size: {{item.teamSize}}
+                      <br> Start Date: {{item.from}}
+                      <br> End Date: {{item.to}}
+                      <br> Synopsis: {{item.synopsis}}
+                      <br> Url: {{item.url}}
+                      <br> DemoURL: {{item.demoURL}}
+                      <br> Skills: {{item.skills}}
+                    </div>  
+                  </div>
+              </div><!-- end modal body -->
+          </div><!-- end modal-content -->
+        </div><!-- end modal-dialog -->
+  </div><!-- end myModal --> 
+
+
+<div class="modal fade" id="UpdateProjectModal-{{i}}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Projects</h4>
+          <button class="close" data-dismiss="modal">&times;</button>
+  
+        </div>
+        <!-- end modal-header -->
+        <div class="modal-body center-align">
+            <form class="form-horizontal" id="project-form" (submit)="update(i)">
+     
+              <mat-form-field>
+                <input matInput placeholder="My project Id was" [(ngModel)]="editPost_Project[i].projectId" name="proId">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="I worked on a project at" [(ngModel)]="editPost_Project[i].projectAt" name="proAt">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="my project role was" [(ngModel)]="editPost_Project[i].role" name="role">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="I worked in the department of" [(ngModel)]="editPost_Project[i].department"
+                  name="dept">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="the project location was" [(ngModel)]="editPost_Project[i].projectLocation"
+                  name="loc">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="the project title was" [(ngModel)]="editPost_Project[i].projectTitle" name="title">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="the team size was" [(ngModel)]="editPost_Project[i].teamSize" name="team">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="project started on" [(ngModel)]="editPost_Project[i].from" type="date" name="start">
+              </mat-form-field>
+     
+              <!-- <div class="form-group">
+                <div class="form-group">
+                    <label >Start Date</label>
+                    <input type="date" placeholder="Start Date" min="1000-01-01" [(ngModel)]="newPost_Project.from"
+                           max="3000-12-31" class="form-control" name="start">
+                </div>
+            </div> -->
+              <!-- <div class="form-group">
+                <div class="form-group">
+                    <label >End Date</label>
+                    <input type="date" placeholder="End Date" min="1000-01-01" [(ngModel)]="newPost_Project.to"
+                           max="3000-12-31" class="form-control" name="start">
+                </div>
+            </div> -->
+     
+              <mat-form-field>
+                <input matInput placeholder="project completed on" [(ngModel)]="editPost_Project[i].to" type="date" name="end">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="here is a short synopsis" [(ngModel)]="editPost_Project[i].synopsis" name="synopsis">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="Find the project at" type="url" [(ngModel)]="editPost_Project[i].url" name="url">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="here is a demo link" type="url" [(ngModel)]="editPost_Project[i].demoURL" name="demo">
+              </mat-form-field>
+     
+              <mat-form-field>
+                <input matInput placeholder="skills I developed are" [(ngModel)]="editPost_Project[i].skills" name="skills">
+              </mat-form-field>
+     
+              <hr>
+              <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+            </form>
+          </div>
+        <!-- end modal-body -->
+      </div>
+      <!-- end modal-content -->
     </div>
+    <!-- end modal-dialog -->
   </div>
+  <!-- end myModal -->
+
+</div></ul>
 </div>
-
-
+</div>
+</div> 
 
 
 <div class="modal fade" id="myModal5">
@@ -34,73 +155,82 @@
 
       </div>
       <!-- end modal-header -->
-      <div class="modal-body">
-        <form class="form-horizontal" (submit)="addPost_Project()">
-        
-          <div class="form-group">
-            <input class="form-control" placeholder="Project Id" type="text" [(ngModel)]="newPost_Project.projectId" name="proId">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Project At" type="text" [(ngModel)]="newPost_Project.projectAt" name="proAt">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Role" type="text" [(ngModel)]="newPost_Project.role" name="role">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Department" type="text" [(ngModel)]="newPost_Project.department" name="dept">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Project Location" type="text" [(ngModel)]="newPost_Project.projectLocation" name="loc">
-          </div>
-
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Project Title" type="text" [(ngModel)]="newPost_Project.projectTitle" name="title">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Team Size" type="text" [(ngModel)]="newPost_Project.teamSize" name="team">
-          </div>
-
-          <div class="form-group">
-            <div class="form-group">
-                <label >Start Date</label>
-                <input type="date" placeholder="Start Date" min="1000-01-01" [(ngModel)]="newPost_Project.from"
-                       max="3000-12-31" class="form-control" name="start">
-            </div>
+      <div class="modal-body center-align">
+          <form class="form-horizontal" id="project-form" (submit)="addPost_Project()">
+   
+            <mat-form-field>
+              <input matInput placeholder="My project Id was" [(ngModel)]="newPost_Project.projectId" name="proId">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="I worked on a project at" [(ngModel)]="newPost_Project.projectAt" name="proAt">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="my project role was" [(ngModel)]="newPost_Project.role" name="role">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="I worked in the department of" [(ngModel)]="newPost_Project.department"
+                name="dept">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="the project location was" [(ngModel)]="newPost_Project.projectLocation"
+                name="loc">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="the project title was" [(ngModel)]="newPost_Project.projectTitle" name="title">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="the team size was" [(ngModel)]="newPost_Project.teamSize" name="team">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="project started on" [(ngModel)]="newPost_Project.from" type="date" name="start">
+            </mat-form-field>
+   
+            <!-- <div class="form-group">
+              <div class="form-group">
+                  <label >Start Date</label>
+                  <input type="date" placeholder="Start Date" min="1000-01-01" [(ngModel)]="newPost_Project.from"
+                         max="3000-12-31" class="form-control" name="start">
+              </div>
+          </div> -->
+            <!-- <div class="form-group">
+              <div class="form-group">
+                  <label >End Date</label>
+                  <input type="date" placeholder="End Date" min="1000-01-01" [(ngModel)]="newPost_Project.to"
+                         max="3000-12-31" class="form-control" name="start">
+              </div>
+          </div> -->
+   
+            <mat-form-field>
+              <input matInput placeholder="project completed on" [(ngModel)]="newPost_Project.to" type="date" name="end">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="here is a short synopsis" [(ngModel)]="newPost_Project.synopsis" name="synopsis">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="Find the project at" type="url" [(ngModel)]="newPost_Project.url" name="url">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="here is a demo link" type="url" [(ngModel)]="newPost_Project.demoURL" name="demo">
+            </mat-form-field>
+   
+            <mat-form-field>
+              <input matInput placeholder="skills I developed are" [(ngModel)]="newPost_Project.skills" name="skills">
+            </mat-form-field>
+   
+            <hr>
+            <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+          </form>
         </div>
-          <div class="form-group">
-            <div class="form-group">
-                <label >End Date</label>
-                <input type="date" placeholder="End Date" min="1000-01-01" [(ngModel)]="newPost_Project.to"
-                       max="3000-12-31" class="form-control" name="start">
-            </div>
-        </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Synopsis" type="text" [(ngModel)]="newPost_Project.synopsis" name="synopsis">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Url" type="text" [(ngModel)]="newPost_Project.url" name="url">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="demoURL" type="text" [(ngModel)]="newPost_Project.demoURL" name="demo">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Skills" type="text" [(ngModel)]="newPost_Project.skills" name="skills">
-          </div>
-
-          <div class="form-group">
-            <input class="form-control" placeholder="Message" type="text" [(ngModel)]="newPost_Project.message" name="mess">
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary pull-right submitbtn" type="submit">Add</button>
-          </div>
-        </form>
-      </div>
       <!-- end modal-body -->
     </div>
     <!-- end modal-content -->

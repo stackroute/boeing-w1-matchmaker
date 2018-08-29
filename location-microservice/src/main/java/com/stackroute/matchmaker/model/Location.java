@@ -10,6 +10,7 @@ public class Location {
 	private String state;
 	private String country;
 	private String addressType;
+	private String message;
 
 	// default constructor
 	public Location() {
@@ -17,8 +18,16 @@ public class Location {
 	}
 
 	// parameterized constructor
+
+
+	@Override
+	public String toString() {
+		return "Location [profileId=" + profileId + ", address=" + address + ", city=" + city + ", pin=" + pin
+				+ ", state=" + state + ", country=" + country + ", addressType=" + addressType + "]";
+	}
+
 	public Location(String profileId, String address, String city, String pin, String state, String country,
-			String addressType) {
+			String addressType, String message) {
 		super();
 		this.profileId = profileId;
 		this.address = address;
@@ -27,12 +36,7 @@ public class Location {
 		this.state = state;
 		this.country = country;
 		this.addressType = addressType;
-	}
-
-	@Override
-	public String toString() {
-		return "Location [profileId=" + profileId + ", address=" + address + ", city=" + city + ", pin=" + pin
-				+ ", state=" + state + ", country=" + country + ", addressType=" + addressType + "]";
+		this.message = message;
 	}
 
 	// getters and setters
@@ -92,5 +96,12 @@ public class Location {
 		this.addressType = addressType;
 	}
 
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 	
 }

@@ -1,90 +1,173 @@
-<div *ngIf="loc_check">
-  <div class="card">
-    <div class="card-body">
-      
-      <h2>Location</h2>
-
-      <div [ngSwitch]="getPost_Loc.addressType">
-          <div *ngSwitchCase="'present'">
-              <strong>Currently living</strong>
-          </div>
-          <div *ngSwitchCase="'previous'">
-              <strong>Place lived</strong>
-          </div>
-      </div>
-       
-           Profile Id: {{getPost_Loc.profileId}}
-      <br> Address: {{getPost_Loc.address}}
-      <br> City: {{getPost_Loc.city}}
-      <br> PIN: {{getPost_Loc.pin}}
-      <br> State: {{getPost_Loc.state}}
-      <br> Country: {{getPost_Loc.country}}
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="myModal4">
-  <div class="modal-dialog">
-    <div class="modal-content center-align">
-      
-      <div class="modal-header">
-        <h4 class="modal-title">Location</h4>
-        <button class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- end modal-header [formGroup]="locForm" [disabled]="locForm.invalid" formControlName="city" -->
-      <div class="modal-body">
-        <form class="form-horizontal" [formGroup]="locForm" id="location-form" (submit)="addPost_Location()">
-            
-          <div>
-            <mat-radio-group>
-                <mat-radio-button (click)="newPost_Loc.addressType = 'present'" value="present">Currently living</mat-radio-button> &nbsp;
-                <mat-radio-button (click)="newPost_Loc.addressType = 'previous'" value="previous" checked>Place lived</mat-radio-button>
-            </mat-radio-group> </div>
-            <br/>
-          
-          <div class="example-container">
-              <mat-form-field>
-                <input matInput [placeholder]="newPost_Loc.addressType == 'present' ? 'I currently stay at' : 'I stayed at'" 
-                                  [(ngModel)]="newPost_Loc.address" [ngModelOptions]="{standalone: true}" name="addr">
-              </mat-form-field>
-              <br/>
-          </div>
-
-          <div class="center-align">
-              <mat-form-field>
-                <input matInput formControlName="city" placeholder="in City *" [(ngModel)]="newPost_Loc.city" name="city">
-              </mat-form-field>
-              <!-- <div *ngIf="city.dirty && city.errors" class="error">
-                <div *ngIf="city.errors.required" class="validation_message">
-                  City required
-                </div>
-              </div> -->
-            
-              <mat-form-field>
-                <input matInput placeholder="with Pincode" [(ngModel)]="newPost_Loc.pin" [ngModelOptions]="{standalone: true}" name="pin">
-              </mat-form-field>
-              <br/>
-              <mat-form-field>
-                <input matInput placeholder="in State" [(ngModel)]="newPost_Loc.state" [ngModelOptions]="{standalone: true}" name="state">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="in Country" [(ngModel)]="newPost_Loc.country" [ngModelOptions]="{standalone: true}" name="cont">
-              </mat-form-field>
-          </div>
-          <hr>
-          <button class="btn btn-primary submitbtn mr-1" type="submit" [disabled]="locForm.invalid">Send</button> &nbsp;&nbsp;
-                   
-        </form>
+<div *ngIf="firstTime_check">
+    <div class="card shadow-lg shade">
+        <div class="card-header text-primary border-light">Location</div>
+      <div class="card-body">
         
-      </div>
-      <!-- end modal-body -->
-    </div>
-    <!-- end modal-content -->
-  </div>
-  <!-- end modal-dialog -->
-</div>
-<!-- end myModal -->
-
+        <!-- <h2>Location</h2> -->
   
- 
+        <div [ngSwitch]="newPost_Loc.addressType">
+            <div *ngSwitchCase="'present'">
+                <strong>Currently living</strong>
+            </div>
+            <div *ngSwitchCase="'previous'">
+                <strong>Place lived</strong>
+            </div>
+        </div>
+        <!-- <button (click)="getLocations()">Click</button>   -->
+        <!-- <ul><li *ngFor="let loc of UserData.location">{{loc.city}}</li></ul> -->
+        <ul class="list-group list-group-flush">
+  <div class="w-auto" *ngFor="let loc of UserData.location; index as i"><a href="#AddressModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{loc.city}}</a>
+       
+    <!-- {{Locations.location[1].city}} -->
+        
+  <div class="modal fade" id="AddressModal-{{i}}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Location</h4>
+              <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <div class="card-body">
+         
+                <div class="card-header d-flex">
+                  <h3 style="flex-grow: 20">Address</h3>
+                  <a href="#UpdateModal-{{i}}" data-toggle="modal"><i class="material-icons">mode_edit</i></a> &nbsp;
+                  <a href=""  (click)="delete(i)" data-dismiss="modal"><i class="material-icons">delete</i></a>
+                </div> 
+                <div class="card-body">   
+                       {{loc.address}}
+                       {{loc.city}}
+                       {{loc.pin}}
+                       {{loc.state}}
+                       {{loc.country}}
+                       {{loc.city}}
+                </div>  
+              </div>
+          </div><!-- end modal body -->
+      </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+  </div><!-- end myModal --> 
+  
+  
+   
+  <div class="modal fade" id="UpdateModal-{{i}}">
+      <div class="modal-dialog">
+        <div class="modal-content center-align">
+          
+          <div class="modal-header">
+            <h4 class="modal-title">Location</h4>
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+    
+          <!-- end modal-header [formGroup]="locForm" [disabled]="locForm.invalid" formControlName="city" -->
+          <div class="modal-body">
+            <form class="form-horizontal" id="location-form" (submit)="update(i)">
+                
+              <div>
+                <mat-radio-group>
+                    <mat-radio-button (click)="editPost_Loc[i].addressType = 'present'" value="present">Currently living</mat-radio-button> &nbsp;
+                    <mat-radio-button (click)="editPost_Loc[i].addressType = 'previous'" value="previous" checked>Place lived</mat-radio-button>
+                </mat-radio-group> </div>
+                <br/>
+              
+              <div class="example-container">
+                  <mat-form-field>
+                    <input matInput [placeholder]="editPost_Loc.addressType == 'present' ? 'I currently stay at' : 'I stayed at'" 
+                                      [(ngModel)]="editPost_Loc[i].address" name="addr">
+                  </mat-form-field>
+                  <br/>
+              </div>
+    
+              <div class="center-align">
+                  <mat-form-field>
+                    <input matInput placeholder="in City *" name="city" [(ngModel)]="editPost_Loc[i].city">
+                  </mat-form-field>          
+                  <mat-form-field>
+                    <input matInput placeholder="with Pincode" [(ngModel)]="editPost_Loc[i].pin" [ngModelOptions]="{standalone: true}" name="pin">
+                  </mat-form-field>
+                  <br/>
+                  <mat-form-field>
+                    <input matInput placeholder="in State" [(ngModel)]="editPost_Loc[i].state" [ngModelOptions]="{standalone: true}" name="state">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="in Country" [(ngModel)]="editPost_Loc[i].country" [ngModelOptions]="{standalone: true}" name="cont">
+                  </mat-form-field>
+              </div>
+              <hr>
+              <button class="btn btn-primary submitbtn" type="submit">Update</button>
+              <button class="btn btn-warning" onclick="this.form.reset();" >Clear</button>         
+            </form>
+          </div>
+          <!-- end modal-body -->
+        </div>
+        <!-- end modal-content -->
+      </div>
+      <!-- end modal-dialog -->
+    </div>
+    <!-- end myModal -->
+  
+  </div></ul>
+  </div>
+  </div>
+  </div>
+  
+  <div class="modal fade" id="myModal4">
+    <div class="modal-dialog">
+      <div class="modal-content center-align">
+        
+        <div class="modal-header">
+          <h4 class="modal-title">Location</h4>
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- end modal-header [formGroup]="locForm" [disabled]="locForm.invalid" formControlName="city" -->
+        <div class="modal-body">
+          <form class="form-horizontal" id="location-form" (submit)="addPost_Location()">
+              
+            <div>
+              <mat-radio-group>
+                  <mat-radio-button (click)="newPost_Loc.addressType = 'present'" value="present">Currently living</mat-radio-button> &nbsp;
+                  <mat-radio-button (click)="newPost_Loc.addressType = 'previous'" value="previous" checked>Place lived</mat-radio-button>
+              </mat-radio-group> </div>
+              <br/>
+            
+            <div class="example-container">
+                <mat-form-field>
+                  <input matInput [placeholder]="newPost_Loc.addressType == 'present' ? 'I currently stay at' : 'I stayed at'" 
+                                    [(ngModel)]="newPost_Loc.address" [ngModelOptions]="{standalone: true}" name="addr">
+                </mat-form-field>
+                <br/>
+            </div>
+  
+            <div class="center-align">
+                <mat-form-field>
+                  <input matInput placeholder="in City *" [(ngModel)]=newPost_Loc.city name="city">
+                </mat-form-field>          
+                <mat-form-field>
+                  <input matInput placeholder="with Pincode" [(ngModel)]="newPost_Loc.pin" [ngModelOptions]="{standalone: true}" name="pin">
+                </mat-form-field>
+                <br/>
+                <mat-form-field>
+                  <input matInput placeholder="in State" [(ngModel)]="newPost_Loc.state" [ngModelOptions]="{standalone: true}" name="state">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="in Country" [(ngModel)]="newPost_Loc.country" [ngModelOptions]="{standalone: true}" name="cont">
+                </mat-form-field>
+            </div>
+            <hr>
+            <button class="btn btn-primary submitbtn mr-1" type="submit">Send</button> &nbsp;&nbsp;
+                     
+          </form>
+        </div>
+        <!-- end modal-body -->
+      </div>
+      <!-- end modal-content -->
+    </div>
+    <!-- end modal-dialog -->
+  </div>
+  <!-- end myModal -->
+  
+  
+   
+                           

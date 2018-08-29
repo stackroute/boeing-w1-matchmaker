@@ -4,6 +4,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,9 @@ public class TrainingIndexImplementation {
 	//	private String profileId;
 	//	private String topics = "IndexTraining";
 	//	private String topics1 = "Index";
-	private String topics2 = "TrainingIndexer";
+
+	@Value("${indexer.topic.name}")
+	private String topics2;
 
 	@Autowired
 	private KafkaTemplate<String, TrainingIndex> kafkaTemplate;

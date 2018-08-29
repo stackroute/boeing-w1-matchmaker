@@ -1,0 +1,30 @@
+form {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+@media (min-width: 768px) {
+  input[type="text"] {
+    width: 600px;
+    height: 100px;
+    border-radius: 50px;
+    font-size: 30px;
+  }
+  button {
+    border-radius: 100px;
+    font-size: 30px;
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  }
+}
+@media (max-width: 768px) {
+  input[type="text"] {
+    width: 300px;
+    height: 75px;
+    border-radius: 50px;
+    font-size: 20px;
+  }
+  button {
+    border-radius: 100px;
+    font-size: 20px;
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  }
+}

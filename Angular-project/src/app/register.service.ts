@@ -18,20 +18,20 @@ export class RegisterService {
       headers: httpHeaders
     };
     return this.http.post(
-      'http://localhost:8082/api/v1/register',
+      'http://13.232.19.29:8092/login/api/v1/register',
       JSON.stringify(newUser),
       options
     );
   }
   checkUserName(userName: String): Observable<any> {
     return this.http.get(
-      `http://localhost:8082/api/v1/register/check/userName/${userName}`
+      `http://13.232.19.29:8092/login/api/v1/register/check/userName/${userName}`
     );
   }
 
   checkEmail(email: String): Observable<any> {
     return this.http.get(
-      `http://localhost:8082/api/v1/register/check/email/${email}`
+      `http://13.232.19.29:8092/login/api/v1/register/check/email/${email}`
     );
   }
 }

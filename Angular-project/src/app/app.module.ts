@@ -29,8 +29,8 @@ import { VisitingCardComponent } from './portfolios/visiting-card/visiting-card.
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
-import { SkillsPortfolioComponent } from './portfolios/skills-portfolio/skills-portfolio.component';
-import { BusinessPortfolioComponent } from './portfolios/business-portfolio/business-portfolio.component';
+import { HomeComponent } from './home/home.component';
+
 // export function tokenGetter() {
 //   return localStorage.getItem('access_token');
 // }
@@ -53,12 +53,11 @@ import { BusinessPortfolioComponent } from './portfolios/business-portfolio/busi
     LoginComponent,
     PortfoliosComponent,
     VisitingCardComponent,
-    SkillsPortfolioComponent,
-    BusinessPortfolioComponent
+    HomeComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, MatDividerModule, MatListModule,
-    AppRoutingModule, HttpModule, ReactiveFormsModule, MaterialModule, MatButtonModule, MatCheckboxModule
+    BrowserModule, HttpClientModule, FormsModule,MatDividerModule,MatListModule,
+    AppRoutingModule, HttpModule, ReactiveFormsModule, MaterialModule,MatButtonModule, MatCheckboxModule
     // JwtModule.forRoot({
     //   config: {
     //     tokenGetter: tokenGetter,

@@ -28,3 +28,25 @@
     color: red;
     margin-top: -4%;
 }
+
+.list-group-item{
+  padding: 4px 0 4px 20px;
+  color: black;
+  text-align: left;
+}
+
+.list-group-item:hover{
+  color: blue;
+}
+
+.center-align > * {
+  text-align: center;
+}
+
+.center-align {
+  text-align: center;
+}
+
+.shade {
+  box-shadow: 3px 3px 5px grey;
+}

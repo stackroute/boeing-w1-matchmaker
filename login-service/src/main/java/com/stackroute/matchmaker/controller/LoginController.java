@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,11 +30,13 @@ public class LoginController {
 
 
 	private RegisterUserImpl registerUser;
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Autowired
-	public LoginController(RegisterUserImpl registerUser) {
+	public LoginController(RegisterUserImpl registerUser, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		super();
 		this.registerUser = registerUser;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 
 	@PostMapping("/login")
@@ -56,9 +59,12 @@ public class LoginController {
 
 		String pwd = user.getPassword();
 
-		if (!password.equals(pwd)) {
+//		if (!password.equals(pwd)) {
+//			throw new ServletException("Invalid login. Please check your name and password.");
+//		}
+		if (!bCryptPasswordEncoder.matches(password, pwd)) {
 			throw new ServletException("Invalid login. Please check your name and password.");
-		}
+        }
 
 		token = Jwts.builder().setSubject(username).claim("roles", "user").setIssuedAt(new Date())
 				.signWith(SignatureAlgorithm.HS256, "nogamenolife").compact();
@@ -69,5 +75,6 @@ public class LoginController {
 		
 		return new ResponseEntity<Token>(t, HttpStatus.CREATED);
 	}
+
 
 }

@@ -8,12 +8,15 @@ public class Location {
 	private String state;
 	private String country;
 	private String addressType;
+	private String message;
 
 	public Location() {
 	}
 
+	
+
 	public Location(String profileId, String address, String city, String pin, String state, String country,
-			String addressType) {
+			String addressType, String message) {
 		super();
 		this.profileId = profileId;
 		this.address = address;
@@ -22,7 +25,22 @@ public class Location {
 		this.state = state;
 		this.country = country;
 		this.addressType = addressType;
+		this.message = message;
 	}
+
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
 
 	public String getProfileId() {
 		return profileId;
@@ -80,11 +98,16 @@ public class Location {
 		this.addressType = addressType;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Location [profileId=" + profileId + ", address=" + address + ", city=" + city + ", pin=" + pin
-				+ ", state=" + state + ", country=" + country + ", addressType=" + addressType + "]";
+				+ ", state=" + state + ", country=" + country + ", addressType=" + addressType + ", message=" + message
+				+ "]";
 	}
+
+
 
 	
 	
