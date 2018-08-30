@@ -47,6 +47,7 @@ public class Receiver {
 		projectIndex.setSynopsis(projects.getSynopsis());
 		projectIndex.setTo(projects.getTo());
 		projectIndex.setUrl(projects.getUrl());
+		projectIndex.setWeight("10");
 
 		LOG.info("Parsed JSON message='{}'", projects);
 		// Target Node Type

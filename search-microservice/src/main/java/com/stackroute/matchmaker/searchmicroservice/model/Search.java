@@ -13,8 +13,5 @@ public class Search {
 	private List<String> location;
 	private List<String> organisation;
 	private List<String> years;
-	
-	
-	
-	
+
 }

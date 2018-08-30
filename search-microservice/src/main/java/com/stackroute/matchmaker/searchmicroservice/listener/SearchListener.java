@@ -29,7 +29,7 @@ public class SearchListener {
 
 	@StreamListener(SearchStream.INPUT)
 	public void searchPost(@Payload Search search) {
-		logger.info(search +"search");
+		logger.info(searchService.search(search) +"search");
 		
 
 	}
