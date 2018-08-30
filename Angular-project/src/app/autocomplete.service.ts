@@ -11,7 +11,7 @@ export class AutocompleteService {
   constructor(private httpService: HttpClient) { }
 
   searchCity(term) {
-    const listOfCities = this.httpService.get(`http://172.23.238.184:6969/api/v1/location/${term}`)
+    const listOfCities = this.httpService.get(`http://13.232.19.29:8092/autocomplete/api/v1/location/${term}`)
     .pipe(
         debounceTime(500),
         map(
@@ -27,7 +27,7 @@ export class AutocompleteService {
 
 
 searchUniversity(term) {
-    const listOfUniversities = this.httpService.get(`http://172.23.238.184:6969/api/v1/university/${term}`)
+    const listOfUniversities = this.httpService.get(`http://13.232.19.29:8092/autocomplete/api/v1/university/${term}`)
     .pipe(
         debounceTime(500),
         map(
@@ -42,7 +42,7 @@ searchUniversity(term) {
 }
 
 searchSkill(term) {
-    const listOfSkills = this.httpService.get(`http://172.23.238.184:6969/api/v1/skill/${term}`)
+    const listOfSkills = this.httpService.get(`http://13.232.19.29:8092/autocomplete/api/v1/skill/${term}`)
     .pipe(
         debounceTime(500),
         map(
@@ -57,7 +57,7 @@ searchSkill(term) {
 }
 
 searchCompany(term) {
-    const listOfCompany = this.httpService.get(`http://172.23.238.184:6969/api/v1/company/${term}`)
+    const listOfCompany = this.httpService.get(`http://13.232.19.29:8092/autocomplete/api/v1/company/${term}`)
     .pipe(
         debounceTime(500),
         map(

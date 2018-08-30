@@ -347,7 +347,7 @@ services:
     build: indexer-microservice/
     image: indexer-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1400m
     environment: 
       - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
                     -XX:+UseCGroupMemoryLimitForHeap"
@@ -422,7 +422,7 @@ services:
     image: autocomplete-service
     restart: always
     container_name: autocomplete
-    mem_limit: 1024m
+    mem_limit: 2g
     environment: 
       - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
                     -XX:+UseCGroupMemoryLimitForHeap"

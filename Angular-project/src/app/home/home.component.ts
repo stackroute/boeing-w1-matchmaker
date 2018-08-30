@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-var jquery: any;
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,31 @@ var jquery: any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  SearchResult: any = [];
+  name: any = [];
+  skills: any = [];
+  city: any = [];
+  experience: any = [];
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    (window as any).connect();
+  }
+
+  getResults(searchQuery: string) {
+    this.search(searchQuery).subscribe( data => {
+
+       this.SearchResult = data;
+       this.name[0] = this.SearchResult[0].profileId;
+       this.skills = this.SearchResult.skills;
+       this.city = this.SearchResult.city;
+       this.experience = this.SearchResult.experience;
+     });
+  }
+
+  search(searchQuery: string) {
+    console.log(searchQuery);
+    return this.http.get('http://http://13.232.19.29:8092/search/api/v1/search/' + searchQuery);
   }
 
 }
