@@ -1,27 +1,32 @@
 package com.stackroute.matchmaker.searchmicroservice.controller;
 
-import javax.annotation.PostConstruct;
+import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.matchmaker.searchmicroservice.repositories.ProfileIdRepository;
+import com.stackroute.matchmaker.searchmicroservice.model.Result;
+import com.stackroute.matchmaker.searchmicroservice.model.Search;
+import com.stackroute.matchmaker.searchmicroservice.service.SearchService;
 
 @RestController
+@CrossOrigin("*")
 public class SearchController {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-	private ProfileIdRepository searchService;
+	private SearchService searchService;
 
 	@Autowired
-	public SearchController(ProfileIdRepository searchService) {
+	public SearchController(SearchService searchService) {
 		this.searchService = searchService;
 	}
 
-	@PostConstruct
-	public void basedOnSkill() {
+	@PostMapping("/searchengine")
+	public ResponseEntity<?> searchEngine(@RequestBody Search search) {
+		return new ResponseEntity<List<Result>>(searchService.search(search), HttpStatus.OK);
 	}
 
 }
