@@ -1,4 +1,4 @@
-package com.stackroute.matchmaker.redispopulater;
+/*package com.stackroute.matchmaker.redispopulater;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,3 +14,4 @@ public class RedisPopulaterApplicationTests {
 	}
 
 }
+*/

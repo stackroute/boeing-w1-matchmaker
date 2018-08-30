@@ -1,0 +1,94 @@
+/* .parallax {
+
+    background-image: url('https://wallpaper-house.com/data/out/10/wallpaper2you_444342.jpg');
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+div {
+    display: block;
+}
+
+.bgimg-1 {
+    background-image: url('https://wallpaper-house.com/data/out/10/wallpaper2you_444342.jpg');
+    min-height: 450px;
+}
+
+.bgimg-2 {
+    background-image: url('http://getwallpapers.com/wallpaper/full/e/7/6/51241.jpg');
+    min-height: 400px;
+}
+
+.bgimg-3 {
+    background-image: url('https://images.wallpaperscraft.com/image/stars_sky_space_car_113629_1920x1080.jpg');
+    min-height: 500px;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    position: relative;
+    /* opacity: 0.65; */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.caption1, .caption2, .caption3, .caption4 {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption1{
+  top: 60%
+}
+
+.caption3{
+    top: 30%
+  }
+
+
+.caption1 span.border, .caption2 span.border, .caption3 span.border, .caption4 span.border {
+    background-color: black;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 5px;
+}
+
+.caption1 span.border:hover {
+    font-size: 26px;
+}
+
+.bgimg-1 h1{
+    font-family: 'Raleway', sans-serif;
+    font-size: 70px;
+    font-weight: 200;
+    color: white;
+    text-align: center; 
+    
+}
+
+.bgimg-1 h4{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+}
+
+h3{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+
+p{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
