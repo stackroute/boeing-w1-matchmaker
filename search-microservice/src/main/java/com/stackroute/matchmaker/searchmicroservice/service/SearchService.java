@@ -42,11 +42,11 @@ public class SearchService {
 		if (!search.getYears().isEmpty()) {
 			List<String> experince = search.getYears();
 			for (String string : experince) {
-				list.addAll(profileIdRepository.getByExperince(Integer.parseInt(string)));
+				list.addAll(profileIdRepository.getByExperience(Integer.parseInt(string)));
 			}
 		}
 		if(list.isEmpty()) {
-			list.addAll(profileIdRepository.getByExperince(5));
+			list.addAll(profileIdRepository.getByExperience(5));
 		}
 		List<Result> result = new ArrayList<>();
 		for (ProfileId profile : list) {

@@ -25,9 +25,9 @@ public interface ProfileIdRepository extends Neo4jRepository<ProfileId, String> 
 	public List<ProfileId> getByOrganisation(@Param("list") List<String> list);
 
 	@Query("MATCH (p:ProfileId)-[r:employeeOf]->(c:Company) WITH p,SUM(r.duration) AS sum  WHERE sum >= {year} RETURN p ")
-	public List<ProfileId> getByExperince(@Param("year") int year);
+	public List<ProfileId> getByExperience(@Param("year") int year);
 
-	@Query("MATCH (p:ProfileId)-[:hasSkill]->(s:Skill),(p)-[r:employeeOf]->(),(p)-[:livesIn]->(c:City) WHERE p.profileId = {profileId} RETURN p.profileId as profileId,collect(s.name) as skills,r.duration as experince,c.city as city")
+	@Query("MATCH (p:ProfileId)-[:hasSkill]->(s:Skill),(p)-[r:employeeOf]->(),(p)-[:livesIn]->(c:City) WHERE p.profileId = {profileId} RETURN p.profileId as profileId,collect(s.name) as skills,r.duration as experience,c.city as city")
 	public Result getResultSet(@Param("profileId") String profileId);
 
 }
