@@ -13,13 +13,14 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS("http://172.23.238.211:8080/gs-guide-websocket");
+    var socket = new SockJS("http://localhost:8090/search-websocket");
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/greetings', function (greeting) {
-            showGreeting(JSON.parse(greeting.body).content);
+        stompClient.subscribe('/topic/result', function (greeting) {
+            console.log(greeting);
+            showGreeting(greeting.body);
         });
     });
 }
@@ -37,6 +38,7 @@ function sendName() {
 }
 
 function showGreeting(message) {
+    console.log(message);
     $("#greetings").append("<tr><td>" + message + "</td></tr>");
 }
 
