@@ -7,15 +7,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     container_name: zuul
     network_mode: "host"
     hostname: localhost
     ports:
       - 8092:8092
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
     
@@ -25,15 +26,15 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
-    container_name: config
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8891:8891
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -43,8 +44,8 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     container_name: eureka
     network_mode: "host"
     hostname: localhost
@@ -59,8 +60,8 @@ services:
       - "2181:2181"
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     container_name: zookeeper
     hostname: localhost
@@ -75,8 +76,8 @@ services:
     container_name: kafka
     mem_limit: 1024m
     environment: 
-      -XX: +UnlockExperimentalVMOptions 
-      -XX: +UseCGroupMemoryLimitForHeap
+      JAVA_OPTS: "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_ZOOKEEPER_CONNECT: localhost:2181
@@ -85,7 +86,8 @@ services:
     network_mode: "host"
     hostname: localhost
     depends_on:
-      - zookeeper
+      zookeeper:
+        condition: healthy
     restart: always
     healthcheck:
       test: "exit 0"
@@ -97,9 +99,8 @@ services:
     container_name: mysql
     mem_limit: 500m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
-    environment:
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=register
       - MYSQL_PASSWORD=root
@@ -118,8 +119,8 @@ services:
     container_name: neo4j
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
       - NEO4J_AUTH=neo4j/12345
       - NEO4J_dbms_security_procedures_unrestricted=apoc.*
       - NEO4J_apoc_import_file_enabled=true
@@ -134,8 +135,8 @@ services:
    container_name: mongodb
    mem_limit: 200m
    environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+     - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
    volumes:
      - /my/own/datadir:/data/db
    ports:
@@ -154,15 +155,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8081:8081
     container_name: user
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0" 
 
@@ -174,16 +176,18 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8082:8082
     container_name: login
     depends_on:
-      - eureka
-      - mysql
+      eureka-service:
+        condition: healthy
+      mysql:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -194,15 +198,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8083:8083
     container_name: exp
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -212,15 +217,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8084:8084
     container_name: training
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
   
@@ -230,15 +236,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8085:8085
     container_name: academy
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -248,15 +255,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8086:8086
     container_name: location
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -266,15 +274,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8087:8087
     container_name: personal
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -284,15 +293,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8088:8088
     container_name: project
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -303,15 +313,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8089:8089
     container_name: skill
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
  
@@ -321,16 +332,18 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8090:8090
     container_name: downstream
     depends_on:
-      - mongodb
-      - eureka
+      eureka-service:
+        condition: healthy
+      mongodb:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -340,16 +353,18 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8091:8091
     container_name: indexer
     depends_on:
-      - neo4j
-      - eureka
+      eureka-service:
+        condition: healthy
+      neo4j:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -359,22 +374,18 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8999:8999
     container_name: nlp
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost:9090"]
-        interval: 50s
-        timeout: 10s
-        retries: 5
 
  search-service:
     build: search-microservice/
@@ -382,15 +393,16 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 8998:8998
     container_name: search
     depends_on:
-      - eureka
+      eureka-service:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
@@ -401,9 +413,6 @@ services:
     image: angular
     restart: always
     mem_limit: 1024m
-    environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
     container_name: Angular
     network_mode: "host"
     hostname: localhost
@@ -419,15 +428,17 @@ services:
     container_name: autocomplete
     mem_limit: 1024m
     environment: 
-      - -XX: +UnlockExperimentalVMOptions 
-      - -XX: +UseCGroupMemoryLimitForHeap
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
       - 6969:6969
     depends_on:
-      - neo4j
-      - eureka
+      eureka-service:
+        condition: healthy
+      neo4j:
+        condition: healthy
     healthcheck:
       test: "exit 0"
 
