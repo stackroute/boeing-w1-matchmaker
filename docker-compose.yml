@@ -132,7 +132,7 @@ services:
  mongodb:
    image: mongo
    container_name: mongodb
-   mem_limit: 200m
+   mem_limit: 1024m
    volumes:
      - /my/own/datadir:/data/db
    ports:
