@@ -9,6 +9,10 @@ import { VisitingCardComponent } from './portfolios/visiting-card/visiting-card.
 import { SocialMediaComponent } from './portfolios/social-media/social-media.component';
 import { HomeComponent } from './home/home.component';
 import { StartComponent } from './start/start.component';
+import { SkillPortfolioComponent } from "./portfolios/skill-portfolio/skill-portfolio.component";
+import { AboutUsComponent } from "./about-us/about-us.component";
+import { HelpComponent } from "./help/help.component";
+import { ContactComponent } from "./contact/contact.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -18,7 +22,11 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'portfolios/visiting', component: VisitingCardComponent},
   {path: 'portfolios/socialmedia', component: SocialMediaComponent},
-  {path: '', component: StartComponent}
+  {path: '', component: StartComponent},
+  { path: "portfolios/skill", component: SkillPortfolioComponent },
+  { path: "about", component: AboutUsComponent },
+  { path: "help", component: HelpComponent },
+  { path: "contact", component: ContactComponent }
   ];
 
 @NgModule({
