@@ -100,8 +100,6 @@ services:
     container_name: mysql
     mem_limit: 500m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=register
       - MYSQL_PASSWORD=root
@@ -120,8 +118,6 @@ services:
     container_name: neo4j
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
       - NEO4J_AUTH=neo4j/12345
       - NEO4J_dbms_security_procedures_unrestricted=apoc.*
       - NEO4J_apoc_import_file_enabled=true
@@ -137,9 +133,6 @@ services:
    image: mongo
    container_name: mongodb
    mem_limit: 200m
-   environment: 
-     - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
    volumes:
      - /my/own/datadir:/data/db
    ports:
