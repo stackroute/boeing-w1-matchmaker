@@ -1,7 +1,14 @@
 .profileSection {
     margin-top: 30px;
 }
+#myModal{
+    margin-top: 200px;
 
+}
+#modimg{
+    width:450px;
+    height:200px;
+}
 #addProfile {
     background: #2469d1;
     color: white;
