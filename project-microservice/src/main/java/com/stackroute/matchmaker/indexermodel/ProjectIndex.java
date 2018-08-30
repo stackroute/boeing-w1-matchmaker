@@ -15,15 +15,24 @@ public class ProjectIndex {
 	private String url;
 	private String demoURL;
 	private String skills;
+	private String weight;
 	private String message;
 
 	public ProjectIndex() {
 
 	}
 
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
 	public ProjectIndex(String profileId, String projectId, String projectAt, String role, String department,
 			String projectLocation, String projectTitle, String from, String to, String synopsis, String url,
-			String demoURL, String skills, String message) {
+			String demoURL, String skills, String weight, String message) {
 		super();
 		this.profileId = profileId;
 		this.projectId = projectId;
@@ -38,6 +47,7 @@ public class ProjectIndex {
 		this.url = url;
 		this.demoURL = demoURL;
 		this.skills = skills;
+		this.weight = weight;
 		this.message = message;
 	}
 
@@ -157,9 +167,9 @@ public class ProjectIndex {
 	public String toString() {
 		return "ProjectIndex [profileId=" + profileId + ", projectId=" + projectId + ", projectAt=" + projectAt
 				+ ", role=" + role + ", department=" + department + ", projectLocation=" + projectLocation
-				+ ", technologies=" + ", projectTitle=" + projectTitle + ", from=" + from + ", to=" + to + ", synopsis="
-				+ synopsis + ", url=" + url + ", demoURL=" + demoURL + ", skills=" + skills + ", message=" + message
-				+ "]";
+				+ ", projectTitle=" + projectTitle + ", from=" + from + ", to=" + to + ", synopsis=" + synopsis
+				+ ", url=" + url + ", demoURL=" + demoURL + ", skills=" + skills + ", weight=" + weight + ", message="
+				+ message + "]";
 	}
 
 }
