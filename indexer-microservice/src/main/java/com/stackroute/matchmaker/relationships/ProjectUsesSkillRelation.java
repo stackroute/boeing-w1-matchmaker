@@ -7,29 +7,33 @@ import org.neo4j.ogm.annotation.StartNode;
 
 import com.stackroute.matchmaker.nodes.Project;
 import com.stackroute.matchmaker.nodes.Skill;
+
 /**
  * 
  * @author syam
  *
  */
-// this is the pojo class based on which the relationships and their properties in the neo4j  are created upon
+// this is the pojo class based on which the relationships and their properties
+// in the neo4j are created upon
 @RelationshipEntity(type = "usesSkill")
-public class UsesSkillRelation {
+public class ProjectUsesSkillRelation {
 	@Id
 	private String projectProfileId;
+	private String weight;
 	@StartNode
 	private Project project;
 	@EndNode
 	private Skill skill;
 
-	public UsesSkillRelation() {
+	public ProjectUsesSkillRelation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public UsesSkillRelation(String projectProfileId, Project project, Skill skill) {
+	public ProjectUsesSkillRelation(String projectProfileId, String weight, Project project, Skill skill) {
 		super();
 		this.projectProfileId = projectProfileId;
+		this.weight = weight;
 		this.project = project;
 		this.skill = skill;
 	}
@@ -40,6 +44,14 @@ public class UsesSkillRelation {
 
 	public void setProjectProfileId(String projectProfileId) {
 		this.projectProfileId = projectProfileId;
+	}
+
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
 	}
 
 	public Project getProject() {
@@ -60,8 +72,8 @@ public class UsesSkillRelation {
 
 	@Override
 	public String toString() {
-		return "UsesSkillRelation [projectProfileId=" + projectProfileId + ", project=" + project + ", skill=" + skill
-				+ "]";
+		return "ProjectUsesSkillRelation [projectProfileId=" + projectProfileId + ", weight=" + weight + ", project=" + project
+				+ ", skill=" + skill + "]";
 	}
 
 }

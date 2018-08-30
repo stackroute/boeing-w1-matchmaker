@@ -2,18 +2,19 @@ package com.stackroute.matchmaker.nodes;
 
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
+
 /**
  * 
  * @author syam
  *
  */
-// this is the pojo class based on which the nodes and their properties in the neo4j  are created upon
+// this is the pojo class based on which the nodes and their properties in the
+// neo4j are created upon
 @NodeEntity
 public class Project {
 	@Id
 	private String projectId;
 	private String projectTitle;
-	private String projectAt;
 	private String department;
 	private String projectLocation;
 
@@ -22,12 +23,10 @@ public class Project {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Project(String projectId, String projectTitle, String projectAt, String department, String projectLocation) {
+	public Project(String projectId, String projectTitle, String department, String projectLocation) {
 		super();
 		this.projectId = projectId;
 		this.projectTitle = projectTitle;
-		this.projectAt = projectAt;
-
 		this.department = department;
 		this.projectLocation = projectLocation;
 	}
@@ -48,14 +47,6 @@ public class Project {
 		this.projectTitle = projectTitle;
 	}
 
-	public String getProjectAt() {
-		return projectAt;
-	}
-
-	public void setProjectAt(String projectAt) {
-		this.projectAt = projectAt;
-	}
-
 	public String getDepartment() {
 		return department;
 	}
@@ -74,8 +65,8 @@ public class Project {
 
 	@Override
 	public String toString() {
-		return "Project [projectId=" + projectId + ", projectTitle=" + projectTitle + ", projectAt=" + projectAt
-				+ ", department=" + department + ", projectLocation=" + projectLocation + "]";
+		return "Project [projectId=" + projectId + ", projectTitle=" + projectTitle + ", department=" + department
+				+ ", projectLocation=" + projectLocation + "]";
 	}
 
 }

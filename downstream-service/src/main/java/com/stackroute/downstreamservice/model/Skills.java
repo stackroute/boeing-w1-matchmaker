@@ -4,10 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 @Document
-@Data
 @JsonIgnoreProperties
 public class Skills {
 	private String profileId;
