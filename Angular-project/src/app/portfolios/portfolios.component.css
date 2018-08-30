@@ -1,3 +1,9 @@
+body{
+    margin-top: -20px;
+    background-image: url('https://wallpapertag.com/wallpaper/full/7/2/8/118913-full-size-white-wood-background-1920x1080.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .profileSection {
     margin-top: 80px;
 }
@@ -26,13 +32,19 @@ a {
 }
 
 .column {
-    flex: 30%;
-    max-width: 30%;
+    flex: 29%;
+    max-width: 29%;
+    margin: 10px;
+}
+
+.column2{
+    flex: 65%;
+    max-width: 65%;
     margin: 10px;
 }
 
 .column > * {
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
@@ -40,6 +52,10 @@ a {
     .column {
         flex: 40%;
         max-width: 40%;
+    }
+
+    .column > *{
+        size: 80%;
     }
 }
 
@@ -49,4 +65,10 @@ a {
         flex: 100%;
         max-width: 100%;
     }
+
+    .column > *{
+        size: 10%;
+        
+    }
 }
+
