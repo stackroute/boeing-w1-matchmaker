@@ -25,6 +25,7 @@ services:
     image: config-service
     restart: always
     mem_limit: 1024m
+    container_name: config
     environment: 
       - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
                     -XX:+UseCGroupMemoryLimitForHeap"
@@ -128,7 +129,9 @@ services:
     volumes:
       - ./plugins:/plugins
       - $HOME/neo4j/data:/data
-      - ./import:/import  
+      - ./import:/import 
+    healthcheck:
+      test: "exit 0" 
 
  mongodb:
    image: mongo
