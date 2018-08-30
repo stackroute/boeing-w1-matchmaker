@@ -4,12 +4,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 /*
  * Model for Location
  */
-@Data
 @Document
 @JsonIgnoreProperties
 public class Location {
