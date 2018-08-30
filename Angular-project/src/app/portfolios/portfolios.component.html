@@ -1,3 +1,4 @@
+<body>
 <div class="container profileSection">
   <div class="dropdown">
     <button class="btn btn-info dropdown-toggle" id="Portfolio" type="button" data-toggle="dropdown">Select Tempelates
@@ -14,15 +15,15 @@
 
   <div class="column">
     <app-visiting-card></app-visiting-card>
-    
+    <a [routerLink]="['/portfolios/socialmedia']">
+      <app-social-media></app-social-media>
+      </a>
   </div>
-  <div class="column">
-      <a [routerLink]="['/portfolios/socialmedia']">
-       <app-social-media></app-social-media>
-       </a>
+  <div class="column2">
+   <a [routerLink]="['/portfolios/skill']">
+    <app-skill-portfolio></app-skill-portfolio>
+    </a>
   </div>
-  <div class="column">
-    
-  </div>
-
+  
 </div>
+</body>

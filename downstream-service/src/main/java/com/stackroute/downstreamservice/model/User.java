@@ -7,9 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
-@Data
 @JsonIgnoreProperties
 @Document
 public class User {

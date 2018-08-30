@@ -4,9 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
 
-@Data
 @Document
 @JsonIgnoreProperties
 public class Certificates {

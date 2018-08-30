@@ -1,14 +1,7 @@
 .profileSection {
     margin-top: 30px;
 }
-#myModal{
-    margin-top: 200px;
 
-}
-#modimg{
-    width:450px;
-    height:200px;
-}
 #addProfile {
     background: #2469d1;
     color: white;
@@ -95,7 +88,7 @@ button{
     background-repeat: no-repeat;
     background-size: cover;
 
-    background-image: url('http://www.baltana.com/files/wallpapers-5/Cool-Dark-Widescreen-Wallpapers-17904.jpg');
+    background-image: url('https://avatars.mds.yandex.net/get-pdb/231404/eb784cd8-79d7-43d5-a4ff-5ab5471d0755/orig');
     min-height: 450px;
 }
 .caption1 {

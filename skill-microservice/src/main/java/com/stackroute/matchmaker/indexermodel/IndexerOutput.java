@@ -21,6 +21,8 @@ public class IndexerOutput {
 	
 	@Value("${producer.topic.name}")
 	private String topic;
+	
+	RelationshipPropertyImplementation weightage;
 
 //	private String profileId;
 //	private String mySkill;
@@ -48,7 +50,7 @@ public class IndexerOutput {
 	public void consumeJson(Skills skill) {
 
 		kafkaTemplate.send(topic,
-				new SkillIndex(skill.getProfileId(),skill.getSkill(),"50", skill.getMessage()));
+				new SkillIndex(skill.getProfileId(),skill.getSkill(),weightage.weightageAssigner(skill.getSkill()), skill.getMessage()));
 		LOG.info("Produced JSON message on indexer='{}'");
 
 	}
