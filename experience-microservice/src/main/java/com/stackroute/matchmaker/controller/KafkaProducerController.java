@@ -58,10 +58,6 @@ public class KafkaProducerController {
 		/* at present setting the relationship names */
 		relationshipName.setEmployeeOf("employeeOf");
 		relationshipName.setWasEmployeeOf("wasEmployeeOf");
-		Date date1, date2;
-		date1 = null;
-		date2 = null;
-
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate startDate = LocalDate.parse(experience.getStartDate(), formatter);
 
