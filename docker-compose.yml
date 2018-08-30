@@ -78,7 +78,7 @@ services:
     mem_limit: 1024m
     environment: 
       JAVA_OPTS: "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+                  -XX:+UseCGroupMemoryLimitForHeap"
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_ZOOKEEPER_CONNECT: localhost:2181
@@ -170,7 +170,7 @@ services:
     build: login-service/
     image: login-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 2g
     environment: 
       - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
                     -XX:+UseCGroupMemoryLimitForHeap"
