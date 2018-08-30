@@ -16,7 +16,7 @@ services:
       - 8092:8092
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
     
@@ -34,7 +34,7 @@ services:
       - 8891:8891
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -87,7 +87,7 @@ services:
     hostname: localhost
     depends_on:
       zookeeper:
-        condition: healthy
+        condition: service_healthy
     restart: always
     healthcheck:
       test: "exit 0"
@@ -164,7 +164,7 @@ services:
     container_name: user
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0" 
 
@@ -185,9 +185,9 @@ services:
     container_name: login
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
       mysql:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -207,7 +207,7 @@ services:
     container_name: exp
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -226,7 +226,7 @@ services:
     container_name: training
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
   
@@ -245,7 +245,7 @@ services:
     container_name: academy
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -264,7 +264,7 @@ services:
     container_name: location
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -283,7 +283,7 @@ services:
     container_name: personal
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -302,7 +302,7 @@ services:
     container_name: project
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -322,7 +322,7 @@ services:
     container_name: skill
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
  
@@ -341,9 +341,9 @@ services:
     container_name: downstream
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
       mongodb:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -362,9 +362,9 @@ services:
     container_name: indexer
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
       neo4j:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -383,7 +383,7 @@ services:
     container_name: nlp
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -402,7 +402,7 @@ services:
     container_name: search
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
@@ -436,9 +436,9 @@ services:
       - 6969:6969
     depends_on:
       eureka-service:
-        condition: healthy
+        condition: service_healthy
       neo4j:
-        condition: healthy
+        condition: service_healthy
     healthcheck:
       test: "exit 0"
 
