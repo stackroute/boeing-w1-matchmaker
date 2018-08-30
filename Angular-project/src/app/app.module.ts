@@ -35,7 +35,7 @@ import { SkillPortfolioComponent } from "./portfolios/skill-portfolio/skill-port
 import { AboutUsComponent } from "./about-us/about-us.component";
 import { ContactComponent } from "./contact/contact.component";
 import { HelpComponent } from "./help/help.component";
-import { SocketConnectionComponent } from './socket-connection/socket-connection.component';
+
 
 
 // export function tokenGetter() {
@@ -65,8 +65,7 @@ import { SocketConnectionComponent } from './socket-connection/socket-connection
     SkillPortfolioComponent,
     AboutUsComponent,
     ContactComponent,
-    HelpComponent,
-    SocketConnectionComponent
+    HelpComponent
   ],
   imports: [
     BrowserModule,
