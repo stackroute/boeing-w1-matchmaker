@@ -132,8 +132,8 @@ services:
  mongodb:
    image: mongo
    container_name: mongodb
-    mem_limit: 200m
-    environment: 
+   mem_limit: 200m
+   environment: 
       - -XX: +UnlockExperimentalVMOptions 
       - -XX: +UseCGroupMemoryLimitForHeap
    volumes:
