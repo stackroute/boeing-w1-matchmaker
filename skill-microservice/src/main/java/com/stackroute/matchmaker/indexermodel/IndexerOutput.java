@@ -48,9 +48,9 @@ public class IndexerOutput {
 	
 	@KafkaListener(topics = "${listener.topic.name}", groupId = "group_json", containerFactory = "skillKafkaListenerFactory")
 	public void consumeJson(Skills skill) {
-
+		String skills= skill.getSkill();
 		kafkaTemplate.send(topic,
-				new SkillIndex(skill.getProfileId(),skill.getSkill(),weightage.weightageAssigner(skill.getSkill()), skill.getMessage()));
+				new SkillIndex(skill.getProfileId(),skill.getSkill(),weightage.weightageAssigner(skills), skill.getMessage()));
 		LOG.info("Produced JSON message on indexer='{}'");
 
 	}
