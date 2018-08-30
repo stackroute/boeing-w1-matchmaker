@@ -326,7 +326,7 @@ services:
     build: downstream-service/
     image: downstream-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 2g
     environment: 
       - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
                     -XX:+UseCGroupMemoryLimitForHeap"
