@@ -12,12 +12,9 @@
         <u>Skills:</u>
       </h2>
       <h3>
-        <ul id="menu flex-container">
-          <li>Java</li>
-          <li>Angular</li>
-          <li>C++</li>
-          <li>Java</li>
-        </ul>
+         <div *ngFor="let item of UserData.skills">
+        {{item.skill}}
+        </div>
       </h3>
     </div>
   </div>
@@ -26,24 +23,32 @@
     <h2>
       <u>Projects:</u>
     </h2>
-    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia optio expedita eos inventore ea consequatur in
-      velit delectus laborum provident, id sequi excepturi autem aut veniam accusamus. Minus, aspernatur rem!</h3>
+    <h3><div *ngFor="let item of UserData.projects">
+        {{item.projectAt}}
+        {{item.role}}
+        {{item.projectTitle}}
+        </div></h3>
   </div>
   <br><br><br>
   <div class="row move">
     <h2>
       <u>Experience:</u>
     </h2>
-    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia optio expedita eos inventore ea consequatur in
-      velit delectus laborum provident, id sequi excepturi autem aut veniam accusamus. Minus, aspernatur rem!</h3>
+    <h3><div *ngFor="let item of UserData.experience">
+        {{item.organizationName}}
+        {{item.role}}
+        </div></h3>
   </div>
   <br><br><br>
   <div class="row move">
     <h2>
       <u>Trainings:</u>
     </h2>
-    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia optio expedita eos inventore ea consequatur in
-      velit delectus laborum provident, id sequi excepturi autem aut veniam accusamus. Minus, aspernatur rem!</h3>
+    <h3><div *ngFor="let item of UserData.certificates">
+        {{item.trainingName}}
+        {{item.authority}}
+        {{item.duration}}
+        </div></h3>
   </div>
 
 
