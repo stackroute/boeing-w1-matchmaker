@@ -1,11 +1,6 @@
 package com.stackroute.matchmaker.indexermodel;
 
-import com.stackroute.matchmaker.model.Skills;
-
 public class RelationshipPropertyImplementation {
-
-	private RelationshipProperty relationshipProperty;
-	private Skills skills;
 
 	public String weightageAssigner(String skill) {
 
@@ -48,7 +43,7 @@ public class RelationshipPropertyImplementation {
 			weightage = "10";
 			break;
 		case ".net":
-			weightage = "5";
+			weightage = "20";
 			break;
 		case "python":
 			weightage = "10";
