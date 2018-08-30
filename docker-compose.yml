@@ -5,11 +5,17 @@ services:
     build: zuul-apigateway/
     image: zuul-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     container_name: zuul
     network_mode: "host"
     hostname: localhost
     ports:
       - 8092:8092
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
     
@@ -17,11 +23,17 @@ services:
     build: config-service/
     image: config-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     container_name: config
     network_mode: "host"
     hostname: localhost
     ports:
       - 8891:8891
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
 
@@ -29,6 +41,10 @@ services:
     build: eureka-server/
     image: eureka-server
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     container_name: eureka
     network_mode: "host"
     hostname: localhost
@@ -41,6 +57,10 @@ services:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     container_name: zookeeper
     hostname: localhost
@@ -53,7 +73,10 @@ services:
     ports:
       - "9092:9092"
     container_name: kafka
-    environment:
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_ZOOKEEPER_CONNECT: localhost:2181
@@ -72,6 +95,10 @@ services:
     ports:
       - 3306:3306
     container_name: mysql
+    mem_limit: 500m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=register
@@ -89,7 +116,10 @@ services:
       - "7474:7474"
       - "7687:7687"
     container_name: neo4j
-    environment:
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
       - NEO4J_AUTH=neo4j/12345
       - NEO4J_dbms_security_procedures_unrestricted=apoc.*
       - NEO4J_apoc_import_file_enabled=true
@@ -101,7 +131,11 @@ services:
 
  mongodb:
    image: mongo
-   container_name: "mongodb"
+   container_name: mongodb
+    mem_limit: 200m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
    volumes:
      - /my/own/datadir:/data/db
    ports:
@@ -118,11 +152,17 @@ services:
     build: user-service/
     image: user-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8081:8081
     container_name: user
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0" 
 
@@ -132,11 +172,18 @@ services:
     build: login-service/
     image: login-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8082:8082
     container_name: login
+    depends_on:
+      - eureka
+      - mysql
     healthcheck:
       test: "exit 0"
 
@@ -145,11 +192,17 @@ services:
     build: experience-microservice/
     image: experience-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8083:8083
     container_name: exp
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
 
@@ -157,11 +210,17 @@ services:
     build: training-microservice/
     image: training-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8084:8084
     container_name: training
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
   
@@ -169,11 +228,17 @@ services:
     build: qualification-microservice/
     image: qualification-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8085:8085
     container_name: academy
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
 
@@ -181,11 +246,17 @@ services:
     build: location-microservice/
     image: location-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8086:8086
     container_name: location
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
 
@@ -193,11 +264,17 @@ services:
     build: personalinformation-microservice/
     image: personalinformation-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8087:8087
     container_name: personal
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
 
@@ -205,11 +282,17 @@ services:
     build: project-microservice/
     image: project-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8088:8088
     container_name: project
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
 
@@ -218,11 +301,17 @@ services:
     build: skill-microservice/
     image: skill-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8089:8089
     container_name: skill
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
  
@@ -230,6 +319,10 @@ services:
     build: downstream-service/
     image: downstream-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
@@ -237,6 +330,7 @@ services:
     container_name: downstream
     depends_on:
       - mongodb
+      - eureka
     healthcheck:
       test: "exit 0"
 
@@ -244,6 +338,10 @@ services:
     build: indexer-microservice/
     image: indexer-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
@@ -251,6 +349,7 @@ services:
     container_name: indexer
     depends_on:
       - neo4j
+      - eureka
     healthcheck:
       test: "exit 0"
 
@@ -258,11 +357,17 @@ services:
     build: nlp-service/
     image: nlp-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8999:8999
     container_name: nlp
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
     healthcheck:
@@ -275,11 +380,17 @@ services:
     build: search-microservice/
     image: search-service
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 8998:8998
     container_name: search
+    depends_on:
+      - eureka
     healthcheck:
       test: "exit 0"
 
@@ -289,6 +400,10 @@ services:
     build: Angular-project/
     image: angular
     restart: always
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     container_name: Angular
     network_mode: "host"
     hostname: localhost
@@ -301,13 +416,18 @@ services:
     build: autocomplete-microservice/
     image: autocomplete-service
     restart: always
+    container_name: autocomplete
+    mem_limit: 1024m
+    environment: 
+      - -XX: +UnlockExperimentalVMOptions 
+      - -XX: +UseCGroupMemoryLimitForHeap
     network_mode: "host"
     hostname: localhost
     ports:
       - 6969:6969
-    container_name: autocomplete
     depends_on:
       - neo4j
+      - eureka
     healthcheck:
       test: "exit 0"
 
