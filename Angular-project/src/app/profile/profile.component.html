@@ -2,8 +2,9 @@
   <img id="img1" class="img-fluid" src="http://www.hddesktopbackgrounds.us/backgrounds-images/1920x1080/ayhje-wallpapers-525411532-1920x1080.jpg"
     alt="background image">
 </div> -->
+
 <div class="bgimg-1"> <br><br><br><br><br><br>
-  <h1>Welcome {{name}}</h1> 
+  <h1>Welcome {{name | titlecase}}</h1> 
   <h4>Press the plus icon to start filling your profile</h4> 
   <div class="caption1 d-flex justify-content-center">
       <!-- <a [routerLink]="['/login']"><span class="border">GET STARTED</span></a> -->
@@ -36,6 +37,15 @@
   </div>
 
   <br>
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+              <h4>Press on plus icon to start filling your profile</h4>
+            </div>
+        </div>
+    </div>
+  </div>
   <div class="dropdown">
     <button mat-fab color="primary" class="btn" id="addProfile" type="button" data-toggle="dropdown"><mat-icon>add</mat-icon>
       <span class="caret"></span></button>

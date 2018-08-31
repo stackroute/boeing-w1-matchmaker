@@ -96,7 +96,7 @@ public class KafkaConsumer {
 	public void consumeJson(LocationIndex locationIndex) {
 		System.out.println("Consumed JSON Message: " + locationIndex);
 		ProfileId profileId = new ProfileId(locationIndex.getProfileId());
-		City city = new City(locationIndex.getCity());
+		City city = new City(locationIndex.getCity().toLowerCase());
 		if (locationIndex.getMessage().equals("save") || locationIndex.getMessage().contains("update")) {
 			if (locationIndex.getAddressType().equals("present")) {
 				LivesInRelation livesInRelation = new LivesInRelation(locationIndex.getProfileId(), profileId, city);
@@ -122,7 +122,7 @@ public class KafkaConsumer {
 	@KafkaListener(topics = "SkillIndexer", groupId = "group_json", containerFactory = "skillKafkaListenerFactory")
 	public void consumeJson(SkillIndex skillIndex) {
 		System.out.println("Consumed JSON Message: " + skillIndex);
-		Skill skill = new Skill(skillIndex.getSkill());
+		Skill skill = new Skill(skillIndex.getSkill().toLowerCase());
 		ProfileId profileId = new ProfileId(skillIndex.getProfileId());
 		HasSkill hasSkill = new HasSkill(skillIndex.getWeightage(), profileId, skill);
 		if (skillIndex.getMessage().equals("save") || skillIndex.getMessage().contains("update")) {
@@ -136,7 +136,7 @@ public class KafkaConsumer {
 	@KafkaListener(topics = "TrainingIndexer", groupId = "group_json", containerFactory = "trainingKafkaListenerFactory")
 	public void consumeJson(TrainingIndex trainingIndex) {
 		System.out.println("Consumed JSON Message: " + trainingIndex);
-		Skill skill = new Skill(trainingIndex.getSkills());
+		Skill skill = new Skill(trainingIndex.getSkills().toLowerCase());
 		Training training = new Training(trainingIndex.getTrainingId(), trainingIndex.getTrainingName(),
 				trainingIndex.getAuthority());
 		ProfileId profileId = new ProfileId(trainingIndex.getProfileId());
@@ -156,7 +156,7 @@ public class KafkaConsumer {
 	public void consumeJson(ExperienceIndex experienceIndex) {
 		System.out.println("Consumed JSON Message: " + experienceIndex);
 		ProfileId profileId = new ProfileId(experienceIndex.getProfileId());
-		Company company = new Company(experienceIndex.getOrganizationName());
+		Company company = new Company(experienceIndex.getOrganizationName().toLowerCase());
 		EmployeeOfRelation employeeOfRelation = new EmployeeOfRelation(experienceIndex.getRole(),
 				experienceIndex.getDuration(), profileId, company);
 		if (experienceIndex.getMessage().equals("save") || experienceIndex.getMessage().contains("update")) {
@@ -171,8 +171,8 @@ public class KafkaConsumer {
 	public void consumeJson(ProjectIndex projectIndex) {
 		System.out.println("Consumed JSON Message: " + projectIndex);
 		ProfileId profileId = new ProfileId(projectIndex.getProfileId());
-		Skill skill = new Skill(projectIndex.getSkills());
-		Company company = new Company(projectIndex.getProjectAt());
+		Skill skill = new Skill(projectIndex.getSkills().toLowerCase());
+		Company company = new Company(projectIndex.getProjectAt().toLowerCase());
 		Project project = new Project(projectIndex.getProjectId(), projectIndex.getProjectTitle(),
 				projectIndex.getDepartment(), projectIndex.getProjectLocation());
 		WorkedInRelation workedInRelation = new WorkedInRelation(projectIndex.getProjectId(), projectIndex.getRole(),
