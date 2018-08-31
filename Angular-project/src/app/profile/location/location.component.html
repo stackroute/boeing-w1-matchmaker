@@ -12,11 +12,13 @@
             <div *ngSwitchCase="'previous'">
                 <strong>Place lived</strong>
             </div>
-        </div>
+        </div> <br>
         <!-- <button (click)="getLocations()">Click</button>   -->
         <!-- <ul><li *ngFor="let loc of UserData.location">{{loc.city}}</li></ul> -->
         <ul class="list-group list-group-flush">
-  <div class="w-auto" *ngFor="let loc of UserData.location; index as i"><a href="#AddressModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{loc.city}}</a>
+  <div class="w-auto" *ngFor="let loc of UserData.location; index as i"><a href="#AddressModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{loc.city | titlecase}}
+    <br> {{loc.state}}, {{loc.country}}
+  </a>
        
     <!-- {{Locations.location[1].city}} -->
         

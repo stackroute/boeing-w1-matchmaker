@@ -10,10 +10,6 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   SearchResult: any = [];
-  name: any = [];
-  skills: any = [];
-  city: any = [];
-  experience: any = [];
 
   constructor(private http: HttpClient) { }
 
