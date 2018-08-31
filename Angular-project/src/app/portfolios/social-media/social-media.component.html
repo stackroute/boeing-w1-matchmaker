@@ -4,10 +4,11 @@
       <img class="card-img-top" src="http://penabaza.ch/blog/wp-content/uploads/2013/01/540562_365384883560835_1834278373_n.jpg" alt="Card image cap">
     </a> 
       <div class="card-body">
-        <h5 class="card-title mb-0">Vikram Hanji {{UserData.personalInfo.name}}</h5>
-        <h6><small class="card-subtitle text-muted">22 yrs, Bangalore {{UserData.personalInfo.age}}</small></h6>
-        <p class="">Some quick example text to build on the card title and make up the bulk of the card's content. Worked as ... {{UserData.experience[0].role}} at ...{{UserData.experience[0].organisationName}} and
-          knows {{UserData.skills[0].skill}}, {{UserData.skills[1].skill}}, {{UserData.skills[2].skill}}.
+        <h5 class="card-title mb-0">{{UserData.personalInfo.name}}</h5>
+        <h6><small class="card-subtitle text-muted">{{UserData.personalInfo.age}} yrs, {{UserData.location[0].city}}</small></h6>
+        <p class="">Relationship status: Single <br>
+                    Works at {{UserData.experience[0].organizationName}} <br>
+                    <a href="" style="color: blue; text-decoration: underline; font-size: 17px;">{{UserData.personalInfo.email}}</a> 
         </p>
         <a href="#" class="card-link"><i class="fa fa-facebook"></i></a>
         <a href="#" class="card-link"><i class="fa fa-github"></i></a>

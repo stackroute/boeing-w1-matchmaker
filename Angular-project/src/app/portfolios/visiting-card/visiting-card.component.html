@@ -1,26 +1,22 @@
 <div class="visiting d-flex justify-content-center">
-<div class="card" style="width: 18rem;">
+ <div class="card" style="width: 18rem;">
   <a [routerLink]="['/portfolios/visiting']">
    <img class="card-img-top" src="https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/02/28/Pictures/monaco-sport-award-laureus_f1cae27c-1c42-11e8-98c0-31c951fae3be.jpg" alt="Card image cap">
   </a>
   <div class="card-body">
-    <h5 class="card-title mb-0">Vikram Hanji {{UserData.personalInfo.name}}</h5>
-    <h6><small class="card-subtitle text-muted">Full Stack developer at Boeing</small></h6>
-    <p class="">Some quick example text to build on the card title and make up the bulk of the card's content. Worked as ... {{UserData.experience[0].role}} at ...{{UserData.experience[0].organisationName}} and
-      knows {{UserData.skills[0].skill}}, {{UserData.skills[1].skill}}, {{UserData.skills[2].skill}}.
-    </p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a> 
+    <h5 class="card-title mb-0">{{UserData.personalInfo.name}}</h5>
+    <h6><small class="card-subtitle text-muted">{{UserData.experience[0].role}} at {{UserData.experience[0].organizationName}}</small></h6>
+    <p class=""> Contact no.: {{UserData.personalInfo.mobile}} <br>
+                 Date of Birth: {{UserData.personalInfo.dob}} <br>
+                 Knows {{UserData.skills[0].skill}}, {{UserData.skills[1].skill}}, {{UserData.skills[2].skill}}.  <br>
+                 Qualification: {{UserData.academics[0].qualification}}   <br>
+                 Institute Name: {{UserData.academics[0].instituteName}}  <br>
+                 Year of Completion: {{UserData.academics[0].yearOfCompletion}}  <br>
+                 Marks: {{UserData.academics[0].marks}}  <br>
+                </p> 
+    <a href="#" class="card-link">Send mail</a>
+    <a href="#" class="card-link" [routerLink]="'/profile'">See Profile</a> 
   </div>
-  <!-- <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul> -->
-  <!-- <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div> -->
+ </div> 
 </div>
-
 <br>
