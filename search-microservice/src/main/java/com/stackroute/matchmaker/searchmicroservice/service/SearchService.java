@@ -51,18 +51,31 @@ public class SearchService {
 		if (list.isEmpty()) {
 			list.addAll(profileIdRepository.getByExperience(5));
 		}
+		String check;
 		List<Result> result = new ArrayList<>();
 		for (ProfileId profile : list) {
 			Result resultProfile = new Result();
 			resultProfile.setProfileId(profile.getProfileId());
-			resultProfile.setSkills(profileIdRepository.getSkill(profile.getProfileId()));
-			resultProfile.setExperience(profileIdRepository.getDuration(profile.getProfileId()));
-			resultProfile.setCity(profileIdRepository.getCity(profile.getProfileId()));
+			List<String> listOfSkills = profileIdRepository.getSkill(profile.getProfileId());
+			if (listOfSkills.isEmpty()) {
+				listOfSkills.add(" ");
+			}
+			resultProfile.setSkills(listOfSkills);
+			check = profileIdRepository.getDuration(profile.getProfileId());
+			resultProfile.setExperience(checkNull(check));
+			check = profileIdRepository.getCity(profile.getProfileId());
+			resultProfile.setCity(checkNull(check));
 			result.add(resultProfile);
 		}
 		logger.info(result + "Result Set");
 		return result;
 
+	}
+
+	private String checkNull(String check) {
+		if (check == null)
+			return "";
+		return check;
 	}
 
 }
