@@ -14,7 +14,10 @@ export class AppComponent implements OnInit {
   private user_check = false;
   profile: String;
   constructor(private authenticationService: AuthenticationService, private router: Router) {
-
+    authenticationService.getLoggedInName.subscribe(() => {
+      console.log('hi');
+      this.ngOnInit();
+    });
   }
   ngOnInit() {
   if (localStorage.getItem('currentUser') != null) {
@@ -22,6 +25,7 @@ export class AppComponent implements OnInit {
     this.profile = JSON.parse(localStorage.getItem('currentUser'));
   }
   }
+
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
