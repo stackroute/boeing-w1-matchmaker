@@ -78,6 +78,6 @@ public class NlpController {
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<Search> entity = new HttpEntity<>(search, headers);
 
-		return restTemplate.exchange(url, HttpMethod.POST, entity, List.class);
+		return restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 	}
 }
