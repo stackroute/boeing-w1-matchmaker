@@ -1,4 +1,5 @@
-package com.stackroute.matchmaker.config;
+package com.stackroute.matchmaker.searchmicroservice.config;
+
 import static springfox.documentation.builders.PathSelectors.regex;
 
 import org.springframework.context.annotation.Bean;
@@ -17,7 +18,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
    @Bean
    public Docket productApi() {
        return new Docket(DocumentationType.SWAGGER_2)
-               .select()                 .apis(RequestHandlerSelectors.basePackage("com.stackroute.matchmaker.controller"))
+               .select()                 .apis(RequestHandlerSelectors.basePackage("com.stackroute.matchmaker.searchmicroservice.controller"))
                .paths(regex("/api.*"))
                .build();
            
