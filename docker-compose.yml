@@ -105,7 +105,7 @@ services:
       - MYSQL_PASSWORD=root
       - MYSQL_USER=root
     volumes:
-      - datavolume:/var/lib/mysql
+      - /opt/data:/var/lib/mysql
     network_mode: "host"
     hostname: localhost
     restart: always
