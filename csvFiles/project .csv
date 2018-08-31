@@ -1,0 +1,9 @@
+id,name,role,to,from,parentName,parentType,projectOf
+1,EarnYourGrub,Android developer,05/2015,07/2015,SimranNarang,Profile,eastern tecno solutions
+2,MatchMaking,Program Analyst,08/2018,09/2018,AnshShah,Profile,boeing
+3,Project 3,backend developer,09/2016,09/2017,SaiReddy,Profile,zomato
+4,Project 4,frontend,09/2017,07/2018,SaiReddy,Profile,zomato
+5,Project 5,Full stack developer,09/2016,09/2017,Mani,Profile,apple
+6,Project 6,backend developer,09/2016,09/2017,JoeAbrahim,Profile,microsoft
+7,Project 7,Full stack developer,09/2015,09/2016,Mani,Profile,amazon
+8,Project 8,backend developer,09/2015,09/2017,JoeAbrahim,Profile,dell
