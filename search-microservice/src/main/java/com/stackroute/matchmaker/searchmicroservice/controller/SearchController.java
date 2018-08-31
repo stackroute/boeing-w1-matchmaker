@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.stackroute.matchmaker.searchmicroservice.model.Result;
 import com.stackroute.matchmaker.searchmicroservice.model.Search;
 import com.stackroute.matchmaker.searchmicroservice.service.SearchService;
-
+/**
+ * 
+ * @author simran
+ *
+ */
 @RestController
 @CrossOrigin("*")
 public class SearchController {
