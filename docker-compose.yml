@@ -119,7 +119,6 @@ services:
     mem_limit: 1024m
     environment: 
       - NEO4J_AUTH=neo4j/12345
-#      - NEO4J_AUTH=neo4j/12345
 #      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
 #      - NEO4J_apoc_import_file_enabled=true
 #      - NEO4J_dbms_shell_enabled=true
@@ -439,4 +438,21 @@ services:
     healthcheck:
       test: "exit 0"
 
+ prometheus:
+    ports:
+    - "9099:9090"
+    volumes:
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+    - '--config.file=/etc/prometheus/prometheus.yml'
+    image: prom/prometheus
+
+ grafana:
+    ports:
+    - "3000:3000"
+    volumes:
+    - /var/lib/grafana
+    links:
+    - prometheus
+    image: grafana/grafana
 

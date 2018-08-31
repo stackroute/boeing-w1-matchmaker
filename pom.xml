@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
-	
+
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute</groupId>
@@ -17,6 +18,18 @@
 		<!-- <relativePath/> lookup parent from repository -->
 	</parent>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+	</dependencies>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
@@ -28,19 +41,19 @@
 		<module>eureka-server</module>
 		<module>user-service</module>
 		<module>zuul-apigateway</module>
-                <module>login-service</module>
+		<module>login-service</module>
 		<module>experience-microservice</module>
-        	<module>location-microservice</module>
-        	<module>project-microservice</module>
-        	<module>personalinformation-microservice</module>
-        	<module>training-microservice</module>
+		<module>location-microservice</module>
+		<module>project-microservice</module>
+		<module>personalinformation-microservice</module>
+		<module>training-microservice</module>
 		<module>skill-microservice</module>
 		<module>qualification-microservice</module>
 		<module>downstream-service</module>
 		<module>indexer-microservice</module>
-                <module>nlp-service</module>
-                <module>search-microservice</module>
-                <module>autocomplete-microservice</module>
-                
-       </modules>
+		<module>nlp-service</module>
+		<module>search-microservice</module>
+		<module>autocomplete-microservice</module>
+
+	</modules>
 </project>
