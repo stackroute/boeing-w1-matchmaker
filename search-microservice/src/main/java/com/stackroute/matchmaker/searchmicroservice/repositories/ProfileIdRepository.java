@@ -20,11 +20,14 @@ public interface ProfileIdRepository extends Neo4jRepository<ProfileId, String> 
 			+ " UNION MATCH (s:Skill)<-[:partWholeOf]-()<-[:hasSkill]-(p) WHERE s.name IN {list} return p ")
 	public List<ProfileId> getBySkill(@Param("list") List<String> list);
 
+	@Query("MATCH (s:Skill)-[:sameAs]-()<-[:hasSkill]-(p) WHERE s.name IN {list} RETURN p ")
+	public List<ProfileId> getBySameSkill(@Param("list") List<String> list);
+
 	@Query("MATCH (p:ProfileId)-[r:livedIn]->(c:City) WHERE c.city IN {list} RETURN p "
-			+ "UNION MATCH (p:ProfileId)-[s:livesIn]->(c:city) WHERE c.city IN {list} RETURN p ")
+			+ "UNION MATCH (p:ProfileId)-[s:livesIn]->(c:City) WHERE c.city IN {list} RETURN p ")
 	public List<ProfileId> getByLocation(@Param("list") List<String> list);
 
-	@Query("MATCH (p:ProfileId)-[r:employeeOf]->(c:Company) WHERE c.name IN {list} RETURN p ")
+	@Query("MATCH (p:ProfileId)-[r:employeeOf]->(c:Company) WHERE c.organisationName IN {list} RETURN p ")
 	public List<ProfileId> getByOrganisation(@Param("list") List<String> list);
 
 	@Query("MATCH (p:ProfileId)-[r:employeeOf]->(c:Company) WITH p,SUM(toInteger(r.duration)) AS sum  WHERE sum >= {year} RETURN p ")
