@@ -23,7 +23,7 @@
                     <div class="card-header d-flex">
                       <h3 style="flex-grow: 20">Project</h3>
                       <a href="#UpdateProjectModal-{{i}}" data-toggle="modal"><i class="material-icons">mode_edit</i></a> &nbsp;
-                      <a (click)="delete(i)" data-dismiss="modal"><i class="material-icons">delete</i></a>
+                      <a (click)="delete(i)" data-dismiss="modal"><i class="material-icons" style="color: red;">delete</i></a>
                     </div> 
                     <div class="card-body">   
                            
@@ -129,7 +129,7 @@
               </mat-form-field>
      
               <hr>
-              <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+              <button class="btn btn-warning susbmitbtn" type="submit">Update</button> &nbsp;&nbsp;
             </form>
           </div>
         <!-- end modal-body -->

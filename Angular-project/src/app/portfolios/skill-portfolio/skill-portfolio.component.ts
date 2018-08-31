@@ -16,6 +16,7 @@ export class SkillPortfolioComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.getVisitingCard();
   }
 
   getVisitingCard() {

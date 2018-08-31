@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   search(searchQuery: string) {
     console.log(searchQuery);
     console.log('hello world');
-    return this.http.get('http://http://13.232.19.29:8092/search/api/v1/search/' + searchQuery);
+    return this.http.get('http://13.232.19.29:8092/search/api/v1/search/' + searchQuery);
   }
 
 }
