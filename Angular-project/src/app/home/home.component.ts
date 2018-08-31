@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
     this.search(searchQuery).subscribe( data => {
 
        this.SearchResult = data;
+       console.log(this.SearchResult);
        this.name[0] = this.SearchResult[0].profileId;
        this.skills = this.SearchResult.skills;
        this.city = this.SearchResult.city;
