@@ -5,8 +5,8 @@
 
       <ul class="list-group list-group-flush">
         <div class="w-auto" *ngFor="let item of UserData.experience; index as i">
-          <a href="#ExperienceModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.role}}
-              <br>at {{item.organizationName}}
+          <a href="#ExperienceModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.role | titlecase}}
+              <br>at {{item.organizationName | titlecase}}
           </a>
 
 
