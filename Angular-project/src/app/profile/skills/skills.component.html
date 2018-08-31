@@ -3,7 +3,8 @@
     <div class="card-header text-primary border-light">Skills</div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
-          <div class="w-auto" *ngFor="let item of UserData.skills; index as i"><a href="#SkillsModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.skill}}</a>
+          <div class="w-auto" *ngFor="let item of UserData.skills; index as i"><a href="#SkillsModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.skill}} <span class="badge badge-secondary"> 
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.level}}</span></a>
                     
 
 <div class="modal fade" id="SkillsModal-{{i}}">
