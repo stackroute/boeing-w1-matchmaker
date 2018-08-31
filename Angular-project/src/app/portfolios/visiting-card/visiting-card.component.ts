@@ -15,12 +15,12 @@ export class VisitingCardComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.getVisitingCard();
   }
 
   getVisitingCard() {
     this.get().subscribe( data => {
        this.UserData = data;
-
     });
   }
 
