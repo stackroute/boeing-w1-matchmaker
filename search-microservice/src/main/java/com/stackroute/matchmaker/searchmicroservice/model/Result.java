@@ -15,7 +15,7 @@ import lombok.Data;
 public class Result {
 	private String profileId;
 	private List<String> skills;
-	private int experience;
+	private long experience;
 	private String city;
 
 }
