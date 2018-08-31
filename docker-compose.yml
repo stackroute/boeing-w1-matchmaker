@@ -28,7 +28,7 @@ services:
     build: config-service/
     image: config-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 2g
     container_name: config
     environment: 
       - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
@@ -293,7 +293,7 @@ services:
     build: project-microservice/
     image: project-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1500m
     environment: 
       - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
                     -XX:+UseCGroupMemoryLimitForHeap"
