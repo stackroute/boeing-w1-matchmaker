@@ -1,4 +1,4 @@
-child,parent
+parent,child
 html,frontend 
 css,frontend 
 javascript,frontend 
@@ -229,3 +229,20 @@ postgresql,database
 rethink db,database
 sql,database
 T-sql,database
+java,backend
+php,backend
+javascript,backend
+ruby,backend
+c#,backend
+c++,backend
+c,backend
+python,backend
+scala,backend
+golang,backend
+clojure,functional programming
+elixir,functional programming
+elm,functional programming
+erlang,functional programming
+haskell,functional programming
+idris,functional programming
+ocaml,functional programming
