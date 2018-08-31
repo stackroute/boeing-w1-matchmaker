@@ -1,0 +1,6 @@
+{   "name":"Prometheus",
+    "type":"prometheus",
+    "url":"http://localhost:9099",
+    "access":"direct",
+    "basicAuth":false
+}  

@@ -1,5 +1,9 @@
 version: '2.1'
 
+volumes:
+   prometheus_data: {}
+   grafana_data: {}
+
 services:
  zuul-service:
     build: zuul-apigateway/
@@ -443,18 +447,33 @@ services:
  prometheus:
     ports:
     - "9099:9090"
-    volumes:
-    - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    command:
-    - '--config.file=/etc/prometheus/prometheus.yml'
+   volumes:
+   - ./prometheus.yml:/etc/prometheus/prometheus.yml
+   - ./prometheus/:/etc/prometheus/
+   - prometheus_data:/prometheus
+   command:
+   - '--config.file=/etc/prometheus/prometheus.yml'
+   - '--storage.tsdb.path=/prometheus'
+   - '--web.console.libraries=/etc/prometheus/console_libraries'
+   - '--web.console.templates=/etc/prometheus/consoles'
+   - '--storage.tsdb.retention=200h'
+   - '--web.enable-lifecycle'
     image: prom/prometheus
     container_name: prometheus
 
  grafana:
     ports:
     - "3000:3000"
-    volumes:
-    - /var/lib/grafana
+     volumes:
+     - grafana_data:/var/lib/grafana
+     - ./grafana/datasources:/etc/grafana/datasources
+     - ./grafana/dashboards:/etc/grafana/dashboards
+     - ./grafana/setup.sh:/setup.sh
+   entrypoint: /setup.sh
+   environment:
+     - GF_SECURITY_ADMIN_USER=admin
+     - GF_SECURITY_ADMIN_PASSWORD=admin
+     - GF_USERS_ALLOW_SIGN_UP=false
     links:
     - prometheus
     image: grafana/grafana
