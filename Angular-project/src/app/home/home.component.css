@@ -1,3 +1,19 @@
+body{
+  margin-top: -20px;
+  background-image: url('http://wallfic.com/wp-content/uploads/2018/01/Dark-Wallpaper-For-Walls-Hd-High-Resolution-Wood-Desktop-Pc.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+}
+
+.container h5, .container p, .container small{
+ color: azure;
+}
+
+.list-group > *{
+  background: transparent;
+}
+
 form {
   margin-top: 150px;
   margin-bottom: 150px;
