@@ -7,141 +7,139 @@ scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['prometheus:9099']
+      - targets: ['10.0.5.171:9099']
 
   - job_name: 'grafana'
     static_configs:
-      - targets: ['grafana:3000']
+      - targets: ['10.0.5.171:3000']
 
   - job_name: 'zuul-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['zuul-service:8092']
+    - targets: ['10.0.5.171:8092']
 
   - job_name: 'config-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['config-service:8891']
-
-
+    - targets: ['10.0.5.171:8891']
 
   - job_name: 'zookeeper'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['zookeeper:2181']
+    - targets: ['10.0.5.171:2181']
 
   - job_name: 'kafka'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['kafka:9092']
+    - targets: ['10.0.5.171:9092']
 
   - job_name: 'mysql'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['mysql:3306']
+    - targets: ['10.0.5.171:3306']
 
   - job_name: 'neo4j'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['neo4j:7474','neo4j:7687']
+    - targets: ['10.0.5.171:7474','10.0.5.171:7687']
 
   - job_name: 'mongodb'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['mongodb:27017']
+    - targets: ['10.0.5.171:27017']
 
   - job_name: 'user-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['user-service:8081']
+    - targets: ['10.0.5.171:8081']
 
   - job_name: 'login-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['login-service:8082']
+    - targets: ['10.0.5.171:8082']
 
 
   - job_name: 'training-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['training-service:8084']
+    - targets: ['10.0.5.171:8084']
 
   - job_name: 'qual-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['qual-service:8085']
+    - targets: ['10.0.5.171:8085']
 
   - job_name: 'experience-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['experience-service:8083']
+    - targets: ['10.0.5.171:8083']
 
   - job_name: 'location-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['location-service:8086']
+    - targets: ['10.0.5.171:8086']
 
   - job_name: 'personalinformation-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['personalinformation-service:8087']
+    - targets: ['10.0.5.171:8087']
 
   - job_name: 'project-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['project-service:8088']
+    - targets: ['10.0.5.171:8088']
 
   - job_name: 'skill-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['skill-service:8089']
+    - targets: ['10.0.5.171:8089']
 
   - job_name: 'downstream-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['downstream-service:8090']
+    - targets: ['10.0.5.171:8090']
 
 
   - job_name: 'index-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['index-service:8091']
+    - targets: ['10.0.5.171:8091']
 
 
   - job_name: 'nlp-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['nlp-service:8999']
+    - targets: ['10.0.5.171:8999']
 
 
   - job_name: 'search-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['search-service:8998']
+    - targets: ['10.0.5.171:8998']
 
 
   - job_name: 'autocomplete-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['autocomplete-service:6969']
+    - targets: ['10.0.5.171:6969']

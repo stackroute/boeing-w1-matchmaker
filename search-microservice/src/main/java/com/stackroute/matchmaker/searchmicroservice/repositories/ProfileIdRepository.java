@@ -27,7 +27,7 @@ public interface ProfileIdRepository extends Neo4jRepository<ProfileId, String> 
 			+ "UNION MATCH (p:ProfileId)-[s:livesIn]->(c:City) WHERE c.city IN {list} RETURN p ")
 	public List<ProfileId> getByLocation(@Param("list") List<String> list);
 
-	@Query("MATCH (p:ProfileId)-[r:employeeOf]->(c:Company) WHERE c.organisationName IN {list} RETURN p ")
+	@Query("MATCH (p:ProfileId)-[r:employeeOf]->(c:Company) WHERE c.organizationName IN {list} RETURN p ")
 	public List<ProfileId> getByOrganisation(@Param("list") List<String> list);
 
 	@Query("MATCH (p:ProfileId)-[r:employeeOf]->(c:Company) WITH p,SUM(toInteger(r.duration)) AS sum  WHERE sum >= {year} RETURN p ")
