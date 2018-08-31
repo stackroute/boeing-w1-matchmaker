@@ -17,14 +17,26 @@ form {
 }
 @media (max-width: 768px) {
   input[type="text"] {
-    width: 300px;
-    height: 75px;
+    width: 230px;
+    height: 50px;
     border-radius: 10px;
     font-size: 20px;
   }
   button {
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 15px;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  }
+}
+@media (max-width: 375px) {
+  input[type="text"] {
+    width: 200px;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  button {
+    border-radius: 10px;
+    font-size: 15px;
     background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
   }
 }
