@@ -22,9 +22,8 @@ export class HomeComponent implements OnInit {
 
   getResults(searchQuery: string) {
     this.search(searchQuery).subscribe( data => {
-
        this.SearchResult = data;
-       console.log(this.SearchResult);
+       console.log(this.SearchResult[0].city);
        this.name[0] = this.SearchResult[0].profileId;
        this.skills = this.SearchResult.skills;
        this.city = this.SearchResult.city;
@@ -34,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   search(searchQuery: string) {
     console.log(searchQuery);
-    console.log('hello world');
+    console.log('hello world mnm');
     return this.http.get('http://http://13.232.19.29:8092/search/api/v1/search/' + searchQuery);
   }
 

@@ -23,7 +23,7 @@
 		</ul>
 		<form class="form-inline mx-auto">
 			<input class="form-control" type="text" placeholder="Search" aria-label="Search">
-			<button class="btn btn-md my-0 ml-sm-2" [routerLink]="['/home']" type="submit"  style="color:white;font-weight: bold">Search</button>
+			<button class="btn btn-md my-0 ml-sm-2" [routerLink]="['/home']" type="submit" style="color:white;font-weight: bold">Search</button>
 		</form>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item">
@@ -37,17 +37,17 @@
 					<i class="fa fa-gear"></i> Settings</a>
 			</li>
 			<div *ngIf="user_check">
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
-				 aria-expanded="true">
-					<i class="fa fa-user"></i> Profile </a>
-				<div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-					<a class="dropdown-item waves-effect waves-light" [routerLink]="['/profile']">Settings</a>
-					<a class="dropdown-item waves-effect waves-light" [routerLink]="['/profile']">{{profile}}</a>
-					<a class="dropdown-item waves-effect waves-light" [routerLink]="['']" (click)="logout()">Log out</a>
-				</div>
-			</li>
-		</div>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
+					 aria-expanded="true">
+						<i class="fa fa-user"></i> Profile </a>
+					<div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+						<a class="dropdown-item waves-effect waves-light" [routerLink]="['/profile']">Settings</a>
+						<a class="dropdown-item waves-effect waves-light" [routerLink]="['/profile']">{{profile}}</a>
+						<a class="dropdown-item waves-effect waves-light" [routerLink]="['']" (click)="logout()">Log out</a>
+					</div>
+				</li>
+			</div>
 		</ul>
 	</div>
 </nav>
@@ -163,27 +163,27 @@
 				<div class="mb-5 flex-center">
 
 					<!-- Facebook -->
-					<a class="fb-ic">
+					<a class="fb-ic" href="https://www.facebook.com/" target="_blank">
 						<i class="fa fa-facebook fa-lg white-text mr-4"> </i>
 					</a>
 					<!-- Twitter -->
-					<a class="tw-ic">
+					<a class="tw-ic" href="https://twitter.com/login?lang=en" target="_blank">
 						<i class="fa fa-twitter fa-lg white-text mr-4"> </i>
 					</a>
 					<!-- Google +-->
-					<a class="gplus-ic">
+					<a class="gplus-ic" href="https://plus.google.com/" target="_blank">
 						<i class="fa fa-google-plus fa-lg white-text mr-4"> </i>
 					</a>
 					<!--Linkedin -->
-					<a class="li-ic">
+					<a class="li-ic" href="https://in.linkedin.com/" target="_blank">
 						<i class="fa fa-linkedin fa-lg white-text mr-4"> </i>
 					</a>
 					<!--Instagram-->
-					<a class="ins-ic">
+					<a class="ins-ic" href="https://www.instagram.com/" target="_blank">
 						<i class="fa fa-instagram fa-lg white-text mr-4"> </i>
 					</a>
 					<!--Pinterest-->
-					<a class="pin-ic">
+					<a class="pin-ic" href="https://in.pinterest.com/" target="_blank">
 						<i class="fa fa-pinterest fa-lg white-text"> </i>
 					</a>
 
@@ -200,7 +200,7 @@
 
 	<!-- Copyright -->
 	<div class="footer-copyright text-center py-3">© 2018 Copyright:
-		<a href="http://localhost:4200/"> Matchify.com</a>
+		<a [routerLink]="['/']"> Matchify.com</a>
 	</div>
 	<!-- Copyright -->
 

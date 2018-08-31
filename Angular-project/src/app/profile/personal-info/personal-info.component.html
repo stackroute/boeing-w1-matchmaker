@@ -10,9 +10,9 @@
       <br> Contact no.: {{UserData.personalInfo.mobile}}
       <br> Email: {{UserData.personalInfo.email}}   
      
-  <a href="#PIModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">See More</a>
+  <a href="#PIModal" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">See More</a>
 
-  <div class="modal fade" id="PIModal-{{i}}">
+  <div class="modal fade" id="PIModal">
     <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
@@ -187,7 +187,7 @@
               <input matInput placeholder="find me on Github" type="url" [(ngModel)]="newPost_PI.github" name="github">
             </mat-form-field>
             <hr>
-            <input class="btn btn-primary susbmitbtn" type="submit" value="ADD" disabled />
+            <input class="btn btn-primary susbmitbtn" type="submit" value="ADD"/>
           </form>
         </div>
       <!-- end modal-body -->
