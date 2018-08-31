@@ -7,11 +7,11 @@ scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['13.232.19.29:8092/prometheus']
+      - targets: ['13.232.19.29:9099']
 
   - job_name: 'grafana'
     static_configs:
-      - targets: ['13.232.19.29:8092/grafana']
+      - targets: ['13.232.19.29:3000']
 
   - job_name: 'experience-microservice'
     metrics_path: '/actuator/prometheus'
