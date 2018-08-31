@@ -7,29 +7,29 @@ scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['13.232.19.29:9099']
+      - targets: ['13.232.19.29:8092/prometheus']
 
   - job_name: 'grafana'
     static_configs:
-      - targets: ['13.232.19.29:3000']
+      - targets: ['13.232.19.29:8092/grafana']
 
-  - job_name: 'experience-service'
+  - job_name: 'experience-microservice'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8083']
+    - targets: ['13.232.19.29:8092/experience']
 
   - job_name: 'zuul-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8092']
+    - targets: ['13.232.19.29:8092/api-gateway']
 
   - job_name: 'config service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8891']
+    - targets: ['13.232.19.29:8092/configserver']
 
   - job_name: 'eureka-service'
     metrics_path: '/actuator/prometheus'
@@ -71,81 +71,81 @@ scrape_configs:
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8081']
+    - targets: ['13.232.19.29:8092/matchmaker']
 
   - job_name: 'login-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8082']
+    - targets: ['13.232.19.29:8092/login']
 
 
   - job_name: 'training-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8084']
+    - targets: ['13.232.19.29:8092/training']
 
   - job_name: 'qualification-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8085']
+    - targets: ['13.232.19.29:8092/qualification']
 
   - job_name: 'location-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8086']
+    - targets: ['13.232.19.29:8092/location']
 
   - job_name: 'personalinfo-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8087']
+    - targets: ['13.232.19.29:8092/personalinfo']
 
   - job_name: 'project-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8088']
+    - targets: ['13.232.19.29:8092/project']
 
   - job_name: 'skill-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8089']
+    - targets: ['13.232.19.29:8092/skill']
 
   - job_name: 'downstream-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8090']
+    - targets: ['13.232.19.29:8092/downstream']
 
 
   - job_name: 'indexer-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8091']
+    - targets: ['13.232.19.29:8092/indexer']
 
 
   - job_name: 'nlp-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8999']
+    - targets: ['13.232.19.29:8092/nlp']
 
 
   - job_name: 'search-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:8998']
+    - targets: ['13.232.19.29:8092/search']
 
 
   - job_name: 'autocomplete-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['13.232.19.29:6969']
+    - targets: ['13.232.19.29:8092/autocomplete']
