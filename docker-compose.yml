@@ -389,7 +389,7 @@ services:
     build: search-microservice/
     image: search-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1600m
     environment: 
       - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
                     -XX:+UseCGroupMemoryLimitForHeap"
@@ -448,6 +448,7 @@ services:
     command:
     - '--config.file=/etc/prometheus/prometheus.yml'
     image: prom/prometheus
+    container_name: prometheus
 
  grafana:
     ports:
@@ -457,4 +458,5 @@ services:
     links:
     - prometheus
     image: grafana/grafana
+    container_name: grafana
 
