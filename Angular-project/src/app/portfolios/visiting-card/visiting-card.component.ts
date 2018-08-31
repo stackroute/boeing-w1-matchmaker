@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserLocation } from '../../userLocation';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -11,7 +10,6 @@ import { Observable } from 'rxjs';
 export class VisitingCardComponent implements OnInit {
 
   UserData: any = [];
-  loc = new UserLocation();
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
