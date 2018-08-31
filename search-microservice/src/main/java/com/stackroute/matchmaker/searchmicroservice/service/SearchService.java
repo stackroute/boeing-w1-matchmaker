@@ -34,22 +34,27 @@ public class SearchService {
 		Set<ProfileId> list = new HashSet<>();
 		if (!search.getSkill().isEmpty()) {
 			list.addAll(profileIdRepository.getBySkill(search.getSkill()));
+			list.addAll(profileIdRepository.getBySameSkill(search.getSkill()));
+			logger.info(profileIdRepository.getBySkill(search.getSkill())+"Skill result");
 		}
 		if (!search.getLocation().isEmpty()) {
 			list.addAll(profileIdRepository.getByLocation(search.getLocation()));
+			logger.info("Location RESULT"+profileIdRepository.getByLocation(search.getLocation()));
 		}
 		if (!search.getOrganisation().isEmpty()) {
 			list.addAll(profileIdRepository.getByOrganisation(search.getOrganisation()));
+			logger.info("ORGANISATION RESULT"+profileIdRepository.getByOrganisation(search.getOrganisation()));
+			
 		}
 
 		if (!search.getYears().isEmpty()) {
 			List<String> experince = search.getYears();
 			for (String string : experince) {
 				list.addAll(profileIdRepository.getByExperience(Integer.parseInt(string)));
+				logger.info("EXPERINCE RESULT"+profileIdRepository.getByExperience(Integer.parseInt(string)));
+				
 			}
-		}
-		if (list.isEmpty()) {
-			list.addAll(profileIdRepository.getByExperience(5));
+			
 		}
 		String check;
 		List<Result> result = new ArrayList<>();
