@@ -36,8 +36,8 @@ public interface ProfileIdRepository extends Neo4jRepository<ProfileId, String> 
 	@Query("MATCH (p:ProfileId)-[:hasSkill]->(s:Skill) WHERE p.profileId = {profileId} RETURN collect(s.name)")
 	public List<String> getSkill(@Param("profileId") String profileId);
 
-	@Query("MATCH (p:ProfileId)-[r:employeeOf]->() WITH p,SUM(toInteger(r.duration)) as sum WHERE p.profileId = {profileId} RETURN sum")
-	public long getDuration(@Param("profileId") String profileId);
+	@Query("MATCH (p:ProfileId)-[r:employeeOf]->() WITH p,SUM(toInteger(r.duration)) as sum WHERE p.profileId = {profileId} RETURN toInteger(sum)")
+	public int getDuration(@Param("profileId") String profileId);
 
 	@Query("MATCH (p:ProfileId)-[:livesIn]->(c:City) WHERE p.profileId = {profileId} RETURN c.city")
 	public String getCity(@Param("profileId") String profileId);
