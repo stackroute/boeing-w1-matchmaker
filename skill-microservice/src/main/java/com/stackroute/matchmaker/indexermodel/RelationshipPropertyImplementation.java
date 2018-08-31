@@ -1,5 +1,8 @@
 package com.stackroute.matchmaker.indexermodel;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class RelationshipPropertyImplementation {
 
 	public String weightageAssigner(String skill) {
