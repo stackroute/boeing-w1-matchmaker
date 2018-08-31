@@ -1,0 +1,577 @@
+name
+frontend 
+backend
+databases
+html
+css
+javascript
+ajax
+angular
+angular2
+angularfire
+angular cli
+aurelia
+babel
+babylonjs
+backbone.js
+bem
+blaze
+bootstrap
+bourbon
+bower
+brackets
+broccoli
+browserify
+brunch
+canvasjs
+chart.js
+clojurescript
+compass
+core.js
+d3.js
+dhtml
+dojo
+dust.js
+ecmascript
+electron
+ember.js
+eslint
+extjs
+flexbox
+flux
+foundation
+graphql
+grunt
+gsap
+gulp
+haml
+handlebars.js
+highcharts
+html-related
+htmlpad
+immutable.js
+infargistics
+isomorphic apps
+javascript frameworks
+jface
+jquery
+jquery ui
+json
+jsx
+kendo
+knockout
+leaflet
+less
+marionette
+masonry
+mercury
+mobx
+modernizr
+mustache
+nunjucks
+nvd3
+oocss
+paperjs
+pixijs
+polymer
+postcss
+primeng
+prototype
+reactjs
+redux
+relay
+requirejs
+rxjs
+saml
+sass
+scss
+skeleton
+socket.io
+spine js
+stylus
+sublime text
+three.js
+turret
+typescript
+underscore.js
+vanilla js
+vue
+vuex
+webdriver.io
+webgl
+webkit
+webpack
+webrx
+websphere
+webstrom
+winforms
+wedl
+xhtml
+yaml
+database
+arangodb
+awr
+berkeleydb
+bit table
+cassandra
+cockroachdb
+couchbase
+couchdb
+crud
+csv
+db2
+dbf
+dynamodb
+event store
+firebird
+hana
+influxdb
+interbase
+liquidbase
+magic keywords for dba
+mariadb
+memsql
+mongodb
+ms access
+ms sql server
+mysql
+neo4j
+nosql
+nosql databases
+Object-related mapping(orm)
+oracle database
+ord
+orientdb
+percona db
+pervasivesql
+sql
+pl
+postgis
+postgresql
+presto
+primary key
+rdbms
+rds
+redis
+redshift
+relational db
+rethink db
+riak
+rocksdb
+sap maxdb
+solr
+sphinx
+sql
+sql server
+sqlite
+sqlmap
+T-sql
+teradata
+toad
+voldemort
+derby
+express.js
+hapi
+koa
+mean
+meteor
+node.js
+restify
+sails
+php
+amp
+apc
+bitrix framework
+blackfire
+cakephp
+cms
+codeception
+codeigniter
+composer
+doctrine
+drupal
+gearman
+hhvm
+joomla
+kohana
+lamp
+laravel
+magento
+mamp
+memcached
+mockery
+modx
+mysqli
+phalcon
+php framework
+opencart
+Yii
+webrick
+ruby
+active record
+capistrano
+capybara
+crystal
+eventmachine
+grape
+jruby
+padrino
+passenger
+phoenix
+rake
+rspec
+rubygems
+ruby arrays
+ruby deployment
+ruby framework
+ruby on rails
+ruby testing tools
+rvm
+sidekiq
+sinatra
+watir
+java
+java build tools
+java testing tools
+activemq
+adf
+apache ant
+apache camel
+apache mina
+burp suite
+cactus
+cleartk
+dropwizard
+dwr
+eclipselink
+ehcache
+ejb
+freemaker
+glassfish
+guice
+gradle
+grails
+groovy
+guava
+gwt
+hibernate
+junit
+mockito
+easymock
+cucumber
+testng
+maven
+java ee
+java se
+java j2ee
+spring
+spring boot
+jms
+servlets
+phpunit
+orm
+phpstrom
+smarty
+typo3
+php fpm
+phpdocumentor
+phpspec
+psr
+silex
+silverstripe
+slim
+symfony
+twig
+woocommerce
+wordpress
+xdebug
+zend framework
+hybris
+intellij
+jackson
+jass
+jade
+jaf
+jasper reports
+java deployment
+jsp
+ejb
+jmx
+jaf
+java me
+java orm framework
+java se
+swing
+play
+javafx
+jsf
+java se framework
+javacc
+javafx
+jaxb
+jax-rb
+jax-ws
+jboss
+jbpm
+jdbc
+jdeveloper
+jdk
+jersey
+jetty
+jflex
+jfr
+jmc
+jmm
+jmock
+jms
+jmx
+jni
+jpa
+jpql
+jre
+jsf
+jsoup
+jsp
+jstl
+jvm
+keystore
+kotlin
+lambda
+launch4j
+log4j
+lucene
+maven
+meshcms
+netty
+oc4j
+opennlp
+osgi
+powermock
+primefaces
+progaurd
+resin
+resteasy
+richfaces
+roboguice
+seam
+spring integration
+spring mvc
+struts
+struts 2
+thymeleaf
+tomcat
+tomee
+uima
+vaadin
+weblogic
+wicket
+wildfly
+zk
+zxing
+c#
+csharp
+.net
+a.net framework
+accord.net framework
+ado.net
+asp.net
+asp.net core
+asp.net mvc
+autofac
+c# framework
+c# testing tool
+chart fx
+clr
+entity framework
+f#
+kentico
+linq
+log4net
+mono
+moq
+msbuild
+mstest
+nancy
+.net core
+nhibernate
+nunit
+ninject
+nuget
+octopus
+orm framework
+owin
+p
+invoke
+razor
+roslyn
+signalr
+sitecore cms
+specflow
+stylecop
+vb.net
+wcf
+wpf
+xunit.net
+python
+python framework
+beeware
+cherrypy
+cpython
+dask
+django
+docutils
+flask
+jinja2
+kivy
+numpy
+pandas
+pybrain
+pycharm
+pylons
+pyparsing
+pyramid
+pyston
+scapy
+Scikit-learn
+seaborn
+sympy
+sqlalchemy
+tensorflow
+theano
+tornado
+twisted
+virtualenv
+web.py
+web2py
+wxpython
+c++
+cpp
+c++ framework
+ace
+boost
+clang
+cppdb
+visual c++
+visual studio
+c
+ansi c
+cuda
+kore
+scala
+scala framework
+akka
+cats
+lift
+scalaz
+slick
+shapeless
+spray
+apache kafka
+colossus
+finatra
+scalatra
+go
+echo
+gin
+goland
+gorilla
+beego
+buffalo
+iris
+revel
+clojure
+elixir
+elm
+erlang
+haskell
+idris
+ocaml
+actionscript
+ada
+assembly language
+ccl
+cobol
+coffeescript
+dart
+delphi
+hack
+haxe
+lua
+maple
+perl
+r
+r language
+rpg
+vbscript
+verilog
+xtend
+ios
+ios framework
+coredata
+cocoa
+cocoa touch
+uikit
+corelocation
+corefoundation
+coreimage
+coregraphic
+objective-c
+swift
+testflight
+hockeyapp
+android
+android sudio
+android ide
+android tv
+android wear
+conductor
+dagger
+espresso
+greendao
+sqllite
+gtest
+logcat
+mortar
+mosby
+cross-platform mobile development
+jquery mobile
+phonegap
+dojo mobile
+titanium
+xamarin
+apache flex
+adobe flex
+bitrise
+cordova
+firebase
+flutter
+glide
+hybrid app
+ionic
+lottie
+marmalade
+xamarin studio
+xamarin.forms
+xml
+mvc
+restful api
+zurb
+svg
+ui
+sencha
+gui
+api
+mvvm
+npm
+spa
+rhinoscript
+selenium
+bdd
+tdd
+opengl 
+opengl es
+linux
+ide
+soap
+golang
+functional programming
