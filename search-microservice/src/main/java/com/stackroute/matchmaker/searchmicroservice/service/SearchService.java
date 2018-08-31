@@ -53,7 +53,12 @@ public class SearchService {
 		}
 		List<Result> result = new ArrayList<>();
 		for (ProfileId profile : list) {
-			result.add(profileIdRepository.getResultSet(profile.getProfileId()));
+			Result resultProfile = new Result();
+			resultProfile.setProfileId(profile.getProfileId());
+			resultProfile.setSkills(profileIdRepository.getSkill(profile.getProfileId()));
+			resultProfile.setExperience(profileIdRepository.getDuration(profile.getProfileId()));
+			resultProfile.setCity(profileIdRepository.getCity(profile.getProfileId()));
+			result.add(resultProfile);
 		}
 		logger.info(result + "Result Set");
 		return result;

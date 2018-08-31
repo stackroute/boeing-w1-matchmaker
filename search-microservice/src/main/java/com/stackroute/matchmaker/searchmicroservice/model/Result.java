@@ -5,7 +5,11 @@ import java.util.List;
 import org.springframework.data.neo4j.annotation.QueryResult;
 
 import lombok.Data;
-
+/**
+ * 
+ * @author simran
+ *
+ */
 @QueryResult
 @Data
 public class Result {
