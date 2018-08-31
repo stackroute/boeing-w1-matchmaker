@@ -7,7 +7,9 @@
 
             <ul class="list-group list-group-flush">
                 <div class="w-auto" *ngFor="let item of UserData.academics; index as i">
-                    <a href="#AcadsModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.stream}}</a>
+                    <a href="#AcadsModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.stream}}
+                        from {{item.instituteName}} with  {{item.marks}}%
+                    </a>
 
 
 

@@ -4,7 +4,9 @@
     <div class="card-body">
       
       <ul class="list-group list-group-flush">
-        <div class="w-auto" *ngFor="let item of UserData.certificates; index as i"><a href="#CertificatesModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.trainingName}}</a>
+        <div class="w-auto" *ngFor="let item of UserData.certificates; index as i"><a href="#CertificatesModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.trainingName}}
+          <br>{{item.authority}}
+        </a>
           
     
 <div class="modal fade" id="CertificatesModal-{{i}}">
@@ -23,7 +25,7 @@
                 <a (click)="delete(i)" data-dismiss="modal"><i class="material-icons" style="color: red;">delete</i></a>
               </div> 
               <div class="card-body">   
-                    
+                   
                 Training Id: {{item.trainingId}}
                 <br> Training Name: {{item.trainingName}}
                 <br> Authority: {{item.authority}}
