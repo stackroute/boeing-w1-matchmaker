@@ -62,6 +62,10 @@ div {
     letter-spacing: 5px;
     font-family: 'Raleway', sans-serif;
 }
+.caption1 span.Border{
+    border: #fff;
+}
+
 
 .caption1 span.Border:hover {
     font-size: 26px;
