@@ -36,7 +36,7 @@ export class LocationComponent implements OnInit {
     });
     this.newPost_Loc = new UserLocation();
     this.editPost_Loc = new UserLocation();
-    this.newPost_Loc.addressType = 'previous';
+    this.newPost_Loc.addressType = 'present';
     this.getLocations();
   }
 
