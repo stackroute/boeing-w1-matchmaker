@@ -92,3 +92,47 @@ p{
     font-weight: 400;
 }
 
+@media (max-width: 800px) {
+ .bgimg-1, .bgimg-2, .bgimg-3 {
+       min-height: 400px;
+    }
+    
+  .bgimg-1 h1 {
+      font-size: 50px;
+  }   
+  .bgimg-1 h4 {
+    font-size: 20px;
+  }
+  h3{
+      font-size: 22px;
+  }
+  p{
+      font-size: 15px;
+  } 
+  .caption2 span.border, .caption3 span.border, .caption1 span.border{
+    font-size: 20px;
+    padding: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        min-height: 300px;
+     }
+    .bgimg-1 h1 {
+        font-size: 30px;
+    }
+    .bgimg-1 h4 {
+        font-size: 15px;
+    }
+    h3{
+        font-size: 17px;
+    }
+    p{
+        font-size: 10px;
+    }  
+   .caption2 span.border, .caption3 span.border, .caption1 span.border, .caption4 span.border{
+        font-size: 10px;
+        padding: 10px;
+      }  
+}
