@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
         ],
         password: ['', [Validators.required]]
       });
-      this.authenticationService.logout();
     }
 
     loginSubmit() {

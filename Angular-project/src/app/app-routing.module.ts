@@ -17,6 +17,7 @@ const routes: Routes = [
   {path: 'portfolios', component: PortfoliosComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
+  {path: '', component: StartComponent},
   {path: 'about', component: AboutUsComponent },
   {path: 'help', component: HelpComponent },
   {path: 'contact', component: ContactComponent }
@@ -29,5 +30,4 @@ const routes: Routes = [
   })
 
   export class AppRoutingModule {}
-  export const routingComponents = [ProfileComponent, PortfoliosComponent, RegistrationComponent, LoginComponent,
-     StartComponent, ContactComponent, HelpComponent, AboutUsComponent];
+  export const routingComponents = [ProfileComponent, PortfoliosComponent, RegistrationComponent, LoginComponent, StartComponent, ContactComponent, HelpComponent, AboutUsComponent];
