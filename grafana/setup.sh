@@ -81,5 +81,5 @@ configure_grafana() {
 
 echo "Running configure_grafana in the background..."
 configure_grafana &
-/run.sh
+chmod 755 /run.sh
 exit 0
