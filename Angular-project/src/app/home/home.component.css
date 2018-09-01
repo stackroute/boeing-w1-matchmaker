@@ -21,9 +21,8 @@ form {
 @media (min-width: 768px) {
   input[type="text"] {
     width: 600px;
-    height: 80px;
-    border-radius: 10px;
-    font-size: 30px;
+    /* height: 80px; */
+    font-size: 40px;
   }
   button {
    border-radius: 10px;
@@ -35,7 +34,6 @@ form {
   input[type="text"] {
     width: 230px;
     height: 50px;
-    border-radius: 10px;
     font-size: 20px;
   }
   button {
@@ -47,7 +45,6 @@ form {
 @media (max-width: 375px) {
   input[type="text"] {
     width: 200px;
-    border-radius: 10px;
     font-size: 15px;
   }
   button {
