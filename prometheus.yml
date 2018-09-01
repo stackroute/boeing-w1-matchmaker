@@ -26,12 +26,6 @@ scrape_configs:
     static_configs:
     - targets: ['10.0.5.171:8891']
 
-  - job_name: 'zookeeper'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
-    static_configs:
-    - targets: ['10.0.5.171:2181']
-
   - job_name: 'user-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
