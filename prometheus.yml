@@ -20,12 +20,6 @@ scrape_configs:
     static_configs:
     - targets: ['10.0.5.171:8092']
 
-  - job_name: 'config-service'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
-    static_configs:
-    - targets: ['10.0.5.171:8891']
-
   - job_name: 'user-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
@@ -63,12 +57,6 @@ scrape_configs:
     static_configs:
     - targets: ['10.0.5.171:8086']
 
-  - job_name: 'personalinformation-service'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
-    static_configs:
-    - targets: ['10.0.5.171:8087']
-
   - job_name: 'project-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
@@ -80,13 +68,6 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
     - targets: ['10.0.5.171:8089']
-
-  - job_name: 'downstream-service'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
-    static_configs:
-    - targets: ['10.0.5.171:8090']
-
 
   - job_name: 'index-service'
     metrics_path: '/actuator/prometheus'
