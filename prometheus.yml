@@ -69,7 +69,7 @@ scrape_configs:
     static_configs:
     - targets: ['10.0.5.171:8086']
 
-  - job_name: 'personalinformation-microservice'
+  - job_name: 'personalinformation-service'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
