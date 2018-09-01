@@ -465,11 +465,11 @@ services:
    ports:
      - "3000:3000"
    volumes:
-     - chown -R grafana_data:/var/lib/grafana
-     - chown -R ./grafana/datasources:/etc/grafana/datasources
-     - chown -R ./grafana/dashboards:/etc/grafana/dashboards
-     - chown -R ./grafana/setup.sh:/setup.sh
-   entrypoint: chmod +x /setup.sh
+     - grafana_data:/var/lib/grafana
+     - ./grafana/datasources:/etc/grafana/datasources
+     - ./grafana/dashboards:/etc/grafana/dashboards
+     - ./grafana/setup.sh:/setup.sh
+   entrypoint: /setup.sh
    environment:
      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
