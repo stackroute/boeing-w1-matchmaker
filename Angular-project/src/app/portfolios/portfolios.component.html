@@ -5,11 +5,11 @@
     <div class="card" style="width: 18rem;">
           <img class="card-img-top" src={{image.src}} alt="Add Your Profile Pic"> 
           <div class="card-body">
-            <h6>{{UserData.username}}Vikram Hanji <br> 
+            <h6>{{UserData.personalInfo.name}}<br> 
               <small class="card-subtitle text-muted">{{UserData.personalInfo.age}}, {{UserData.personalInfo.city}}</small>
             </h6>
-            <p>Works at <br> UserData.experience.organizationName</p>
-            <a href="#" class="card-link"><small>vrihanji@gmail.com</small></a><br>
+            <p>Works at <br>{{UserData.experience[0].organizationName}}</p>
+            <a href="#" class="card-link"><small>{{UserData.personalInfo.email}}</small></a><br>
             <a href="#" class="card-link"><i class="fa fa-facebook"></i></a>
             <a href="#" class="card-link"><i class="fa fa-github"></i></a>
             <a href="#" class="card-link"><i class="fa fa-linkedin"></i></a>
