@@ -5,6 +5,7 @@ global:
   
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  #"10.0.5.171"->aws private address
   - job_name: 'prometheus'
     static_configs:
       - targets: ['10.0.5.171:9099']
@@ -30,30 +31,6 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
     - targets: ['10.0.5.171:2181']
-
-  - job_name: 'kafka'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
-    static_configs:
-    - targets: ['10.0.5.171:9092']
-
-  - job_name: 'mysql'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
-    static_configs:
-    - targets: ['10.0.5.171:3306']
-
-  - job_name: 'neo4j'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
-    static_configs:
-    - targets: ['10.0.5.171:7474','10.0.5.171:7687']
-
-  - job_name: 'mongodb'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
-    static_configs:
-    - targets: ['10.0.5.171:27017']
 
   - job_name: 'user-service'
     metrics_path: '/actuator/prometheus'
