@@ -25,16 +25,14 @@ import { ErrorInterceptor } from "./interceptors/error.interceptor";
 import { JwtInterceptor } from "./interceptors/jwt.interceptor";
 import { MaterialModule } from "./material";
 import { PortfoliosComponent } from "./portfolios/portfolios.component";
-import { VisitingCardComponent } from "./portfolios/visiting-card/visiting-card.component";
 import { MatButtonModule, MatCheckboxModule } from "@angular/material";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatListModule } from "@angular/material/list";
 import { HomeComponent } from "./home/home.component";
-import { SocialMediaComponent } from "./portfolios/social-media/social-media.component";
-import { SkillPortfolioComponent } from "./portfolios/skill-portfolio/skill-portfolio.component";
 import { AboutUsComponent } from "./about-us/about-us.component";
 import { ContactComponent } from "./contact/contact.component";
 import { HelpComponent } from "./help/help.component";
+// import { Onerror} from ""
 
 
 
@@ -59,10 +57,7 @@ import { HelpComponent } from "./help/help.component";
     ExistingUsernameValidatorDirective,
     LoginComponent,
     PortfoliosComponent,
-    VisitingCardComponent,
     HomeComponent,
-    SocialMediaComponent,
-    SkillPortfolioComponent,
     AboutUsComponent,
     ContactComponent,
     HelpComponent

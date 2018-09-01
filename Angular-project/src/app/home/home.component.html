@@ -8,15 +8,14 @@
 
   <div class="container">
     <div class="list-group" *ngFor="let profile of SearchResult">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{profile.profileId}}</h5>
+          <h5 class="mb-1" style="color: black" (click)="portfolioRedirect(profile.profileId)">{{profile.profileId}}</h5>
           <small>3 days ago</small>
         </div>
-        <p class="mb-1" style="color: black;">Skills: {{profile.skills}}</p>
-        <p class="mb-1" style="color: black;">Experience: {{profile.experience}} years</p>
-        <small style="color: black;">From {{profile.city}}</small>
-      </a>  <br>
+        <p class="mb-1" style="color: black">Skills: {{profile.skills}}</p>
+        <p class="mb-1" style="color: black">Experience: {{profile.experience}} years</p>
+        <small style="color: black">From {{profile.city}}</small>
+       <br>
     </div>
   </div>
   

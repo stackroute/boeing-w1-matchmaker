@@ -19,15 +19,6 @@ background-image: linear-gradient(180deg, #07084d 0%, #e0510f 100%);
     input[type="text"] {
     width: 50%;
     }
-    footer{
-        margin-bottom: 0;
-    background-image: linear-gradient(180deg, #07084d 0%, #e0510f 100%);
-        color: black;
-        font-size: 10px;
-    }
-    page-footer > .row{
-        font-size: 15px;
-    }
 }
 
 p{

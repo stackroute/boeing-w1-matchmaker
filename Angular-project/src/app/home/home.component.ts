@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   SearchResult: any = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,10 @@ export class HomeComponent implements OnInit {
 
   search(searchQuery: string) {
     return this.http.get('http://13.232.19.29:8092/nlp/api/v1/search/' + searchQuery);
+  }
+
+  portfolioRedirect(pid: String) {
+    this.router.navigate(['/portfolios'], { queryParams: { id: pid } });
   }
 
 }

@@ -5,11 +5,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { PortfoliosComponent } from './portfolios/portfolios.component';
-import { VisitingCardComponent } from './portfolios/visiting-card/visiting-card.component';
-import { SocialMediaComponent } from './portfolios/social-media/social-media.component';
 import { HomeComponent } from './home/home.component';
 import { StartComponent } from './start/start.component';
-import { SkillPortfolioComponent } from './portfolios/skill-portfolio/skill-portfolio.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HelpComponent } from './help/help.component';
 import { ContactComponent } from './contact/contact.component';
@@ -20,10 +17,6 @@ const routes: Routes = [
   {path: 'portfolios', component: PortfoliosComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'portfolios/visiting', component: VisitingCardComponent},
-  {path: 'portfolios/socialmedia', component: SocialMediaComponent},
-  {path: '', component: StartComponent},
-  {path: 'portfolios/skill', component: SkillPortfolioComponent },
   {path: 'about', component: AboutUsComponent },
   {path: 'help', component: HelpComponent },
   {path: 'contact', component: ContactComponent }
@@ -36,5 +29,5 @@ const routes: Routes = [
   })
 
   export class AppRoutingModule {}
-  export const routingComponents = [ProfileComponent, PortfoliosComponent, VisitingCardComponent, SocialMediaComponent,
-    SkillPortfolioComponent, RegistrationComponent, LoginComponent, StartComponent, ContactComponent, HelpComponent, AboutUsComponent];
+  export const routingComponents = [ProfileComponent, PortfoliosComponent, RegistrationComponent, LoginComponent,
+     StartComponent, ContactComponent, HelpComponent, AboutUsComponent];

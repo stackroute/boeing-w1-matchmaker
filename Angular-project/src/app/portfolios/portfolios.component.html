@@ -1,36 +1,40 @@
 <body>
-<div class="container profileSection">
-  <div class="dropdown">
-    <button class="btn btn-info dropdown-toggle" id="Portfolio" type="button" data-toggle="dropdown">Select Tempelates
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu drop">
-     <li><a class="dropdown-item" [routerLink]="['/portfolios/visiting']">Visiting Card</a></li>
-     <li><a class="dropdown-item" [routerLink]="['/portfolios/socialmedia']">Social Media</a></li>
-     <li><a class="dropdown-item" [routerLink]="['/portfolios/skill']">Skill Resume</a></li>
-    </ul>
-  </div>
-</div>  
-
 <div class="flex-container">
     <div class="column">
-        <a [routerLink]="['/portfolios/socialmedia']">
-          <app-social-media></app-social-media>
-          </a>
+      <div class="socialmedia d-flex justify-content-center">
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src={{image.src}} alt="Add Your Profile Pic"> 
+          <div class="card-body">
+            <p>{{UserData.username}} <br>
+               Works at <br> 
+            </p>
+            <a href="#" class="card-link"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="card-link"><i class="fa fa-github"></i></a>
+            <a href="#" class="card-link"><i class="fa fa-linkedin"></i></a>
+            <a href="#" class="card-link"><i class="fa fa-twitter"></i></a>  
+          </div>
+    </div>
+    </div>
     </div>
   <div class="column">
-      <a [routerLink]="['/portfolios/visiting']">
-      <app-visiting-card></app-visiting-card>
-      </a>
+    <div class="visiting d-flex justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src={{image.src}} alt="Add Your Profile Pic">
+       <div class="card-body">
+         <h5 class="card-title mb-0">{{UserData.username}}</h5>
+         <h6><small class="card-subtitle text-muted">{{UserData.experience[0].role}} at {{UserData.experience[0].organizationName}}</small></h6>
+         <p class=""> Contact no.: {{UserData.personalInfo.mobile}} <br>
+                      Date of Birth: {{UserData.personalInfo.dob}} <br>
+                      Knows {{UserData.skills[0].skill}}, {{UserData.skills[1].skill}}, {{UserData.skills[2].skill}}.  <br>
+                      Qualification: {{UserData.academics[0].qualification}}   <br>
+                      Institute Name: {{UserData.academics[0].instituteName}}  <br>
+                      Year of Completion: {{UserData.academics[0].yearOfCompletion}}  <br>
+                      Marks: {{UserData.academics[0].marks}}  <br>
+                     </p>  
+       </div>
+      </div> 
+     </div>
   </div>
-  
-</div>
-
-<div class="flex-container">
-<div class="column2">
-    <a [routerLink]="['/portfolios/skill']">
-      <app-skill-portfolio></app-skill-portfolio>
-      </a>
-  </div>    
 </div>
 
 </body>
