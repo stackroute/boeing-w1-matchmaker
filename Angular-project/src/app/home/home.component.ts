@@ -12,10 +12,21 @@ export class HomeComponent implements OnInit {
   private searchQuery1;
   SearchResult: any = [];
 
+  wow = new WOW({
+    boxClass: 'wow', // default
+    animateClass: 'animated', // default
+    offset: 0, // default
+    mobile: true, // default
+    live: true // default
+});
+
+
+
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.getRandomResults();
+    this.wow.init();
   }
 
   getRandomResults() {
