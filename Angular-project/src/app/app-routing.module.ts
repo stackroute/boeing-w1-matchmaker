@@ -13,14 +13,14 @@ import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'portfolios', component: PortfoliosComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'portfolios', component: PortfoliosComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: '', component: StartComponent},
-  {path: 'about', component: AboutUsComponent },
-  {path: 'help', component: HelpComponent },
-  {path: 'contact', component: ContactComponent }
+  {path: 'about', component: AboutUsComponent},
+  {path: 'help', component: HelpComponent},
+  {path: 'contact', component: ContactComponent}
   ];
 @NgModule({
     imports: [
