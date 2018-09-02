@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartComponent implements OnInit {
 
+  wow = new WOW({
+    boxClass: 'wow', // default
+    animateClass: 'animated', // default
+    offset: 0, // default
+    mobile: true, // default
+    live: true // default
+});
   constructor() { }
 
   ngOnInit() {
+    this.wow.init();
   }
 
 }
