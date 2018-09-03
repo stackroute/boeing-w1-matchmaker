@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
+import { Constructor } from "@angular/cdk/table";
 
 @Component({
   selector: "app-home",
@@ -11,14 +12,15 @@ import { Router } from "@angular/router";
 export class HomeComponent implements OnInit {
   private searchQuery1;
   SearchResult: any = [];
+//   WOW: Constructor;
 
-  wow = new WOW({
-    boxClass: 'wow', // default
-    animateClass: 'animated', // default
-    offset: 0, // default
-    mobile: true, // default
-    live: true // default
-});
+//   wow = new this.WOW({
+//     boxClass: 'wow', // default
+//     animateClass: 'animated', // default
+//     offset: 0, // default
+//     mobile: true, // default
+//     live: true // default
+// });
 
 
 
@@ -26,7 +28,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getRandomResults();
-    this.wow.init();
+    // this.wow.init();
   }
 
   getRandomResults() {
