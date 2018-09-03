@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
 	private UserRepository userRepo;
 	// private Optional<User> opt;
-	private User user;
+	private User user = null;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService {
 		user.setCertificates(list);
 		userRepo.save(user);
 		logger.info(certificates.toString() + " training");
+		user = null;
 	}
 
 	@Override
@@ -62,6 +63,7 @@ public class UserServiceImpl implements UserService {
 		user.setSkills(list);
 		userRepo.save(user);
 		logger.info(skills.toString() + " skills");
+		user = null;
 	}
 
 	@Override
@@ -78,6 +80,7 @@ public class UserServiceImpl implements UserService {
 		user.setProject(list);
 		userRepo.save(user);
 		logger.info(project.toString() + " project");
+		user = null;
 	}
 
 	@Override
@@ -86,6 +89,7 @@ public class UserServiceImpl implements UserService {
 		user.setUsername(personalInfo.getProfileId());
 		userRepo.save(user);
 		logger.info(personalInfo.toString() + " personal info");
+		user = null;
 	}
 
 	@Override
@@ -102,6 +106,7 @@ public class UserServiceImpl implements UserService {
 		userRepo.save(user);
 
 		logger.info(location.toString() + " location");
+		user = null;
 	}
 
 	@Override
@@ -116,6 +121,7 @@ public class UserServiceImpl implements UserService {
 		user.setAcademics(list);
 		logger.info(academies.toString() + " academies");
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -130,6 +136,7 @@ public class UserServiceImpl implements UserService {
 		user.setExperience(list);
 		user.setUsername(experience.getProfileId());
 		userRepo.save(user);
+		user = null;
 	}
 
 	/* -------delete services for each microservice chicklet-------- */
@@ -144,6 +151,7 @@ public class UserServiceImpl implements UserService {
 		user.setCertificates(list);
 		// user.setUsername(certificate.getProfileId());
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -154,6 +162,7 @@ public class UserServiceImpl implements UserService {
 		list.remove(index);
 		user.setSkills(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -164,6 +173,7 @@ public class UserServiceImpl implements UserService {
 		list.remove(index);
 		user.setProject(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -176,6 +186,7 @@ public class UserServiceImpl implements UserService {
 		list.remove(index);
 		user.setLocation(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -187,7 +198,7 @@ public class UserServiceImpl implements UserService {
 		user.setAcademics(list);
 		logger.info(academies.toString() + " academies");
 		userRepo.save(user);
-
+		user = null;
 	}
 
 	@Override
@@ -199,6 +210,7 @@ public class UserServiceImpl implements UserService {
 		user.setExperience(list);
 		user.setUsername(experience.getProfileId());
 		userRepo.save(user);
+		user = null;
 	}
 
 	/* -------update services for each microservice chicklet-------- */
@@ -214,6 +226,7 @@ public class UserServiceImpl implements UserService {
 		list.add(certificate);
 		user.setCertificates(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -227,6 +240,7 @@ public class UserServiceImpl implements UserService {
 		list.add(skill);
 		user.setSkills(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -239,6 +253,7 @@ public class UserServiceImpl implements UserService {
 		list.add(project);
 		user.setProject(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -248,6 +263,7 @@ public class UserServiceImpl implements UserService {
 		userRepo.save(user);
 
 		logger.info(personalInfo.toString() + " personal info");
+		user = null;
 	}
 
 	@Override
@@ -260,6 +276,7 @@ public class UserServiceImpl implements UserService {
 		list.add(location);
 		user.setLocation(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -273,6 +290,7 @@ public class UserServiceImpl implements UserService {
 		user.setAcademics(list);
 		logger.info(academies.toString() + " academies");
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -285,6 +303,7 @@ public class UserServiceImpl implements UserService {
 		list.add(experience);
 		user.setExperience(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 }
