@@ -3,6 +3,8 @@ import { UserService } from '../../user.service';
 import { UserProject } from '../../userProject';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { AutocompleteService } from '../../autocomplete.service';
 
 @Component({
   selector: 'app-projects',
@@ -15,11 +17,29 @@ export class ProjectsComponent implements OnInit {
   private editPost_Project;
   private firstTime_check;
   UserData: any = [];
-  constructor(private userService: UserService, private http: HttpClient) {
+  searchTerm1: FormControl = new FormControl();
+  searchTerm2: FormControl = new FormControl();
+  skill = <any>[];
+  location = <any>[];
+  constructor(private userService: UserService, private http: HttpClient, private autocomplete: AutocompleteService) {
 
    }
 
   ngOnInit() {
+    this.searchTerm1.valueChanges.subscribe(term => {
+      if (term !== '') {
+        this.autocomplete.searchSkill(term).subscribe(data => {
+          this.skill = data as any[];
+        });
+      }
+    });
+    this.searchTerm2.valueChanges.subscribe(term => {
+      if (term !== '') {
+        this.autocomplete.searchCity(term).subscribe(data => {
+          this.location = data as any[];
+        });
+      }
+    });
     this.newPost_Project = new UserProject();
     this.editPost_Project = new UserProject();
     this.getProjects();

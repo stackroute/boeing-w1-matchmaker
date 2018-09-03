@@ -175,11 +175,23 @@
               <input matInput placeholder="I worked in the department of" [(ngModel)]="newPost_Project.department"
                 name="dept">
             </mat-form-field>
-   
+
+
             <mat-form-field>
               <input matInput placeholder="the project location was" [(ngModel)]="newPost_Project.projectLocation"
+              name="loc" [formControl]="searchTerm2" [matAutocomplete]="auto">
+
+              <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let loc of location" [value]="loc.city">
+                      {{ loc.city }}
+                  </mat-option>
+              </mat-autocomplete>
+          </mat-form-field>
+   
+            <!-- <mat-form-field>
+              <input matInput placeholder="the project location was" [(ngModel)]="newPost_Project.projectLocation"
                 name="loc">
-            </mat-form-field>
+            </mat-form-field> -->
    
             <mat-form-field>
               <input matInput placeholder="the project title was" [(ngModel)]="newPost_Project.projectTitle" name="title">
@@ -223,10 +235,21 @@
             <mat-form-field>
               <input matInput placeholder="here is a demo link" type="url" [(ngModel)]="newPost_Project.demoURL" name="demo">
             </mat-form-field>
-   
+
             <mat-form-field>
+              <input matInput placeholder="skills I developed are" [(ngModel)]="newPost_Project.skills" name="skills" [formControl]="searchTerm1" [matAutocomplete]="auto">
+
+              <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let ski of skill" [value]="ski.name">
+                      {{ ski.name }}
+                  </mat-option>
+              </mat-autocomplete>
+          </mat-form-field>
+            
+   
+            <!-- <mat-form-field>
               <input matInput placeholder="skills I developed are" [(ngModel)]="newPost_Project.skills" name="skills">
-            </mat-form-field>
+            </mat-form-field> -->
    
             <hr>
             <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
