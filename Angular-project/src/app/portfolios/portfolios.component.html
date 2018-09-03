@@ -11,7 +11,7 @@
           <div class="card-body">
             <h6>{{UserData.personalInfo.name | titlecase}}
               <br>
-              <small class="card-subtitle text-muted">{{UserData.personalInfo.age}}, {{UserData.personalInfo.city | titlecase}}</small>
+              <small class="card-subtitle text-muted">{{UserData.personalInfo.age}}, {{UserData.location[0].city | titlecase}}</small>
             </h6>
             <p>Worked at
               <br>{{UserData.experience[0].organizationName | titlecase}}</p>
@@ -111,8 +111,8 @@
 
             <p class="card-text">
               <div *ngFor="let item of UserData.experience">
-                <h5 class="card-title">{{item.role}}</h5>
-                <p class="card-subtitle">{{item.organizationName}}</p>
+                <h5 class="card-title">{{item.role | titlecase}}</h5>
+                <p class="card-subtitle">{{item.organizationName | titlecase}}</p>
                 <p>
                   Start date: {{item.startDate}}
                   <br> End date: {{item.endDate}}
@@ -123,12 +123,12 @@
 
               <p class="card-text">
                 <div *ngFor="let item of UserData.project">
-                  <h5 class="card-title">{{item.projectTitle}}</h5>
-                  <p class="card-subtitle">{{item.projectAt}}</p>
+                  <h5 class="card-title">{{item.projectTitle | titlecase}}</h5>
+                  <p class="card-subtitle">{{item.projectAt | titlecase}}</p>
                   <p>
-                    The role in this project was {{item.role}}. Completed this project under {{item.department}} department at 
-                    {{item.projectLocation}}. This project started on {{item.from}} and was completed on {{item.to}}.
-                    The skills acquired during this period were {{item.skills}}.
+                    The role in this project was {{item.role}}. Completed this project under {{item.department | titlecase}} department at 
+                    {{item.projectLocation | titlecase}}. This project started on {{item.from}} and was completed on {{item.to}}.
+                    The skills acquired during this period were {{item.skills | titlecase}}.
 
                   </p>
                 </div>
