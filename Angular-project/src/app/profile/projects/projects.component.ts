@@ -33,13 +33,6 @@ export class ProjectsComponent implements OnInit {
         });
       }
     });
-    this.searchTerm2.valueChanges.subscribe(term => {
-      if (term !== '') {
-        this.autocomplete.searchCity(term).subscribe(data => {
-          this.location = data as any[];
-        });
-      }
-    });
     this.newPost_Project = new UserProject();
     this.editPost_Project = new UserProject();
     this.getProjects();
