@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void savePersonalInfo(PersonalInfo personalInfo) {
+		user = userRepo.getByUsername(personalInfo.getProfileId());
 		user.setPersonalInfo(personalInfo);
 		user.setUsername(personalInfo.getProfileId());
 		userRepo.save(user);
