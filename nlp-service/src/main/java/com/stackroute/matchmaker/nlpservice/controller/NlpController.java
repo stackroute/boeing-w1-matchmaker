@@ -40,6 +40,7 @@ public class NlpController {
 		ArrayList<String> stopword = new ArrayList<String>();
 		while (s.hasNext()) {
 			stopword.add(s.next().toLowerCase());
+			System.out.println(stopword);
 		}
 
 		s = new Scanner(new File("extra.txt"));
