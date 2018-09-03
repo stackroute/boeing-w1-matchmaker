@@ -139,8 +139,8 @@ services:
    image: mongo
    container_name: mongodb
    mem_limit: 1024m
-   volumes:
-     - /my/own/datadir:/data/db
+#   volumes:
+#     - /my/own/datadir:/data/db
    ports:
      - 27017:27017
    network_mode: "host"
