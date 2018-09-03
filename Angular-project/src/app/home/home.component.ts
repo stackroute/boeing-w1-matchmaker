@@ -12,9 +12,8 @@ import { Constructor } from "@angular/cdk/table";
 export class HomeComponent implements OnInit {
   private searchQuery1;
   SearchResult: any = [];
-//   WOW: Constructor;
-
-//   wow = new this.WOW({
+//   WOW: any;
+//   wow = new WOW({
 //     boxClass: 'wow', // default
 //     animateClass: 'animated', // default
 //     offset: 0, // default
