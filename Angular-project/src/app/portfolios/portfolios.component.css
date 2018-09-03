@@ -1,3 +1,9 @@
+body{
+    margin-top: -25px;
+    background-image: url('http://www.meh.ro/wp-content/uploads/2014/09/meh.ro11755.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .profileSection {
     margin-top: 80px;
 }
@@ -9,9 +15,202 @@
 
 a {
     text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+p{
+    font-size: 13px;
+}
+
+p i{
+    font-size: 18px;
+    position: relative;
+    top: 5px;
+}
+
+h4 i{
+    font-size: 30px;
+    position: relative;
+    top: 7px;
+}
+
+.socialmedia{
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+img{
+   width: 100%; 
 }
 
 .drop li a:hover {
     background: #00b3b3;
     color: white;
 }
+
+.flex-container{
+    /* background-color: green; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: stretch; */
+}
+
+.column {
+    flex: 29%;
+    max-width: 29%;
+    margin: 10px;
+}
+
+.column2{
+    flex: 65%;
+    max-width: 65%;
+    margin: 10px;
+}
+
+.column2-1 {
+    flex: 30%;
+    max-width: 30%;
+    padding: 25px;
+    margin-left: -90px;
+    background: rgb(48, 43, 43);
+}
+
+.column2-2{
+    flex: 60%;
+    max-width: 60%;
+    padding: 25px;
+}
+.visiting{
+    margin-top: 100px;
+}
+  
+  img {
+    width: 200px;
+    height: 200px;
+    margin-left: 45px;
+  }
+  h3 {
+    margin-left: 10px;
+  }
+  
+  .move {
+    margin-left: 10px;
+  }
+  d-flex {
+    width: 100px;
+  }
+  
+  @media (max-width: 768px) {
+      img {
+        width: 150px;
+        height: 150px;
+       margin-left: 10px;
+      }
+    
+      #heading1{
+        margin-left: 20px;
+        font-size: 30px;
+    }
+    
+      .move {
+        margin-left: 0px;
+      }
+    }
+    @media (max-width: 425px) {
+      img {
+        width: 150px;
+        height: 150px;
+       margin-left: 120px;
+      }
+    
+      #heading1{
+        margin-left: 70px;
+        font-size: 30px;
+    }
+    
+      .move {
+        margin-left: 0px;
+      }
+
+      .column2-1{
+          size: 50%;
+      }
+    }
+    @media (max-width: 320px) {
+      img {
+        width: 150px;
+        height: 150px;
+       margin-left: 70px;
+      }
+    
+      #heading1{
+        margin-left: 20px;
+        font-size: 30px;
+    }
+    
+      .move {
+        margin-left: 0px;
+      }
+    }
+
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+    .column {
+        flex: 40%;
+        max-width: 40%;
+    }
+
+    .column > *{
+        size: 80%;
+    }
+    h4{
+        font-size: 20px;
+    }
+    img{
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .column > *{
+        size: 10%;
+        
+    }
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    h4{
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 1259px) {
+   
+    img{
+        width: 190px;
+        height: 190px;
+    }
+
+}
+@media (max-width: 1000px) {
+   
+    img{
+        width: 150px;
+        height: 150px;
+    }
+
+}
+

@@ -1,0 +1,40 @@
+.container{
+    margin-top: 100px;
+}
+img{
+    width: 300px;
+    height: 300px;
+}
+.flex-container{
+    /* background-color: green; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: stretch; */
+ }
+ 
+ .column {
+    flex: 30%;
+    max-width: 30%;
+    margin: 10px;
+ }
+ 
+ .column > * {
+    margin: 10px;
+ }
+ 
+ /* Responsive layout - makes a two column-layout instead of four columns */
+ @media (max-width: 800px) {
+    .column {
+        flex: 40%;
+        max-width: 40%;
+    }
+ }
+ 
+ /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+ @media (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+ }

@@ -1,0 +1,97 @@
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  #"10.0.5.171"->aws private address
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['10.0.5.171:9099']
+
+  - job_name: 'grafana'
+    static_configs:
+      - targets: ['10.0.5.171:3000']
+
+  - job_name: 'zuul-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8092']
+
+  - job_name: 'user-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8081']
+
+  - job_name: 'login-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8082']
+
+
+  - job_name: 'training-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8084']
+
+  - job_name: 'qual-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8085']
+
+  - job_name: 'experience-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8083']
+
+  - job_name: 'location-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8086']
+
+  - job_name: 'project-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8088']
+
+  - job_name: 'skill-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8089']
+
+  - job_name: 'index-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8091']
+
+
+  - job_name: 'nlp-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8999']
+
+
+  - job_name: 'search-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:8998']
+
+
+  - job_name: 'autocomplete-service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['10.0.5.171:6969']

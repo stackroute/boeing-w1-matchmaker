@@ -13,23 +13,21 @@ public class ExperienceIndex {
 	private String profileId;
 	private String organizationName;
 	private String role;
-	private String startDate;
-	private String endDate;
+	private String duration;
 	private String message;
 
-	public ExperienceIndex(String profileId, String organizationName, String role, String startDate, String endDate,
-			String message) {
+	public ExperienceIndex() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ExperienceIndex(String profileId, String organizationName, String role, String duration, String message) {
 		super();
 		this.profileId = profileId;
 		this.organizationName = organizationName;
 		this.role = role;
-		this.startDate = startDate;
-		this.endDate = endDate;
+		this.duration = duration;
 		this.message = message;
-	}
-
-	public ExperienceIndex() {
-		super();
 	}
 
 	public String getProfileId() {
@@ -56,20 +54,12 @@ public class ExperienceIndex {
 		this.role = role;
 	}
 
-	public String getStartDate() {
-		return startDate;
+	public String getDuration() {
+		return duration;
 	}
 
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-
-	public String getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	public void setDuration(String duration) {
+		this.duration = duration;
 	}
 
 	public String getMessage() {
@@ -82,8 +72,8 @@ public class ExperienceIndex {
 
 	@Override
 	public String toString() {
-		return "Indexer [profileId=" + profileId + ", organizationName=" + organizationName + ", role=" + role
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", message=" + message + "]";
+		return "ExperienceIndex [profileId=" + profileId + ", organizationName=" + organizationName + ", role=" + role
+				+ ", duration=" + duration + ", message=" + message + "]";
 	}
 
 }

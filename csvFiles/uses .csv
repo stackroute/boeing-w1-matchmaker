@@ -1,0 +1,29 @@
+name,skill,weight
+EarnYourGrub,java,10
+MatchMaking,java,5
+Project 3,neo4j,3
+Project 4,angular,2
+Project 5,.net,8
+Project 6,mongo,7
+Project 7,java,10
+Project 8,php,10
+EarnYourGrub,android studio,4
+MatchMaking,neo4j,7
+Project 4,typescript,9
+Project 7,mongodb,5
+EarnYourGrub,xml,10
+MatchMaking,mongodb,5
+Project 3,ms access,3
+Project 4,ms sql server,2
+Project 5,mysql,8
+Project 6,neo4j,7
+Project 7,nosql,10
+Project 8,nosql databases,10
+EarnYourGrub,ruby on rails,4
+MatchMaking,activemq,7
+Project 4,rabbitmq,9
+Project 7,hibernate,5
+EarnYourGrub,junit,10
+MatchMaking,mockito,5
+Project 4,junit,3
+Project 7,mockito,2

@@ -1,5 +1,12 @@
 package com.stackroute.matchmaker.controller;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +32,8 @@ public class KafkaProducerController {
 	public ExperienceIndex isRelationIndexer = new ExperienceIndex();
 	public TargetNodeProperty targetNodeProperty = new TargetNodeProperty();
 	public RelationshipName relationshipName = new RelationshipName();
-	//public RelationshipProperties relationshipProperties = new RelationshipProperties();
+	// public RelationshipProperties relationshipProperties = new
+	// RelationshipProperties();
 
 	// @Autowired
 	// public Indexer wasRelationIndexer;
@@ -43,18 +51,25 @@ public class KafkaProducerController {
 	private String TOPIC;
 
 	public void produceJson(Experience experience) {
-		
+
 		TargetNodeProperty targetNodeProperty = new TargetNodeProperty(experience.getProfileId());
-		RelationshipProperties relationshipProperties = new RelationshipProperties(experience.getOrganizationName(),experience.getRole(),
-				experience.getStartDate(), experience.getEndDate());
-/*at present setting the relationship names*/
+		RelationshipProperties relationshipProperties = new RelationshipProperties(experience.getOrganizationName(),
+				experience.getRole(), experience.getStartDate(), experience.getEndDate());
+		/* at present setting the relationship names */
 		relationshipName.setEmployeeOf("employeeOf");
 		relationshipName.setWasEmployeeOf("wasEmployeeOf");
-		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate startDate = LocalDate.parse(experience.getStartDate(), formatter);
+
+		LocalDate endDate = LocalDate.parse(experience.getEndDate(), formatter);
+		Period p = Period.between(startDate, endDate);
+		int noy = p.getYears();
+		String duration = String.valueOf(noy);
 		// Indexer(sourceNodeType,sourceNodeProperty,targetNodeType,targetNodeProperty,relationshipProperties,relationshipName);
-//		Indexer indexer = new Indexer("Experience", targetNodeProperty,
-//				 relationshipProperties,relationshipName, "Created");
-		ExperienceIndex experienceIndex = new ExperienceIndex(experience.getProfileId(),experience.getOrganizationName(),experience.getRole(),experience.getStartDate(),experience.getEndDate(),experience.getMessage());
+		// Indexer indexer = new Indexer("Experience", targetNodeProperty,
+		// relationshipProperties,relationshipName, "Created");
+		ExperienceIndex experienceIndex = new ExperienceIndex(experience.getProfileId(),
+				experience.getOrganizationName(), experience.getRole(), duration, experience.getMessage());
 		kafkaTemplate.send(TOPIC, experienceIndex);
 		LOG.info("sending JSON message='{}'", experienceIndex, TOPIC);
 

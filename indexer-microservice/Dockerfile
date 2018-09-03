@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/indexer-microservice-1.2.0.jar /src/indexer.jar
+COPY target/indexer-microservice-1.3.0.jar /src/indexer.jar
 
 EXPOSE 8091
 

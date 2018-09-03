@@ -3,6 +3,8 @@ import { UserService } from '../../user.service';
 import { UserExp } from '../../userExp';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { AutocompleteService } from '../../autocomplete.service';
 
 
 @Component({
@@ -15,13 +17,23 @@ export class ExperienceComponent implements OnInit {
  private newPost_Exp ;
  private getPost_Exp;
  private editPost_Exp;
+ searchTerm: FormControl = new FormControl();
+ company = <any>[];
  private firstTime_check = false;
  UserData: any = [];
 
- constructor(private userService: UserService,private http: HttpClient) {
+ constructor(private userService: UserService, private http: HttpClient,
+   private autocomplete: AutocompleteService) {
   }
 
  ngOnInit() {
+  this.searchTerm.valueChanges.subscribe(term => {
+    if (term !== '') {
+      this.autocomplete.searchCompany(term).subscribe(data => {
+        this.company = data as any[];
+      });
+    }
+  });
    this.newPost_Exp = new UserExp();
    this.editPost_Exp = new UserExp();
    this.getExperience();

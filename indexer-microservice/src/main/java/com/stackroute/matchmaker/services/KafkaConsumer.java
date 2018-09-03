@@ -21,15 +21,17 @@ import com.stackroute.matchmaker.relationships.EmployeeOfRelation;
 import com.stackroute.matchmaker.relationships.HasSkill;
 import com.stackroute.matchmaker.relationships.LivedInRelation;
 import com.stackroute.matchmaker.relationships.LivesInRelation;
+import com.stackroute.matchmaker.relationships.ProjectOfRelation;
 import com.stackroute.matchmaker.relationships.StudiedAtRelation;
 import com.stackroute.matchmaker.relationships.TrainingCoversSkill;
 import com.stackroute.matchmaker.relationships.TrainingUndergone;
-import com.stackroute.matchmaker.relationships.UsesSkillRelation;
+import com.stackroute.matchmaker.relationships.ProjectUsesSkillRelation;
 import com.stackroute.matchmaker.relationships.WorkedInRelation;
 import com.stackroute.matchmaker.repositories.EmployeeOfRelationRepository;
 import com.stackroute.matchmaker.repositories.HasSkillRepository;
 import com.stackroute.matchmaker.repositories.LivedInRelationRepository;
 import com.stackroute.matchmaker.repositories.LivesInRelationRepository;
+import com.stackroute.matchmaker.repositories.ProjectOfRelationRepository;
 import com.stackroute.matchmaker.repositories.StudiedAtRelationRepository;
 import com.stackroute.matchmaker.repositories.TrainingCoversSkillRepository;
 import com.stackroute.matchmaker.repositories.TrainingUndergoneRepository;
@@ -57,6 +59,7 @@ public class KafkaConsumer {
 	private WorkedInRelationRepository workedInRelationRepository;
 	private UsesSkillRelationRepository usesSkillRelationRepository;
 	private StudiedAtRelationRepository studiedAtRelationRepository;
+	private ProjectOfRelationRepository projectOfRelationRepository;
 
 	public KafkaConsumer() {
 		super();
@@ -69,7 +72,8 @@ public class KafkaConsumer {
 			LivesInRelationRepository livesInRelationRepository, LivedInRelationRepository livedInRelationRepository,
 			WorkedInRelationRepository workedInRelationRepository,
 			UsesSkillRelationRepository usesSkillRelationRepository,
-			StudiedAtRelationRepository studiedAtRelationRepository) {
+			StudiedAtRelationRepository studiedAtRelationRepository,
+			ProjectOfRelationRepository projectOfRelationRepository) {
 		super();
 		this.hasSkillRepository = hasSkillRepository;
 		this.trainingUndergoneRepository = trainingUndergoneRepository;
@@ -80,6 +84,7 @@ public class KafkaConsumer {
 		this.workedInRelationRepository = workedInRelationRepository;
 		this.usesSkillRelationRepository = usesSkillRelationRepository;
 		this.studiedAtRelationRepository = studiedAtRelationRepository;
+		this.projectOfRelationRepository = projectOfRelationRepository;
 	}
 
 	@KafkaListener(topics = "String_Boo", groupId = "group_id", containerFactory = "kafkaListenerContainerFactory")
@@ -91,7 +96,7 @@ public class KafkaConsumer {
 	public void consumeJson(LocationIndex locationIndex) {
 		System.out.println("Consumed JSON Message: " + locationIndex);
 		ProfileId profileId = new ProfileId(locationIndex.getProfileId());
-		City city = new City(locationIndex.getCity());
+		City city = new City(locationIndex.getCity().toLowerCase());
 		if (locationIndex.getMessage().equals("save") || locationIndex.getMessage().contains("update")) {
 			if (locationIndex.getAddressType().equals("present")) {
 				LivesInRelation livesInRelation = new LivesInRelation(locationIndex.getProfileId(), profileId, city);
@@ -117,7 +122,7 @@ public class KafkaConsumer {
 	@KafkaListener(topics = "SkillIndexer", groupId = "group_json", containerFactory = "skillKafkaListenerFactory")
 	public void consumeJson(SkillIndex skillIndex) {
 		System.out.println("Consumed JSON Message: " + skillIndex);
-		Skill skill = new Skill(skillIndex.getSkill());
+		Skill skill = new Skill(skillIndex.getSkill().toLowerCase());
 		ProfileId profileId = new ProfileId(skillIndex.getProfileId());
 		HasSkill hasSkill = new HasSkill(skillIndex.getWeightage(), profileId, skill);
 		if (skillIndex.getMessage().equals("save") || skillIndex.getMessage().contains("update")) {
@@ -131,7 +136,7 @@ public class KafkaConsumer {
 	@KafkaListener(topics = "TrainingIndexer", groupId = "group_json", containerFactory = "trainingKafkaListenerFactory")
 	public void consumeJson(TrainingIndex trainingIndex) {
 		System.out.println("Consumed JSON Message: " + trainingIndex);
-		Skill skill = new Skill(trainingIndex.getSkills());
+		Skill skill = new Skill(trainingIndex.getSkills().toLowerCase());
 		Training training = new Training(trainingIndex.getTrainingId(), trainingIndex.getTrainingName(),
 				trainingIndex.getAuthority());
 		ProfileId profileId = new ProfileId(trainingIndex.getProfileId());
@@ -151,9 +156,9 @@ public class KafkaConsumer {
 	public void consumeJson(ExperienceIndex experienceIndex) {
 		System.out.println("Consumed JSON Message: " + experienceIndex);
 		ProfileId profileId = new ProfileId(experienceIndex.getProfileId());
-		Company company = new Company(experienceIndex.getOrganizationName());
+		Company company = new Company(experienceIndex.getOrganizationName().toLowerCase());
 		EmployeeOfRelation employeeOfRelation = new EmployeeOfRelation(experienceIndex.getRole(),
-				experienceIndex.getStartDate(), experienceIndex.getEndDate(), profileId, company);
+				experienceIndex.getDuration(), profileId, company);
 		if (experienceIndex.getMessage().equals("save") || experienceIndex.getMessage().contains("update")) {
 			employeeOfRelationRepository.save(employeeOfRelation);
 		} else if (experienceIndex.getMessage().contains("delete")) {
@@ -166,18 +171,23 @@ public class KafkaConsumer {
 	public void consumeJson(ProjectIndex projectIndex) {
 		System.out.println("Consumed JSON Message: " + projectIndex);
 		ProfileId profileId = new ProfileId(projectIndex.getProfileId());
-		Skill skill = new Skill(projectIndex.getSkills());
+		Skill skill = new Skill(projectIndex.getSkills().toLowerCase());
+		Company company = new Company(projectIndex.getProjectAt().toLowerCase());
 		Project project = new Project(projectIndex.getProjectId(), projectIndex.getProjectTitle(),
-				projectIndex.getProjectAt(), projectIndex.getDepartment(), projectIndex.getProjectLocation());
+				projectIndex.getDepartment(), projectIndex.getProjectLocation());
 		WorkedInRelation workedInRelation = new WorkedInRelation(projectIndex.getProjectId(), projectIndex.getRole(),
 				projectIndex.getFrom(), projectIndex.getTo(), profileId, project);
-		UsesSkillRelation usesSkillRelation = new UsesSkillRelation(projectIndex.getProfileId(), project, skill);
+		ProjectUsesSkillRelation projectUsesSkillRelation = new ProjectUsesSkillRelation(projectIndex.getProjectId(),
+				projectIndex.getWeight(), project, skill);
+		ProjectOfRelation projectOfRelation = new ProjectOfRelation(projectIndex.getProjectId(), project, company);
 		if (projectIndex.getMessage().equals("save") || projectIndex.getMessage().contains("update")) {
 			workedInRelationRepository.save(workedInRelation);
-			usesSkillRelationRepository.save(usesSkillRelation);
+			usesSkillRelationRepository.save(projectUsesSkillRelation);
+			projectOfRelationRepository.save(projectOfRelation);
 		} else if (projectIndex.getMessage().contains("delete")) {
 			workedInRelationRepository.deleteById(workedInRelation.getRole());
-			usesSkillRelationRepository.deleteById(usesSkillRelation.getProjectProfileId());
+			usesSkillRelationRepository.deleteById(projectUsesSkillRelation.getProjectProfileId());
+			projectOfRelationRepository.deleteById(projectOfRelation.getProjectProfileId());
 		}
 
 	}

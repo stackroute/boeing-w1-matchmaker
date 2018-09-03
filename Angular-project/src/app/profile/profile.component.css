@@ -2,8 +2,12 @@
     margin-top: 30px;
 }
 
+    #myModal{
+        margin-top: 280px;
+    }
+
 #addProfile {
-    background: #00b3b3;
+    background: #2469d1;
     color: white;
 }
 
@@ -12,7 +16,7 @@ a {
 }
 
 .drop li a:hover {
-    background: #00b3b3;
+    background: #2469d1;
     color: white;
 }
 
@@ -76,4 +80,48 @@ button{
 
 .profileheader{
   padding: 0;
+}
+
+
+/* Welcome User - Dont Change*/
+.bgimg-1{
+    position: relative;
+    /* opacity: 0.65; */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-image: url('https://avatars.mds.yandex.net/get-pdb/231404/eb784cd8-79d7-43d5-a4ff-5ab5471d0755/orig');
+    min-height: 450px;
+}
+.caption1 {
+    position: absolute;
+    left: 0;
+    top: 90%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+.caption1 span.border{
+    background-color: black;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 5px;
+}
+.bgimg-1 h1{
+    font-family: 'Raleway', sans-serif;
+    font-size: 70px;
+    font-weight: 300;
+    color: white;
+    text-align: center; 
+    
+}
+
+.bgimg-1 h4{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: white;
+    text-align: center;
 }

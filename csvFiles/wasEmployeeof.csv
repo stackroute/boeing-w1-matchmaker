@@ -1,0 +1,7 @@
+profile,company,relationship,to,from,role
+2,apple,wasEmployeeOf,06/2017,10/2017,Program Analyst
+4,j p morgan,wasEmployeeOf,11/2017,01/2018,Software Developer
+5,lg,wasEmployeeOf,11/2017,01/2018,Software Developer
+2,sonata,wasEmployeeOf,11/2017,01/2018,Software Developer
+5,walmart,wasEmployeeOf,11/2017,01/2018,Software Developer
+4,micromax,wasEmployeeOf,11/2017,01/2018,Software Developer

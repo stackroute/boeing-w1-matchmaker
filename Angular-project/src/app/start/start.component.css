@@ -1,0 +1,149 @@
+/* .parallax {
+
+    background-image: url('https://wallpaper-house.com/data/out/10/wallpaper2you_444342.jpg');
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+div {
+    display: block;
+}
+
+.bgimg-1 {
+    background-image: url('https://wallpaper-house.com/data/out/10/wallpaper2you_444342.jpg');
+    min-height: 450px;
+}
+
+.bgimg-2 {
+    background-image: url('http://getwallpapers.com/wallpaper/full/e/7/6/51241.jpg');
+    min-height: 400px;
+}
+
+.bgimg-3 {
+    background-image: url('https://images.wallpaperscraft.com/image/stars_sky_space_car_113629_1920x1080.jpg');
+    min-height: 500px;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    position: relative;
+    /* opacity: 0.65; */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.caption1, .caption2, .caption3, .caption4 {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption1{
+  top: 60%
+}
+
+.caption3{
+    top: 30%
+  }
+
+
+.caption1 span.Border, .caption2 span.Border, .caption3 span.Border, .caption4 span.Border {
+    background-color: black;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 5px;
+    font-family: 'Raleway', sans-serif;
+}
+.caption1 span.Border{
+    border: #fff;
+}
+
+
+.caption1 span.Border:hover {
+    font-size: 26px;
+}
+
+.bgimg-1 h1{
+    font-family: 'Raleway', sans-serif;
+    font-size: 70px;
+    font-weight: 200;
+    color: white;
+    text-align: center; 
+    
+}
+
+.bgimg-1 h4{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+}
+
+h3{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+
+p{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
+@media (max-width: 800px) {
+ .bgimg-1, .bgimg-2, .bgimg-3 {
+       min-height: 400px;
+    }
+    
+  .bgimg-1 h1 {
+      font-size: 50px;
+  }   
+  .bgimg-1 h4 {
+    font-size: 20px;
+  }
+  h3{
+      font-size: 22px;
+  }
+  p{
+      font-size: 15px;
+  } 
+  .caption2 span.Border, .caption3 span.Border, .caption1 span.Border, .caption4 span.Border{
+    font-size: 20px;
+    padding: 13px;
+  }
+  .caption1 span.Border:hover {
+    font-size: 21px;
+}
+}
+
+@media (max-width: 600px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        min-height: 300px;
+     }
+    .bgimg-1 h1 {
+        font-size: 30px;
+    }
+    .bgimg-1 h4 {
+        font-size: 15px;
+    }
+    h3{
+        font-size: 17px;
+    }
+    p{
+        font-size: 10px;
+    }  
+   .caption2 span.Border, .caption3 span.Border, .caption1 span.Border, .caption4 span.Border{
+        font-size: 10px;
+        padding: 10px;
+      }
+      .caption1 span.Border:hover {
+        font-size: 12px;
+    }   
+}

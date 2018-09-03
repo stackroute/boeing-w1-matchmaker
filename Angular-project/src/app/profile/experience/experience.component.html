@@ -1,134 +1,154 @@
 <div *ngIf="firstTime_check">
- <div class="card shade">
+  <div class="card shade">
     <div class="card-header text-primary">Experience</div>
-   <div class="card-body">
-     
-    <ul class="list-group list-group-flush">
-      <div class="w-auto" *ngFor="let item of UserData.experience; index as i"><a href="#ExperienceModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.role}}</a>
-                
+    <div class="card-body">
 
-     
-     
-     <div class="modal fade" id="ExperienceModal-{{i}}">
-      <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Experience</h4>
-                <button class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="card-body">
-           
-                  <div class="card-header d-flex">
-                    <h3 style="flex-grow: 20">Experience</h3>
-                    <a href="#UpdateExpModal-{{i}}" data-toggle="modal"><i class="material-icons">mode_edit</i></a> &nbsp;
-                    <a (click)="delete(i)" data-dismiss="modal"><i class="material-icons">delete</i></a>
-                  </div> 
-                  <div class="card-body">   
-                         
-                    <br> Organization name: {{item.organizationName}}
-                    <br> Role: {{item.role}}
-                    <br> Start date: {{item.startDate}}
-                    <br> End date: {{item.endDate}}
+      <ul class="list-group list-group-flush">
+        <div class="w-auto" *ngFor="let item of UserData.experience; index as i">
+          <a href="#ExperienceModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.role | titlecase}}
+              <br>at {{item.organizationName | titlecase}}
+          </a>
 
-                  </div>  
+
+
+
+          <div class="modal fade" id="ExperienceModal-{{i}}">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Experience</h4>
+                  <button class="close" data-dismiss="modal">&times;</button>
                 </div>
-            </div><!-- end modal body -->
-        </div><!-- end modal-content -->
-      </div><!-- end modal-dialog -->
-    </div><!-- end myModal -->
+                <div class="modal-body">
+                  <div class="card-body">
 
-<div class="modal fade" id="UpdateExpModal-{{i}}">
+                    <div class="card-header d-flex">
+                      <h3 style="flex-grow: 20">Experience</h3>
+                      <a href="#UpdateExpModal-{{i}}" data-toggle="modal">
+                        <i class="material-icons">mode_edit</i>
+                      </a> &nbsp;
+                      <a (click)="delete(i)" data-dismiss="modal">
+                        <i class="material-icons" style="color: red;">delete</i>
+                      </a>
+                    </div>
+                    <div class="card-body">
+
+                      <br> Organization name: {{item.organizationName}}
+                      <br> Role: {{item.role}}
+                      <br> Start date: {{item.startDate}}
+                      <br> End date: {{item.endDate}}
+
+                    </div>
+                  </div>
+                </div>
+                <!-- end modal body -->
+              </div>
+              <!-- end modal-content -->
+            </div>
+            <!-- end modal-dialog -->
+          </div>
+          <!-- end myModal -->
+
+          <div class="modal fade" id="UpdateExpModal-{{i}}">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Experience</h4>
+                  <button class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <!-- end modal-header -->
+                <div class="modal-body center-align">
+                  <form class="form-horizontal" id="exp-form" (submit)="update(i)">
+                    <div class="center-align">
+
+                      <mat-form-field>
+                        <input matInput placeholder="I previously worked in" [(ngModel)]="editPost_Exp[i].organizationName" name="org">
+                      </mat-form-field>
+
+                      <mat-form-field>
+                        <input matInput placeholder="as a" [(ngModel)]="editPost_Exp[i].role" name="role">
+                      </mat-form-field>
+
+                      <mat-form-field>
+                          <input matInput placeholder="I started on" [(ngModel)]="editPost_Exp[i].startDate" type="date" name="startDate">
+                      </mat-form-field>
+            
+                      <mat-form-field>
+                          <input matInput placeholder="I worked till" [(ngModel)]="editPost_Exp[i].endDate" type="date" name="endDate">
+                      </mat-form-field>
+                      
+                    </div>
+                    <!-- end of center align -->
+                    <hr>
+                    <button class="btn btn-warning submitbtn" type="submit">Update</button> &nbsp;&nbsp;
+                  </form>
+                </div>
+                <!-- end modal-body -->
+              </div>
+              <!-- end modal-content -->
+            </div>
+            <!-- end modal-dialog -->
+          </div>
+          <!-- end myModal -->
+
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal3">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Experience</h4>
         <button class="close" data-dismiss="modal">&times;</button>
- 
+
       </div>
       <!-- end modal-header -->
       <div class="modal-body center-align">
-         <form class="form-horizontal" id="exp-form" (submit)="update(i)">
-           <div class="center-align">
-  
-             <mat-form-field>
-               <input matInput placeholder="I previously worked in" [(ngModel)]="editPost_Exp[i].organizationName" name="org">
-             </mat-form-field>
-  
-             <mat-form-field>
-               <input matInput placeholder="as a" [(ngModel)]="editPost_Exp[i].role" name="role">
-             </mat-form-field>
-  
-             <mat-form-field>
-               <input matInput type="date" [matDatepicker]="picker" placeholder="I started on" [(ngModel)]="editPost_Exp[i].startDate" name="startDate">
-               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-               <mat-datepicker #picker1></mat-datepicker>
-             </mat-form-field>
-  
-             <mat-form-field>
-               <input matInput type="date" [matDatepicker]="picker" placeholder="I worked till" [(ngModel)]="editPost_Exp[i].endDate" name="endDate">
-               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-               <mat-datepicker #picker2></mat-datepicker>
-             </mat-form-field>
-           </div> <!-- end of center align -->
-           <hr>
-           <button class="btn btn-primary submitbtn" type="submit">Send</button> &nbsp;&nbsp;
-         </form>
-       </div>
+        <form class="form-horizontal" id="exp-form" (submit)="addPost_Exp()">
+          <div class="center-align">
+
+            <mat-form-field>
+              <input type="text" placeholder="I previously worked in" [(ngModel)]="newPost_Exp.organizationName" name="org" matInput
+                [formControl]="searchTerm" [matAutocomplete]="auto">
+
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let comp of company" [value]="comp.organizationName">
+                  {{ comp.organizationName }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <!-- <mat-form-field>
+              <input matInput placeholder="I previously worked in" [(ngModel)]="newPost_Exp.organizationName" name="org">
+            </mat-form-field> -->
+
+            <mat-form-field>
+              <input matInput placeholder="as a" [(ngModel)]="newPost_Exp.role" name="role">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="I started on" [(ngModel)]="newPost_Exp.startDate" type="date" name="startDate">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="I worked till" [(ngModel)]="newPost_Exp.endDate" type="date" name="endDate">
+            </mat-form-field>
+
+            
+          </div>
+          <!-- end of center align -->
+          <hr>
+          <button class="btn btn-primary submitbtn" type="submit">Send</button> &nbsp;&nbsp;
+        </form>
+      </div>
       <!-- end modal-body -->
     </div>
     <!-- end modal-content -->
   </div>
   <!-- end modal-dialog -->
- </div>
- <!-- end myModal -->
-
-</div></ul>
-</div>
-</div>
-</div>  
-
-<div class="modal fade" id="myModal3">
- <div class="modal-dialog">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h4 class="modal-title">Experience</h4>
-       <button class="close" data-dismiss="modal">&times;</button>
-
-     </div>
-     <!-- end modal-header -->
-     <div class="modal-body center-align">
-        <form class="form-horizontal" id="exp-form" (submit)="addPost_Exp()">
-          <div class="center-align">
- 
-            <mat-form-field>
-              <input matInput placeholder="I previously worked in" [(ngModel)]="newPost_Exp.organizationName" name="org">
-            </mat-form-field>
- 
-            <mat-form-field>
-              <input matInput placeholder="as a" [(ngModel)]="newPost_Exp.role" name="role">
-            </mat-form-field>
- 
-            <mat-form-field>
-              <input matInput type="date" [matDatepicker]="picker" placeholder="I started on" [(ngModel)]="newPost_Exp.startDate" name="startDate">
-              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field>
- 
-            <mat-form-field>
-              <input matInput type="date" [matDatepicker]="picker" placeholder="I worked till" [(ngModel)]="newPost_Exp.endDate" name="endDate">
-              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-              <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field>
-          </div> <!-- end of center align -->
-          <hr>
-          <button class="btn btn-primary submitbtn" type="submit">Send</button> &nbsp;&nbsp;
-        </form>
-      </div>
-     <!-- end modal-body -->
-   </div>
-   <!-- end modal-content -->
- </div>
- <!-- end modal-dialog -->
 </div>
 <!-- end myModal -->

@@ -1,0 +1,248 @@
+parent,child
+html,frontend 
+css,frontend 
+javascript,frontend 
+ajax,frontend 
+angular,frontend 
+angular2,frontend 
+html,angular
+css,angular
+javascript,angular
+javascript,aurelia
+javascript,babylonjs
+html,babylonjs
+html,bootstrap
+css,bootstrap
+javascript,bootstrap
+clojurescripe,javascript
+css,compass
+javascript,core.js
+javascript,dhtml
+html,dhtml
+css,dhtml
+javascript,ecmascript
+html,electron
+javascript,electron
+css,electron
+javascript,ember.js
+html,extjs
+javascript,extjs
+foundation,frontend 
+haml,ruby on rails
+angular,javascript frameworks
+reactjs,javascript frameworks
+javascript,nunjucks
+prototype,javascript
+prototype,ajax
+prototype,ruby on rails
+javascript,ember.js
+javascript,backbone.js
+javascript,knockout
+javascript,d3.js
+javascript,sencha
+javascript,mercury
+javascript,webrx
+backbone.js,marionette
+css,oocss
+javascript,paperjs
+javascript,pixijs
+javascript,polymer
+reactjs,frontend 
+redux,frontend 
+relay,frontend 
+javascript,requirejs
+coffeescript,spine js
+typescript,angular
+javascript,underscore.js
+javascript,vanilla js
+html,xhtml
+javascript,mean
+javascript,node.js
+node.js,koa
+javascript,meteor
+php,bitrix framework
+php,cakephp
+php,codeception
+php,gearman
+php,kohana
+php,laravel
+php,phalcon
+laravel,php framework
+cakephp,php framework
+yii,php framework
+codeigniter,php framework
+zend framework,php framework
+php,phpspec
+php,phpstrom
+php,silex
+php,silverstripe
+php,slim
+php,symfony
+ruby,grape
+ruby,padrino
+ruby,passenger
+ruby,rspec
+ruby on rails,ruby framework
+sinatra,ruby framework
+padrino,ruby framework
+jruby,ruby framework
+ruby,ruby on rails
+rspec,ruby testing tools
+capybara,ruby testing tools
+watir,ruby testing tools
+cucumber,ruby testing tools
+apache ant,java build tools
+maven,java build tools
+gradle,java build tools
+junit,java testing tools
+testng,java testing tools
+cactus,java testing tools
+easymock,java testing tools
+mockito,java testing tools
+cucumber,java testing tools
+adf,java ee
+java,apache mina
+java,cleartk
+java,dropwizard
+ejb,java ee
+java,ejb
+java,guice
+groovy,grails
+java,intellij
+tomcat,java ee
+jboss,java ee
+glassfish,java ee
+weblogic,java ee
+hibernate,java orm framework
+ejb,java orm framework
+jpa,java orm framework
+java se,java se framework
+swing,java se framework
+play,java se framework
+javafx,java se framework
+jsf,java se framework
+netty,java se framework
+wicket,java se framework
+java,swing
+java,play
+java,javafx
+java,jsf
+java,netty
+java,wicket
+powermock,java testing tools
+seam,java ee
+java,spring
+java,spring boot
+java,spring mvc
+wildfly,java ee
+java,wildfly
+c#,.net
+c#,accord.net framework
+c#,ado.net
+c#,asp.net
+c#,asp.net core
+c#,asp.net mvc
+.net,c# framework
+nunit,c# testing tool
+specflow,c# testing tool
+mstest,c# testing tool
+.net,entity framework
+entity framework,orm framework
+nhibernate,orm framework
+razor,asp.net
+django,python framework
+flask,python framework
+kivy,python framework
+pylons,python framework
+pyramid,python framework
+sqlalchemy,python framework
+tornado,python framework
+python,django
+python,flask
+python,kivy
+python,pylons
+python,pyramid
+python,sqlalchemy
+python,tornado
+python,cherrypy
+python,pycharm
+python,sympy
+ace,c++ framework
+boost,c++ framework
+visual c++,c++ framework
+c++,ace
+c++,boost
+c++,visual c++
+c++,visual studio
+c,c++
+c,kore
+akka,scala framework
+cats,scala framework
+lift,scala framework
+scalaz,scala framework
+slick,scala framework
+shapeless,scala framework
+spray,scala framework
+scala,akka
+scala,cats
+scala,lift
+scala,scalaz
+scala,slick
+scala,shapeless
+scala,spray
+scala,colossus
+go,echo
+go,gin
+go,goland
+go,beego
+go,buffalo
+go,iris
+go,revel
+arangodb,database
+berkeleydb,database
+cassandra,database
+cockroachdb,database
+couchbase,database
+couchdb,database
+dynamodb,database
+influxdb,database
+mariadb,database
+memsql,database
+mongodb,database
+mysql,database
+neo4j,database
+berkeleydb,nosql
+cassandra,nosql
+mongodb,nosql
+couchdb,nosql
+arangodb,nosql
+dynamodb,nosql
+neo4j,nosql
+orientdb,nosql
+redis,nosql
+riak,nosql
+memsql,database
+orientdb,database
+percona db,database
+sql,database
+postgresql,database
+rethink db,database
+sql,database
+T-sql,database
+java,backend
+php,backend
+javascript,backend
+ruby,backend
+c#,backend
+c++,backend
+c,backend
+python,backend
+scala,backend
+golang,backend
+clojure,functional programming
+elixir,functional programming
+elm,functional programming
+erlang,functional programming
+haskell,functional programming
+idris,functional programming
+ocaml,functional programming

@@ -4,7 +4,17 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/nlp-microservice-1.2.0.jar /src/nlp.jar
+COPY target/nlp-microservice-1.3.0.jar /src/nlp.jar
+
+COPY stopword.txt /src/stopword.txt
+
+COPY extra.txt /src/extra.txt
+
+COPY location.txt /src/location.txt
+
+COPY skill.txt /src/skill.txt
+
+COPY organisation.txt /src/organisation.txt
 
 EXPOSE 8999
 

@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/configuration-service-1.2.0.jar /src/centralizedconfig.jar
+COPY target/configuration-service-1.3.0.jar /src/centralizedconfig.jar
 
 EXPOSE 8891
 

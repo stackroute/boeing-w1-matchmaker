@@ -1,12 +1,13 @@
 package com.stackroute.downstreamservice.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import com.stackroute.downstreamservice.model.User;
 
 public interface UserRepository extends MongoRepository<User, String> {
-	public Optional<User> getByUsername(String username);
+	
+	@Query("{_id: '?0'}")
+	public User getByUsername(String username);
 
 }

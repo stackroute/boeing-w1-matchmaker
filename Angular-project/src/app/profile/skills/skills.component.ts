@@ -3,6 +3,8 @@ import { UserService } from '../../user.service';
 import { UserSkill } from '../../userSkill';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { AutocompleteService } from '../../autocomplete.service';
 
 @Component({
   selector: 'app-skills',
@@ -13,14 +15,22 @@ import { Observable } from 'rxjs';
 export class SkillsComponent implements OnInit {
   private newPost_Skill ;
   private editPost_Skill;
-  // private editPost_Skill;
+  searchTerm: FormControl = new FormControl();
+  skill = <any>[];
   private firstTime_check = false;
   UserData: any = [];
 
-  constructor(private userService: UserService, private http: HttpClient) {
+  constructor(private userService: UserService, private http: HttpClient, private autocomplete: AutocompleteService) {
    }
 
   ngOnInit() {
+    this.searchTerm.valueChanges.subscribe(term => {
+    if (term !== '') {
+      this.autocomplete.searchSkill(term).subscribe(data => {
+        this.skill = data as any[];
+      });
+    }
+  });
     this.newPost_Skill = new UserSkill();
     this.editPost_Skill = new UserSkill();
     this.getSkills();

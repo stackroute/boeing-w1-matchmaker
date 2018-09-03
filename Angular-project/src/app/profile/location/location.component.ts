@@ -3,6 +3,8 @@ import { UserService } from '../../user.service';
 import { UserLocation } from '../../userLocation';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { AutocompleteService } from '../../autocomplete.service';
 
 
 @Component({
@@ -16,14 +18,25 @@ export class LocationComponent implements OnInit {
   private editPost_Loc;
   private firstTime_check = false;
   UserData: any = [];
-  constructor(private userService: UserService, private http: HttpClient) {
+  searchTerm: FormControl = new FormControl();
+  city = <any>[];
+  constructor(private userService: UserService, private http: HttpClient,
+     private autocomplete: AutocompleteService) {
 
   }
 
   ngOnInit() {
+    this.searchTerm.valueChanges.subscribe(term => {
+      if (term !== '') {
+        this.autocomplete.searchCity(term).subscribe(data => {
+          this.city = data as any[];
+          console.log(data[0].city);
+        });
+      }
+    });
     this.newPost_Loc = new UserLocation();
     this.editPost_Loc = new UserLocation();
-    this.newPost_Loc.addressType = 'previous';
+    this.newPost_Loc.addressType = 'present';
     this.getLocations();
   }
 

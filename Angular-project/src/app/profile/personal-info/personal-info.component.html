@@ -3,16 +3,16 @@
     <div class="card-header text-primary">Personal Information</div>
     <div class="card-body">
       
-      <img class="rounded-circle" style="width:100px;height:100px"  src={{imageUrl}}>
+      <img class="rounded-circle" style="width:100px;height:100px"  src={{image.src}}>
       <br>
-      <br> Name: {{UserData.personalInfo.name}}
+      <br> Name: {{UserData.personalInfo.name | titlecase}}
       <br> Age: {{UserData.personalInfo.age}}
       <br> Contact no.: {{UserData.personalInfo.mobile}}
       <br> Email: {{UserData.personalInfo.email}}   
      
-  <a href="#PIModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">See More</a>
+  <a href="#PIModal" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">See More</a>
 
-  <div class="modal fade" id="PIModal-{{i}}">
+  <div class="modal fade" id="PIModal">
     <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
@@ -78,11 +78,10 @@
             <mat-form-field>
               <input matInput placeholder="email me on" [(ngModel)]="editPost_PI.email" name="email">
             </mat-form-field>
-   
             <!-- <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="I was born on" [(ngModel)]="newPost_PI.dob">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <input matInput [matDatepicker]="picker3" placeholder="I was born on" [(ngModel)]="newPost_PI.dob">
+              <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
             </mat-form-field> -->
             <mat-form-field>
               <input matInput placeholder="I was born on" [(ngModel)]="editPost_PI.dob" type="date" name="dob">
@@ -108,7 +107,7 @@
               <input matInput placeholder="find me on Github" type="url" [(ngModel)]="editPost_PI.github" name="github">
             </mat-form-field>
             <hr>
-            <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+            <button class="btn btn-warning susbmitbtn" type="submit">Update</button> &nbsp;&nbsp;
           </form>
         </div>
       <!-- end modal-body -->
@@ -187,7 +186,7 @@
               <input matInput placeholder="find me on Github" type="url" [(ngModel)]="newPost_PI.github" name="github">
             </mat-form-field>
             <hr>
-            <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+            <input class="btn btn-primary susbmitbtn" type="submit" value="ADD"/>
           </form>
         </div>
       <!-- end modal-body -->

@@ -21,6 +21,9 @@ public class IndexerOutput {
 	
 	@Value("${producer.topic.name}")
 	private String topic;
+	
+	@Autowired
+	RelationshipPropertyImplementation weightage;
 
 //	private String profileId;
 //	private String mySkill;
@@ -46,9 +49,10 @@ public class IndexerOutput {
 	
 	@KafkaListener(topics = "${listener.topic.name}", groupId = "group_json", containerFactory = "skillKafkaListenerFactory")
 	public void consumeJson(Skills skill) {
-
+		String skills= skill.getSkill();
+		LOG.info("Weightage is",weightage.weightageAssigner(skills));
 		kafkaTemplate.send(topic,
-				new SkillIndex(skill.getProfileId(),skill.getSkill(),"50", skill.getMessage()));
+				new SkillIndex(skill.getProfileId(),skill.getSkill(),weightage.weightageAssigner(skills),skill.getMessage()));
 		LOG.info("Produced JSON message on indexer='{}'");
 
 	}

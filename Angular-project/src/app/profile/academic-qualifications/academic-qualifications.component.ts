@@ -3,6 +3,8 @@ import { UserService } from '../../user.service';
 import { UserAcademy } from '../../userAcademy';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { AutocompleteService } from '../../autocomplete.service';
 
 @Component({
   selector: 'app-academic-qualifications',
@@ -14,14 +16,22 @@ export class AcademicQualificationsComponent implements OnInit {
   private newPost_Academy;
   private editPost_Academy;
   private firstTime_check = false;
-  // private editPost_Academy;
+  searchTerm: FormControl = new FormControl();
+  university = <any>[];
   UserData: any = [];
 
-  constructor(private userService: UserService, private http: HttpClient) {
+  constructor(private userService: UserService, private http: HttpClient, private autocomplete: AutocompleteService) {
 
   }
 
   ngOnInit() {
+    this.searchTerm.valueChanges.subscribe(term => {
+      if (term !== '') {
+        this.autocomplete.searchUniversity(term).subscribe(data => {
+          this.university = data as any[];
+        });
+      }
+    });
     this.newPost_Academy = new UserAcademy();
     this.editPost_Academy = new UserAcademy();
     this.getAcademics();
@@ -35,8 +45,6 @@ export class AcademicQualificationsComponent implements OnInit {
     setTimeout(() => {
       this.getAcademics();
       }, 1000);
-    // this.firstTime_check = true;
-    // this.getPost_Academy = this.newPost_Academy;
     }
 
     update(j) {

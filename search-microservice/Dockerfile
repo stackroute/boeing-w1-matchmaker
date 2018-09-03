@@ -4,7 +4,7 @@ RUN mkdir /src
 
 WORKDIR /src
 
-COPY target/search-microservice-1.2.0.jar /src/search.jar
+COPY target/search-microservice-1.3.0.jar /src/search.jar
 
 EXPOSE 8998
 
