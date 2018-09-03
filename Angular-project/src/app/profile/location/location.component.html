@@ -12,11 +12,13 @@
             <div *ngSwitchCase="'previous'">
                 <strong>Place lived</strong>
             </div>
-        </div>
+        </div> <br>
         <!-- <button (click)="getLocations()">Click</button>   -->
         <!-- <ul><li *ngFor="let loc of UserData.location">{{loc.city}}</li></ul> -->
         <ul class="list-group list-group-flush">
-  <div class="w-auto" *ngFor="let loc of UserData.location; index as i"><a href="#AddressModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{loc.city}}</a>
+  <div class="w-auto" *ngFor="let loc of UserData.location; index as i"><a href="#AddressModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{loc.city | titlecase}}
+    <br> {{loc.state | titlecase}}, {{loc.country | titlecase}}
+  </a>
        
     <!-- {{Locations.location[1].city}} -->
         
@@ -33,7 +35,7 @@
                 <div class="card-header d-flex">
                   <h3 style="flex-grow: 20">Address</h3>
                   <a href="#UpdateModal-{{i}}" data-toggle="modal"><i class="material-icons">mode_edit</i></a> &nbsp;
-                  <a href=""  (click)="delete(i)" data-dismiss="modal"><i class="material-icons">delete</i></a>
+                  <a href=""  (click)="delete(i)" data-dismiss="modal"><i class="material-icons" style="color: red;">delete</i></a>
                 </div> 
                 <div class="card-body">   
                        {{loc.address}}
@@ -95,8 +97,8 @@
                   </mat-form-field>
               </div>
               <hr>
-              <button class="btn btn-primary submitbtn" type="submit">Update</button>
-              <button class="btn btn-warning" onclick="this.form.reset();" >Clear</button>         
+              <button class="btn btn-warning submitbtn" type="submit">Update</button>
+                       
             </form>
           </div>
           <!-- end modal-body -->
@@ -127,8 +129,8 @@
               
             <div>
               <mat-radio-group>
-                  <mat-radio-button (click)="newPost_Loc.addressType = 'present'" value="present">Currently living</mat-radio-button> &nbsp;
-                  <mat-radio-button (click)="newPost_Loc.addressType = 'previous'" value="previous" checked>Place lived</mat-radio-button>
+                  <mat-radio-button (click)="newPost_Loc.addressType = 'present'" value="present" checked>Currently living</mat-radio-button> &nbsp;
+                  <mat-radio-button (click)="newPost_Loc.addressType = 'previous'" value="previous">Place lived</mat-radio-button>
               </mat-radio-group> </div>
               <br/>
             

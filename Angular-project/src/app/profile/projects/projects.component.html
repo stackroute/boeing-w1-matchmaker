@@ -6,9 +6,10 @@
     <div class="card-body">
 
       <ul class="list-group list-group-flush">
-        <div class="w-auto" *ngFor="let item of UserData.project; index as i"><a href="#ProjectsModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.projectTitle}}</a>
-            
-    
+        <div class="w-auto" *ngFor="let item of UserData.project; index as i"><a href="#ProjectsModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.projectTitle | titlecase}}
+            <br> as {{item.role | titlecase}} <br> from {{item.from}} to {{item.to}}
+        </a>
+               
 
 <div class="modal fade" id="ProjectsModal-{{i}}">
         <div class="modal-dialog">
@@ -23,7 +24,7 @@
                     <div class="card-header d-flex">
                       <h3 style="flex-grow: 20">Project</h3>
                       <a href="#UpdateProjectModal-{{i}}" data-toggle="modal"><i class="material-icons">mode_edit</i></a> &nbsp;
-                      <a (click)="delete(i)" data-dismiss="modal"><i class="material-icons">delete</i></a>
+                      <a (click)="delete(i)" data-dismiss="modal"><i class="material-icons" style="color: red;">delete</i></a>
                     </div> 
                     <div class="card-body">   
                            
@@ -129,7 +130,7 @@
               </mat-form-field>
      
               <hr>
-              <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+              <button class="btn btn-warning susbmitbtn" type="submit">Update</button> &nbsp;&nbsp;
             </form>
           </div>
         <!-- end modal-body -->

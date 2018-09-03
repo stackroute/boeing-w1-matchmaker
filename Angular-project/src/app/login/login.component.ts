@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
         ],
         password: ['', [Validators.required]]
       });
-      this.authenticationService.logout();
     }
 
     loginSubmit() {
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
       this.authenticationService.login(this.username.value, this.password.value)
       .subscribe(
           data => {
-              this.router.navigate(['/home']);
+              this.router.navigate(['/profile']);
           },
           error => {
               this.error = 'Username or password is incorrect';

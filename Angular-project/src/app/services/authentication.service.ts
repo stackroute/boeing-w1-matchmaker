@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable,  Output, EventEmitter} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -8,6 +8,7 @@ import { Login } from '../login';
 @Injectable()
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
+    @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
     login(username: String, password: String): Observable<any> {
         const httpHeaders = new HttpHeaders({
@@ -26,6 +27,7 @@ export class AuthenticationService {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUserToken', JSON.stringify(user.token));
                     localStorage.setItem('currentUser', JSON.stringify(user.username));
+                    this.getLoggedInName.emit();
                 }
                 return user;
             }));

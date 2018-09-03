@@ -2,6 +2,10 @@
     margin-top: 30px;
 }
 
+    #myModal{
+        margin-top: 280px;
+    }
+
 #addProfile {
     background: #2469d1;
     color: white;

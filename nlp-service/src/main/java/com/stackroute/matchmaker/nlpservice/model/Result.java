@@ -5,10 +5,10 @@ import java.util.List;
 public class Result {
 	private String profileId;
 	private List<String> skills;
-	private long experience;
+	private String experience;
 	private String city;
 
-	public Result(String profileId, List<String> skills, long experience, String city) {
+	public Result(String profileId, List<String> skills, String experience, String city) {
 		super();
 		this.profileId = profileId;
 		this.skills = skills;
@@ -32,11 +32,11 @@ public class Result {
 		this.skills = skills;
 	}
 
-	public long getExperience() {
+	public String getExperience() {
 		return experience;
 	}
 
-	public void setExperience(long experience) {
+	public void setExperience(String experience) {
 		this.experience = experience;
 	}
 

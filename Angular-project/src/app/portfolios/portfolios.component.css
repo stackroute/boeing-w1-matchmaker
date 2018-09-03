@@ -1,6 +1,6 @@
 body{
-    margin-top: -20px;
-    background-image: url('https://wallpapertag.com/wallpaper/full/7/2/8/118913-full-size-white-wood-background-1920x1080.jpg');
+    margin-top: -25px;
+    background-image: url('http://www.meh.ro/wp-content/uploads/2014/09/meh.ro11755.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -15,6 +15,33 @@ body{
 
 a {
     text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+p{
+    font-size: 13px;
+}
+
+p i{
+    font-size: 18px;
+    position: relative;
+    top: 5px;
+}
+
+h4 i{
+    font-size: 30px;
+    position: relative;
+    top: 7px;
+}
+
+.socialmedia{
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+img{
+   width: 100%; 
 }
 
 .drop li a:hover {
@@ -27,7 +54,6 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: -90px;
     /* align-items: stretch; */
 }
 
@@ -43,9 +69,93 @@ a {
     margin: 10px;
 }
 
-.column > * {
-    /* margin: 10px; */
+.column2-1 {
+    flex: 30%;
+    max-width: 30%;
+    padding: 25px;
+    margin-left: -90px;
+    background: rgb(48, 43, 43);
 }
+
+.column2-2{
+    flex: 60%;
+    max-width: 60%;
+    padding: 25px;
+}
+.visiting{
+    margin-top: 100px;
+}
+  
+  img {
+    width: 200px;
+    height: 200px;
+    margin-left: 45px;
+  }
+  h3 {
+    margin-left: 10px;
+  }
+  
+  .move {
+    margin-left: 10px;
+  }
+  d-flex {
+    width: 100px;
+  }
+  
+  @media (max-width: 768px) {
+      img {
+        width: 150px;
+        height: 150px;
+       margin-left: 10px;
+      }
+    
+      #heading1{
+        margin-left: 20px;
+        font-size: 30px;
+    }
+    
+      .move {
+        margin-left: 0px;
+      }
+    }
+    @media (max-width: 425px) {
+      img {
+        width: 150px;
+        height: 150px;
+       margin-left: 120px;
+      }
+    
+      #heading1{
+        margin-left: 70px;
+        font-size: 30px;
+    }
+    
+      .move {
+        margin-left: 0px;
+      }
+
+      .column2-1{
+          size: 50%;
+      }
+    }
+    @media (max-width: 320px) {
+      img {
+        width: 150px;
+        height: 150px;
+       margin-left: 70px;
+      }
+    
+      #heading1{
+        margin-left: 20px;
+        font-size: 30px;
+    }
+    
+      .move {
+        margin-left: 0px;
+      }
+    }
+
+
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media (max-width: 800px) {
@@ -56,6 +166,13 @@ a {
 
     .column > *{
         size: 80%;
+    }
+    h4{
+        font-size: 20px;
+    }
+    img{
+        width: 150px;
+        height: 150px;
     }
 }
 
@@ -70,5 +187,30 @@ a {
         size: 10%;
         
     }
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    h4{
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 1259px) {
+   
+    img{
+        width: 190px;
+        height: 190px;
+    }
+
+}
+@media (max-width: 1000px) {
+   
+    img{
+        width: 150px;
+        height: 150px;
+    }
+
 }
 

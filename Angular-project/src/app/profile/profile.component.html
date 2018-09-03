@@ -1,15 +1,8 @@
-<!-- <div class="profileheader">
-  <img id="img1" class="img-fluid" src="http://www.hddesktopbackgrounds.us/backgrounds-images/1920x1080/ayhje-wallpapers-525411532-1920x1080.jpg"
-    alt="background image">
-</div> -->
 <div class="bgimg-1"> <br><br><br><br><br><br>
-  <h1>Welcome User</h1> 
-  <h4>Press the plus icon to start filling your profile</h4> 
+  <h1>Welcome {{name | titlecase}}</h1> 
   <div class="caption1 d-flex justify-content-center">
-      <!-- <a [routerLink]="['/login']"><span class="border">GET STARTED</span></a> -->
-      <span>
-        <img id="img2" class="img-fluid rounded-circle" src="https://scontent.fblr2-1.fna.fbcdn.net/v/t1.0-9/21430553_588573508200153_2361372440587924427_n.jpg?_nc_cat=0&oh=cdfb60622258f5ce98203032f96e7d87&oe=5BFF4AB8"
-          alt="background image">
+      <span *ngIf="imgCheck"> 
+        <img id="img2" class="img-fluid rounded-circle" src={{image.src}}>
       </span>
   </div>
 </div>
@@ -36,6 +29,15 @@
   </div>
 
   <br>
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+              <h4>Press on plus icon to start filling your profile</h4>
+            </div>
+        </div>
+    </div>
+  </div>
   <div class="dropdown">
     <button mat-fab color="primary" class="btn" id="addProfile" type="button" data-toggle="dropdown"><mat-icon>add</mat-icon>
       <span class="caret"></span></button>
@@ -53,4 +55,5 @@
 </div>
 
 <div class="container">
+
 </div>

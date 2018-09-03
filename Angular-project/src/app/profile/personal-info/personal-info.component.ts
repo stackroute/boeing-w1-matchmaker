@@ -20,6 +20,7 @@ export class PersonalInfoComponent implements OnInit {
   private editPost_PI;
   private firstTime_check = false;
   UserData: any = [];
+  image = new Image();
 
   constructor(private userService: UserService, private http: HttpClient) {
   }
@@ -50,6 +51,7 @@ export class PersonalInfoComponent implements OnInit {
        this.get().subscribe( data => {
           this.UserData = data;
           this.editPost_PI = data.personalInfo;
+          this.image.src = 'data:image/png;base64,' + this.UserData.personalInfo.picture;
           if (this.UserData.personalInfo == null) {
             this.firstTime_check = false;
           } else {

@@ -39,7 +39,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <button [disabled]="userForm.invalid" class="btn btn-block btn-danger">Sign In</button>
+                <button [disabled]="userForm.invalid" class="btn btn-block btn-danger">Login</button>
                 <div *ngIf="error" class="alert alert-danger">{{error}}</div>
                 <p id="orStyle"> OR </p>
                 <button class="btn btn-block btn-primary" id="signUp" [routerLink]="['/register']">SignUp</button>
@@ -49,18 +49,4 @@
         </div>
       </div>
     </div>
-    <br><br><br><br>
-      <div class="col-sm-6">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <h1>Know Where You Stand</h1>
-          </mat-card-header>
-          <img mat-card-image src="https://www.ziprecruiter.com/zrs/b85ba918/img/jobs/notification.svg" alt="notifications">
-          <mat-card-content>
-            <h3>
-              When you apply to a job, we let you know what happens next. We'll keep you updated every step of the way and give you regular
-              reminders to update your resume. </h3>
-          </mat-card-content>
-        </mat-card>
-      </div>
   </div>

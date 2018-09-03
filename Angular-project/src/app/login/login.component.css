@@ -1,5 +1,6 @@
 .loginSubmit {
     margin-top: 90px;
+    margin-bottom: 80px;
     width: 100%;
 }
 
@@ -36,7 +37,7 @@ mat-card-content{
 #border_seperate {
     border-right: 0.5px solid #999;
     position: relative;
-    top: 50px;
+    top: 10px;
 }
 #card-align1{
     position: relative;

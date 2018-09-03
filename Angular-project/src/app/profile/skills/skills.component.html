@@ -3,7 +3,8 @@
     <div class="card-header text-primary border-light">Skills</div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
-          <div class="w-auto" *ngFor="let item of UserData.skills; index as i"><a href="#SkillsModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.skill}}</a>
+          <div class="w-auto" *ngFor="let item of UserData.skills; index as i"><a href="#SkillsModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.skill | titlecase}} <span class="badge badge-secondary"> 
+              {{item.level}}</span></a>
                     
 
 <div class="modal fade" id="SkillsModal-{{i}}">
@@ -19,7 +20,7 @@
                 <div class="card-header d-flex">
                   <h3 style="flex-grow: 20">Skill</h3>
                   <a href="#UpdateSkillModal-{{i}}" data-toggle="modal"><i class="material-icons">mode_edit</i></a> &nbsp;
-                  <a (click)="delete(i)" data-dismiss="modal"><i class="material-icons">delete</i></a>
+                  <a (click)="delete(i)" data-dismiss="modal"><i class="material-icons" style="color: red;">delete</i></a>
                 </div> 
                 <div class="card-body">   
                        
@@ -62,7 +63,7 @@
                   </mat-form-field>
          
                   <hr>
-                  <button class="btn btn-primary susbmitbtn" type="submit">Send</button> &nbsp;&nbsp;
+                  <button class="btn btn-warning susbmitbtn" type="submit">Update</button> &nbsp;&nbsp;
                 </form>
               </div>
             <!-- end modal-body -->

@@ -1,3 +1,35 @@
+body{
+  margin-top: -20px;
+  /* background-image: url(''); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  font-family: 'Raleway', sans-serif;
+}
+
+.flex-container{
+  /* background-color: green; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -80px; 
+  /* align-items: stretch; */
+}
+
+.card{
+  text-align: center;
+  margin: 30px;
+  
+}
+button {
+  position: relative;
+  bottom: 8px;
+  border-radius: 10px;
+   font-size: 30px;
+   background-image: linear-gradient(to top, #ff0814 0%, #ec9718 100%);
+ }
+
+
 form {
   margin-top: 150px;
   margin-bottom: 150px;
@@ -5,26 +37,35 @@ form {
 @media (min-width: 768px) {
   input[type="text"] {
     width: 600px;
-    height: 100px;
-    border-radius: 50px;
-    font-size: 30px;
+    /* height: 80px; */
+    font-size: 40px;
   }
   button {
-    border-radius: 100px;
+   border-radius: 10px;
     font-size: 30px;
-    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    background-image: linear-gradient(to top, #ff0814 0%, #ec9718 100%);
   }
 }
 @media (max-width: 768px) {
   input[type="text"] {
-    width: 300px;
-    height: 75px;
-    border-radius: 50px;
+    width: 230px;
+    height: 50px;
     font-size: 20px;
   }
   button {
-    border-radius: 100px;
-    font-size: 20px;
-    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    border-radius: 10px;
+    font-size: 15px;
+    background-image: linear-gradient(to top, #ff0814 0%, #ec9718 100%);
+  }
+}
+@media (max-width: 375px) {
+  input[type="text"] {
+    width: 200px;
+    font-size: 15px;
+  }
+  button {
+    border-radius: 10px;
+    font-size: 15px;
+    background-image: linear-gradient(to top, #ff0814 0%, #ec9718 100%);
   }
 }

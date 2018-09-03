@@ -5,7 +5,9 @@
 
       <ul class="list-group list-group-flush">
         <div class="w-auto" *ngFor="let item of UserData.experience; index as i">
-          <a href="#ExperienceModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.role}}</a>
+          <a href="#ExperienceModal-{{i}}" class="list-group-item list-group-item-light list-group-item-action" data-toggle="modal">{{item.role | titlecase}}
+              <br>at {{item.organizationName | titlecase}}
+          </a>
 
 
 
@@ -26,7 +28,7 @@
                         <i class="material-icons">mode_edit</i>
                       </a> &nbsp;
                       <a (click)="delete(i)" data-dismiss="modal">
-                        <i class="material-icons">delete</i>
+                        <i class="material-icons" style="color: red;">delete</i>
                       </a>
                     </div>
                     <div class="card-body">
@@ -69,20 +71,17 @@
                       </mat-form-field>
 
                       <mat-form-field>
-                        <input matInput type="date" [matDatepicker]="picker1" placeholder="I started on" [(ngModel)]="editPost_Exp[i].startDate" name="startDate">
-                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                        <mat-datepicker #picker1></mat-datepicker>
+                          <input matInput placeholder="I started on" [(ngModel)]="editPost_Exp[i].startDate" type="date" name="startDate">
                       </mat-form-field>
-
+            
                       <mat-form-field>
-                        <input matInput type="date" [matDatepicker]="picker2" placeholder="I worked till" [(ngModel)]="editPost_Exp[i].endDate" name="endDate">
-                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                        <mat-datepicker #picker2></mat-datepicker>
+                          <input matInput placeholder="I worked till" [(ngModel)]="editPost_Exp[i].endDate" type="date" name="endDate">
                       </mat-form-field>
+                      
                     </div>
                     <!-- end of center align -->
                     <hr>
-                    <button class="btn btn-primary submitbtn" type="submit">Send</button> &nbsp;&nbsp;
+                    <button class="btn btn-warning submitbtn" type="submit">Update</button> &nbsp;&nbsp;
                   </form>
                 </div>
                 <!-- end modal-body -->
