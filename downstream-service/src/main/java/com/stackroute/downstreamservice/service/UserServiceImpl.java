@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
 	private UserRepository userRepo;
 	// private Optional<User> opt;
-	private User user;
+	private User user = null;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void saveCertificate(Certificates certificates) {
-		User user = userRepo.getByUsername(certificates.getProfileId());
+		user = userRepo.getByUsername(certificates.getProfileId());
 		List<Certificates> list;
 		if (user.getCertificates() == null)
 			list = new ArrayList<>();
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void saveSkill(Skills skills) {
-		User user = userRepo.getByUsername(skills.getProfileId());
+		user = userRepo.getByUsername(skills.getProfileId());
 		List<Skills> list;
 		if (user.getSkills() == null)
 			list = new ArrayList<>();
@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void saveProject(Projects project) {
 		List<Projects> list;
-		User user = userRepo.getByUsername(project.getProfileId());
+		user = userRepo.getByUsername(project.getProfileId());
 
 		if (user.getProject() == null)
 			list = new ArrayList<>();
@@ -83,7 +83,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void savePersonalInfo(PersonalInfo personalInfo) {
-		User user = userRepo.getByUsername(personalInfo.getProfileId());
+		user = userRepo.getByUsername(personalInfo.getProfileId());
 		user.setPersonalInfo(personalInfo);
 		user.setUsername(personalInfo.getProfileId());
 		userRepo.save(user);
@@ -93,7 +93,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void saveLocation(Location location) {
-		User user = userRepo.getByUsername(location.getProfileId());
+		user = userRepo.getByUsername(location.getProfileId());
 		List<Location> list;
 		if (user.getLocation() == null)
 			list = new ArrayList<>();
@@ -110,7 +110,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void saveAcademies(AcademicQualification academies) {
-		User user = userRepo.getByUsername(academies.getProfileId());
+		user = userRepo.getByUsername(academies.getProfileId());
 		List<AcademicQualification> list;
 		if (user.getAcademics() == null)
 			list = new ArrayList<>();
@@ -125,7 +125,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void saveExperience(Experience experience) {
-		User user = userRepo.getByUsername(experience.getProfileId());
+		user = userRepo.getByUsername(experience.getProfileId());
 		List<Experience> list;
 		if (user.getExperience() == null)
 			list = new ArrayList<>();
@@ -142,7 +142,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void deleteCertificate(Certificates certificate) {
-		User user = userRepo.getByUsername(certificate.getProfileId());
+		user = userRepo.getByUsername(certificate.getProfileId());
 
 		List<Certificates> list = user.getCertificates();
 		int index = Integer.parseInt(certificate.getMessage().substring(6));
@@ -155,7 +155,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void deleteSkill(Skills skill) {
-		User user = userRepo.getByUsername(skill.getProfileId());
+		user = userRepo.getByUsername(skill.getProfileId());
 		List<Skills> list = user.getSkills();
 		int index = Integer.parseInt(skill.getMessage().substring(6));
 		list.remove(index);
@@ -167,7 +167,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void deleteProject(Projects project) {
 		List<Projects> list = user.getProject();
-		User user = userRepo.getByUsername(project.getProfileId());
+		user = userRepo.getByUsername(project.getProfileId());
 		int index = Integer.parseInt(project.getMessage().substring(6));
 		list.remove(index);
 		user.setProject(list);
@@ -178,7 +178,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void deleteLocation(Location location) {
 		System.out.println("deleting");
-		User user = userRepo.getByUsername(location.getProfileId());
+		user = userRepo.getByUsername(location.getProfileId());
 
 		List<Location> list = user.getLocation();
 		int index = Integer.parseInt(location.getMessage().substring(6));
@@ -190,7 +190,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void deleteAcademies(AcademicQualification academies) {
-		User user = userRepo.getByUsername(academies.getProfileId());
+		user = userRepo.getByUsername(academies.getProfileId());
 		List<AcademicQualification> list = user.getAcademics();
 		int index = Integer.parseInt(academies.getMessage().substring(6));
 		list.remove(index);
@@ -202,7 +202,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void deleteExperience(Experience experience) {
-		User user = userRepo.getByUsername(experience.getProfileId());
+		user = userRepo.getByUsername(experience.getProfileId());
 		List<Experience> list = user.getExperience();
 		int index = Integer.parseInt(experience.getMessage().substring(6));
 		list.remove(index);
@@ -217,7 +217,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateCertificate(Certificates certificate) {
 		logger.info(certificate.toString() + " Certificates");
-		User user = userRepo.getByUsername(certificate.getProfileId());
+		user = userRepo.getByUsername(certificate.getProfileId());
 		List<Certificates> list = user.getCertificates();
 		int index = Integer.parseInt(certificate.getMessage().substring(6));
 		list.remove(index);
@@ -231,7 +231,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateSkill(Skills skill) {
 		logger.info(skill.toString() + " Skills");
-		User user = userRepo.getByUsername(skill.getProfileId());
+		user = userRepo.getByUsername(skill.getProfileId());
 		List<Skills> list = user.getSkills();
 		int index = Integer.parseInt(skill.getMessage().substring(6));
 		list.remove(index);
@@ -245,7 +245,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateProject(Projects project) {
 		List<Projects> list = user.getProject();
-		User user = userRepo.getByUsername(project.getProfileId());
+		user = userRepo.getByUsername(project.getProfileId());
 		int index = Integer.parseInt(project.getMessage().substring(6));
 		list.remove(index);
 		project.setMessage("save");
@@ -267,7 +267,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void updateLocation(Location location) {
-		User user = userRepo.getByUsername(location.getProfileId());
+		user = userRepo.getByUsername(location.getProfileId());
 		List<Location> list = user.getLocation();
 		int index = Integer.parseInt(location.getMessage().substring(6));
 		list.remove(index);
@@ -280,7 +280,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void updateAcademies(AcademicQualification academies) {
-		User user = userRepo.getByUsername(academies.getProfileId());
+		user = userRepo.getByUsername(academies.getProfileId());
 		List<AcademicQualification> list = user.getAcademics();
 		int index = Integer.parseInt(academies.getMessage().substring(6));
 		list.remove(index);
@@ -294,7 +294,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void updateExperience(Experience experience) {
-		User user = userRepo.getByUsername(experience.getProfileId());
+		user = userRepo.getByUsername(experience.getProfileId());
 		List<Experience> list = user.getExperience();
 		int index = Integer.parseInt(experience.getMessage().substring(6));
 		list.remove(index);
