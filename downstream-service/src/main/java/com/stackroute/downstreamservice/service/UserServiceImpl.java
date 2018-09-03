@@ -2,7 +2,6 @@ package com.stackroute.downstreamservice.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +22,8 @@ import com.stackroute.downstreamservice.repository.UserRepository;
 public class UserServiceImpl implements UserService {
 
 	private UserRepository userRepo;
-	private Optional<User> opt;
-	private User user;
+	// private Optional<User> opt;
+	private User user = null;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
@@ -37,8 +36,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void saveCertificate(Certificates certificates) {
-		opt = userRepo.findById(certificates.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(certificates.getProfileId());
 		List<Certificates> list;
 		if (user.getCertificates() == null)
 			list = new ArrayList<>();
@@ -47,16 +45,14 @@ public class UserServiceImpl implements UserService {
 
 		list.add(certificates);
 		user.setCertificates(list);
-		user.setUsername(certificates.getProfileId());
 		userRepo.save(user);
-
 		logger.info(certificates.toString() + " training");
+		user = null;
 	}
 
 	@Override
 	public void saveSkill(Skills skills) {
-		opt = userRepo.findById(skills.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(skills.getProfileId());
 		List<Skills> list;
 		if (user.getSkills() == null)
 			list = new ArrayList<>();
@@ -66,15 +62,14 @@ public class UserServiceImpl implements UserService {
 		list.add(skills);
 		user.setSkills(list);
 		userRepo.save(user);
-
 		logger.info(skills.toString() + " skills");
+		user = null;
 	}
 
 	@Override
 	public void saveProject(Projects project) {
 		List<Projects> list;
-		opt = userRepo.findById(project.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(project.getProfileId());
 
 		if (user.getProject() == null)
 			list = new ArrayList<>();
@@ -85,6 +80,7 @@ public class UserServiceImpl implements UserService {
 		user.setProject(list);
 		userRepo.save(user);
 		logger.info(project.toString() + " project");
+		user = null;
 	}
 
 	@Override
@@ -92,14 +88,13 @@ public class UserServiceImpl implements UserService {
 		user.setPersonalInfo(personalInfo);
 		user.setUsername(personalInfo.getProfileId());
 		userRepo.save(user);
-
 		logger.info(personalInfo.toString() + " personal info");
+		user = null;
 	}
 
 	@Override
 	public void saveLocation(Location location) {
-		opt = userRepo.findById(location.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(location.getProfileId());
 		List<Location> list;
 		if (user.getLocation() == null)
 			list = new ArrayList<>();
@@ -111,12 +106,12 @@ public class UserServiceImpl implements UserService {
 		userRepo.save(user);
 
 		logger.info(location.toString() + " location");
+		user = null;
 	}
 
 	@Override
 	public void saveAcademies(AcademicQualification academies) {
-		opt = userRepo.findById(academies.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(academies.getProfileId());
 		List<AcademicQualification> list;
 		if (user.getAcademics() == null)
 			list = new ArrayList<>();
@@ -126,12 +121,12 @@ public class UserServiceImpl implements UserService {
 		user.setAcademics(list);
 		logger.info(academies.toString() + " academies");
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
 	public void saveExperience(Experience experience) {
-		opt = userRepo.findById(experience.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(experience.getProfileId());
 		List<Experience> list;
 		if (user.getExperience() == null)
 			list = new ArrayList<>();
@@ -141,89 +136,89 @@ public class UserServiceImpl implements UserService {
 		user.setExperience(list);
 		user.setUsername(experience.getProfileId());
 		userRepo.save(user);
+		user = null;
 	}
 
 	/* -------delete services for each microservice chicklet-------- */
 
 	@Override
 	public void deleteCertificate(Certificates certificate) {
-		opt = userRepo.findById(certificate.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(certificate.getProfileId());
+
 		List<Certificates> list = user.getCertificates();
 		int index = Integer.parseInt(certificate.getMessage().substring(6));
 		list.remove(index);
 		user.setCertificates(list);
-		user.setUsername(certificate.getProfileId());
+		// user.setUsername(certificate.getProfileId());
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
 	public void deleteSkill(Skills skill) {
-		logger.info(skill.toString()+" Skills");
-		opt = userRepo.findById(skill.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(skill.getProfileId());
 		List<Skills> list = user.getSkills();
 		int index = Integer.parseInt(skill.getMessage().substring(6));
 		list.remove(index);
 		user.setSkills(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
 	public void deleteProject(Projects project) {
 		List<Projects> list = user.getProject();
-		opt = userRepo.findById(project.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(project.getProfileId());
 		int index = Integer.parseInt(project.getMessage().substring(6));
 		list.remove(index);
 		user.setProject(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
 	public void deleteLocation(Location location) {
 		System.out.println("deleting");
-		opt = userRepo.findById(location.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(location.getProfileId());
+
 		List<Location> list = user.getLocation();
 		int index = Integer.parseInt(location.getMessage().substring(6));
 		list.remove(index);
 		user.setLocation(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
 	public void deleteAcademies(AcademicQualification academies) {
-		opt = userRepo.findById(academies.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(academies.getProfileId());
 		List<AcademicQualification> list = user.getAcademics();
 		int index = Integer.parseInt(academies.getMessage().substring(6));
 		list.remove(index);
 		user.setAcademics(list);
 		logger.info(academies.toString() + " academies");
 		userRepo.save(user);
-
+		user = null;
 	}
 
 	@Override
 	public void deleteExperience(Experience experience) {
-		opt = userRepo.findById(experience.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(experience.getProfileId());
 		List<Experience> list = user.getExperience();
 		int index = Integer.parseInt(experience.getMessage().substring(6));
 		list.remove(index);
 		user.setExperience(list);
 		user.setUsername(experience.getProfileId());
 		userRepo.save(user);
+		user = null;
 	}
 
 	/* -------update services for each microservice chicklet-------- */
 
 	@Override
 	public void updateCertificate(Certificates certificate) {
-		logger.info(certificate.toString()+" Certificates");
-		opt = userRepo.findById(certificate.getProfileId());
-		user = opt.get();
+		logger.info(certificate.toString() + " Certificates");
+		user = userRepo.getByUsername(certificate.getProfileId());
 		List<Certificates> list = user.getCertificates();
 		int index = Integer.parseInt(certificate.getMessage().substring(6));
 		list.remove(index);
@@ -231,13 +226,13 @@ public class UserServiceImpl implements UserService {
 		list.add(certificate);
 		user.setCertificates(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
 	public void updateSkill(Skills skill) {
-		logger.info(skill.toString()+" Skills");
-		opt = userRepo.findById(skill.getProfileId());
-		user = opt.get();
+		logger.info(skill.toString() + " Skills");
+		user = userRepo.getByUsername(skill.getProfileId());
 		List<Skills> list = user.getSkills();
 		int index = Integer.parseInt(skill.getMessage().substring(6));
 		list.remove(index);
@@ -245,19 +240,20 @@ public class UserServiceImpl implements UserService {
 		list.add(skill);
 		user.setSkills(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
 	public void updateProject(Projects project) {
 		List<Projects> list = user.getProject();
-		opt = userRepo.findById(project.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(project.getProfileId());
 		int index = Integer.parseInt(project.getMessage().substring(6));
 		list.remove(index);
 		project.setMessage("save");
 		list.add(project);
 		user.setProject(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
@@ -267,13 +263,12 @@ public class UserServiceImpl implements UserService {
 		userRepo.save(user);
 
 		logger.info(personalInfo.toString() + " personal info");
+		user = null;
 	}
 
 	@Override
 	public void updateLocation(Location location) {
-		System.out.println("updating");
-		opt = userRepo.findById(location.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(location.getProfileId());
 		List<Location> list = user.getLocation();
 		int index = Integer.parseInt(location.getMessage().substring(6));
 		list.remove(index);
@@ -281,12 +276,12 @@ public class UserServiceImpl implements UserService {
 		list.add(location);
 		user.setLocation(list);
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
 	public void updateAcademies(AcademicQualification academies) {
-		opt = userRepo.findById(academies.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(academies.getProfileId());
 		List<AcademicQualification> list = user.getAcademics();
 		int index = Integer.parseInt(academies.getMessage().substring(6));
 		list.remove(index);
@@ -295,20 +290,20 @@ public class UserServiceImpl implements UserService {
 		user.setAcademics(list);
 		logger.info(academies.toString() + " academies");
 		userRepo.save(user);
+		user = null;
 	}
 
 	@Override
 	public void updateExperience(Experience experience) {
-		opt = userRepo.findById(experience.getProfileId());
-		user = opt.get();
+		user = userRepo.getByUsername(experience.getProfileId());
 		List<Experience> list = user.getExperience();
 		int index = Integer.parseInt(experience.getMessage().substring(6));
 		list.remove(index);
 		experience.setMessage("save");
 		list.add(experience);
 		user.setExperience(list);
-		user.setUsername(experience.getProfileId());
 		userRepo.save(user);
+		user = null;
 	}
 
 }
