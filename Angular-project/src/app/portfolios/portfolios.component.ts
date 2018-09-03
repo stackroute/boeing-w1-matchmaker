@@ -26,7 +26,6 @@ export class PortfoliosComponent implements OnInit {
     this.get(this.id).subscribe( data => {
       this.UserData = data;
       this.image.src = 'data:image/png;base64,' + this.UserData.personalInfo.picture;
-      console.log('data:image/png;base64,' + this.UserData.personalInfo.picture);
     });
   }
 

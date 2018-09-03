@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-start',
@@ -14,10 +15,18 @@ export class StartComponent implements OnInit {
 //     mobile: true, // default
 //     live: true // default
 // });
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
     // this.wow.init();
+  }
+
+  loginOrprofile() {
+    if(localStorage.getItem('currentUser') != null){
+     this.router.navigate(['profile']);
+    } else {
+    this.router.navigate(['login']);
+    }
   }
 
 }
