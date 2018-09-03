@@ -174,22 +174,11 @@
                 name="dept">
             </mat-form-field>
 
-
+   
             <mat-form-field>
               <input matInput placeholder="the project location was" [(ngModel)]="newPost_Project.projectLocation"
-              name="loc" [formControl]="searchTerm2" [matAutocomplete]="auto">
-
-              <mat-autocomplete #auto="matAutocomplete">
-                  <mat-option *ngFor="let loc of location" [value]="loc.city">
-                      {{ loc.city }}
-                  </mat-option>
-              </mat-autocomplete>
-          </mat-form-field>
-   
-            <!-- <mat-form-field>
-              <input matInput placeholder="the project location was" [(ngModel)]="newPost_Project.projectLocation"
                 name="loc">
-            </mat-form-field> -->
+            </mat-form-field>
    
             <mat-form-field>
               <input matInput placeholder="the project title was" [(ngModel)]="newPost_Project.projectTitle" name="title">
