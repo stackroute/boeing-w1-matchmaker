@@ -18,7 +18,7 @@
       <br>
     </div> -->    
      <div *ngFor="let profile of SearchResult"> 
-      <div class="card mb-3 animated slideInUp" style="max-width: 18rem;">
+      <div class="card mb-3 animated slideInUp" style="min-width: 18rem;">
         <div class="card-header bg-dark text-white" (click)="portfolioRedirect(profile.profileId)">{{profile.profileId | titlecase}}</div>
         <div class="card-body text-dark">
           <h6 class="card-subtitle mb-2">Stays in {{profile.city | titlecase}}</h6>
