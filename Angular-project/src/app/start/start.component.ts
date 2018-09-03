@@ -6,18 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start.component.css']
 })
 export class StartComponent implements OnInit {
-
-  wow = new WOW({
-    boxClass: 'wow', // default
-    animateClass: 'animated', // default
-    offset: 0, // default
-    mobile: true, // default
-    live: true // default
-});
+//   WOW: any;
+//   wow = new WOW({
+//     boxClass: 'wow', // default
+//     animateClass: 'animated', // default
+//     offset: 0, // default
+//     mobile: true, // default
+//     live: true // default
+// });
   constructor() { }
 
   ngOnInit() {
-    this.wow.init();
+    // this.wow.init();
   }
 
 }
