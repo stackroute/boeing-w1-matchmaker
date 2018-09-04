@@ -65,8 +65,8 @@ services:
       - "2181:2181"
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions" 
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     container_name: zookeeper
     hostname: localhost
@@ -139,8 +139,8 @@ services:
    image: mongo
    container_name: mongodb
    mem_limit: 1024m
-#   volumes:
-#     - /my/own/datadir:/data/db
+   volumes:
+     - ./data/db:/data/db
    ports:
      - 27017:27017
    network_mode: "host"
