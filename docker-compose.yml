@@ -65,8 +65,8 @@ services:
       - "2181:2181"
     mem_limit: 1024m
     environment: 
-      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions" 
-      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
+      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                    -XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     container_name: zookeeper
     hostname: localhost
@@ -108,8 +108,8 @@ services:
       - MYSQL_DATABASE=register
       - MYSQL_PASSWORD=root
       - MYSQL_USER=root
-#    volumes:
-#      - /datavolume:/var/lib/mysql
+    volumes:
+      - /opt/data:/var/lib/mysql
     network_mode: "host"
     hostname: localhost
     restart: always
@@ -139,8 +139,8 @@ services:
    image: mongo
    container_name: mongodb
    mem_limit: 1024m
-   volumes:
-     - ./data/db:/data/db
+#   volumes:
+#     - /my/own/datadir:/data/db
    ports:
      - 27017:27017
    network_mode: "host"
