@@ -11,8 +11,8 @@ services:
     restart: always
     mem_limit: 1g
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     container_name: zuul
     network_mode: "host"
     hostname: localhost
@@ -31,8 +31,8 @@ services:
     mem_limit: 2g
     container_name: config
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -49,8 +49,8 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     container_name: eureka
     network_mode: "host"
     hostname: localhost
@@ -65,8 +65,8 @@ services:
       - "2181:2181"
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     container_name: zookeeper
     hostname: localhost
@@ -157,8 +157,8 @@ services:
     restart: always
     mem_limit: 1400m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -178,8 +178,8 @@ services:
     restart: always
     mem_limit: 2g
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -200,8 +200,8 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -219,8 +219,8 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -238,8 +238,8 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -257,8 +257,8 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -276,8 +276,8 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -295,8 +295,8 @@ services:
     restart: always
     mem_limit: 1500m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -315,8 +315,8 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -334,8 +334,8 @@ services:
     restart: always
     mem_limit: 2g
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -355,8 +355,8 @@ services:
     restart: always
     mem_limit: 1400m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -376,8 +376,8 @@ services:
     restart: always
     mem_limit: 1024m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -395,8 +395,8 @@ services:
     restart: always
     mem_limit: 1600m
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
@@ -430,8 +430,8 @@ services:
     container_name: autocomplete
     mem_limit: 2g
     environment: 
-      - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
-                    -XX:+UseCGroupMemoryLimitForHeap"
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
