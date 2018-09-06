@@ -9,7 +9,7 @@ services:
     build: zuul-apigateway/
     image: zuul-service
     restart: always
-    mem_limit: 1g
+    mem_limit: 1500m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -47,7 +47,7 @@ services:
     build: eureka-server/
     image: eureka-server
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1500m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -64,7 +64,7 @@ services:
     ports:
       - "2181:2181"
     mem_limit: 1024m
-    environment: 
+    environment: 	
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
@@ -79,7 +79,7 @@ services:
     ports:
       - "9092:9092"
     container_name: kafka
-    mem_limit: 1024m
+    mem_limit: 1500m
     environment: 
       JAVA_OPTS: "-XX:+UnlockExperimentalVMOptions 
                   -XX:+UseCGroupMemoryLimitForHeap"
@@ -122,7 +122,7 @@ services:
       - "7474:7474"
       - "7687:7687"
     container_name: neo4j
-    mem_limit: 1024m
+    mem_limit: 1200m
     environment: 
       - NEO4J_AUTH=neo4j/12345
 #      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
@@ -155,7 +155,7 @@ services:
     build: user-service/
     image: user-service
     restart: always
-    mem_limit: 1400m
+    mem_limit: 1500m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -198,7 +198,7 @@ services:
     build: experience-microservice/
     image: experience-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1300m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -217,7 +217,7 @@ services:
     build: training-microservice/
     image: training-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1500m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -236,7 +236,7 @@ services:
     build: qualification-microservice/
     image: qualification-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1500m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -255,7 +255,7 @@ services:
     build: location-microservice/
     image: location-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1500m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -274,7 +274,7 @@ services:
     build: personalinformation-microservice/
     image: personalinformation-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1100m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -293,7 +293,7 @@ services:
     build: project-microservice/
     image: project-service
     restart: always
-    mem_limit: 1500m
+    mem_limit: 1600m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -313,7 +313,7 @@ services:
     build: skill-microservice/
     image: skill-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1500m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -353,7 +353,7 @@ services:
     build: indexer-microservice/
     image: indexer-service
     restart: always
-    mem_limit: 1400m
+    mem_limit: 1500m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
@@ -374,7 +374,7 @@ services:
     build: nlp-service/
     image: nlp-service
     restart: always
-    mem_limit: 1024m
+    mem_limit: 1500m
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
