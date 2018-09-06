@@ -5,20 +5,12 @@
       <button type="submit" class="btn animated pulse infinite">Search</button>
     </form>
   </div>
+  
 <div class="container">
-  <div class="flex-container">
-    <!-- <div class="list-group" *ngFor="let profile of SearchResult">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1" style="color: black" (click)="portfolioRedirect(profile.profileId)">Name</h5>
-        <small>3 days ago</small>
-      </div>
-      <p class="mb-1" style="color: black">Skills: </p>
-      <p class="mb-1" style="color: black">Experience:years</p>
-      <small style="color: black">From </small>
-      <br>
-    </div> -->    
+  
+  <div class="flex-container"> 
      <div *ngFor="let profile of SearchResult"> 
-      <div class="card mb-3 wow slideInRight" style="max-width: 18rem;">
+      <div class="card mb-3 animated slideInUp" style="min-width: 18rem;">
         <div class="card-header bg-dark text-white" (click)="portfolioRedirect(profile.profileId)">{{profile.profileId | titlecase}}</div>
         <div class="card-body text-dark">
           <h6 class="card-subtitle mb-2">Stays in {{profile.city | titlecase}}</h6>

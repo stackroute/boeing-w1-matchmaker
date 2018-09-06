@@ -12,6 +12,7 @@ import { Constructor } from "@angular/cdk/table";
 export class HomeComponent implements OnInit {
   private searchQuery1;
   SearchResult: any = [];
+  check: boolean;
 //   WOW: any;
 //   wow = new WOW({
 //     boxClass: 'wow', // default
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getRandomResults();
+    this.check = false;
     // this.wow.init();
   }
 
@@ -81,6 +83,7 @@ export class HomeComponent implements OnInit {
   }
 
   search(searchQuery: string) {
+    this.check = true;
     return this.http.get(
       "http://13.232.19.29:8092/nlp/api/v1/search/" + searchQuery
     );

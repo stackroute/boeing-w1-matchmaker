@@ -2,7 +2,8 @@
   <br>
   <br>
   <br><br><br>
-  <h5 style="text-align: center; font-family: 'Raleway', sans-serif; letter-spacing: 3px;">{{UserData.personalInfo.name | titlecase}}, please complete your profile to see the full portfolios</h5>
+  <h5 style="text-align: center; font-family: 'Raleway', sans-serif; letter-spacing: 3px;">{{UserData.personalInfo.name |
+    titlecase}}, please complete your profile to see the full portfolios</h5>
   <div class="flex-container" style="margin-top: -50px;">
     <div class="column">
       <div class="socialmedia d-flex justify-content-center">
@@ -11,9 +12,9 @@
           <div class="card-body">
             <h6>{{UserData.personalInfo.name | titlecase}}
               <br>
-              <small class="card-subtitle text-muted">{{UserData.personalInfo.age}}, {{UserData.personalInfo.city | titlecase}}</small>
+              <small class="card-subtitle text-muted">{{UserData.personalInfo.age}}, {{UserData.location[0].city | titlecase}}</small>
             </h6>
-            <p>Works at
+            <p>Worked at
               <br>{{UserData.experience[0].organizationName | titlecase}}</p>
             <a href="#" class="card-link">
               <small>{{UserData.personalInfo.email}}</small>
@@ -32,6 +33,10 @@
               <i class="fa fa-twitter"></i>
             </a>
           </div>
+          <a href="#" class="carda">
+            <button type="button" class="btn btn-link"><i class="fa fa-share"></i> Share</button>
+            <button type="button" class="btn btn-link"><i class="fa fa-print"></i> Print</button>
+          </a>
         </div>
       </div>
     </div>
@@ -43,7 +48,8 @@
           <div class="card-body">
             <h5 class="card-title mb-0">{{UserData.username | titlecase}}</h5>
             <h6>
-              <small class="card-subtitle text-muted">{{UserData.experience[0].role | titlecase}} at {{UserData.experience[0].organizationName | titlecase}}</small>
+              <small class="card-subtitle text-muted">{{UserData.experience[0].role | titlecase}} at {{UserData.experience[0].organizationName
+                | titlecase}}</small>
             </h6>
             <p class=""> Contact no.: {{UserData.personalInfo.mobile}}
               <br> Date of Birth: {{UserData.personalInfo.dob}}
@@ -51,10 +57,13 @@
               <br> Qualification: {{UserData.academics[0].qualification | titlecase}}
               <br> Institute Name: {{UserData.academics[0].instituteName | titlecase}}
               <br> Year of Completion: {{UserData.academics[0].yearOfCompletion}}
-              <br> Marks: {{UserData.academics[0].marks}}
               <br>
             </p>
           </div>
+          <a href="#" class="carda">
+            <button type="button" class="btn btn-link"><i class="fa fa-share"></i> Share</button>
+            <button type="button" class="btn btn-link"><i class="fa fa-print"></i> Print</button>
+          </a>
         </div>
       </div>
     </div>
@@ -75,9 +84,10 @@
               <img src={{image.src}} class="rounded-circle pull-left" alt="Add profile picture" width="200" height="200">
             </div>
             <h1 style="color: rgb(48, 43, 43)">q </h1>
-            <h4 style="color: azure; margin-left: 8px;">CONTACT</h4><hr>
+            <h4 style="color: azure; margin-left: 8px;">CONTACT</h4>
+            <hr>
             <p style="color: azure; margin-left: 10px;" class="card-text">
-                <i class="material-icons">location_on</i>&nbsp; {{UserData.location[0].address | titlecase}}
+              <i class="material-icons">location_on</i>&nbsp; {{UserData.location[0].address | titlecase}}
               <br> <i class="material-icons">call</i>&nbsp; {{UserData.personalInfo.mobile}}
               <br> <i class="material-icons">email</i>&nbsp; {{UserData.personalInfo.email}}
             </p>
@@ -85,25 +95,28 @@
             <br>
             <br>
             <br>
-           
-            <h4 style="color: azure; margin-left: 8px;">REFERENCES</h4><hr>
+
+            <h4 style="color: azure; margin-left: 8px;">REFERENCES</h4>
+            <hr>
             <p style="color: azure; margin-left: 10px;" class="card-text">
-                <i class="material-icons">account_circle</i>&nbsp; Dr. John Doe
+              <i class="material-icons">account_circle</i>&nbsp; Dr. John Doe
               <br> <i class="material-icons">call</i>&nbsp; 6565656564
               <br> <i class="material-icons">email</i>&nbsp; johndoe86@matcho.com
-            </p><hr>
+            </p>
+            <hr>
             <p style="color: azure; margin-left: 10px;" class="card-text">
-                <i class="material-icons">account_circle</i>&nbsp; Mr. Edward Cullen
-                <br> <i class="material-icons">call</i>&nbsp; 7656339540
-                <br> <i class="material-icons">email</i>&nbsp; cullen_ed@matcho.com
-              </p>
+              <i class="material-icons">account_circle</i>&nbsp; Mr. Edward Cullen
+              <br> <i class="material-icons">call</i>&nbsp; 7656339540
+              <br> <i class="material-icons">email</i>&nbsp; cullen_ed@matcho.com
+            </p>
           </div>&nbsp;
 
 
 
           <div class="column2-2 pt-5">
             <br>
-            <h2 style="text-align: center; font-family: 'Raleway', sans-serif; letter-spacing: 5px;" class="ml-5">{{UserData.personalInfo.name | uppercase}}</h2>
+            <h2 style="text-align: center; font-family: 'Raleway', sans-serif; letter-spacing: 5px;" class="ml-5">{{UserData.personalInfo.name
+              | uppercase}}</h2>
             <p style="text-align: center;" class="card-subtitle ml-5">{{UserData.experience[0].role | titlecase}}</p>
             <hr>
             <br>
@@ -111,8 +124,8 @@
 
             <p class="card-text">
               <div *ngFor="let item of UserData.experience">
-                <h5 class="card-title">{{item.role}}</h5>
-                <p class="card-subtitle">{{item.organizationName}}</p>
+                <h5 class="card-title">{{item.role | titlecase}}</h5>
+                <p class="card-subtitle">{{item.organizationName | titlecase}}</p>
                 <p>
                   Start date: {{item.startDate}}
                   <br> End date: {{item.endDate}}
@@ -123,25 +136,25 @@
 
               <p class="card-text">
                 <div *ngFor="let item of UserData.project">
-                  <h5 class="card-title">{{item.projectTitle}}</h5>
-                  <p class="card-subtitle">{{item.projectAt}}</p>
+                  <h5 class="card-title">{{item.projectTitle | titlecase}}</h5>
+                  <p class="card-subtitle">{{item.projectAt | titlecase}}</p>
                   <p>
-                    The role in this project was {{item.role}}. Completed this project under {{item.department}} department at 
-                    {{item.projectLocation}}. The team consisted of Team Size: {{item.teamSize}} 
-                    members. This project started on {{item.from}} and was completed on {{item.to}}.
-                    The skills acquired during this period were {{item.skills}}.
+                    The role in this project was {{item.role}}. Completed this project under {{item.department | titlecase}} department at {{item.projectLocation
+                    | titlecase}}. This project started on {{item.from}} and was completed on {{item.to}}. The skills acquired
+                    during this period were {{item.skills | titlecase}}.
 
                   </p>
                 </div>
-                              <hr>
+                <hr>
                 <h4><i class="material-icons">stars</i>&nbsp;&nbsp;SKILLS</h4>
 
                 <p class="card-text">
-                    <div *ngFor="let item of UserData.skills">
-                        <p>
-                          {{item.skill}}   <hr>
-                        
-                      </div>
+                  <div *ngFor="let item of UserData.skills">
+                    <p>
+                      {{item.skill}}
+                      <hr>
+
+                  </div>
 
 
           </div>
@@ -154,6 +167,10 @@
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div> -->
+        <a href="#" class="carda">
+          <button type="button" class="btn btn-link"><i class="fa fa-share"></i> Share</button>
+          <button type="button" class="btn btn-link"><i class="fa fa-print"></i> Print</button>
+        </a>
       </div>
     </div>
   </div>

@@ -30,7 +30,6 @@ export class LocationComponent implements OnInit {
       if (term !== '') {
         this.autocomplete.searchCity(term).subscribe(data => {
           this.city = data as any[];
-          console.log(data[0].city);
         });
       }
     });
