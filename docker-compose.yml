@@ -64,7 +64,7 @@ services:
     ports:
       - "2181:2181"
     mem_limit: 1024m
-    environment: 	
+    environment:
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
