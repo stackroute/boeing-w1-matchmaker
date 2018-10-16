@@ -24,7 +24,7 @@ Run ```mvn clean compile package``` on all the services
 			--here application is  the name in which the .properties/.yml contents are stored
 			-- default is the profile 
 
--Start restuarant-springboot-service
+-Start restaurant-springboot-service
 
 -Start user-springboot-service
 
